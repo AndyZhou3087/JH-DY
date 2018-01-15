@@ -1,0 +1,20 @@
+<Solution>
+  <PropertyGroup Name="shenjtx" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="achiveanim">
+          <Image Name="cjz.png" />
+          <Image Name="dk.png" />
+          <Image Name="gq.png" />
+          <PlistParticleFile Name="pp.plist" />
+          <Image Name="pp.png" />
+        </Folder>
+        <Folder Name="fonts">
+          <TTF Name="STXINGKA.TTF" />
+        </Folder>
+        <Project Name="achiveNodeAnim.csd" Type="Node" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

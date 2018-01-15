@@ -1,0 +1,48 @@
+<Solution>
+  <PropertyGroup Name="shenjtx" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="lvuppic">
+          <Image Name="s0.png" />
+          <Image Name="s1.png" />
+          <Image Name="s10.png" />
+          <Image Name="s11.png" />
+          <Image Name="s12.png" />
+          <Image Name="s13.png" />
+          <Image Name="s14.png" />
+          <Image Name="s15.png" />
+          <Image Name="s16.png" />
+          <Image Name="s17.png" />
+          <Image Name="s18.png" />
+          <Image Name="s19.png" />
+          <Image Name="s2.png" />
+          <Image Name="s3.png" />
+          <Image Name="s4.png" />
+          <Image Name="s5.png" />
+          <Image Name="s6.png" />
+          <Image Name="s7.png" />
+          <Image Name="s8.png" />
+          <Image Name="s9.png" />
+          <Image Name="x1.png" />
+          <Image Name="x10.png" />
+          <Image Name="x11.png" />
+          <Image Name="x12.png" />
+          <Image Name="x13.png" />
+          <Image Name="x14.png" />
+          <Image Name="x15.png" />
+          <Image Name="x16.png" />
+          <Image Name="x2.png" />
+          <Image Name="x3.png" />
+          <Image Name="x4.png" />
+          <Image Name="x5.png" />
+          <Image Name="x6.png" />
+          <Image Name="x7.png" />
+          <Image Name="x8.png" />
+          <Image Name="x9.png" />
+        </Folder>
+        <Project Name="lvupanim.csd" Type="Node" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

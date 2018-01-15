@@ -1,0 +1,231 @@
+<Solution>
+  <PropertyGroup Name="Story" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="end1_1">
+          <Image Name="xiaoxiamijieju01.png" />
+          <Image Name="xiaoxiamijieju02.png" />
+          <Image Name="xiaoxiamijieju03.png" />
+          <Image Name="xiaoxiamijieju04.png" />
+          <Image Name="xiaoxiamijieju05.png" />
+          <Image Name="xiaoxiamijieju06.png" />
+          <Image Name="xiaoxiamijieju07.png" />
+          <Image Name="xiaoxiamijieju08.jpg" />
+          <Image Name="xiaoxiamijieju09.jpg" />
+          <Image Name="xiaoxiamijieju10.jpg" />
+        </Folder>
+        <Folder Name="end1_2">
+          <Image Name="xiaoxiamijieju11.jpg" />
+          <Image Name="xiaoxiamijieju12.png" />
+          <Image Name="xiaoxiamijieju13.png" />
+          <Image Name="xiaoxiamijieju14.png" />
+          <Image Name="xiaoxiamijieju15.png" />
+        </Folder>
+        <Folder Name="end2_1">
+          <Image Name="sanshaoyejieju01.jpg" />
+          <Image Name="sanshaoyejieju02.png" />
+          <Image Name="sanshaoyejieju03.png" />
+          <Image Name="sanshaoyejieju04.jpg" />
+          <Image Name="sanshaoyejieju05.png" />
+          <Image Name="sanshaoyejieju06.jpg" />
+          <Image Name="sanshaoyejieju07.png" />
+          <Image Name="sanshaoyejieju08.jpg" />
+          <Image Name="sanshaoyejieju09.png" />
+          <Image Name="sanshaoyejieju10.png" />
+          <Image Name="sanshaoyejieju11.jpg" />
+          <Image Name="sanshaoyejieju12.png" />
+          <Image Name="sanshaoyejieju13.png" />
+          <Image Name="sanshaoyejieju14.png" />
+        </Folder>
+        <Folder Name="end2_2">
+          <Image Name="sanshaoyejieju15.jpg" />
+          <Image Name="sanshaoyejieju16.png" />
+          <Image Name="sanshaoyejieju17.png" />
+          <Image Name="sanshaoyejieju18.png" />
+        </Folder>
+        <Folder Name="end3_1">
+          <Image Name="jiangxiaobaijieju01.jpg" />
+          <Image Name="jiangxiaobaijieju02.jpg" />
+          <Image Name="jiangxiaobaijieju03.png" />
+          <Image Name="jiangxiaobaijieju04.jpg" />
+          <Image Name="jiangxiaobaijieju05.png" />
+          <Image Name="jiangxiaobaijieju06.jpg" />
+          <Image Name="jiangxiaobaijieju07.jpg" />
+          <Image Name="jiangxiaobaijieju08.png" />
+          <Image Name="jiangxiaobaijieju09.png" />
+        </Folder>
+        <Folder Name="end3_2">
+          <Image Name="jiangxiaobaijieju10.jpg" />
+          <Image Name="jiangxiaobaijieju11.png" />
+          <Image Name="jiangxiaobaijieju12.png" />
+          <Image Name="jiangxiaobaijieju13.png" />
+        </Folder>
+        <Folder Name="end4_1">
+          <Image Name="aqingjieju01.jpg" />
+          <Image Name="aqingjieju02.png" />
+          <Image Name="aqingjieju03.png" />
+          <Image Name="aqingjieju04.png" />
+          <Image Name="aqingjieju05.png" />
+          <Image Name="aqingjieju06.png" />
+          <Image Name="aqingjieju07.png" />
+          <Image Name="aqingjieju08.png" />
+          <Image Name="aqingjieju09.png" />
+          <Image Name="aqingjieju10.png" />
+          <Image Name="aqingjieju11.jpg" />
+        </Folder>
+        <Folder Name="end4_2">
+          <Image Name="aqingjieju12.jpg" />
+        </Folder>
+        <Folder Name="story1_1">
+          <Image Name="juqingmanhua01.png" />
+          <Image Name="juqingmanhua02.png" />
+          <Image Name="juqingmanhua03.png" />
+          <Image Name="juqingmanhua04.png" />
+          <Image Name="juqingmanhua05.png" />
+          <Image Name="juqingmanhua06.png" />
+          <Image Name="wenzi01.png" />
+          <Image Name="wenzi02.png" />
+          <Image Name="wenzi03.png" />
+          <Image Name="wenzi04.png" />
+          <Image Name="wenzi05.png" />
+          <Image Name="wenzi06.png" />
+          <Image Name="wenzi07.png" />
+          <Image Name="wenzi08.png" />
+          <Image Name="wenzi09.png" />
+          <Image Name="wenzi10.png" />
+        </Folder>
+        <Folder Name="story1_2">
+          <Image Name="juqingmanhua07.png" />
+          <Image Name="juqingmanhua08.png" />
+          <Image Name="juqingmanhua09.png" />
+          <Image Name="juqingmanhua10.png" />
+          <Image Name="juqingmanhua11.png" />
+          <Image Name="juqingmanhua12.png" />
+          <Image Name="wenzi11.png" />
+          <Image Name="wenzi12.png" />
+          <Image Name="wenzi13.png" />
+          <Image Name="wenzi14.png" />
+          <Image Name="wenzi15.png" />
+          <Image Name="wenzi16.png" />
+          <Image Name="wenzi17.png" />
+        </Folder>
+        <Folder Name="story2_1">
+          <Image Name="sanshaoyejuqing01(1).png" />
+          <Image Name="sanshaoyejuqing02.png" />
+          <Image Name="sanshaoyejuqing03.png" />
+          <Image Name="sanshaoyejuqing04.jpg" />
+          <Image Name="sanshaoyejuqing05.png" />
+          <Image Name="sanshaoyejuqing06.png" />
+          <Image Name="sanshaoyejuqing07.png" />
+          <Image Name="sanshaoyejuqing08.png" />
+          <Image Name="sanshaoyejuqing09.png" />
+          <Image Name="sanshaoyejuqing10.png" />
+          <Image Name="sanshaoyejuqing11.jpg" />
+          <Image Name="sanshaoyejuqing12.png" />
+          <Image Name="sanshaoyejuqing13.png" />
+          <Image Name="sanshaoyejuqing14.png" />
+          <Image Name="sanshaoyejuqing15.png" />
+        </Folder>
+        <Folder Name="story2_2">
+          <Image Name="sanshaoyejuqing16.jpg" />
+          <Image Name="sanshaoyejuqing17.png" />
+          <Image Name="sanshaoyejuqing18.png" />
+          <Image Name="sanshaoyejuqing19.png" />
+          <Image Name="sanshaoyejuqing20.png" />
+          <Image Name="sanshaoyejuqing21.png" />
+          <Image Name="sanshaoyejuqing22.jpg" />
+          <Image Name="sanshaoyejuqing23.png" />
+          <Image Name="sanshaoyejuqing24.png" />
+          <Image Name="sanshaoyejuqing25.png" />
+          <Image Name="sanshaoyejuqing26.png" />
+          <Image Name="sanshaoyejuqing27.png" />
+          <Image Name="sanshaoyejuqing28.png" />
+          <Image Name="sanshaoyejuqing29.png" />
+          <Image Name="sanshaoyejuqing30.png" />
+          <Image Name="sanshaoyejuqing31.png" />
+        </Folder>
+        <Folder Name="story3_2">
+          <Image Name="jiangxiaobaijuqing17.jpg" />
+          <Image Name="jiangxiaobaijuqing18.png" />
+          <Image Name="jiangxiaobaijuqing19.png" />
+          <Image Name="jiangxiaobaijuqing20.jpg" />
+          <Image Name="jiangxiaobaijuqing21.png" />
+          <Image Name="jiangxiaobaijuqing22.png" />
+          <Image Name="jiangxiaobaijuqing23.png" />
+          <Image Name="jiangxiaobaijuqing24.jpg" />
+          <Image Name="jiangxiaobaijuqing25.jpg" />
+          <Image Name="jiangxiaobaijuqing26.png" />
+          <Image Name="jiangxiaobaijuqing27.png" />
+          <Image Name="jiangxiaobaijuqing28.jpg" />
+          <Image Name="jiangxiaobaijuqing29.png" />
+          <Image Name="jiangxiaobaijuqing30.png" />
+          <Image Name="jiangxiaobaijuqing31.png" />
+        </Folder>
+        <Folder Name="story3_1">
+          <Image Name="jiangxiaobaijuqing01.jpg" />
+          <Image Name="jiangxiaobaijuqing02.png" />
+          <Image Name="jiangxiaobaijuqing03.png" />
+          <Image Name="jiangxiaobaijuqing04.png" />
+          <Image Name="jiangxiaobaijuqing05.png" />
+          <Image Name="jiangxiaobaijuqing06.png" />
+          <Image Name="jiangxiaobaijuqing07.png" />
+          <Image Name="jiangxiaobaijuqing08.jpg" />
+          <Image Name="jiangxiaobaijuqing09.png" />
+          <Image Name="jiangxiaobaijuqing10.jpg" />
+          <Image Name="jiangxiaobaijuqing11.png" />
+          <Image Name="jiangxiaobaijuqing12.png" />
+          <Image Name="jiangxiaobaijuqing13.png" />
+          <Image Name="jiangxiaobaijuqing14.jpg" />
+          <Image Name="jiangxiaobaijuqing15.jpg" />
+          <Image Name="jiangxiaobaijuqing16.png" />
+        </Folder>
+        <Folder Name="story4_1">
+          <Image Name="aqingjuqing01.jpg" />
+          <Image Name="aqingjuqing02.png" />
+          <Image Name="aqingjuqing03.png" />
+          <Image Name="aqingjuqing04.jpg" />
+          <Image Name="aqingjuqing05.jpg" />
+          <Image Name="aqingjuqing06.png" />
+          <Image Name="aqingjuqing07.png" />
+          <Image Name="aqingjuqing08.png" />
+          <Image Name="aqingjuqing09.png" />
+          <Image Name="aqingjuqing10.png" />
+        </Folder>
+        <Folder Name="story4_2">
+          <Image Name="aqingjuqing11.png" />
+          <Image Name="aqingjuqing12.png" />
+          <Image Name="aqingjuqing13.png" />
+          <Image Name="aqingjuqing14.png" />
+          <Image Name="aqingjuqing15.png" />
+          <Image Name="aqingjuqing16.png" />
+          <Image Name="aqingjuqing17.png" />
+          <Image Name="aqingjuqing18.png" />
+          <Image Name="aqingjuqing19.jpg" />
+          <Image Name="aqingjuqing20.png" />
+          <Image Name="aqingjuqing21.png" />
+          <Image Name="aqingjuqing22.jpg" />
+          <Image Name="aqingjuqing23.png" />
+          <Image Name="aqingjuqing24.jpg" />
+          <Image Name="aqingjuqing25.png" />
+        </Folder>
+        <Project Name="end1_1.csd" Type="Layer" />
+        <Project Name="end1_2.csd" Type="Layer" />
+        <Project Name="end2_1.csd" Type="Layer" />
+        <Project Name="end2_2.csd" Type="Layer" />
+        <Project Name="end3_1.csd" Type="Layer" />
+        <Project Name="end3_2.csd" Type="Layer" />
+        <Project Name="end4_1.csd" Type="Layer" />
+        <Project Name="end4_2.csd" Type="Layer" />
+        <Project Name="story1_1.csd" Type="Skeleton" />
+        <Project Name="story1_2.csd" Type="Skeleton" />
+        <Project Name="story2_1.csd" Type="Layer" />
+        <Project Name="story2_2.csd" Type="Layer" />
+        <Project Name="story3_1.csd" Type="Layer" />
+        <Project Name="story3_2.csd" Type="Layer" />
+        <Project Name="story4_1.csd" Type="Layer" />
+        <Project Name="story4_2.csd" Type="Layer" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

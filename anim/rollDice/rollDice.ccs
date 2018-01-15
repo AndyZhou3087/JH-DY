@@ -1,0 +1,14 @@
+<Solution>
+  <PropertyGroup Name="rollDice" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="images">
+          <Image Name="dp.png" />
+          <Image Name="gz.png" />
+        </Folder>
+        <Project Name="rollDiceAnim.csd" Type="Skeleton" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

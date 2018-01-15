@@ -1,0 +1,11 @@
+{"b":[
+{"name":"bed","maxlevel":"1","needtime":[60],"needres":[[4002,7002,1002]],"cname":"床", "desc":"用来睡觉的地方，可恢复生命值"},
+{"name":"cooktable","maxlevel":"2","needtime":[50,90],"needres":[[2002,1003,0],[2004,1005,0]],"cname":"灶台", "desc":"可以用来制作食物，可恢复饥饿值"},
+{"name":"forgingtable","maxlevel":"3","needtime":[60,140,220],"needres":[[4002,2002,1002],[4004,2004,1004,14002],[4006,2006,1006,14004]],"cname":"锻造台","desc":"用来打造各种工具、武器、防具、材料等"},
+{"name":"winemake","maxlevel":"1","needtime":[40],"needres":[[4003,1001,0]],"cname":"酿酒器","desc":"制作美酒的工具"},
+{"name":"medicinekit","maxlevel":"2","needtime":[30,70],"needres":[[4003,0,0],[4005,1002,0]],"cname":"药箱","desc":"制作药材的工具"},
+{"name":"furnace","maxlevel":"1","needtime":[40],"needres":[[1002,2002,0]],"cname":"暖炉","desc":"可以保持室内温度"},
+{"name":"winetable","maxlevel":"1","needtime":[20],"needres":[[4002,0,0]],"cname":"酒桌","desc":"用来喝酒的地方，喝完精神愉悦"},
+{"name":"exerciseroom","maxlevel":"1","needtime":[150],"needres":[[4005,1005,2005]],"cname":"练功房","desc":"闭关修炼的地方"},
+{"name":"bookshelf","maxlevel":"1","needtime":[60],"needres":[[4002,0,0]],"cname":"书架","desc":"记载武功秘籍、兵器装备的地方"}
+]}

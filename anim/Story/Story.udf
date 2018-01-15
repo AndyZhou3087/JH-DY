@@ -1,0 +1,29 @@
+<UserData Version="3.10.0.0">
+  <Properties>
+    <Item Key="CocosRecentOperation">
+      <Value ctype="CocosRecentOperation">
+        <LastPublishType Value="Resource" />
+        <IsLastPublish Value="True" />
+        <LastRunType Value="Windows" />
+      </Value>
+    </Item>
+    <Item Key="TabsParamsKey">
+      <Value ctype="TabsInfo">
+        <OpenedDocuments>
+          <FilePathData Path="story4_1.csd" />
+          <FilePathData Path="story4_2.csd" />
+          <FilePathData Path="end1_1.csd" />
+          <FilePathData Path="end1_2.csd" />
+          <FilePathData Path="end2_1.csd" />
+          <FilePathData Path="end2_2.csd" />
+          <FilePathData Path="story1_1.csd" />
+          <FilePathData Path="end3_1.csd" />
+          <FilePathData Path="end4_1.csd" />
+          <FilePathData Path="end4_2.csd" />
+          <FilePathData Path="end3_2.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="end3_1.csd" />
+      </Value>
+    </Item>
+  </Properties>
+</UserData>

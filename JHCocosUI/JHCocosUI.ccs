@@ -1,0 +1,819 @@
+<Solution>
+  <PropertyGroup Name="JHCocosUI" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="fonts">
+          <Fnt Name="coinpoolnum.fnt" />
+          <Fnt Name="critnum.fnt" />
+          <TTF Name="STXINGKA.TTF" />
+          <Fnt Name="topnum.fnt" />
+        </Folder>
+        <Folder Name="images">
+          <Folder Name="newerguide">
+            <Image Name="newerguidenextbtn.png" />
+            <Image Name="newerguider.png" />
+            <Image Name="newerhammer0.png" />
+            <Image Name="newerhammer1.png" />
+            <Image Name="newerquan.png" />
+            <Image Name="newersj0.png" />
+            <Image Name="newersj1.png" />
+            <Image Name="newertextbox.png" />
+            <Image Name="newerwhite.jpg" />
+          </Folder>
+          <Image Name="buildtext0.png" />
+          <Image Name="buildtext1.png" />
+          <Image Name="buildtext2.png" />
+          <Image Name="dead.jpg" />
+          <Image Name="dicebg.jpg" />
+          <Image Name="dicecontent.png" />
+          <Image Name="dicetitle.png" />
+          <Image Name="dicetitlebox.png" />
+          <Image Name="dicewordbox.png" />
+          <Image Name="dividetext.png" />
+          <Image Name="exsercisedone.png" />
+          <Image Name="factiondescinputbox.png" />
+          <Image Name="friendask.jpg" />
+          <Image Name="friendgive.jpg" />
+          <Image Name="gameovertext.png" />
+          <Image Name="heroselectbg.png" />
+          <Image Name="hsljhero0.png" />
+          <Image Name="hsljhero1.png" />
+          <Image Name="hsljhero2.png" />
+          <Image Name="hsljhero3.png" />
+          <Image Name="hsljhero4.png" />
+          <Image Name="huafeititle.png" />
+          <Image Name="logo.png" />
+          <Image Name="lotterycontent2.png" />
+          <Image Name="lotterygoldtext.png" />
+          <Image Name="lotterynamebox.png" />
+          <Image Name="lotterynamedesctext.png" />
+          <Image Name="mapbg.jpg" />
+          <Image Name="mixdonefail.png" />
+          <Image Name="mixdoneok.png" />
+          <Image Name="normalboxgb.png" />
+          <Image Name="noticebg.png" />
+          <Image Name="npctalkbg.png" />
+          <Image Name="prizebtn.png" />
+          <Image Name="priztitle.png" />
+          <Image Name="rafflerettitle.png" />
+          <Image Name="repairbox.png" />
+          <Image Name="room.jpg" />
+          <Image Name="select.png" />
+          <Image Name="selectherobg.jpg" />
+          <Image Name="shero1.jpg" />
+          <Image Name="shero1_s.jpg" />
+          <Image Name="shero1name.png" />
+          <Image Name="shero2.jpg" />
+          <Image Name="shero2_s.jpg" />
+          <Image Name="shero2name.png" />
+          <Image Name="shero3.jpg" />
+          <Image Name="shero3_s.jpg" />
+          <Image Name="shero3name.png" />
+          <Image Name="shero4.jpg" />
+          <Image Name="shero4_s.jpg" />
+          <Image Name="shero4name.png" />
+          <Image Name="shoptitle.png" />
+          <Image Name="startbg.jpg" />
+          <Image Name="strengthfail.png" />
+          <Image Name="suggesthero.png" />
+          <Image Name="syssmallbg.png" />
+          <Image Name="t001.jpg" />
+          <Image Name="t002.jpg" />
+          <Image Name="t003.jpg" />
+          <Image Name="t004.jpg" />
+          <Image Name="t005.jpg" />
+          <Image Name="t006.jpg" />
+          <Image Name="t007.jpg" />
+          <Image Name="t008.jpg" />
+          <Image Name="t009.jpg" />
+          <Image Name="t010.jpg" />
+          <Image Name="t011.jpg" />
+          <Image Name="t012.jpg" />
+          <Image Name="t013.jpg" />
+          <Image Name="topbg.png" />
+          <Image Name="topeventwordbox.png" />
+          <Image Name="unlockbg.png" />
+          <Image Name="unlocktitle.png" />
+          <Image Name="unselect.png" />
+          <Image Name="vipbg.png" />
+          <Image Name="vipshoptitle.png" />
+          <Image Name="warning.png" />
+          <Image Name="wxb0.png" />
+          <Image Name="wxb1.png" />
+        </Folder>
+        <Folder Name="ui">
+          <Image Name="0-ba0.png" />
+          <Image Name="0-ba1.png" />
+          <Image Name="0-ba2.png" />
+          <Image Name="0-bh0.png" />
+          <Image Name="0-bh1.png" />
+          <Image Name="0-bw0.png" />
+          <Image Name="0-ex0.png" />
+          <Image Name="0-ex1.png" />
+          <Image Name="0-ex2.png" />
+          <Image Name="1.png" />
+          <Image Name="10.png" />
+          <Image Name="11.png" />
+          <Image Name="12.png" />
+          <Image Name="13.png" />
+          <Image Name="14.png" />
+          <Image Name="15.png" />
+          <Image Name="16.png" />
+          <Image Name="17.png" />
+          <Image Name="18.png" />
+          <Image Name="19.png" />
+          <Image Name="2.png" />
+          <Image Name="20.png" />
+          <Image Name="21.png" />
+          <Image Name="22.png" />
+          <Image Name="23.png" />
+          <Image Name="24.png" />
+          <Image Name="25.png" />
+          <Image Name="26.png" />
+          <Image Name="3.png" />
+          <Image Name="4.png" />
+          <Image Name="5.png" />
+          <Image Name="6.png" />
+          <Image Name="66.png" />
+          <Image Name="67.png" />
+          <Image Name="68.png" />
+          <Image Name="69.png" />
+          <Image Name="7.png" />
+          <Image Name="70.png" />
+          <Image Name="71.png" />
+          <Image Name="72.png" />
+          <Image Name="73.png" />
+          <Image Name="74.png" />
+          <Image Name="75.png" />
+          <Image Name="76.png" />
+          <Image Name="77.png" />
+          <Image Name="78.png" />
+          <Image Name="79.png" />
+          <Image Name="8.png" />
+          <Image Name="80.png" />
+          <Image Name="80m.png" />
+          <Image Name="81.png" />
+          <Image Name="82.png" />
+          <Image Name="83.png" />
+          <Image Name="84.png" />
+          <Image Name="85.png" />
+          <Image Name="9.png" />
+          <Image Name="a001.png" />
+          <Image Name="a002.png" />
+          <Image Name="a003.png" />
+          <Image Name="a004.png" />
+          <Image Name="a005.png" />
+          <Image Name="a006.png" />
+          <Image Name="a007.png" />
+          <Image Name="a008.png" />
+          <Image Name="a009.png" />
+          <Image Name="a010.png" />
+          <Image Name="a011.png" />
+          <Image Name="a012.png" />
+          <Image Name="a013.png" />
+          <Image Name="a014.png" />
+          <Image Name="a015.png" />
+          <Image Name="a016.png" />
+          <Image Name="a017.png" />
+          <Image Name="a018.png" />
+          <Image Name="a019.png" />
+          <Image Name="a020.png" />
+          <Image Name="achivebar.png" />
+          <Image Name="achivebarbg.png" />
+          <Image Name="achivetitle.png" />
+          <Image Name="addatkicon.png" />
+          <Image Name="adddficon.png" />
+          <Image Name="addfightcountbtn.png" />
+          <Image Name="addlifeicon.png" />
+          <Image Name="arrowdown.png" />
+          <Image Name="arrowup.png" />
+          <Image Name="atrselected.png" />
+          <Image Name="backbtn.png" />
+          <Image Name="backstartbtn.png" />
+          <Image Name="badbookshelf.png" />
+          <Image Name="badfurnace.png" />
+          <Image Name="bed.png" />
+          <Image Name="bigbgclosebtn.png" />
+          <Image Name="blank.png" />
+          <Image Name="bookshelf.png" />
+          <Image Name="branchmissionbox.png" />
+          <Image Name="buildingguide.png" />
+          <Image Name="builditem.png" />
+          <Image Name="buildprogressbar.png" />
+          <Image Name="buildprogressbg.png" />
+          <Image Name="buildsmall.png" />
+          <Image Name="buildtagbtn0.png" />
+          <Image Name="buildtagbtn1.png" />
+          <Image Name="bwine.png" />
+          <Image Name="closebtn.png" />
+          <Image Name="cooktable.png" />
+          <Image Name="createfactionicon.png" />
+          <Image Name="crit.png" />
+          <Image Name="csex.png" />
+          <Image Name="dice1.png" />
+          <Image Name="dice2.png" />
+          <Image Name="dice3.png" />
+          <Image Name="dice4.png" />
+          <Image Name="dice5.png" />
+          <Image Name="dice6.png" />
+          <Image Name="disbtn.png" />
+          <Image Name="disnpcbtn1.png" />
+          <Image Name="dodge.png" />
+          <Image Name="e001.png" />
+          <Image Name="e002.png" />
+          <Image Name="e003.png" />
+          <Image Name="e004.png" />
+          <Image Name="e005.png" />
+          <Image Name="e006.png" />
+          <Image Name="e007.png" />
+          <Image Name="e008.png" />
+          <Image Name="e009.png" />
+          <Image Name="e010.png" />
+          <Image Name="enterfactionicon.png" />
+          <Image Name="exerciseroom.png" />
+          <Image Name="factionbtnselected.png" />
+          <Image Name="factioncreatetitle.png" />
+          <Image Name="factionlimitbtn.png" />
+          <Image Name="factionmemberitem0.png" />
+          <Image Name="factionmemberitem1.png" />
+          <Image Name="factionmodifybtn.png" />
+          <Image Name="factionmore.png" />
+          <Image Name="factiontitle.png" />
+          <Image Name="factlistitem0.png" />
+          <Image Name="factlistitem1.png" />
+          <Image Name="fence.png" />
+          <Image Name="fheart0.png" />
+          <Image Name="fheart1.png" />
+          <Image Name="fheartbg.png" />
+          <Image Name="fhero1.png" />
+          <Image Name="fhero2.png" />
+          <Image Name="fhero3.png" />
+          <Image Name="fhero4.png" />
+          <Image Name="fightaddcounttitle.png" />
+          <Image Name="fightaddicon0.png" />
+          <Image Name="fightaddicon1.png" />
+          <Image Name="fighthpbar.png" />
+          <Image Name="fighthpbar2.png" />
+          <Image Name="fighthpbg.png" />
+          <Image Name="fighticon.png" />
+          <Image Name="fightitem0.png" />
+          <Image Name="fightitem1.png" />
+          <Image Name="fightnodebtn.png" />
+          <Image Name="forgingtable.png" />
+          <Image Name="furnace.png" />
+          <Image Name="gd0.png" />
+          <Image Name="gd1.png" />
+          <Image Name="gd2.png" />
+          <Image Name="gd3.png" />
+          <Image Name="gettext.png" />
+          <Image Name="gold.png" />
+          <Image Name="golditem.png" />
+          <Image Name="golditemselect.png" />
+          <Image Name="goldtextbox.png" />
+          <Image Name="goodssepline.png" />
+          <Image Name="gp1.png" />
+          <Image Name="gp2.png" />
+          <Image Name="gp3.png" />
+          <Image Name="gp4.png" />
+          <Image Name="gp5.png" />
+          <Image Name="gp6.png" />
+          <Image Name="helpbtn.png" />
+          <Image Name="helptitle.png" />
+          <Image Name="heroatrmixbox.png" />
+          <Image Name="heroatrmixhint.png" />
+          <Image Name="herohead1.png" />
+          <Image Name="herohead2.png" />
+          <Image Name="herohead3.png" />
+          <Image Name="herohead4.png" />
+          <Image Name="herolvuptext.png" />
+          <Image Name="heroppoint.png" />
+          <Image Name="hintdown.png" />
+          <Image Name="hp3.png" />
+          <Image Name="hp4.png" />
+          <Image Name="hp5.png" />
+          <Image Name="hp6.png" />
+          <Image Name="hp8-1.png" />
+          <Image Name="hp8-2.png" />
+          <Image Name="hp8-3.png" />
+          <Image Name="hp9-4.png" />
+          <Image Name="hsljcate.png" />
+          <Image Name="hsljexpbar.png" />
+          <Image Name="hsljexpbarbg.png" />
+          <Image Name="hsljitem0.png" />
+          <Image Name="hsljitem1.png" />
+          <Image Name="hsljmsgbox.png" />
+          <Image Name="hsljmyitem.png" />
+          <Image Name="hsljrankbtn.png" />
+          <Image Name="hsljrewarddescbtn.png" />
+          <Image Name="hsljtitle.png" />
+          <Image Name="hurticon.png" />
+          <Image Name="loginrbtn.png" />
+          <Image Name="loginritem0.png" />
+          <Image Name="loginritem1.png" />
+          <Image Name="loginritem2.png" />
+          <Image Name="loginrtitle.png" />
+          <Image Name="m10-1.png" />
+          <Image Name="m10-2.png" />
+          <Image Name="m10-3.png" />
+          <Image Name="m10-4.png" />
+          <Image Name="m10-5.png" />
+          <Image Name="m1-1.png" />
+          <Image Name="m1-10.png" />
+          <Image Name="m11-1.png" />
+          <Image Name="m1-11.png" />
+          <Image Name="m11-2.png" />
+          <Image Name="m11-3.png" />
+          <Image Name="m11-4.png" />
+          <Image Name="m11-5.png" />
+          <Image Name="m11-6.png" />
+          <Image Name="m11-7.png" />
+          <Image Name="m1-2.png" />
+          <Image Name="m12-1.png" />
+          <Image Name="m1-3.png" />
+          <Image Name="m13-1.png" />
+          <Image Name="m1-4.png" />
+          <Image Name="m1-5.png" />
+          <Image Name="m1-6.png" />
+          <Image Name="m1-7.png" />
+          <Image Name="m1-8.png" />
+          <Image Name="m1-9.png" />
+          <Image Name="m2-1.png" />
+          <Image Name="m2-2.png" />
+          <Image Name="m2-3.png" />
+          <Image Name="m2-4.png" />
+          <Image Name="m2-5.png" />
+          <Image Name="m3-1.png" />
+          <Image Name="m3-2.png" />
+          <Image Name="m3-3.png" />
+          <Image Name="m3-4.png" />
+          <Image Name="m4-1.png" />
+          <Image Name="m4-10.png" />
+          <Image Name="m4-2.png" />
+          <Image Name="m4-3.png" />
+          <Image Name="m4-4.png" />
+          <Image Name="m4-5.png" />
+          <Image Name="m4-6.png" />
+          <Image Name="m4-7.png" />
+          <Image Name="m4-8.png" />
+          <Image Name="m4-9.png" />
+          <Image Name="m5-1.png" />
+          <Image Name="m5-2.png" />
+          <Image Name="m5-3.png" />
+          <Image Name="m5-4.png" />
+          <Image Name="m6-1.png" />
+          <Image Name="m6-2.png" />
+          <Image Name="m6-3.png" />
+          <Image Name="m6-4.png" />
+          <Image Name="m7-1.png" />
+          <Image Name="m7-10.png" />
+          <Image Name="m7-11.png" />
+          <Image Name="m7-12.png" />
+          <Image Name="m7-2.png" />
+          <Image Name="m7-3.png" />
+          <Image Name="m7-4.png" />
+          <Image Name="m7-5.png" />
+          <Image Name="m7-6.png" />
+          <Image Name="m7-7.png" />
+          <Image Name="m7-8.png" />
+          <Image Name="m7-9.png" />
+          <Image Name="m8-1.png" />
+          <Image Name="m8-2.png" />
+          <Image Name="m9-1.png" />
+          <Image Name="m9-2.png" />
+          <Image Name="m9-3.png" />
+          <Image Name="m9-4.png" />
+          <Image Name="m9-5.png" />
+          <Image Name="m9-6.png" />
+          <Image Name="mapmission0_0.png" />
+          <Image Name="mapmission0_1.png" />
+          <Image Name="mapmission1_0.png" />
+          <Image Name="mapmission1_1.png" />
+          <Image Name="medicinekit.png" />
+          <Image Name="mixadd.png" />
+          <Image Name="mixbtn.png" />
+          <Image Name="mixmtext.png" />
+          <Image Name="mixsecselect.png" />
+          <Image Name="mixsectext.png" />
+          <Image Name="mixtag.png" />
+          <Image Name="modifyftitle.png" />
+          <Image Name="myfighttie.png" />
+          <Image Name="mygoldbox.png" />
+          <Image Name="myrankitem.png" />
+          <Image Name="n002.png" />
+          <Image Name="n003.png" />
+          <Image Name="n004.png" />
+          <Image Name="n005.png" />
+          <Image Name="n006.png" />
+          <Image Name="n007.png" />
+          <Image Name="n008.png" />
+          <Image Name="n009.png" />
+          <Image Name="n010.png" />
+          <Image Name="n011.png" />
+          <Image Name="n012.png" />
+          <Image Name="n013.png" />
+          <Image Name="n014.png" />
+          <Image Name="n015.png" />
+          <Image Name="n016.png" />
+          <Image Name="n017.png" />
+          <Image Name="n018.png" />
+          <Image Name="n019.png" />
+          <Image Name="n020.png" />
+          <Image Name="n021.png" />
+          <Image Name="n022.png" />
+          <Image Name="n023.png" />
+          <Image Name="n024.png" />
+          <Image Name="n025.png" />
+          <Image Name="n026.png" />
+          <Image Name="n027.png" />
+          <Image Name="n028.png" />
+          <Image Name="n029.png" />
+          <Image Name="n030.png" />
+          <Image Name="n031.png" />
+          <Image Name="n032.png" />
+          <Image Name="n033.png" />
+          <Image Name="n034.png" />
+          <Image Name="n035.png" />
+          <Image Name="n036.png" />
+          <Image Name="n037.png" />
+          <Image Name="n038.png" />
+          <Image Name="n039.png" />
+          <Image Name="n040.png" />
+          <Image Name="n041.png" />
+          <Image Name="n042.png" />
+          <Image Name="n043.png" />
+          <Image Name="n044.png" />
+          <Image Name="n045.png" />
+          <Image Name="n046.png" />
+          <Image Name="n047.png" />
+          <Image Name="n048.png" />
+          <Image Name="n049.png" />
+          <Image Name="n050.png" />
+          <Image Name="n051.png" />
+          <Image Name="n052.png" />
+          <Image Name="n053.png" />
+          <Image Name="n054.png" />
+          <Image Name="n055.png" />
+          <Image Name="n056.png" />
+          <Image Name="n057.png" />
+          <Image Name="n058.png" />
+          <Image Name="n059.png" />
+          <Image Name="n060.png" />
+          <Image Name="n061.png" />
+          <Image Name="n062.png" />
+          <Image Name="n063.png" />
+          <Image Name="n064.png" />
+          <Image Name="n065.png" />
+          <Image Name="n066.png" />
+          <Image Name="n067.png" />
+          <Image Name="n068.png" />
+          <Image Name="n069.png" />
+          <Image Name="n070.png" />
+          <Image Name="n071.png" />
+          <Image Name="n072.png" />
+          <Image Name="n073.png" />
+          <Image Name="n074.png" />
+          <Image Name="n075.png" />
+          <Image Name="n076.png" />
+          <Image Name="n077.png" />
+          <Image Name="n078.png" />
+          <Image Name="n079.png" />
+          <Image Name="n080.png" />
+          <Image Name="n081.png" />
+          <Image Name="n082.png" />
+          <Image Name="n083.png" />
+          <Image Name="n084.png" />
+          <Image Name="n085.png" />
+          <Image Name="n086.png" />
+          <Image Name="n087.png" />
+          <Image Name="n088.png" />
+          <Image Name="n089.png" />
+          <Image Name="n090.png" />
+          <Image Name="n091.png" />
+          <Image Name="n092.png" />
+          <Image Name="normalbtn.png" />
+          <Image Name="npcbtn1.png" />
+          <Image Name="npcheadbox.png" />
+          <Image Name="npcprope0.png" />
+          <Image Name="npcprope1.png" />
+          <Image Name="npcprope2.png" />
+          <Image Name="npcrsi0.png" />
+          <Image Name="npcrsi1.png" />
+          <Image Name="npcrsi2.png" />
+          <Image Name="pausebtn.png" />
+          <Image Name="playerfighttext.png" />
+          <Image Name="qqline0.png" />
+          <Image Name="qubox1.png" />
+          <Image Name="qubox2.png" />
+          <Image Name="qubox3.png" />
+          <Image Name="qubox4.png" />
+          <Image Name="qubox5.png" />
+          <Image Name="rafflebtn.png" />
+          <Image Name="rankatktitle.png" />
+          <Image Name="rankcatatitlebox.png" />
+          <Image Name="rankcatatitlebox1.png" />
+          <Image Name="rankdaytitle.png" />
+          <Image Name="rankitem0.png" />
+          <Image Name="rankitem1.png" />
+          <Image Name="ranknum1.png" />
+          <Image Name="ranknum2.png" />
+          <Image Name="ranknum3.png" />
+          <Image Name="ranktag0.png" />
+          <Image Name="ranktag1.png" />
+          <Image Name="ranktitle.png" />
+          <Image Name="redpoint.png" />
+          <Image Name="relationheadbox.png" />
+          <Image Name="relationtextbox.png" />
+          <Image Name="relationtitle.png" />
+          <Image Name="relationtitlebox.png" />
+          <Image Name="repairokquan.png" />
+          <Image Name="repairoktext.png" />
+          <Image Name="resadd1.png" />
+          <Image Name="resbox.png" />
+          <Image Name="rescontrolslider.png" />
+          <Image Name="resminus1.png" />
+          <Image Name="resselectcountbox.png" />
+          <Image Name="ressliderbg.png" />
+          <Image Name="ressliderinner.png" />
+          <Image Name="saveitembg.png" />
+          <Image Name="sbed.png" />
+          <Image Name="sbookshelf.png" />
+          <Image Name="scooktable.png" />
+          <Image Name="setmodifybtn.png" />
+          <Image Name="setnicknamebox.png" />
+          <Image Name="settingselect.png" />
+          <Image Name="settingselectbox.png" />
+          <Image Name="settingsep.png" />
+          <Image Name="sexerciseroom.png" />
+          <Image Name="sforgingtable.png" />
+          <Image Name="sfurnace.png" />
+          <Image Name="shareicon.png" />
+          <Image Name="shopbtn.png" />
+          <Image Name="shopexgicon.png" />
+          <Image Name="shopsepline.png" />
+          <Image Name="skill1text.png" />
+          <Image Name="skill2text.png" />
+          <Image Name="skill3text.png" />
+          <Image Name="skill4text.png" />
+          <Image Name="skill5text.png" />
+          <Image Name="skill6text.png" />
+          <Image Name="skill7text.png" />
+          <Image Name="skill8text.png" />
+          <Image Name="slock.png" />
+          <Image Name="smallshopbtn.png" />
+          <Image Name="smedicinekit.png" />
+          <Image Name="specialshopitem.png" />
+          <Image Name="ssepline.jpg" />
+          <Image Name="sshopbtn.png" />
+          <Image Name="sstartbtn.png" />
+          <Image Name="startbtn.png" />
+          <Image Name="startbtndis.png" />
+          <Image Name="storageroom.png" />
+          <Image Name="storagesepline.png" />
+          <Image Name="strengthoktext.png" />
+          <Image Name="swinemake.png" />
+          <Image Name="swinetable.png" />
+          <Image Name="syssmalltie.png" />
+          <Image Name="tgiftlefttimebox.png" />
+          <Image Name="timegiftbtn.png" />
+          <Image Name="timegiftpricebox.png" />
+          <Image Name="timegifttitle.png" />
+          <Image Name="timeguide.png" />
+          <Image Name="top_r_season0.png" />
+          <Image Name="top_r_season1.png" />
+          <Image Name="top_r_season2.png" />
+          <Image Name="top_r_season3.png" />
+          <Image Name="top_weather0.png" />
+          <Image Name="top_weather1.png" />
+          <Image Name="top_weather2.png" />
+          <Image Name="top_weather3.png" />
+          <Image Name="topbox.png" />
+          <Image Name="topdegree.png" />
+          <Image Name="topdown.png" />
+          <Image Name="topexpbar.png" />
+          <Image Name="topexpbg.png" />
+          <Image Name="tophero1.png" />
+          <Image Name="tophero2.png" />
+          <Image Name="tophero3.png" />
+          <Image Name="tophero4.png" />
+          <Image Name="tophungerbar.png" />
+          <Image Name="tophungerbg.png" />
+          <Image Name="tophungerred.png" />
+          <Image Name="topinnerinjurybar.png" />
+          <Image Name="topinnerinjurybg.png" />
+          <Image Name="topinnerinjuryred.png" />
+          <Image Name="toplifebar.png" />
+          <Image Name="toplifebg.png" />
+          <Image Name="toplifered.png" />
+          <Image Name="toplivedaysicon.png" />
+          <Image Name="toplvbox.png" />
+          <Image Name="topoutinjurybar.png" />
+          <Image Name="topoutinjurybg.png" />
+          <Image Name="topoutinjuryred.png" />
+          <Image Name="topspiritbar.png" />
+          <Image Name="topspiritbg.png" />
+          <Image Name="topspiritred.png" />
+          <Image Name="toptemperature.png" />
+          <Image Name="toptimeicon.png" />
+          <Image Name="vip1.png" />
+          <Image Name="vip2.png" />
+          <Image Name="vip3.png" />
+          <Image Name="vipbtn.png" />
+          <Image Name="viptitle.png" />
+          <Image Name="vulture1.png" />
+          <Image Name="vulture10.png" />
+          <Image Name="vulture2.png" />
+          <Image Name="vulture3.png" />
+          <Image Name="vulture4.png" />
+          <Image Name="vulture5.png" />
+          <Image Name="vulture6.png" />
+          <Image Name="vulture7.png" />
+          <Image Name="vulture8.png" />
+          <Image Name="vulture9.png" />
+          <Image Name="w001.png" />
+          <Image Name="w002.png" />
+          <Image Name="w003.png" />
+          <Image Name="w004.png" />
+          <Image Name="w005.png" />
+          <Image Name="w006.png" />
+          <Image Name="w007.png" />
+          <Image Name="w008.png" />
+          <Image Name="w009.png" />
+          <Image Name="w010.png" />
+          <Image Name="w011.png" />
+          <Image Name="w012.png" />
+          <Image Name="w013.png" />
+          <Image Name="w014.png" />
+          <Image Name="w015.png" />
+          <Image Name="w016.png" />
+          <Image Name="w017.png" />
+          <Image Name="w018.png" />
+          <Image Name="w019.png" />
+          <Image Name="w020.png" />
+          <Image Name="w021.png" />
+          <Image Name="w022.png" />
+          <Image Name="w023.png" />
+          <Image Name="w024.png" />
+          <Image Name="w025.png" />
+          <Image Name="w026.png" />
+          <Image Name="w027.png" />
+          <Image Name="w028.png" />
+          <Image Name="w029.png" />
+          <Image Name="w030.png" />
+          <Image Name="w031.png" />
+          <Image Name="w032.png" />
+          <Image Name="w033.png" />
+          <Image Name="w034.png" />
+          <Image Name="w035.png" />
+          <Image Name="w036.png" />
+          <Image Name="w037.png" />
+          <Image Name="w038.png" />
+          <Image Name="w039.png" />
+          <Image Name="w040.png" />
+          <Image Name="w041.png" />
+          <Image Name="w042.png" />
+          <Image Name="waitingbg.png" />
+          <Image Name="waitingprogress.png" />
+          <Image Name="winbox0.png" />
+          <Image Name="winbox1.png" />
+          <Image Name="winemaker.png" />
+          <Image Name="winetable.png" />
+          <Image Name="winicon0.png" />
+          <Image Name="winicon1.png" />
+          <Image Name="wintext0.png" />
+          <Image Name="wintext1.png" />
+          <Image Name="wintext-1.png" />
+          <Image Name="wintitle0.png" />
+          <Image Name="wintitle1.png" />
+          <Image Name="x001.png" />
+          <Image Name="x002.png" />
+          <Image Name="x003.png" />
+          <Image Name="x004.png" />
+          <Image Name="x005.png" />
+          <Image Name="x006.png" />
+          <Image Name="x007.png" />
+          <Image Name="x008.png" />
+          <Image Name="x009.png" />
+          <Image Name="x010.png" />
+          <Image Name="x011.png" />
+          <Image Name="x012.png" />
+          <Image Name="x013.png" />
+          <Image Name="x014.png" />
+          <Image Name="x015.png" />
+          <Image Name="x016.png" />
+          <Image Name="x017.png" />
+          <Image Name="x018.png" />
+          <Image Name="x019.png" />
+          <Image Name="x020.png" />
+          <Image Name="x021.png" />
+          <Image Name="x022.png" />
+          <Image Name="x023.png" />
+          <Image Name="x024.png" />
+          <Image Name="x025.png" />
+          <Image Name="x026.png" />
+          <Image Name="x027.png" />
+          <Image Name="x028.png" />
+          <Image Name="x029.png" />
+          <Image Name="x030.png" />
+          <Image Name="xline.png" />
+        </Folder>
+        <Project Name="achiveLayer.csd" Type="Layer" />
+        <Project Name="achiveNode.csd" Type="Node" />
+        <Project Name="actionGetLayer.csd" Type="Layer" />
+        <Project Name="actionNode.csd" Type="Node" />
+        <Project Name="activityLayer.csd" Type="Layer" />
+        <Project Name="addChallengeCountLayer.csd" Type="Layer" />
+        <Project Name="apprenticeLayer.csd" Type="Layer" />
+        <Project Name="bookDetailsLayer.csd" Type="Layer" />
+        <Project Name="bookshelfLayer.csd" Type="Layer" />
+        <Project Name="branchMissionLayer.csd" Type="Layer" />
+        <Project Name="buidingUiLayer.csd" Type="Layer" />
+        <Project Name="buildingDetailsLayer.csd" Type="Layer" />
+        <Project Name="buyComfirmLayer.csd" Type="Layer" />
+        <Project Name="buyDetailsLayer.csd" Type="Layer" />
+        <Project Name="buyOrangeGFLayer.csd" Type="Layer" />
+        <Project Name="challengeCountLayer.csd" Type="Layer" />
+        <Project Name="comfirmSaveLayer.csd" Type="Layer" />
+        <Project Name="deathLayer.csd" Type="Layer" />
+        <Project Name="divedeLayer.csd" Type="Layer" />
+        <Project Name="exerciseCancelLayer.csd" Type="Layer" />
+        <Project Name="exerciseDoneLayer.csd" Type="Layer" />
+        <Project Name="exgLayer.csd" Type="Layer" />
+        <Project Name="factionComfirmLayer.csd" Type="Layer" />
+        <Project Name="factionCreateLayer.csd" Type="Layer" />
+        <Project Name="factionDetailsLayer.csd" Type="Layer" />
+        <Project Name="factionlistNode.csd" Type="Node" />
+        <Project Name="factionMainLayer.csd" Type="Layer" />
+        <Project Name="factionMemberLayer.csd" Type="Layer" />
+        <Project Name="factionmemberNode.csd" Type="Node" />
+        <Project Name="fightLayer.csd" Type="Layer" />
+        <Project Name="fightlistNode.csd" Type="Node" />
+        <Project Name="friendExgLayer.csd" Type="Layer" />
+        <Project Name="friendNpcChallengeLayer.csd" Type="Layer" />
+        <Project Name="frozenLayer.csd" Type="Layer" />
+        <Project Name="getVipRewardLayer.csd" Type="Layer" />
+        <Project Name="giveLayer.csd" Type="Layer" />
+        <Project Name="goldGoodsNode.csd" Type="Node" />
+        <Project Name="goWhereLayer.csd" Type="Layer" />
+        <Project Name="helpDescLayer.csd" Type="Layer" />
+        <Project Name="helpLayer.csd" Type="Layer" />
+        <Project Name="heroAttribNode.csd" Type="Node" />
+        <Project Name="heroStateLayer.csd" Type="Layer" />
+        <Project Name="hintLayer.csd" Type="Layer" />
+        <Project Name="homeHillLayer.csd" Type="Layer" />
+        <Project Name="homeLayer.csd" Type="Layer" />
+        <Project Name="HSLJMainLayer.csd" Type="Layer" />
+        <Project Name="HSLJRankLayer.csd" Type="Layer" />
+        <Project Name="hsljRankNode.csd" Type="Node" />
+        <Project Name="HSLJRewardDescLayer.csd" Type="Layer" />
+        <Project Name="hsljRewardLayer.csd" Type="Layer" />
+        <Project Name="huafeiAwardListLayer.csd" Type="Layer" />
+        <Project Name="loginRewardLayer.csd" Type="Layer" />
+        <Project Name="mapLayer.csd" Type="Layer" />
+        <Project Name="mixDoneLayer.csd" Type="Layer" />
+        <Project Name="mixGFNode.csd" Type="Node" />
+        <Project Name="mixSuggestLayer.csd" Type="Layer" />
+        <Project Name="noticeLayer.csd" Type="Layer" />
+        <Project Name="npcLayer.csd" Type="Layer" />
+        <Project Name="npcNode.csd" Type="Node" />
+        <Project Name="npctalkLayer.csd" Type="Layer" />
+        <Project Name="outDoorLayer.csd" Type="Layer" />
+        <Project Name="pauseLayer.csd" Type="Layer" />
+        <Project Name="playerChallengeResultLayer.csd" Type="Layer" />
+        <Project Name="prizeLayer.csd" Type="Layer" />
+        <Project Name="promotionLayer.csd" Type="Layer" />
+        <Project Name="raffleLayer.csd" Type="Layer" />
+        <Project Name="raffleResultLayer.csd" Type="Scene" />
+        <Project Name="rankLayer.csd" Type="Layer" />
+        <Project Name="rankNode.csd" Type="Node" />
+        <Project Name="relationLayer.csd" Type="Layer" />
+        <Project Name="relationNode.csd" Type="Node" />
+        <Project Name="repairLayer.csd" Type="Layer" />
+        <Project Name="repairOKLayer.csd" Type="Layer" />
+        <Project Name="resDetailsLayer.csd" Type="Layer" />
+        <Project Name="resNode.csd" Type="Node" />
+        <Project Name="reviveLayer.csd" Type="Layer" />
+        <Project Name="rmbGoodsNode.csd" Type="Node" />
+        <Project Name="rollDiceLayer.csd" Type="Layer" />
+        <Project Name="savedNode.csd" Type="Node" />
+        <Project Name="selectHeroLayer.csd" Type="Layer" />
+        <Project Name="selectSaveComfirmLayer.csd" Type="Layer" />
+        <Project Name="selectSavedLayer.csd" Type="Layer" />
+        <Project Name="sepcialLayer.csd" Type="Layer" />
+        <Project Name="settingLayer.csd" Type="Layer" />
+        <Project Name="shopLayer.csd" Type="Layer" />
+        <Project Name="specialNpcLayer.csd" Type="Layer" />
+        <Project Name="startLayer.csd" Type="Layer" />
+        <Project Name="sysSmallLayer.csd" Type="Layer" />
+        <Project Name="tempStorageLayer.csd" Type="Scene" />
+        <Project Name="timeGfitLayer.csd" Type="Layer" />
+        <Project Name="topBarNode.csd" Type="Node" />
+        <PlistInfo Name="uipacker.csi" Type="Plist" />
+        <Project Name="unlockLayer.csd" Type="Layer" />
+        <Project Name="vipGoodsNode.csd" Type="Node" />
+        <Project Name="vipShopLayer.csd" Type="Layer" />
+        <Project Name="winLayer.csd" Type="Layer" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

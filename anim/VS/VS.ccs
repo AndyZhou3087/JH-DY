@@ -1,0 +1,14 @@
+<Solution>
+  <PropertyGroup Name="VS" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="VS">
+          <Image Name="S.png" />
+          <Image Name="V.png" />
+        </Folder>
+        <Project Name="VS.csd" Type="Node" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>
