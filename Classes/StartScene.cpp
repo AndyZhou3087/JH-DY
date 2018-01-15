@@ -54,22 +54,31 @@ bool StartScene::init()
 
 	cocos2d::ui::Widget* newstartbtn = (cocos2d::ui::Widget*)csbnode->getChildByName("newstartbtn");
 	newstartbtn->addTouchEventListener(CC_CALLBACK_2(StartScene::onNewStart, this));
+	startimg = (cocos2d::ui::ImageView*)newstartbtn->getChildByName("Image_1");
+	startimg->loadTexture("ui/startlabel.png", cocos2d::ui::Widget::TextureResType::PLIST);
 
 
 	cocos2d::ui::Widget* savedbtn = (cocos2d::ui::Widget*)csbnode->getChildByName("savedbtn");
 	savedbtn->addTouchEventListener(CC_CALLBACK_2(StartScene::onLoadSaved, this));
+	roleimg = (cocos2d::ui::ImageView*)savedbtn->getChildByName("Image_2");
+	roleimg->loadTexture("ui/rolelabel.png", cocos2d::ui::Widget::TextureResType::PLIST);
 
 	m_continuebtn = (cocos2d::ui::Widget*)csbnode->getChildByName("continuebtn");
 	m_continuebtn->addTouchEventListener(CC_CALLBACK_2(StartScene::onContinue, this));
+	continueimg = (cocos2d::ui::ImageView*)m_continuebtn->getChildByName("Image_3");
+	continueimg->loadTexture("ui/contimuelabel.png", cocos2d::ui::Widget::TextureResType::PLIST);
+
 	std::string uid = GlobalData::getUId();
 
 	m_continuebtn->setEnabled(uid.length() <= 0 ? false : true);
 
 	cocos2d::ui::Widget* setbtn = (cocos2d::ui::Widget*)csbnode->getChildByName("setbtn");
 	setbtn->addTouchEventListener(CC_CALLBACK_2(StartScene::onSet, this));
+	setimg = (cocos2d::ui::ImageView*)setbtn->getChildByName("Image_4");
+	setimg->loadTexture("ui/setlabel.png", cocos2d::ui::Widget::TextureResType::PLIST);
 
-	cocos2d::ui::ImageView* logo = (cocos2d::ui::ImageView*)csbnode->getChildByName("logo");
-	logo->addTouchEventListener(CC_CALLBACK_2(StartScene::onLogo, this));
+	/*cocos2d::ui::ImageView* logo = (cocos2d::ui::ImageView*)csbnode->getChildByName("logo");
+	logo->addTouchEventListener(CC_CALLBACK_2(StartScene::onLogo, this));*/
 
 	cocos2d::ui::Text* vesiontxt = (cocos2d::ui::Text*)csbnode->getChildByName("version");
 	vesiontxt->setString(GlobalData::getVersion());
@@ -108,11 +117,21 @@ void StartScene::onExit()
 
 void StartScene::onNewStart(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
+	Node* node = (Node*)pSender;
 	CommonFuncs::BtnAction(pSender, type);
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{	
+		startimg->loadTexture("ui/startlabel.png", cocos2d::ui::Widget::TextureResType::PLIST);
 		Scene* scene = SelectHeroScene::createScene();
 		Director::getInstance()->replaceScene(scene);
+	}
+	else if (type == ui::Widget::TouchEventType::BEGAN)
+	{
+		startimg->loadTexture("ui/startlabelpress.png", cocos2d::ui::Widget::TextureResType::PLIST);
+	}
+	else if (type == ui::Widget::TouchEventType::CANCELED)
+	{
+		startimg->loadTexture("ui/startlabel.png", cocos2d::ui::Widget::TextureResType::PLIST);
 	}
 }
 
@@ -121,6 +140,7 @@ void StartScene::onContinue(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEve
 	CommonFuncs::BtnAction(pSender, type);
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
+		continueimg->loadTexture("ui/contimuelabel.png", cocos2d::ui::Widget::TextureResType::PLIST);
 		WaitingProgress* waitbox = WaitingProgress::create("进入游戏...");
 		this->addChild(waitbox, 1, "waitbox");
 		std::string uid = GlobalData::getUId();
@@ -130,6 +150,14 @@ void StartScene::onContinue(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEve
 
 		Director::getInstance()->replaceScene(scene);
 	}
+	else if (type == ui::Widget::TouchEventType::BEGAN)
+	{
+		continueimg->loadTexture("ui/contimuelabelpress.png", cocos2d::ui::Widget::TextureResType::PLIST);
+	}
+	else if (type == ui::Widget::TouchEventType::CANCELED)
+	{
+		continueimg->loadTexture("ui/contimuelabel.png", cocos2d::ui::Widget::TextureResType::PLIST);
+	}
 }
 
 void StartScene::onLoadSaved(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
@@ -137,7 +165,16 @@ void StartScene::onLoadSaved(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 	CommonFuncs::BtnAction(pSender, type);
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
+		roleimg->loadTexture("ui/rolelabel.png", cocos2d::ui::Widget::TextureResType::PLIST);
 		this->addChild(SelectSaveLayer::create());
+	}
+	else if (type == ui::Widget::TouchEventType::BEGAN)
+	{
+		roleimg->loadTexture("ui/rolelabelpress.png", cocos2d::ui::Widget::TextureResType::PLIST);
+	}
+	else if (type == ui::Widget::TouchEventType::CANCELED)
+	{
+		roleimg->loadTexture("ui/rolelabel.png", cocos2d::ui::Widget::TextureResType::PLIST);
 	}
 }
 
@@ -146,8 +183,17 @@ void StartScene::onSet(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventTyp
 	CommonFuncs::BtnAction(pSender, type);
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
+		setimg->loadTexture("ui/setlabel.png", cocos2d::ui::Widget::TextureResType::PLIST);
 		SettingLayer* layer = SettingLayer::create();
 		addChild(layer);
+	}
+	else if (type == ui::Widget::TouchEventType::BEGAN)
+	{
+		setimg->loadTexture("ui/setlabelpress.png", cocos2d::ui::Widget::TextureResType::PLIST);
+	}
+	else if (type == ui::Widget::TouchEventType::CANCELED)
+	{
+		setimg->loadTexture("ui/setlabel.png", cocos2d::ui::Widget::TextureResType::PLIST);
 	}
 }
 

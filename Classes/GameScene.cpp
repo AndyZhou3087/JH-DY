@@ -155,12 +155,12 @@ bool GameScene::init()
 
 	//滚动文字的背景
 	Sprite* bg = Sprite::create("images/topeventwordbox.png");
-	bg->setPosition(Vec2(visibleSize.width / 2, 960));
+	bg->setPosition(Vec2(visibleSize.width / 2, 1010));
 	this->addChild(bg, 4);
 
 	//滚动文字
-	g_uiScroll = UIScroll::create(620.0F, 126.0f);
-	g_uiScroll->setPosition(Vec2(visibleSize.width / 2 + 25, 965));
+	g_uiScroll = UIScroll::create(620.0F, 70.0f);
+	g_uiScroll->setPosition(Vec2(visibleSize.width / 2, 1025));
 	addChild(g_uiScroll, 4);
 
 	//任务属性和天气

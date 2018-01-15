@@ -83,7 +83,7 @@
           <AbstractNodeData Name="tagnode" ActionTag="-328641456" Tag="30" IconVisible="True" LeftMargin="360.0000" RightMargin="360.0000" TopMargin="340.0000" BottomMargin="940.0000" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <Children>
-              <AbstractNodeData Name="btn0" ActionTag="-1876797629" Tag="31" IconVisible="False" LeftMargin="-308.4521" RightMargin="195.4521" TopMargin="-23.5001" BottomMargin="-23.4999" TouchEnable="True" FontSize="35" ButtonText="全部" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="83" Scale9Height="25" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="btn0" ActionTag="-1876797629" Tag="31" IconVisible="False" LeftMargin="-308.4521" RightMargin="195.4521" TopMargin="-23.5001" BottomMargin="-23.4999" TouchEnable="True" FontSize="35" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="87" Scale9Height="25" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="113.0000" Y="47.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="-251.9521" Y="0.0001" />
@@ -99,7 +99,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="btn1" ActionTag="1905701937" Tag="32" IconVisible="False" LeftMargin="-182.2809" RightMargin="69.2809" TopMargin="-23.4996" BottomMargin="-23.5004" TouchEnable="True" FontSize="35" ButtonText="武功" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="83" Scale9Height="25" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="btn1" ActionTag="1905701937" Tag="32" IconVisible="False" LeftMargin="-182.2809" RightMargin="69.2809" TopMargin="-23.4996" BottomMargin="-23.5004" TouchEnable="True" FontSize="35" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="87" Scale9Height="25" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="113.0000" Y="47.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="-125.7809" Y="-0.0004" />
@@ -115,7 +115,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="btn2" ActionTag="8612436" Tag="33" IconVisible="False" LeftMargin="-56.1097" RightMargin="-56.8903" TopMargin="-23.4999" BottomMargin="-23.5001" TouchEnable="True" FontSize="35" ButtonText="内功" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="83" Scale9Height="25" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="btn2" ActionTag="8612436" Tag="33" IconVisible="False" LeftMargin="-56.1097" RightMargin="-56.8903" TopMargin="-23.4999" BottomMargin="-23.5001" TouchEnable="True" FontSize="35" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="87" Scale9Height="25" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="113.0000" Y="47.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="0.3903" Y="-0.0001" />
@@ -131,7 +131,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="btn3" ActionTag="297993728" Tag="34" IconVisible="False" LeftMargin="70.0615" RightMargin="-183.0615" TopMargin="-23.4999" BottomMargin="-23.5001" TouchEnable="True" FontSize="35" ButtonText="武器" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="83" Scale9Height="25" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="btn3" ActionTag="297993728" Tag="34" IconVisible="False" LeftMargin="70.0615" RightMargin="-183.0615" TopMargin="-23.4999" BottomMargin="-23.5001" TouchEnable="True" FontSize="35" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="87" Scale9Height="25" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="113.0000" Y="47.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="126.5615" Y="-0.0001" />
@@ -147,7 +147,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="btn4" ActionTag="-2012863542" Tag="35" IconVisible="False" LeftMargin="196.2327" RightMargin="-309.2327" TopMargin="-23.4999" BottomMargin="-23.5001" TouchEnable="True" FontSize="35" ButtonText="防具" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="83" Scale9Height="25" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="btn4" ActionTag="-2012863542" Tag="35" IconVisible="False" LeftMargin="196.2327" RightMargin="-309.2327" TopMargin="-23.4999" BottomMargin="-23.5001" TouchEnable="True" FontSize="35" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="87" Scale9Height="25" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="113.0000" Y="47.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="252.7327" Y="-0.0001" />
@@ -180,6 +180,61 @@
             <PrePosition X="0.5000" Y="0.1337" />
             <PreSize X="0.1250" Y="0.0234" />
             <FileData Type="MarkedSubImage" Path="ui/hintdown.png" Plist="uipacker.plist" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="btn_4_1" ActionTag="869301529" Tag="518" IconVisible="False" LeftMargin="65.9888" RightMargin="578.0112" TopMargin="316.5947" BottomMargin="921.4053" ctype="SpriteObjectData">
+            <Size X="76.0000" Y="42.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="103.9888" Y="942.4053" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.1444" Y="0.7363" />
+            <PreSize X="0.1056" Y="0.0328" />
+            <FileData Type="MarkedSubImage" Path="ui/btn_4.png" Plist="uipacker.plist" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="btn_5_2" ActionTag="1750813029" Tag="519" IconVisible="False" LeftMargin="194.0980" RightMargin="452.9020" TopMargin="316.9271" BottomMargin="924.0729" ctype="SpriteObjectData">
+            <Size X="73.0000" Y="39.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="230.5980" Y="943.5729" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.3203" Y="0.7372" />
+            <PreSize X="0.1014" Y="0.0305" />
+            <FileData Type="MarkedSubImage" Path="ui/btn_5.png" Plist="uipacker.plist" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="btn_6_3" ActionTag="1501198126" Tag="520" IconVisible="False" LeftMargin="319.7916" RightMargin="327.2084" TopMargin="318.1772" BottomMargin="922.8228" ctype="SpriteObjectData">
+            <Size X="73.0000" Y="39.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="356.2916" Y="942.3228" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.4948" Y="0.7362" />
+            <PreSize X="0.1014" Y="0.0305" />
+            <FileData Type="MarkedSubImage" Path="ui/btn_6.png" Plist="uipacker.plist" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="btn_0_4" ActionTag="-758892679" Tag="521" IconVisible="False" LeftMargin="446.3195" RightMargin="197.6805" TopMargin="317.6782" BottomMargin="920.3218" ctype="SpriteObjectData">
+            <Size X="76.0000" Y="42.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="484.3195" Y="941.3218" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.6727" Y="0.7354" />
+            <PreSize X="0.1056" Y="0.0328" />
+            <FileData Type="MarkedSubImage" Path="ui/btn_0.png" Plist="uipacker.plist" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="btn_2_5" ActionTag="-569587157" Tag="522" IconVisible="False" LeftMargin="577.2637" RightMargin="66.7363" TopMargin="318.6781" BottomMargin="919.3219" ctype="SpriteObjectData">
+            <Size X="76.0000" Y="42.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="615.2637" Y="940.3219" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.8545" Y="0.7346" />
+            <PreSize X="0.1056" Y="0.0328" />
+            <FileData Type="MarkedSubImage" Path="ui/btn_2.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>

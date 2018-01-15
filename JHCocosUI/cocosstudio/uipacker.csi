@@ -615,6 +615,31 @@
       <FilePathData Path="ui/helpbtn.png" />
       <FilePathData Path="ui/helptitle.png" />
       <FilePathData Path="ui/smallshopbtn.png" />
+      <FilePathData Path="ui/topheadframe.png" />
+      <FilePathData Path="ui/commonframe.png" />
+      <FilePathData Path="ui/naturebg.png" />
+      <FilePathData Path="ui/banner_1.png" />
+      <FilePathData Path="ui/startbtnpress.png" />
+      <FilePathData Path="ui/contimuelabel.png" />
+      <FilePathData Path="ui/contimuelabelpress.png" />
+      <FilePathData Path="ui/rolelabel.png" />
+      <FilePathData Path="ui/rolelabelpress.png" />
+      <FilePathData Path="ui/setlabel.png" />
+      <FilePathData Path="ui/setlabelpress.png" />
+      <FilePathData Path="ui/startlabel.png" />
+      <FilePathData Path="ui/startlabelpress.png" />
+      <FilePathData Path="ui/btn_0.png" />
+      <FilePathData Path="ui/btn_1.png" />
+      <FilePathData Path="ui/btn_2.png" />
+      <FilePathData Path="ui/btn_3.png" />
+      <FilePathData Path="ui/btn_4.png" />
+      <FilePathData Path="ui/btn_5.png" />
+      <FilePathData Path="ui/btn_6.png" />
+      <FilePathData Path="ui/pauseback.png" />
+      <FilePathData Path="ui/pausecontinue.png" />
+      <FilePathData Path="ui/banner_2.png" />
+      <FilePathData Path="ui/bb.png" />
+      <FilePathData Path="ui/ck.png" />
     </ImageFiles>
     <MaxSize Width="4096" Height="4096" />
   </Content>

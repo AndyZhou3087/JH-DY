@@ -35,6 +35,10 @@ private:
 	cocos2d::ui::Text* qq1;
 	cocos2d::ui::Text* qq2;
 	cocos2d::ui::Text* qqtitle;
+	cocos2d::ui::ImageView* startimg;
+	cocos2d::ui::ImageView* continueimg;
+	cocos2d::ui::ImageView* roleimg;
+	cocos2d::ui::ImageView* setimg;
 };
 
 #endif
