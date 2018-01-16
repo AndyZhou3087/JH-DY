@@ -31,7 +31,7 @@ bool OutDoor::init()
 	this->addChild(m_csbnode, 0, "csbnode");
 
 	m_heroproper = HeroProperNode::create();
-	m_heroproper->setPosition(Vec2(360, 790));
+	m_heroproper->setPosition(Vec2(360, 775));
 	m_csbnode->addChild(m_heroproper, 1, "HeroProperNode");
 
 	scrollview = (cocos2d::ui::ScrollView*)m_csbnode->getChildByName("ScrollView");

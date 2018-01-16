@@ -6,7 +6,7 @@
       <ObjectData Name="Node" Tag="50" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="box_0" ActionTag="-865417193" Tag="51" IconVisible="False" LeftMargin="-290.0476" RightMargin="168.0476" TopMargin="-126.0859" BottomMargin="4.0859" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="box_0" ActionTag="-865417193" Tag="51" IconVisible="False" LeftMargin="-290.0476" RightMargin="168.0476" TopMargin="-126.0859" BottomMargin="4.0859" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
             <Size X="122.0000" Y="122.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-229.0476" Y="65.0859" />
@@ -16,7 +16,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box_1" ActionTag="1912001695" Tag="52" IconVisible="False" LeftMargin="-136.8329" RightMargin="14.8329" TopMargin="-126.0859" BottomMargin="4.0859" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="box_1" ActionTag="1912001695" Tag="52" IconVisible="False" LeftMargin="-136.8329" RightMargin="14.8329" TopMargin="-126.0859" BottomMargin="4.0859" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
             <Size X="122.0000" Y="122.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-75.8329" Y="65.0859" />
@@ -26,7 +26,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box_2" ActionTag="-452129726" Tag="53" IconVisible="False" LeftMargin="16.3818" RightMargin="-138.3818" TopMargin="-126.0859" BottomMargin="4.0859" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="box_2" ActionTag="-452129726" Tag="53" IconVisible="False" LeftMargin="16.3818" RightMargin="-138.3818" TopMargin="-126.0859" BottomMargin="4.0859" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
             <Size X="122.0000" Y="122.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="77.3818" Y="65.0859" />
@@ -36,7 +36,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box_3" ActionTag="-1285813035" Tag="54" IconVisible="False" LeftMargin="169.5964" RightMargin="-291.5964" TopMargin="-126.0859" BottomMargin="4.0859" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="box_3" ActionTag="-1285813035" Tag="54" IconVisible="False" LeftMargin="169.5964" RightMargin="-291.5964" TopMargin="-126.0859" BottomMargin="4.0859" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
             <Size X="122.0000" Y="122.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="230.5964" Y="65.0859" />
@@ -46,7 +46,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box_4" ActionTag="-1408082254" Tag="55" IconVisible="False" LeftMargin="-290.0476" RightMargin="168.0476" TopMargin="5.4899" BottomMargin="-127.4899" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="box_4" ActionTag="-1408082254" Tag="55" IconVisible="False" LeftMargin="-290.0476" RightMargin="168.0476" TopMargin="5.4899" BottomMargin="-127.4899" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
             <Size X="122.0000" Y="122.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-229.0476" Y="-66.4899" />
@@ -56,7 +56,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box_5" ActionTag="862517748" Tag="56" IconVisible="False" LeftMargin="-136.8329" RightMargin="14.8329" TopMargin="5.4899" BottomMargin="-127.4899" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="box_5" ActionTag="862517748" Tag="56" IconVisible="False" LeftMargin="-136.8329" RightMargin="14.8329" TopMargin="5.4899" BottomMargin="-127.4899" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
             <Size X="122.0000" Y="122.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-75.8329" Y="-66.4899" />
@@ -66,7 +66,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box_6" ActionTag="-926149318" Tag="57" IconVisible="False" LeftMargin="16.3818" RightMargin="-138.3818" TopMargin="5.4899" BottomMargin="-127.4899" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="box_6" ActionTag="-926149318" Tag="57" IconVisible="False" LeftMargin="16.3818" RightMargin="-138.3818" TopMargin="5.4899" BottomMargin="-127.4899" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
             <Size X="122.0000" Y="122.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="77.3818" Y="-66.4899" />
@@ -76,7 +76,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box_7" ActionTag="1684508354" Tag="58" IconVisible="False" LeftMargin="169.5964" RightMargin="-291.5964" TopMargin="5.4898" BottomMargin="-127.4898" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="box_7" ActionTag="1684508354" Tag="58" IconVisible="False" LeftMargin="169.5964" RightMargin="-291.5964" TopMargin="5.4898" BottomMargin="-127.4898" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
             <Size X="122.0000" Y="122.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="230.5964" Y="-66.4898" />
@@ -86,8 +86,8 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_0" ActionTag="386479909" Tag="94" IconVisible="False" LeftMargin="-283.1542" RightMargin="177.1542" TopMargin="-118.3741" BottomMargin="12.3741" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
-            <Size X="106.0000" Y="106.0000" />
+          <AbstractNodeData Name="Image_0" ActionTag="386479909" Tag="94" IconVisible="False" LeftMargin="-282.6542" RightMargin="177.6542" TopMargin="-117.8741" BottomMargin="12.8741" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="37" Scale9Height="37" ctype="ImageViewObjectData">
+            <Size X="105.0000" Y="105.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-230.1542" Y="65.3741" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -108,8 +108,8 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_1" ActionTag="-1241809577" Tag="95" IconVisible="False" LeftMargin="-128.3270" RightMargin="22.3270" TopMargin="-118.3741" BottomMargin="12.3741" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
-            <Size X="106.0000" Y="106.0000" />
+          <AbstractNodeData Name="Image_1" ActionTag="-1241809577" Tag="95" IconVisible="False" LeftMargin="-127.8270" RightMargin="22.8270" TopMargin="-117.8741" BottomMargin="12.8741" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="37" Scale9Height="37" ctype="ImageViewObjectData">
+            <Size X="105.0000" Y="105.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-75.3270" Y="65.3741" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -130,8 +130,8 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_2" ActionTag="-293081859" Tag="96" IconVisible="False" LeftMargin="24.4858" RightMargin="-130.4858" TopMargin="-118.3741" BottomMargin="12.3741" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
-            <Size X="106.0000" Y="106.0000" />
+          <AbstractNodeData Name="Image_2" ActionTag="-293081859" Tag="96" IconVisible="False" LeftMargin="24.9858" RightMargin="-129.9858" TopMargin="-117.8741" BottomMargin="12.8741" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="37" Scale9Height="37" ctype="ImageViewObjectData">
+            <Size X="105.0000" Y="105.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="77.4858" Y="65.3741" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -152,8 +152,8 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_3" ActionTag="-773569625" Tag="97" IconVisible="False" LeftMargin="178.3450" RightMargin="-284.3450" TopMargin="-118.3741" BottomMargin="12.3741" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
-            <Size X="106.0000" Y="106.0000" />
+          <AbstractNodeData Name="Image_3" ActionTag="-773569625" Tag="97" IconVisible="False" LeftMargin="178.8450" RightMargin="-283.8450" TopMargin="-117.8741" BottomMargin="12.8741" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="37" Scale9Height="37" ctype="ImageViewObjectData">
+            <Size X="105.0000" Y="105.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="231.3450" Y="65.3741" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -174,8 +174,8 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_4" ActionTag="233794658" Tag="98" IconVisible="False" LeftMargin="-281.7916" RightMargin="175.7916" TopMargin="13.7852" BottomMargin="-119.7852" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
-            <Size X="106.0000" Y="106.0000" />
+          <AbstractNodeData Name="Image_4" ActionTag="233794658" Tag="98" IconVisible="False" LeftMargin="-281.2916" RightMargin="176.2916" TopMargin="14.2852" BottomMargin="-119.2852" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="37" Scale9Height="37" ctype="ImageViewObjectData">
+            <Size X="105.0000" Y="105.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-228.7916" Y="-66.7852" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -196,8 +196,8 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_5" ActionTag="2127404190" Tag="99" IconVisible="False" LeftMargin="-128.9307" RightMargin="22.9307" TopMargin="13.7851" BottomMargin="-119.7851" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
-            <Size X="106.0000" Y="106.0000" />
+          <AbstractNodeData Name="Image_5" ActionTag="2127404190" Tag="99" IconVisible="False" LeftMargin="-128.4307" RightMargin="23.4307" TopMargin="14.2851" BottomMargin="-119.2851" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="37" Scale9Height="37" ctype="ImageViewObjectData">
+            <Size X="105.0000" Y="105.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-75.9307" Y="-66.7851" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -218,8 +218,8 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_6" ActionTag="-1305005985" Tag="100" IconVisible="False" LeftMargin="24.8479" RightMargin="-130.8479" TopMargin="13.9165" BottomMargin="-119.9165" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
-            <Size X="106.0000" Y="106.0000" />
+          <AbstractNodeData Name="Image_6" ActionTag="-1305005985" Tag="100" IconVisible="False" LeftMargin="25.3479" RightMargin="-130.3479" TopMargin="14.4165" BottomMargin="-119.4165" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="37" Scale9Height="37" ctype="ImageViewObjectData">
+            <Size X="105.0000" Y="105.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="77.8479" Y="-66.9165" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -240,8 +240,8 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_7" ActionTag="1455612186" Tag="101" IconVisible="False" LeftMargin="177.6432" RightMargin="-283.6432" TopMargin="13.7852" BottomMargin="-119.7852" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
-            <Size X="106.0000" Y="106.0000" />
+          <AbstractNodeData Name="Image_7" ActionTag="1455612186" Tag="101" IconVisible="False" LeftMargin="178.1432" RightMargin="-283.1432" TopMargin="14.2852" BottomMargin="-119.2852" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="37" Scale9Height="37" ctype="ImageViewObjectData">
+            <Size X="105.0000" Y="105.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="230.6432" Y="-66.7852" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -262,10 +262,10 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="heroppoint" ActionTag="1069477996" VisibleForFrame="False" Tag="70" IconVisible="False" LeftMargin="-261.3326" RightMargin="200.3326" TopMargin="-6.4273" BottomMargin="-20.5727" ctype="SpriteObjectData">
-            <Size X="61.0000" Y="27.0000" />
+          <AbstractNodeData Name="heroppoint" ActionTag="1069477996" VisibleForFrame="False" Tag="70" IconVisible="False" LeftMargin="-259.3326" RightMargin="202.3326" TopMargin="-14.5498" BottomMargin="-23.4502" FlipY="True" ctype="SpriteObjectData">
+            <Size X="57.0000" Y="38.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-            <Position X="-230.8326" Y="6.4273" />
+            <Position X="-230.8326" Y="14.5498" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -273,65 +273,78 @@
             <FileData Type="MarkedSubImage" Path="ui/heroppoint.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="heroselectbg" ActionTag="997868806" VisibleForFrame="False" Tag="69" IconVisible="False" LeftMargin="-321.9998" RightMargin="-322.0002" TopMargin="17.0000" BottomMargin="-583.0000" ctype="SpriteObjectData">
-            <Size X="644.0000" Y="566.0000" />
+          <AbstractNodeData Name="heroselectbg" ActionTag="997868806" VisibleForFrame="False" Tag="69" IconVisible="False" LeftMargin="-361.9990" RightMargin="-312.0010" TopMargin="-42.0009" BottomMargin="-739.9991" ctype="SpriteObjectData">
+            <Size X="674.0000" Y="782.0000" />
             <Children>
-              <AbstractNodeData Name="syssmalltie_0" ActionTag="-1310471874" Tag="73" IconVisible="False" LeftMargin="126.1813" RightMargin="337.8187" TopMargin="21.5000" BottomMargin="506.5000" ctype="SpriteObjectData">
-                <Size X="180.0000" Y="38.0000" />
+              <AbstractNodeData Name="syssmalltie_0" ActionTag="-1310471874" Tag="73" IconVisible="False" LeftMargin="195.7106" RightMargin="385.2894" TopMargin="82.6620" BottomMargin="655.3380" ctype="SpriteObjectData">
+                <Size X="93.0000" Y="44.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="216.1813" Y="525.5000" />
+                <Position X="242.2106" Y="677.3380" />
                 <Scale ScaleX="0.6500" ScaleY="0.6500" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.3357" Y="0.9284" />
-                <PreSize X="0.2795" Y="0.0671" />
+                <PrePosition X="0.3594" Y="0.8662" />
+                <PreSize X="0.1380" Y="0.0563" />
                 <FileData Type="MarkedSubImage" Path="ui/syssmalltie.png" Plist="uipacker.plist" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="syssmalltie" ActionTag="-1896590188" Tag="71" IconVisible="False" LeftMargin="337.6530" RightMargin="126.3470" TopMargin="21.5000" BottomMargin="506.5000" FlipX="True" ctype="SpriteObjectData">
-                <Size X="180.0000" Y="38.0000" />
+              <AbstractNodeData Name="syssmalltie" ActionTag="-1896590188" Tag="71" IconVisible="False" LeftMargin="407.1813" RightMargin="173.8187" TopMargin="82.6620" BottomMargin="655.3380" FlipX="True" ctype="SpriteObjectData">
+                <Size X="93.0000" Y="44.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="427.6530" Y="525.5000" />
+                <Position X="453.6813" Y="677.3380" />
                 <Scale ScaleX="0.6500" ScaleY="0.6500" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.6641" Y="0.9284" />
-                <PreSize X="0.2795" Y="0.0671" />
+                <PrePosition X="0.6731" Y="0.8662" />
+                <PreSize X="0.1380" Y="0.0563" />
                 <FileData Type="MarkedSubImage" Path="ui/syssmalltie.png" Plist="uipacker.plist" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="title" ActionTag="-2042744108" Tag="72" IconVisible="False" LeftMargin="284.0802" RightMargin="281.9198" TopMargin="21.0114" BottomMargin="503.9886" FontSize="40" LabelText="外功" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="title" ActionTag="-2042744108" Tag="72" IconVisible="False" LeftMargin="310.1096" RightMargin="285.8904" TopMargin="85.1735" BottomMargin="655.8265" FontSize="40" LabelText="外功" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="78.0000" Y="41.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="323.0802" Y="524.4886" />
+                <Position X="349.1096" Y="676.3265" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="0" G="0" B="0" />
-                <PrePosition X="0.5017" Y="0.9267" />
-                <PreSize X="0.1211" Y="0.0724" />
+                <PrePosition X="0.5180" Y="0.8649" />
+                <PreSize X="0.1157" Y="0.0524" />
                 <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="ScrollView" ActionTag="-723096159" Tag="74" IconVisible="False" LeftMargin="20.9586" RightMargin="23.0414" TopMargin="57.2902" BottomMargin="108.7098" TouchEnable="True" ClipAble="True" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" IsBounceEnabled="True" ScrollDirectionType="Vertical" ctype="ScrollViewObjectData">
-                <Size X="600.0000" Y="400.0000" />
+              <AbstractNodeData Name="ScrollView" ActionTag="-723096159" Tag="74" IconVisible="False" LeftMargin="74.9881" RightMargin="59.0118" TopMargin="128.4550" BottomMargin="253.5450" TouchEnable="True" ClipAble="True" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" IsBounceEnabled="True" ScrollDirectionType="Vertical" ctype="ScrollViewObjectData">
+                <Size X="540.0000" Y="400.0000" />
                 <AnchorPoint />
-                <Position X="20.9586" Y="108.7098" />
+                <Position X="74.9881" Y="253.5450" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.0325" Y="0.1921" />
-                <PreSize X="0.9317" Y="0.7067" />
+                <PrePosition X="0.1113" Y="0.3242" />
+                <PreSize X="0.8012" Y="0.5115" />
                 <SingleColor A="255" R="255" G="150" B="100" />
                 <FirstColor A="255" R="255" G="150" B="100" />
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
                 <InnerNodeSize Width="600" Height="400" />
               </AbstractNodeData>
-              <AbstractNodeData Name="okbtn" ActionTag="-1655275635" Tag="93" IconVisible="False" LeftMargin="241.2355" RightMargin="252.7645" TopMargin="457.8696" BottomMargin="18.1304" TouchEnable="True" FontSize="40" ButtonText="确定" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="120" Scale9Height="68" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                <Size X="150.0000" Y="90.0000" />
+              <AbstractNodeData Name="okbtn" ActionTag="-1655275635" Tag="93" IconVisible="False" LeftMargin="223.2650" RightMargin="218.7350" TopMargin="534.5336" BottomMargin="198.4664" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="232.0000" Y="49.0000" />
+                <Children>
+                  <AbstractNodeData Name="oklabel_1" ActionTag="-1128743037" Tag="707" IconVisible="False" LeftMargin="88.8519" RightMargin="27.1481" TopMargin="-2.5907" BottomMargin="2.5907" ctype="SpriteObjectData">
+                    <Size X="116.0000" Y="49.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="146.8519" Y="27.0907" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.6330" Y="0.5529" />
+                    <PreSize X="0.5000" Y="1.0000" />
+                    <FileData Type="MarkedSubImage" Path="ui/oklabel.png" Plist="uipacker.plist" />
+                    <BlendFunc Src="1" Dst="771" />
+                  </AbstractNodeData>
+                </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="316.2355" Y="63.1304" />
+                <Position X="339.2650" Y="222.9664" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4910" Y="0.1115" />
-                <PreSize X="0.2329" Y="0.1590" />
+                <PrePosition X="0.5034" Y="0.2851" />
+                <PreSize X="0.3442" Y="0.0627" />
                 <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
                 <TextColor A="255" R="255" G="255" B="255" />
                 <DisabledFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
@@ -340,22 +353,22 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="amountdesc" ActionTag="-1996743308" Tag="203" IconVisible="False" LeftMargin="26.0001" RightMargin="37.9999" TopMargin="404.1428" BottomMargin="107.8572" IsCustomSize="True" FontSize="26" LabelText="白马可在仓库通过喂草来恢复生命值，商城购买的名驹不需要喂养，并且可加快移动速度！" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="580.0000" Y="54.0000" />
+              <AbstractNodeData Name="amountdesc" ActionTag="-1996743308" Tag="203" IconVisible="False" LeftMargin="92.0294" RightMargin="81.9706" TopMargin="468.3091" BottomMargin="259.6909" IsCustomSize="True" FontSize="26" LabelText="白马可在仓库通过喂草来恢复生命值，商城购买的名驹不需要喂养，并且可加快移动速度！" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="500.0000" Y="54.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="316.0001" Y="134.8572" />
+                <Position X="342.0294" Y="286.6909" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="204" G="4" B="4" />
-                <PrePosition X="0.4907" Y="0.2383" />
-                <PreSize X="0.9006" Y="0.0954" />
+                <PrePosition X="0.5075" Y="0.3666" />
+                <PreSize X="0.7418" Y="0.0691" />
                 <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-            <Position X="0.0002" Y="-17.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="-24.9990" Y="42.0009" />
+            <Scale ScaleX="0.9000" ScaleY="0.9000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />

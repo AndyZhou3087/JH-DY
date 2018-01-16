@@ -11,9 +11,13 @@
       <Value ctype="TabsInfo">
         <OpenedDocuments>
           <FilePathData Path="uipacker.csi" />
-          <FilePathData Path="outDoorLayer.csd" />
+          <FilePathData Path="actionNode.csd" />
+          <FilePathData Path="resNode.csd" />
+          <FilePathData Path="buyDetailsLayer.csd" />
+          <FilePathData Path="buildingDetailsLayer.csd" />
+          <FilePathData Path="bookDetailsLayer.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="outDoorLayer.csd" />
+        <ActiveDocument Path="bookDetailsLayer.csd" />
       </Value>
     </Item>
   </Properties>

@@ -166,9 +166,9 @@ void HeroProperNode::onImageClick(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		title->setString(CommonFuncs::gbk2utf(name[tag].c_str()));
 		heroppoint->setVisible(true);
 		heroselectbg->setVisible(true);
-		heroppoint->setPosition(Vec2(propeImages[tag]->getPositionX(), propeImages[tag]->getPositionY() - propeImages[tag]->getContentSize().height / 2 - 5));
+		heroppoint->setPosition(Vec2(propeImages[tag]->getPositionX(), propeImages[tag]->getPositionY() - propeImages[tag]->getContentSize().height / 2 + 30));
 
-		heroselectbg->setPositionY(heroppoint->getPositionY() - heroppoint->getContentSize().height + 3);
+		heroselectbg->setPositionY(heroppoint->getPositionY() - heroppoint->getContentSize().height + 70);
 
 		showNewerGuide(++m_step);
 		this->setLocalZOrder(1);
@@ -305,7 +305,7 @@ void HeroProperNode::showSelectFrame(HeroAtrType index)
 	int contentheight = m_scrollView->getContentSize().height;
 	if (innerheight < contentheight)
 		innerheight = contentheight;
-	m_scrollView->setInnerContainerSize(Size(650, innerheight));
+	m_scrollView->setInnerContainerSize(Size(540, innerheight));
 
 	m_select->setVisible(false);
 	if (index == H_MOUNT)

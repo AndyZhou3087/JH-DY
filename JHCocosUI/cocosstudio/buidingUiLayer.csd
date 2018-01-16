@@ -6,14 +6,14 @@
       <ObjectData Name="Layer" Tag="36" ctype="GameLayerObjectData">
         <Size X="720.0000" Y="1280.0000" />
         <Children>
-          <AbstractNodeData Name="normalboxgb" ActionTag="-1925078563" Tag="37" IconVisible="False" TopMargin="110.5000" BottomMargin="110.5000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="normalboxgb" ActionTag="-1925078563" Tag="37" IconVisible="False" LeftMargin="5.0000" RightMargin="5.0000" TopMargin="121.5000" BottomMargin="121.5000" ctype="SpriteObjectData">
             <Size X="710.0000" Y="1037.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="360.0000" Y="640.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
-            <PreSize X="1.0000" Y="0.8273" />
+            <PreSize X="0.9861" Y="0.8102" />
             <FileData Type="Normal" Path="images/normalboxgb.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
@@ -266,13 +266,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="banner_2_10" ActionTag="1830709637" Tag="667" IconVisible="False" LeftMargin="59.2086" RightMargin="54.7914" TopMargin="290.3796" BottomMargin="967.6204" ctype="SpriteObjectData">
+          <AbstractNodeData Name="banner_2_10" ActionTag="1830709637" Tag="667" IconVisible="False" LeftMargin="59.2087" RightMargin="54.7913" TopMargin="282.3795" BottomMargin="975.6205" ctype="SpriteObjectData">
             <Size X="606.0000" Y="22.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="362.2086" Y="978.6204" />
+            <Position X="362.2087" Y="986.6205" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5031" Y="0.7645" />
+            <PrePosition X="0.5031" Y="0.7708" />
             <PreSize X="0.8417" Y="0.0172" />
             <FileData Type="MarkedSubImage" Path="ui/banner_2.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />

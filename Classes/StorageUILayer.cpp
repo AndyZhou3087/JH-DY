@@ -10,7 +10,7 @@
 #include "NewerGuideLayer.h"
 #include "HelpMainLayer.h"
 
-const std::string name[] = { "食物", "药材", "武器", "防具", "内功", "武功", "资源", "工具", "其他"};
+const std::string name[] = { "ui/strorage_sw.png", "ui/strorage_yc.png", "ui/strorage_wq.png", "ui/strorage_fj.png", "ui/strorage_ng.png", "ui/strorage_wg.png", "ui/strorage_zy.png", "ui/strorage_gj.png", "ui/strorage_qt.png"};
 
 StorageUILayer::StorageUILayer()
 {
@@ -120,12 +120,11 @@ void StorageUILayer::updateResContent()
 				}
 
 			}
-			Sprite * sepline = Sprite::createWithSpriteFrameName("ui/storagesepline.png");
+			Sprite * sepline = Sprite::createWithSpriteFrameName("ui/banner_3.png");
 			sepline->setPosition(Vec2(sepline->getContentSize().width / 2 + 40, innerheight - 35 - preheight));
 			scrollview->addChild(sepline);
-			Label* namelbl = Label::createWithTTF(CommonFuncs::gbk2utf(name[i].c_str()), "fonts/STXINGKA.TTF", 22);
-			namelbl->setColor(Color3B(0, 0, 0));
-			namelbl->setPosition(Vec2(25, 25));
+			Sprite * namelbl = Sprite::createWithSpriteFrameName(name[i].c_str());
+			namelbl->setPosition(Vec2(sepline->getContentSize().width / 2, 5));
 			sepline->addChild(namelbl);
 
 			int countindex = -1;

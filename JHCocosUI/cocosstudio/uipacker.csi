@@ -640,6 +640,30 @@
       <FilePathData Path="ui/banner_2.png" />
       <FilePathData Path="ui/bb.png" />
       <FilePathData Path="ui/ck.png" />
+      <FilePathData Path="ui/normalbtn1.png" />
+      <FilePathData Path="ui/normalbtn2.png" />
+      <FilePathData Path="ui/banner_3.png" />
+      <FilePathData Path="ui/strorage_qt.png" />
+      <FilePathData Path="ui/strorage_sw.png" />
+      <FilePathData Path="ui/strorage_wg.png" />
+      <FilePathData Path="ui/strorage_yc.png" />
+      <FilePathData Path="ui/strorage_zy.png" />
+      <FilePathData Path="ui/strorage_fj.png" />
+      <FilePathData Path="ui/strorage_gj.png" />
+      <FilePathData Path="ui/strorage_ng.png" />
+      <FilePathData Path="ui/strorage_wq.png" />
+      <FilePathData Path="ui/herotitle.png" />
+      <FilePathData Path="ui/herotitlebg.png" />
+      <FilePathData Path="ui/rolelabelbg.png" />
+      <FilePathData Path="ui/roleline.png" />
+      <FilePathData Path="ui/mixlabel.png" />
+      <FilePathData Path="ui/frame_1.png" />
+      <FilePathData Path="ui/tipimg.png" />
+      <FilePathData Path="ui/buildtagbtn2.png" />
+      <FilePathData Path="ui/freelabel.png" />
+      <FilePathData Path="ui/freshlabel.png" />
+      <FilePathData Path="ui/oklabel.png" />
+      <FilePathData Path="ui/peerless.png" />
     </ImageFiles>
     <MaxSize Width="4096" Height="4096" />
   </Content>

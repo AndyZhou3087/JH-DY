@@ -10,7 +10,7 @@
 #include "GameScene.h"
 #include "BookDetailsLayer.h"
 
-const std::string name[] = { "武功", "内功", "武器", "防具"};
+const std::string name[] = { "ui/strorage_wg.png", "ui/strorage_ng.png", "ui/strorage_wq.png", "ui/strorage_fj.png" };
 
 BookShelfLayer::BookShelfLayer()
 {
@@ -136,13 +136,12 @@ void BookShelfLayer::updateContent(int category)
 					}
 
 				}
-				Sprite * sepline = Sprite::createWithSpriteFrameName("ui/storagesepline.png");
+				Sprite * sepline = Sprite::createWithSpriteFrameName("ui/banner_3.png");
 				sepline->setPosition(Vec2(sepline->getContentSize().width / 2 + 40, innerheight - 40 - preheight));
 				std::string sepname = StringUtils::format("sep%d", i);
 				scrollview->addChild(sepline, 0, sepname);
-				Label* namelbl = Label::createWithTTF(CommonFuncs::gbk2utf(name[i].c_str()), "fonts/STXINGKA.TTF", 22);
-				namelbl->setColor(Color3B(0, 0, 0));
-				namelbl->setPosition(Vec2(25, 25));
+				Sprite * namelbl = Sprite::createWithSpriteFrameName(name[i].c_str());
+				namelbl->setPosition(Vec2(sepline->getContentSize().width / 2, 5));
 				sepline->addChild(namelbl);
 			}
 		}

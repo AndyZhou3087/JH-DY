@@ -21,9 +21,11 @@
             <Image Name="newertextbox.png" />
             <Image Name="newerwhite.jpg" />
           </Folder>
+          <Image Name="bottomfigure.png" />
           <Image Name="buildtext0.png" />
           <Image Name="buildtext1.png" />
           <Image Name="buildtext2.png" />
+          <Image Name="commonbg.png" />
           <Image Name="dead.jpg" />
           <Image Name="dicebg.jpg" />
           <Image Name="dicecontent.png" />
@@ -58,6 +60,12 @@
           <Image Name="priztitle.png" />
           <Image Name="rafflerettitle.png" />
           <Image Name="repairbox.png" />
+          <Image Name="role_1.png" />
+          <Image Name="role_2.png" />
+          <Image Name="role_3.png" />
+          <Image Name="role_4.png" />
+          <Image Name="rolebg.png" />
+          <Image Name="roleimgbg.png" />
           <Image Name="room.jpg" />
           <Image Name="select.png" />
           <Image Name="selectherobg.jpg" />
@@ -195,6 +203,7 @@
           <Image Name="badfurnace.png" />
           <Image Name="banner_1.png" />
           <Image Name="banner_2.png" />
+          <Image Name="banner_3.png" />
           <Image Name="bb.png" />
           <Image Name="bed.png" />
           <Image Name="bigbgclosebtn.png" />
@@ -215,6 +224,7 @@
           <Image Name="buildsmall.png" />
           <Image Name="buildtagbtn0.png" />
           <Image Name="buildtagbtn1.png" />
+          <Image Name="buildtagbtn2.png" />
           <Image Name="bwine.png" />
           <Image Name="ck.png" />
           <Image Name="closebtn.png" />
@@ -275,6 +285,9 @@
           <Image Name="fightitem1.png" />
           <Image Name="fightnodebtn.png" />
           <Image Name="forgingtable.png" />
+          <Image Name="frame_1.png" />
+          <Image Name="freelabel.png" />
+          <Image Name="freshlabel.png" />
           <Image Name="furnace.png" />
           <Image Name="gd0.png" />
           <Image Name="gd1.png" />
@@ -302,6 +315,8 @@
           <Image Name="herohead4.png" />
           <Image Name="herolvuptext.png" />
           <Image Name="heroppoint.png" />
+          <Image Name="herotitle.png" />
+          <Image Name="herotitlebg.png" />
           <Image Name="hintdown.png" />
           <Image Name="hp3.png" />
           <Image Name="hp4.png" />
@@ -406,6 +421,7 @@
           <Image Name="medicinekit.png" />
           <Image Name="mixadd.png" />
           <Image Name="mixbtn.png" />
+          <Image Name="mixlabel.png" />
           <Image Name="mixmtext.png" />
           <Image Name="mixsecselect.png" />
           <Image Name="mixsectext.png" />
@@ -507,6 +523,8 @@
           <Image Name="n092.png" />
           <Image Name="naturebg.png" />
           <Image Name="normalbtn.png" />
+          <Image Name="normalbtn1.png" />
+          <Image Name="normalbtn2.png" />
           <Image Name="npcbtn1.png" />
           <Image Name="npcheadbox.png" />
           <Image Name="npcprope0.png" />
@@ -515,9 +533,11 @@
           <Image Name="npcrsi0.png" />
           <Image Name="npcrsi1.png" />
           <Image Name="npcrsi2.png" />
+          <Image Name="oklabel.png" />
           <Image Name="pauseback.png" />
           <Image Name="pausebtn.png" />
           <Image Name="pausecontinue.png" />
+          <Image Name="peerless.png" />
           <Image Name="playerfighttext.png" />
           <Image Name="qqline0.png" />
           <Image Name="qubox1.png" />
@@ -553,7 +573,9 @@
           <Image Name="ressliderbg.png" />
           <Image Name="ressliderinner.png" />
           <Image Name="rolelabel.png" />
+          <Image Name="rolelabelbg.png" />
           <Image Name="rolelabelpress.png" />
+          <Image Name="roleline.png" />
           <Image Name="saveitembg.png" />
           <Image Name="sbed.png" />
           <Image Name="sbookshelf.png" />
@@ -595,6 +617,15 @@
           <Image Name="storageroom.png" />
           <Image Name="storagesepline.png" />
           <Image Name="strengthoktext.png" />
+          <Image Name="strorage_fj.png" />
+          <Image Name="strorage_gj.png" />
+          <Image Name="strorage_ng.png" />
+          <Image Name="strorage_qt.png" />
+          <Image Name="strorage_sw.png" />
+          <Image Name="strorage_wg.png" />
+          <Image Name="strorage_wq.png" />
+          <Image Name="strorage_yc.png" />
+          <Image Name="strorage_zy.png" />
           <Image Name="swinemake.png" />
           <Image Name="swinetable.png" />
           <Image Name="syssmalltie.png" />
@@ -603,6 +634,7 @@
           <Image Name="timegiftpricebox.png" />
           <Image Name="timegifttitle.png" />
           <Image Name="timeguide.png" />
+          <Image Name="tipimg.png" />
           <Image Name="top_r_season0.png" />
           <Image Name="top_r_season1.png" />
           <Image Name="top_r_season2.png" />

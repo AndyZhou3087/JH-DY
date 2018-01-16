@@ -6,47 +6,47 @@
       <ObjectData Name="Layer" Tag="29" ctype="GameLayerObjectData">
         <Size X="720.0000" Y="1280.0000" />
         <Children>
-          <AbstractNodeData Name="normalboxgb" ActionTag="204363147" Tag="42" IconVisible="False" TopMargin="110.5000" BottomMargin="110.5000" ctype="SpriteObjectData">
-            <Size X="720.0000" Y="1059.0000" />
+          <AbstractNodeData Name="normalboxgb" ActionTag="204363147" Tag="42" IconVisible="False" LeftMargin="5.0000" RightMargin="5.0000" TopMargin="121.5000" BottomMargin="121.5000" ctype="SpriteObjectData">
+            <Size X="710.0000" Y="1037.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="360.0000" Y="640.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
-            <PreSize X="1.0000" Y="0.8273" />
+            <PreSize X="0.9861" Y="0.8102" />
             <FileData Type="Normal" Path="images/normalboxgb.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="syssmalltie_0" ActionTag="-892583833" Tag="41" IconVisible="False" LeftMargin="71.1059" RightMargin="468.8941" TopMargin="264.2247" BottomMargin="977.7753" ctype="SpriteObjectData">
-            <Size X="180.0000" Y="38.0000" />
+          <AbstractNodeData Name="syssmalltie_0" ActionTag="-892583833" Tag="41" IconVisible="False" LeftMargin="162.6053" RightMargin="464.3947" TopMargin="247.2244" BottomMargin="988.7756" ctype="SpriteObjectData">
+            <Size X="93.0000" Y="44.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="161.1059" Y="996.7753" />
+            <Position X="209.1053" Y="1010.7756" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2238" Y="0.7787" />
-            <PreSize X="0.2500" Y="0.0297" />
+            <PrePosition X="0.2904" Y="0.7897" />
+            <PreSize X="0.1292" Y="0.0344" />
             <FileData Type="MarkedSubImage" Path="ui/syssmalltie.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="syssmalltie" ActionTag="-464525235" Tag="40" IconVisible="False" LeftMargin="472.5715" RightMargin="67.4285" TopMargin="264.2247" BottomMargin="977.7753" FlipX="True" ctype="SpriteObjectData">
-            <Size X="180.0000" Y="38.0000" />
+          <AbstractNodeData Name="syssmalltie" ActionTag="-464525235" Tag="40" IconVisible="False" LeftMargin="466.0776" RightMargin="160.9224" TopMargin="247.2244" BottomMargin="988.7756" FlipX="True" ctype="SpriteObjectData">
+            <Size X="93.0000" Y="44.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="562.5715" Y="996.7753" />
+            <Position X="512.5776" Y="1010.7756" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7813" Y="0.7787" />
-            <PreSize X="0.2500" Y="0.0297" />
+            <PrePosition X="0.7119" Y="0.7897" />
+            <PreSize X="0.1292" Y="0.0344" />
             <FileData Type="MarkedSubImage" Path="ui/syssmalltie.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="backbtn" ActionTag="-1872763934" Tag="39" IconVisible="False" LeftMargin="540.0002" RightMargin="29.9998" TopMargin="175.0000" BottomMargin="1015.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="120" Scale9Height="68" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="150.0000" Y="90.0000" />
+          <AbstractNodeData Name="backbtn" ActionTag="-1872763934" Tag="39" IconVisible="False" LeftMargin="580.3931" RightMargin="47.6069" TopMargin="167.9895" BottomMargin="1021.0105" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="62" Scale9Height="69" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="92.0000" Y="91.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="615.0002" Y="1060.0000" />
+            <Position X="626.3931" Y="1066.5105" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8542" Y="0.8281" />
-            <PreSize X="0.2083" Y="0.0703" />
+            <PrePosition X="0.8700" Y="0.8332" />
+            <PreSize X="0.1278" Y="0.0711" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="MarkedSubImage" Path="ui/backbtn.png" Plist="uipacker.plist" />
             <PressedFileData Type="MarkedSubImage" Path="ui/backbtn.png" Plist="uipacker.plist" />
@@ -68,13 +68,13 @@
             <ColorVector ScaleY="1.0000" />
             <InnerNodeSize Width="680" Height="745" />
           </AbstractNodeData>
-          <AbstractNodeData Name="title" ActionTag="-362399671" Tag="38" IconVisible="False" LeftMargin="308.4992" RightMargin="308.5008" TopMargin="255.2341" BottomMargin="972.7659" FontSize="50" LabelText="图鉴" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="title" ActionTag="-362399671" Tag="38" IconVisible="False" LeftMargin="308.4993" RightMargin="308.5007" TopMargin="241.2341" BottomMargin="986.7659" FontSize="50" LabelText="图鉴" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="103.0000" Y="52.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="359.9992" Y="998.7659" />
+            <Position X="359.9993" Y="1012.7659" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="0" G="0" B="0" />
-            <PrePosition X="0.5000" Y="0.7803" />
+            <PrePosition X="0.5000" Y="0.7912" />
             <PreSize X="0.1431" Y="0.0406" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />

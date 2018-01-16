@@ -136,15 +136,15 @@ void MixSuggestLayer::onSilver(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touch
 	CommonFuncs::BtnAction(pSender, type);
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
-		cocos2d::ui::Text* text = (cocos2d::ui::Text*)silverbtn->getChildByName("text");
+		cocos2d::ui::ImageView* text = (cocos2d::ui::ImageView*)silverbtn->getChildByName("text");
 		if (severtime - startime1 >= 86400)
 		{
 			silverbtn->getChildByName("silver")->setVisible(false);
 			silverbtn->getChildByName("silvercount")->setVisible(false);
 			freetimelbl1->setVisible(false);
-			text->setPositionY(45);
-			text->setFontSize(50);
-			text->setString(CommonFuncs::gbk2utf("免费"));
+			//text->setPositionY(45);
+			//text->setFontSize(50);
+			text->loadTexture("ui/freelabel.png", cocos2d::ui::TextureResType::PLIST);
 			startime1 = severtime;
 			GameDataSave::getInstance()->setFreeMixTime(1, startime1);
 			randMixGf(1);
@@ -155,9 +155,9 @@ void MixSuggestLayer::onSilver(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touch
 			silverbtn->getChildByName("silver")->setVisible(true);
 			silverbtn->getChildByName("silvercount")->setVisible(true);
 			freetimelbl1->setVisible(true);
-			text->setPositionY(50);
-			text->setFontSize(42);
-			text->setString(CommonFuncs::gbk2utf("刷新"));
+			//text->setPositionY(50);
+			//text->setFontSize(42);
+			text->loadTexture("ui/freshlabel.png", cocos2d::ui::TextureResType::PLIST);
 
 			if (StorageRoom::getCountById("80") < 50)
 			{
@@ -178,15 +178,15 @@ void MixSuggestLayer::onGold(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 	CommonFuncs::BtnAction(pSender, type);
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
-		cocos2d::ui::Text* text = (cocos2d::ui::Text*)goldbtn->getChildByName("text");
+		cocos2d::ui::ImageView* text = (cocos2d::ui::ImageView*)goldbtn->getChildByName("text");
 		if (severtime - startime2 >= 86400)
 		{
 			goldbtn->getChildByName("gold")->setVisible(false);
 			goldbtn->getChildByName("goldcount")->setVisible(false);
 			freetimelbl2->setVisible(false);
-			text->setPositionY(45);
-			text->setFontSize(50);
-			text->setString(CommonFuncs::gbk2utf("免费"));
+			//text->setPositionY(45);
+			//text->setFontSize(50);
+			text->loadTexture("ui/freelabel.png", cocos2d::ui::TextureResType::PLIST);
 			startime2 = severtime;
 
 			GameDataSave::getInstance()->setFreeMixTime(2, startime2);
@@ -197,9 +197,9 @@ void MixSuggestLayer::onGold(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 			goldbtn->getChildByName("gold")->setVisible(true);
 			goldbtn->getChildByName("goldcount")->setVisible(true);
 			freetimelbl2->setVisible(true);
-			text->setPositionY(50);
-			text->setFontSize(42);
-			text->setString(CommonFuncs::gbk2utf("刷新"));
+			//text->setPositionY(50);
+			//text->setFontSize(42);
+			text->loadTexture("ui/freshlabel.png", cocos2d::ui::TextureResType::PLIST);
 
 			int mygold = GlobalData::getMyGoldCount();
 
@@ -243,23 +243,23 @@ void MixSuggestLayer::onSuccess()
 
 	if (severtime - startime1 >= 86400)
 	{
-		cocos2d::ui::Text* text = (cocos2d::ui::Text*)silverbtn->getChildByName("text");
+		cocos2d::ui::ImageView* text = (cocos2d::ui::ImageView*)silverbtn->getChildByName("text");
 		silverbtn->getChildByName("silver")->setVisible(false);
 		silverbtn->getChildByName("silvercount")->setVisible(false);
 		freetimelbl1->setVisible(false);
-		text->setPositionY(45);
-		text->setFontSize(50);
-		text->setString(CommonFuncs::gbk2utf("免费"));
+		//text->setPositionY(45);
+		//text->setFontSize(50);
+		text->loadTexture("ui/freelabel.png", cocos2d::ui::TextureResType::PLIST);
 	}
 	if (severtime - startime2 >= 86400)
 	{
-		cocos2d::ui::Text* text = (cocos2d::ui::Text*)goldbtn->getChildByName("text");
+		cocos2d::ui::ImageView* text = (cocos2d::ui::ImageView*)goldbtn->getChildByName("text");
 		goldbtn->getChildByName("gold")->setVisible(false);
 		goldbtn->getChildByName("goldcount")->setVisible(false);
 		freetimelbl2->setVisible(false);
-		text->setPositionY(45);
-		text->setFontSize(50);
-		text->setString(CommonFuncs::gbk2utf("免费"));
+		//text->setPositionY(45);
+		//text->setFontSize(50);
+		text->loadTexture("ui/freelabel.png", cocos2d::ui::TextureResType::PLIST);
 	}
 }
 
@@ -290,23 +290,23 @@ void MixSuggestLayer::updateServerTime(float dt)
 
 	if (severtime - startime1 >= 86400)
 	{
-		cocos2d::ui::Text* text = (cocos2d::ui::Text*)silverbtn->getChildByName("text");
+		cocos2d::ui::ImageView* text = (cocos2d::ui::ImageView*)silverbtn->getChildByName("text");
 		silverbtn->getChildByName("silver")->setVisible(false);
 		silverbtn->getChildByName("silvercount")->setVisible(false);
 		freetimelbl1->setVisible(false);
-		text->setPositionY(45);
-		text->setFontSize(50);
-		text->setString(CommonFuncs::gbk2utf("免费"));
+		//text->setPositionY(45);
+		//text->setFontSize(50);
+		text->loadTexture("ui/freelabel.png", cocos2d::ui::TextureResType::PLIST);
 	}
 	else
 	{
-		cocos2d::ui::Text* text = (cocos2d::ui::Text*)silverbtn->getChildByName("text");
+		cocos2d::ui::ImageView* text = (cocos2d::ui::ImageView*)silverbtn->getChildByName("text");
 		silverbtn->getChildByName("silver")->setVisible(true);
 		silverbtn->getChildByName("silvercount")->setVisible(true);
 		freetimelbl1->setVisible(true);
-		text->setPositionY(50);
-		text->setFontSize(42);
-		text->setString(CommonFuncs::gbk2utf("刷新"));
+		//text->setPositionY(50);
+		//text->setFontSize(42);
+		text->loadTexture("ui/freshlabel.png", cocos2d::ui::TextureResType::PLIST);
 
 		int lefttime = 86400 - (severtime - startime1);
 		std::string str = StringUtils::format("%02d:%02d:%02d后免费", lefttime / 3600, lefttime % 3600 / 60, lefttime % 3600 % 60);
@@ -315,27 +315,27 @@ void MixSuggestLayer::updateServerTime(float dt)
 
 	if (severtime - startime2 >= 86400)
 	{
-		cocos2d::ui::Text* text = (cocos2d::ui::Text*)goldbtn->getChildByName("text");
+		cocos2d::ui::ImageView* text = (cocos2d::ui::ImageView*)goldbtn->getChildByName("text");
 		goldbtn->getChildByName("gold")->setVisible(false);
 		goldbtn->getChildByName("goldcount")->setVisible(false);
 		freetimelbl2->setVisible(false);
-		text->setPositionY(45);
-		text->setFontSize(50);
-		text->setString(CommonFuncs::gbk2utf("免费"));
+		//text->setPositionY(45);
+		//text->setFontSize(50);
+		text->loadTexture("ui/freelabel.png", cocos2d::ui::TextureResType::PLIST);
 	}
 	else
 	{
-		cocos2d::ui::Text* text = (cocos2d::ui::Text*)goldbtn->getChildByName("text");
+		cocos2d::ui::ImageView* text = (cocos2d::ui::ImageView*)goldbtn->getChildByName("text");
 		goldbtn->getChildByName("gold")->setVisible(true);
 		goldbtn->getChildByName("goldcount")->setVisible(true);
 		freetimelbl2->setVisible(true);
-		text->setPositionY(50);
-		text->setFontSize(42);
+		//text->setPositionY(50);
+		//text->setFontSize(42);
 
 		int lefttime = 86400 - (severtime - startime2);
 		std::string str = StringUtils::format("%02d:%02d:%02d后免费", lefttime / 3600, lefttime % 3600 / 60, lefttime % 3600 % 60);
 		freetimelbl2->setString(CommonFuncs::gbk2utf(str.c_str()));
-		text->setString(CommonFuncs::gbk2utf("刷新"));
+		text->loadTexture("ui/freshlabel.png", cocos2d::ui::TextureResType::PLIST);
 	}
 }
 

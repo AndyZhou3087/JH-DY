@@ -37,6 +37,9 @@ bool BookDetailsLayer::init(BookData* bookdata)
 
 	cocos2d::ui::Text* qulbl = (cocos2d::ui::Text*)m_csbnode->getChildByName("qulbl");
 
+	cocos2d::ui::Widget* peerless = (cocos2d::ui::Widget*)m_csbnode->getChildByName("peerless");
+	peerless->setVisible(false);
+
 	cocos2d::ui::ImageView* resbox = (cocos2d::ui::ImageView*)m_csbnode->getChildByName("buildsmall");
 	std::string qustr = "ui/buildsmall.png";
 	int qu = -1;
@@ -54,6 +57,10 @@ bool BookDetailsLayer::init(BookData* bookdata)
 		qulbl->setVisible(true);
 		qulbl->setString(CommonFuncs::gbk2utf(qudesc[qu - 1].c_str()));
 		qulbl->setTextColor(qucolor[qu - 1]);
+		if (qulbl->getString().compare(CommonFuncs::gbk2utf("绝世")) == 0)
+		{
+			peerless->setVisible(true);
+		}
 	}
 
 	resbox->loadTexture(qustr, cocos2d::ui::TextureResType::PLIST);
