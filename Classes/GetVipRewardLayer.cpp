@@ -80,9 +80,9 @@ bool GetVipRewardLayer::init()
 	cocos2d::ui::Text* desctext = (cocos2d::ui::Text*)csbnode->getChildByName("desc");
 	desctext->setString(descstr);
 
-	int startx = 75;
-	int spacex = 140;
-	int starty = 620;
+	int startx = 145;
+	int spacex = 110;
+	int starty = 680;
 	if (vec_rewardres.size() == 2)
 	{
 		startx = 160;
@@ -93,6 +93,7 @@ bool GetVipRewardLayer::init()
 	for (int i = 0; i < ressize; i++)
 	{
 		Sprite * box = Sprite::createWithSpriteFrameName("ui/buildsmall.png");
+		box->setScale(0.8);
 		box->setPosition(Vec2(startx + i*spacex, starty));
 		this->addChild(box);
 
@@ -116,18 +117,18 @@ bool GetVipRewardLayer::init()
 			namstr = GlobalData::map_allResource[ridstr].cname;
 		}
 		Sprite* res = Sprite::createWithSpriteFrameName(resstr);
-		res->setPosition(Vec2(box->getContentSize().width / 2, box->getContentSize().width / 2));
+		res->setPosition(Vec2(box->getContentSize().width / 2, box->getContentSize().width / 2 + 10));
 		box->addChild(res);
 
 		Label * coutlbl = Label::createWithTTF(strcount, "fonts/STXINGKA.TTF", 25);//Label::createWithSystemFont(strcount, "", 25);
-		coutlbl->setAnchorPoint(Vec2(1, 0.5));
-		coutlbl->setColor(Color3B(255, 255, 255));
-		coutlbl->setPosition(Vec2(box->getPositionX() + box->getContentSize().width / 2 - 10, 580));
+		coutlbl->setAnchorPoint(Vec2(0.5, 0.5));
+		coutlbl->setColor(Color3B(0, 0, 0));
+		coutlbl->setPosition(Vec2(box->getPositionX(), 560));
 		this->addChild(coutlbl);
 
 		Label * namelbl = Label::createWithTTF(namstr, "fonts/STXINGKA.TTF", 26);
 		namelbl->setColor(Color3B(0, 0, 0));
-		namelbl->setPosition(Vec2(box->getPositionX(), 530));
+		namelbl->setPosition(Vec2(box->getPositionX(), 590));
 		this->addChild(namelbl);
 	}
 	WaitingProgress* waitbox = WaitingProgress::create("获取月卡中...");

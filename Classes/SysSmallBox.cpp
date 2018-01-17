@@ -29,16 +29,53 @@ bool SysSmallBox::init(BoxType type, std::string imagepath, std::string title, s
 
 	image->loadTexture(imagepath, cocos2d::ui::TextureResType::PLIST);
 	image->setContentSize(Sprite::createWithSpriteFrameName(imagepath)->getContentSize());
-	image->setScale(1.5f);
+	//image->setScale(1.5f);
 	titleTxt->setString(CommonFuncs::gbk2utf(title.c_str()));
 	title1Txt->setString(CommonFuncs::gbk2utf(title1.c_str()));
+	title1Txt->setPositionX(370);
+	title1Txt->setVisible(true);
+
+	cocos2d::ui::Widget* rolelabelbg_1 = (cocos2d::ui::Widget*)csbnode->getChildByName("rolelabelbg_1");
+	cocos2d::ui::Widget* rolelabelbg_2 = (cocos2d::ui::Widget*)csbnode->getChildByName("rolelabelbg_2");
+	cocos2d::ui::Widget* rolelabelbg_3 = (cocos2d::ui::Widget*)csbnode->getChildByName("rolelabelbg_3");
+	rolelabelbg_1->setVisible(false);
+	rolelabelbg_2->setVisible(false);
+	rolelabelbg_3->setVisible(false);
+	rolelabelbg_1->setLocalZOrder(0);
+	rolelabelbg_2->setLocalZOrder(0);
+	rolelabelbg_3->setLocalZOrder(0);
 
 	textTxt = Label::createWithTTF(CommonFuncs::gbk2utf(text.c_str()), "fonts/STXINGKA.TTF", 26);
 	textTxt->setMaxLineWidth(400);
 	textTxt->setColor(Color3B(0, 0, 0));
-	textTxt->setPosition(Vec2(150, 580));
+	textTxt->setPosition(Vec2(200, 690));
 	textTxt->setAnchorPoint(Vec2(0, 1));
 	csbnode->addChild(textTxt);
+
+	if (mType > TEMPERATURE)
+	{
+		image->setVisible(false);
+		rolelabelbg_1->setVisible(true);
+		rolelabelbg_2->setVisible(true);
+		rolelabelbg_3->setVisible(true);
+		rolelabelbg_1->setLocalZOrder(1);
+		rolelabelbg_2->setLocalZOrder(1);
+		rolelabelbg_3->setLocalZOrder(1);
+	}
+	else
+	{
+		textTxt->setPosition(Vec2(215, 730));
+	}
+
+	if (mType == LIFE)
+	{
+		title1Txt->setPositionX(420);
+	}
+
+	if (mType == REASON || mType == WEATHER)
+	{
+		title1Txt->setVisible(false);
+	}
 
 	//layer 点击事件，屏蔽下层事件
 	auto listener = EventListenerTouchOneByOne::create();
@@ -94,7 +131,7 @@ void SysSmallBox::updataUI(float dt)
 
 		image->loadTexture(str, cocos2d::ui::TextureResType::PLIST);
 		image->setContentSize(Sprite::createWithSpriteFrameName(str)->getContentSize());
-		image->setScale(1.5f);
+		//image->setScale(1.5f);
 
 		titleTxt->setString(CommonFuncs::gbk2utf(reasonname[v].c_str()));
 		title1Txt->setString(CommonFuncs::gbk2utf(reasondesc1[v].c_str()));
@@ -111,7 +148,7 @@ void SysSmallBox::updataUI(float dt)
 
 			image->loadTexture(str, cocos2d::ui::TextureResType::PLIST);
 			image->setContentSize(Sprite::createWithSpriteFrameName(str)->getContentSize());
-			image->setScale(1.5f);
+			//image->setScale(1.5f);
 
 			titleTxt->setString(CommonFuncs::gbk2utf(weathername[v].c_str()));
 			title1Txt->setString(CommonFuncs::gbk2utf(weatherdesc1[v].c_str()));

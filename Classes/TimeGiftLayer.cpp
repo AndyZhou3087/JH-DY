@@ -45,20 +45,21 @@ bool TimeGiftLayer::init(int goodsId)
 	int rgoldcount = 100;
 	std::vector<std::string> vec_rewardres = GlobalData::vec_goods[goodsId - herocount].vec_res;
 
-	int startx = 75;
-	int spacex = 140;
-	int starty = 620;
-	if (vec_rewardres.size() == 2)
-	{
-		startx = 160;
-		spacex = 200;
-	}
+	Vec2 pos[] = { Vec2(300, 730), Vec2(444, 730), Vec2(588, 730), Vec2(345, 567), Vec2(523, 567) };
+	//int startx = 75;
+	//int spacex = 140;
+	//int starty = 620;
+	//if (vec_rewardres.size() == 2)
+	//{
+	//	startx = 160;
+	//	spacex = 200;
+	//}
 
 	int ressize = vec_rewardres.size() + 1;
 	for (int i = 0; i < ressize; i++)
 	{
-		Sprite * box = Sprite::createWithSpriteFrameName("ui/buildsmall.png");
-		box->setPosition(Vec2(startx + i*spacex, starty));
+		Sprite * box = Sprite::createWithSpriteFrameName("ui/timegiftframe.png");
+		box->setPosition(pos[i]);
 		this->addChild(box);
 
 
@@ -85,14 +86,14 @@ bool TimeGiftLayer::init(int goodsId)
 		box->addChild(res);
 
 		Label * coutlbl = Label::createWithTTF(strcount, "fonts/STXINGKA.TTF", 25);//Label::createWithSystemFont(strcount, "", 25);
-		coutlbl->setAnchorPoint(Vec2(1, 0.5));
-		coutlbl->setColor(Color3B(255, 255, 255));
-		coutlbl->setPosition(Vec2(box->getPositionX() + box->getContentSize().width/2 - 10, 580));
+		coutlbl->setAnchorPoint(Vec2(0.5, 0.5));
+		coutlbl->setColor(Color3B(0, 0, 0));
+		coutlbl->setPosition(Vec2(box->getPositionX(), box->getPositionY() - box->getContentSize().height / 2 - 40));
 		this->addChild(coutlbl);
 
-		Label * namelbl = Label::createWithTTF(namstr, "fonts/STXINGKA.TTF", 26);
+		Label * namelbl = Label::createWithTTF(namstr, "fonts/STXINGKA.TTF", 25);
 		namelbl->setColor(Color3B(0, 0, 0));
-		namelbl->setPosition(Vec2(box->getPositionX(), 530));
+		namelbl->setPosition(Vec2(box->getPositionX(), box->getPositionY()-box->getContentSize().height/2-15));
 		this->addChild(namelbl);
 	}
 

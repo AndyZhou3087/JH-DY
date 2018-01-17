@@ -6,14 +6,14 @@
       <ObjectData Name="Layer" Tag="200" ctype="GameLayerObjectData">
         <Size X="720.0000" Y="1280.0000" />
         <Children>
-          <AbstractNodeData Name="bg" ActionTag="328469804" Tag="206" IconVisible="False" LeftMargin="94.9800" RightMargin="102.0200" TopMargin="362.0000" BottomMargin="362.0000" Scale9Enable="True" LeftEage="172" RightEage="172" TopEage="183" BottomEage="183" Scale9OriginX="172" Scale9OriginY="183" Scale9Width="179" Scale9Height="190" ctype="ImageViewObjectData">
-            <Size X="523.0000" Y="556.0000" />
+          <AbstractNodeData Name="bg" ActionTag="328469804" Tag="206" IconVisible="False" LeftMargin="19.4800" RightMargin="26.5200" TopMargin="249.0000" BottomMargin="249.0000" Scale9Enable="True" LeftEage="172" RightEage="172" TopEage="183" BottomEage="183" Scale9OriginX="172" Scale9OriginY="183" Scale9Width="330" Scale9Height="416" ctype="ImageViewObjectData">
+            <Size X="674.0000" Y="782.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="356.4800" Y="640.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.4951" Y="0.5000" />
-            <PreSize X="0.7264" Y="0.4344" />
+            <PreSize X="0.9361" Y="0.6109" />
             <FileData Type="Normal" Path="images/syssmallbg.png" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="title" ActionTag="-516988748" Tag="203" IconVisible="False" LeftMargin="312.6481" RightMargin="319.3519" TopMargin="421.0816" BottomMargin="811.9184" FontSize="45" LabelText="暂停" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -28,25 +28,25 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="syssmalltie_left" ActionTag="-750866858" Tag="204" IconVisible="False" LeftMargin="131.4486" RightMargin="408.5514" TopMargin="424.7102" BottomMargin="817.2898" ctype="SpriteObjectData">
+          <AbstractNodeData Name="syssmalltie_left" ActionTag="-750866858" Tag="204" IconVisible="False" LeftMargin="174.9486" RightMargin="452.0514" TopMargin="421.7102" BottomMargin="814.2898" ctype="SpriteObjectData">
             <Size X="93.0000" Y="44.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="221.4486" Y="836.2898" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.3076" Y="0.6534" />
-            <PreSize X="0.2500" Y="0.0297" />
+            <PreSize X="0.1292" Y="0.0344" />
             <FileData Type="MarkedSubImage" Path="ui/syssmalltie.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="syssmalltie_right" ActionTag="1723358487" Tag="205" IconVisible="False" LeftMargin="404.7111" RightMargin="135.2889" TopMargin="424.7102" BottomMargin="817.2898" FlipX="True" ctype="SpriteObjectData">
+          <AbstractNodeData Name="syssmalltie_right" ActionTag="1723358487" Tag="205" IconVisible="False" LeftMargin="448.2111" RightMargin="178.7889" TopMargin="421.7102" BottomMargin="814.2898" FlipX="True" ctype="SpriteObjectData">
             <Size X="93.0000" Y="44.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="494.7111" Y="836.2898" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.6871" Y="0.6534" />
-            <PreSize X="0.2500" Y="0.0297" />
+            <PreSize X="0.1292" Y="0.0344" />
             <FileData Type="MarkedSubImage" Path="ui/syssmalltie.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>

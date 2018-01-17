@@ -22,7 +22,7 @@ public:
 	static BuyDetailsLayer* create(int heroid);
 private:
 	cocos2d::ui::ImageView* image;//头像 image
-	cocos2d::ui::Text* nameTxt;//角色名称控件
+	cocos2d::ui::ImageView* nameTxt;//角色名称控件
 	cocos2d::ui::Text* descTxt;//角色描述控件
 	cocos2d::ui::Text* priceTxt;//角色价格控件
 	cocos2d::ui::Text* goodstext;//初始物品控件

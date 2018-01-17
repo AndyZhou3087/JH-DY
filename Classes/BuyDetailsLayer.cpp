@@ -22,7 +22,7 @@ bool BuyDetailsLayer::init(int heroid)
 	Node* csbnode = CSLoader::createNode("buyDetailsLayer.csb");
 	this->addChild(csbnode);
 	image = (cocos2d::ui::ImageView*)csbnode->getChildByName("icon");
-	nameTxt = (cocos2d::ui::Text*)csbnode->getChildByName("name");
+	nameTxt = (cocos2d::ui::ImageView*)csbnode->getChildByName("name");
 	descTxt = (cocos2d::ui::Text*)csbnode->getChildByName("desc");
 	priceTxt = (cocos2d::ui::Text*) csbnode->getChildByName("price");
 
@@ -50,7 +50,8 @@ bool BuyDetailsLayer::init(int heroid)
 	image->loadTexture(imagepath, cocos2d::ui::TextureResType::PLIST);
 	image->setContentSize(Sprite::createWithSpriteFrameName(imagepath)->getContentSize());
 
-	nameTxt->setString(CommonFuncs::gbk2utf(heroname[heroid - 1].c_str()));
+	std::string namepath = StringUtils::format("images/shero%dname.png", heroid);
+	nameTxt->loadTexture(namepath, cocos2d::ui::TextureResType::LOCAL);
 	descTxt->setString(CommonFuncs::gbk2utf(herodesc[heroid - 1].c_str()));
 	std::string pricestr = StringUtils::format("￥%d.00", heroprice[heroid - 1]);
 	priceTxt->setString(CommonFuncs::gbk2utf(pricestr.c_str()));

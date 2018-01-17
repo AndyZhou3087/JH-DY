@@ -50,6 +50,8 @@ bool LoginRewardLayer::init()
 
 		cocos2d::ui::Text* statutext = (cocos2d::ui::Text*)getimg->getChildByName("statutext");
 
+		cocos2d::ui::Widget* loginritemlight = (cocos2d::ui::Widget*)item->getChildByName("loginritemlight");
+
 		//cocos2d::ui::ImageView* rwdboximg = (cocos2d::ui::ImageView*)item->getChildByName("rwdboximg");
 		//cocos2d::ui::ImageView* rwdimg = (cocos2d::ui::ImageView*)item->getChildByName("rwdimg");
 
@@ -78,32 +80,39 @@ bool LoginRewardLayer::init()
 			str = StringUtils::format("ui/qubox%d.png", GlobalData::map_wgngs[resid].qu);
 		}
 
-		Sprite * rwdboximg = Sprite::createWithSpriteFrameName(str);
+		/*Sprite * rwdboximg = Sprite::createWithSpriteFrameName(str);
 		rwdboximg->setPosition(Vec2(72, 130));
-		item->addChild(rwdboximg, 0, "rwdboximg");
+		item->addChild(rwdboximg, 0, "rwdboximg");*/
 
 		str = StringUtils::format("ui/%s.png", resid.c_str());
 		Sprite * rwdimg = Sprite::createWithSpriteFrameName(str);
-		rwdimg->setPosition(Vec2(72, 130));
+		rwdimg->setScale(0.8);
+		rwdimg->setPosition(Vec2(80, 130));
 		item->addChild(rwdimg, 0, "rwdimg");
 
 		if (i < logindays)
 		{
-			item->loadTexture("ui/loginritem0.png", cocos2d::ui::Widget::TextureResType::PLIST);
-			getimg->loadTexture("ui/disnpcbtn1.png", cocos2d::ui::Widget::TextureResType::PLIST);
+			item->setColor(Color3B(11, 32, 22));
+			loginritemlight->setVisible(false);
+			//item->loadTexture("ui/loginritem0.png", cocos2d::ui::Widget::TextureResType::PLIST);
+			getimg->loadTexture("ui/buildtagbtn2.png", cocos2d::ui::Widget::TextureResType::PLIST);
 			getimg->setEnabled(false);
-			statutext->setString(CommonFuncs::gbk2utf("已领取"));
-			CommonFuncs::changeGray(rwdboximg);
+			//statutext->setString(CommonFuncs::gbk2utf("已领取"));
+			//CommonFuncs::changeGray(rwdboximg);
 			CommonFuncs::changeGray(rwdimg);
 		}
 		else if (i == logindays)
 		{
-			item->loadTexture("ui/loginritem1.png", cocos2d::ui::Widget::TextureResType::PLIST);
-			getimg->loadTexture("ui/loginrbtn.png", cocos2d::ui::Widget::TextureResType::PLIST);
-			statutext->setString(CommonFuncs::gbk2utf("领取"));
+			loginritemlight->setVisible(true);
+			item->setColor(Color3B(255, 255, 255));
+			//item->loadTexture("ui/loginritem1.png", cocos2d::ui::Widget::TextureResType::PLIST);
+			getimg->loadTexture("ui/buildtagbtn1.png", cocos2d::ui::Widget::TextureResType::PLIST);
+			//statutext->setString(CommonFuncs::gbk2utf("领取"));
 		}
 		else
 		{
+			loginritemlight->setVisible(false);
+			item->setColor(Color3B(255, 255, 255));
 			getimg->setEnabled(false);
 			const std::string cndays[] = { "一", "二", "三", "四", "五", "六", "七" };
 			str = StringUtils::format("第%s天", cndays[i - 1].c_str());
@@ -147,12 +156,15 @@ void LoginRewardLayer::onGet(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 		cocos2d::ui::ImageView* getimg = (cocos2d::ui::ImageView*)pSender;
 
 		cocos2d::ui::ImageView* item = (cocos2d::ui::ImageView*)getimg->getParent();
-		item->loadTexture("ui/loginritem0.png", cocos2d::ui::Widget::TextureResType::PLIST);
-		getimg->loadTexture("ui/disnpcbtn1.png", cocos2d::ui::Widget::TextureResType::PLIST);
+		//item->loadTexture("ui/loginritem0.png", cocos2d::ui::Widget::TextureResType::PLIST);
+		item->setColor(Color3B(11, 32, 22));
+		cocos2d::ui::Widget* loginritemlight = (cocos2d::ui::Widget*)item->getChildByName("loginritemlight");
+		loginritemlight->setVisible(false);
+		getimg->loadTexture("ui/buildtagbtn2.png", cocos2d::ui::Widget::TextureResType::PLIST);
 		getimg->setEnabled(false);
 		cocos2d::ui::Text* statutext = (cocos2d::ui::Text*)getimg->getChildByName("statutext");
-		statutext->setString(CommonFuncs::gbk2utf("已领取"));
-		CommonFuncs::changeGray(item->getChildByName("rwdboximg"));
+		//statutext->setString(CommonFuncs::gbk2utf("已领取"));
+		//CommonFuncs::changeGray(item->getChildByName("rwdboximg"));
 		CommonFuncs::changeGray(item->getChildByName("rwdimg"));
 
 		std::string resid = LOGINREWARDS[GlobalData::continueLoginDays - 1];

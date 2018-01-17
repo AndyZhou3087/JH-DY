@@ -46,7 +46,7 @@ bool VipGoodsItem::init(GoodsData* gdata)
 
 	nameTxt->setString(gdata->name);
 	//descTxt->setString(gdata->desc);
-	std::string pricestr = StringUtils::format("%d元", gdata->price);
+	std::string pricestr = StringUtils::format("￥%d.00", gdata->price);
 	priceTxt->setString(CommonFuncs::gbk2utf(pricestr.c_str()));
 
 	cocos2d::ui::Button* bgbtn = (cocos2d::ui::Button*)csbnode->getChildByName("itembg");//整块节点击
@@ -68,9 +68,9 @@ bool VipGoodsItem::init(GoodsData* gdata)
 
 	std::vector<std::string> vec_rewardres = m_goodData->vec_res;
 
-	int startx = -100;
-	int spacex = 68;
-	int starty = 58;
+	int startx = -50;
+	int spacex = 60;
+	int starty = 90;
 
 	int ressize = vec_rewardres.size() + 1;
 	for (int i = 0; i < ressize; i++)
@@ -96,7 +96,7 @@ bool VipGoodsItem::init(GoodsData* gdata)
 
 		Label * coutlbl = Label::createWithTTF(strcount, "fonts/STXINGKA.TTF", 21);//Label::createWithSystemFont(strcount, "", 21);
 		coutlbl->setColor(Color3B(0, 0, 0));
-		coutlbl->setPosition(Vec2(res->getPositionX(), 20));
+		coutlbl->setPosition(Vec2(res->getPositionX(), 50));
 		this->addChild(coutlbl);
 	}
 

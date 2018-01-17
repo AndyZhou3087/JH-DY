@@ -6,8 +6,11 @@
         <Folder Name="fonts">
           <Fnt Name="coinpoolnum.fnt" />
           <Fnt Name="critnum.fnt" />
+          <Fnt Name="shopnum.fnt" />
+          <Fnt Name="strenthlvnum.fnt" />
           <TTF Name="STXINGKA.TTF" />
           <Fnt Name="topnum.fnt" />
+          <Fnt Name="winexpnum.fnt" />
         </Folder>
         <Folder Name="images">
           <Folder Name="newerguide">
@@ -81,6 +84,7 @@
           <Image Name="shero4.jpg" />
           <Image Name="shero4_s.jpg" />
           <Image Name="shero4name.png" />
+          <Image Name="shopbg.jpg" />
           <Image Name="shoptitle.png" />
           <Image Name="startbg.jpg" />
           <Image Name="strengthfail.png" />
@@ -99,13 +103,17 @@
           <Image Name="t011.jpg" />
           <Image Name="t012.jpg" />
           <Image Name="t013.jpg" />
+          <Image Name="timegiftbg.png" />
+          <Image Name="timegiftrole.png" />
           <Image Name="topbg.png" />
           <Image Name="topeventwordbox.png" />
           <Image Name="unlockbg.png" />
           <Image Name="unlocktitle.png" />
           <Image Name="unselect.png" />
           <Image Name="vipbg.png" />
+          <Image Name="vipitembg.png" />
           <Image Name="vipshoptitle.png" />
+          <Image Name="viptitlelabel.png" />
           <Image Name="warning.png" />
           <Image Name="wxb0.png" />
           <Image Name="wxb1.png" />
@@ -225,6 +233,7 @@
           <Image Name="buildtagbtn0.png" />
           <Image Name="buildtagbtn1.png" />
           <Image Name="buildtagbtn2.png" />
+          <Image Name="buylabel.png" />
           <Image Name="bwine.png" />
           <Image Name="ck.png" />
           <Image Name="closebtn.png" />
@@ -298,6 +307,7 @@
           <Image Name="golditem.png" />
           <Image Name="golditemselect.png" />
           <Image Name="goldtextbox.png" />
+          <Image Name="goldtextname.png" />
           <Image Name="goodssepline.png" />
           <Image Name="gp1.png" />
           <Image Name="gp2.png" />
@@ -341,6 +351,7 @@
           <Image Name="loginritem0.png" />
           <Image Name="loginritem1.png" />
           <Image Name="loginritem2.png" />
+          <Image Name="loginritemlight.png" />
           <Image Name="loginrtitle.png" />
           <Image Name="m10-1.png" />
           <Image Name="m10-2.png" />
@@ -572,6 +583,7 @@
           <Image Name="resselectcountbox.png" />
           <Image Name="ressliderbg.png" />
           <Image Name="ressliderinner.png" />
+          <Image Name="resumebuybtn.png" />
           <Image Name="rolelabel.png" />
           <Image Name="rolelabelbg.png" />
           <Image Name="rolelabelpress.png" />
@@ -580,6 +592,7 @@
           <Image Name="sbed.png" />
           <Image Name="sbookshelf.png" />
           <Image Name="scooktable.png" />
+          <Image Name="setCloud.png" />
           <Image Name="setlabel.png" />
           <Image Name="setlabelpress.png" />
           <Image Name="setmodifybtn.png" />
@@ -592,6 +605,7 @@
           <Image Name="sfurnace.png" />
           <Image Name="shareicon.png" />
           <Image Name="shopbtn.png" />
+          <Image Name="shopbuybtn.png" />
           <Image Name="shopexgicon.png" />
           <Image Name="shopsepline.png" />
           <Image Name="skill1text.png" />
@@ -631,6 +645,7 @@
           <Image Name="syssmalltie.png" />
           <Image Name="tgiftlefttimebox.png" />
           <Image Name="timegiftbtn.png" />
+          <Image Name="timegiftframe.png" />
           <Image Name="timegiftpricebox.png" />
           <Image Name="timegifttitle.png" />
           <Image Name="timeguide.png" />
@@ -672,6 +687,7 @@
           <Image Name="topspiritred.png" />
           <Image Name="toptemperature.png" />
           <Image Name="toptimeicon.png" />
+          <Image Name="VerticalLabel.png" />
           <Image Name="vip1.png" />
           <Image Name="vip2.png" />
           <Image Name="vip3.png" />
@@ -773,6 +789,7 @@
           <Image Name="x029.png" />
           <Image Name="x030.png" />
           <Image Name="xline.png" />
+          <Image Name="yuan.png" />
         </Folder>
         <Project Name="achiveLayer.csd" Type="Layer" />
         <Project Name="achiveNode.csd" Type="Node" />

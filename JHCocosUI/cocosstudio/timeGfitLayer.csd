@@ -6,105 +6,129 @@
       <ObjectData Name="Layer" Tag="87" ctype="GameLayerObjectData">
         <Size X="720.0000" Y="1280.0000" />
         <Children>
-          <AbstractNodeData Name="bg" ActionTag="1363102530" Tag="90" IconVisible="False" TopMargin="214.0000" BottomMargin="214.0000" ctype="SpriteObjectData">
-            <Size X="720.0000" Y="852.0000" />
+          <AbstractNodeData Name="bg" ActionTag="1363102530" Tag="90" IconVisible="False" LeftMargin="19.0000" RightMargin="11.0000" TopMargin="367.0001" BottomMargin="366.9999" ctype="SpriteObjectData">
+            <Size X="690.0000" Y="546.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="360.0000" Y="640.0000" />
+            <Position X="364.0000" Y="639.9999" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.5000" />
-            <PreSize X="1.0000" Y="0.6656" />
-            <FileData Type="Normal" Path="images/vipbg.png" Plist="" />
+            <PrePosition X="0.5056" Y="0.5000" />
+            <PreSize X="0.9583" Y="0.4266" />
+            <FileData Type="Normal" Path="images/timegiftbg.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="title" ActionTag="1295152062" Tag="89" IconVisible="False" LeftMargin="243.9998" RightMargin="244.0002" TopMargin="245.1172" BottomMargin="976.8829" ctype="SpriteObjectData">
-            <Size X="232.0000" Y="58.0000" />
+          <AbstractNodeData Name="title" ActionTag="1295152062" Tag="89" IconVisible="False" LeftMargin="262.4321" RightMargin="187.5679" TopMargin="351.0504" BottomMargin="854.9496" ctype="SpriteObjectData">
+            <Size X="270.0000" Y="74.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="359.9998" Y="1005.8829" />
+            <Position X="397.4321" Y="891.9496" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.7858" />
-            <PreSize X="0.3222" Y="0.0453" />
+            <PrePosition X="0.5520" Y="0.6968" />
+            <PreSize X="0.3750" Y="0.0578" />
             <FileData Type="MarkedSubImage" Path="ui/timegifttitle.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="buybtn" ActionTag="-134754881" Tag="88" IconVisible="False" LeftMargin="275.0000" RightMargin="275.0000" TopMargin="880.0000" BottomMargin="300.0000" TouchEnable="True" FontSize="42" ButtonText="购买" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="120" Scale9Height="68" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="170.0000" Y="100.0000" />
+          <AbstractNodeData Name="buybtn" ActionTag="-134754881" Tag="88" IconVisible="False" LeftMargin="275.4641" RightMargin="212.5359" TopMargin="823.0761" BottomMargin="407.9239" TouchEnable="True" FontSize="42" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="232.0000" Y="49.0000" />
+            <Children>
+              <AbstractNodeData Name="buylabel" ActionTag="-1269707556" Tag="497" IconVisible="False" LeftMargin="92.8365" RightMargin="36.1635" TopMargin="-3.0924" BottomMargin="4.0924" ctype="SpriteObjectData">
+                <Size X="103.0000" Y="48.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="144.3365" Y="28.0924" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.6221" Y="0.5733" />
+                <PreSize X="0.4440" Y="0.9796" />
+                <FileData Type="MarkedSubImage" Path="ui/buylabel.png" Plist="uipacker.plist" />
+                <BlendFunc Src="1" Dst="771" />
+              </AbstractNodeData>
+            </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="360.0000" Y="350.0000" />
+            <Position X="391.4641" Y="432.4239" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.2734" />
-            <PreSize X="0.2361" Y="0.0781" />
+            <PrePosition X="0.5437" Y="0.3378" />
+            <PreSize X="0.3222" Y="0.0383" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="MarkedSubImage" Path="ui/disbtn.png" Plist="uipacker.plist" />
-            <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
-            <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
+            <DisabledFileData Type="MarkedSubImage" Path="ui/normalbtn1.png" Plist="uipacker.plist" />
+            <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn1.png" Plist="uipacker.plist" />
+            <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn1.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="timegiftpricebox" ActionTag="315125196" Tag="91" IconVisible="False" LeftMargin="102.2667" RightMargin="506.7333" TopMargin="456.4863" BottomMargin="711.5137" ctype="SpriteObjectData">
+          <AbstractNodeData Name="timegiftpricebox" ActionTag="315125196" Tag="91" IconVisible="False" LeftMargin="540.4132" RightMargin="68.5868" TopMargin="396.0247" BottomMargin="771.9753" ctype="SpriteObjectData">
             <Size X="111.0000" Y="112.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="157.7667" Y="767.5137" />
-            <Scale ScaleX="1.2000" ScaleY="1.2000" />
+            <Position X="595.9132" Y="827.9753" />
+            <Scale ScaleX="0.6721" ScaleY="0.6769" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2191" Y="0.5996" />
+            <PrePosition X="0.8277" Y="0.6469" />
             <PreSize X="0.1542" Y="0.0875" />
             <FileData Type="MarkedSubImage" Path="ui/timegiftpricebox.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="price" ActionTag="1234813478" Tag="100" RotationSkewX="-30.0000" RotationSkewY="-30.0075" IconVisible="False" LeftMargin="110.6760" RightMargin="511.3240" TopMargin="489.8211" BottomMargin="738.1789" FontSize="50" LabelText="12元" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="price" ActionTag="1234813478" Tag="100" RotationSkewX="-29.8389" RotationSkewY="-30.1909" IconVisible="False" LeftMargin="547.9841" RightMargin="74.0159" TopMargin="427.9027" BottomMargin="800.0973" FontSize="50" LabelText="12元" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="98.0000" Y="52.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="159.6760" Y="764.1789" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="596.9841" Y="826.0973" />
+            <Scale ScaleX="0.5611" ScaleY="0.5631" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2218" Y="0.5970" />
+            <PrePosition X="0.8291" Y="0.6454" />
             <PreSize X="0.1361" Y="0.0406" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="time" ActionTag="877311979" Tag="102" IconVisible="False" LeftMargin="327.5337" RightMargin="172.4663" TopMargin="492.8228" BottomMargin="735.1772" FontSize="50" LabelText="108:25:45" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="220.0000" Y="52.0000" />
+          <AbstractNodeData Name="time" ActionTag="877311979" Tag="102" IconVisible="False" LeftMargin="356.6652" RightMargin="183.3348" TopMargin="440.4997" BottomMargin="798.5003" FontSize="40" LabelText="108:25:45" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="180.0000" Y="41.0000" />
             <AnchorPoint ScaleY="0.5000" />
-            <Position X="327.5337" Y="761.1772" />
+            <Position X="356.6652" Y="819.0003" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="0" G="0" B="0" />
-            <PrePosition X="0.4549" Y="0.5947" />
-            <PreSize X="0.3056" Y="0.0406" />
+            <PrePosition X="0.4954" Y="0.6398" />
+            <PreSize X="0.2500" Y="0.0320" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="timedesc" ActionTag="802548618" Tag="101" IconVisible="False" LeftMargin="266.6198" RightMargin="403.3802" TopMargin="486.7087" BottomMargin="736.2913" FontSize="55" LabelText="剩" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="50.0000" Y="57.0000" />
+          <AbstractNodeData Name="timedesc" ActionTag="802548618" Tag="101" IconVisible="False" LeftMargin="215.2192" RightMargin="371.7808" TopMargin="446.5201" BottomMargin="802.4799" FontSize="30" LabelText="剩余时间：" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="133.0000" Y="31.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="291.6198" Y="764.7913" />
+            <Position X="281.7192" Y="817.9799" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="0" G="0" B="0" />
-            <PrePosition X="0.4050" Y="0.5975" />
-            <PreSize X="0.0694" Y="0.0445" />
+            <PrePosition X="0.3913" Y="0.6390" />
+            <PreSize X="0.1847" Y="0.0242" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="closebtn" ActionTag="-1034324090" Tag="352" IconVisible="False" LeftMargin="589.6638" RightMargin="64.3362" TopMargin="230.0950" BottomMargin="983.9050" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="36" Scale9Height="44" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="66.0000" Y="66.0000" />
+          <AbstractNodeData Name="closebtn" ActionTag="-1034324090" Tag="352" IconVisible="False" LeftMargin="627.8524" RightMargin="15.1476" TopMargin="354.1766" BottomMargin="850.8234" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="47" Scale9Height="53" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="77.0000" Y="75.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="622.6638" Y="1016.9050" />
+            <Position X="666.3524" Y="888.3234" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8648" Y="0.7945" />
-            <PreSize X="0.0917" Y="0.0516" />
+            <PrePosition X="0.9255" Y="0.6940" />
+            <PreSize X="0.1069" Y="0.0586" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="MarkedSubImage" Path="ui/bigbgclosebtn.png" Plist="uipacker.plist" />
             <PressedFileData Type="MarkedSubImage" Path="ui/bigbgclosebtn.png" Plist="uipacker.plist" />
             <NormalFileData Type="MarkedSubImage" Path="ui/bigbgclosebtn.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="timegiftrole" ActionTag="-1514288877" Tag="496" IconVisible="False" LeftMargin="-122.5328" RightMargin="469.5328" TopMargin="294.9203" BottomMargin="382.0797" ctype="SpriteObjectData">
+            <Size X="373.0000" Y="603.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="63.9672" Y="683.5797" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.0888" Y="0.5340" />
+            <PreSize X="0.5181" Y="0.4711" />
+            <FileData Type="Normal" Path="images/timegiftrole.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

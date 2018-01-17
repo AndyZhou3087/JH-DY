@@ -6,8 +6,8 @@
       <ObjectData Name="Node" Tag="50" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="box_0" ActionTag="-865417193" Tag="51" IconVisible="False" LeftMargin="-290.0476" RightMargin="168.0476" TopMargin="-126.0859" BottomMargin="4.0859" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
-            <Size X="122.0000" Y="122.0000" />
+          <AbstractNodeData Name="box_0" ActionTag="-865417193" Tag="51" IconVisible="False" LeftMargin="-298.0476" RightMargin="160.0476" TopMargin="-140.0859" BottomMargin="-9.9141" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
+            <Size X="138.0000" Y="150.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-229.0476" Y="65.0859" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -16,8 +16,8 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box_1" ActionTag="1912001695" Tag="52" IconVisible="False" LeftMargin="-136.8329" RightMargin="14.8329" TopMargin="-126.0859" BottomMargin="4.0859" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
-            <Size X="122.0000" Y="122.0000" />
+          <AbstractNodeData Name="box_1" ActionTag="1912001695" Tag="52" IconVisible="False" LeftMargin="-144.8329" RightMargin="6.8329" TopMargin="-140.0859" BottomMargin="-9.9141" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
+            <Size X="138.0000" Y="150.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-75.8329" Y="65.0859" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -26,8 +26,8 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box_2" ActionTag="-452129726" Tag="53" IconVisible="False" LeftMargin="16.3818" RightMargin="-138.3818" TopMargin="-126.0859" BottomMargin="4.0859" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
-            <Size X="122.0000" Y="122.0000" />
+          <AbstractNodeData Name="box_2" ActionTag="-452129726" Tag="53" IconVisible="False" LeftMargin="8.3818" RightMargin="-146.3818" TopMargin="-140.0859" BottomMargin="-9.9141" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
+            <Size X="138.0000" Y="150.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="77.3818" Y="65.0859" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -36,8 +36,8 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box_3" ActionTag="-1285813035" Tag="54" IconVisible="False" LeftMargin="169.5964" RightMargin="-291.5964" TopMargin="-126.0859" BottomMargin="4.0859" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
-            <Size X="122.0000" Y="122.0000" />
+          <AbstractNodeData Name="box_3" ActionTag="-1285813035" Tag="54" IconVisible="False" LeftMargin="161.5964" RightMargin="-299.5964" TopMargin="-140.0859" BottomMargin="-9.9141" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
+            <Size X="138.0000" Y="150.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="230.5964" Y="65.0859" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -46,8 +46,8 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box_4" ActionTag="-1408082254" Tag="55" IconVisible="False" LeftMargin="-290.0476" RightMargin="168.0476" TopMargin="5.4899" BottomMargin="-127.4899" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
-            <Size X="122.0000" Y="122.0000" />
+          <AbstractNodeData Name="box_4" ActionTag="-1408082254" Tag="55" IconVisible="False" LeftMargin="-298.0476" RightMargin="160.0476" TopMargin="-8.5101" BottomMargin="-141.4899" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
+            <Size X="138.0000" Y="150.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-229.0476" Y="-66.4899" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -56,8 +56,8 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box_5" ActionTag="862517748" Tag="56" IconVisible="False" LeftMargin="-136.8329" RightMargin="14.8329" TopMargin="5.4899" BottomMargin="-127.4899" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
-            <Size X="122.0000" Y="122.0000" />
+          <AbstractNodeData Name="box_5" ActionTag="862517748" Tag="56" IconVisible="False" LeftMargin="-144.8329" RightMargin="6.8329" TopMargin="-8.5101" BottomMargin="-141.4899" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
+            <Size X="138.0000" Y="150.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-75.8329" Y="-66.4899" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -66,8 +66,8 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box_6" ActionTag="-926149318" Tag="57" IconVisible="False" LeftMargin="16.3818" RightMargin="-138.3818" TopMargin="5.4899" BottomMargin="-127.4899" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
-            <Size X="122.0000" Y="122.0000" />
+          <AbstractNodeData Name="box_6" ActionTag="-926149318" Tag="57" IconVisible="False" LeftMargin="8.3818" RightMargin="-146.3818" TopMargin="-8.5101" BottomMargin="-141.4899" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
+            <Size X="138.0000" Y="150.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="77.3818" Y="-66.4899" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -76,8 +76,8 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box_7" ActionTag="1684508354" Tag="58" IconVisible="False" LeftMargin="169.5964" RightMargin="-291.5964" TopMargin="5.4898" BottomMargin="-127.4898" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
-            <Size X="122.0000" Y="122.0000" />
+          <AbstractNodeData Name="box_7" ActionTag="1684508354" Tag="58" IconVisible="False" LeftMargin="161.5964" RightMargin="-299.5964" TopMargin="-8.5102" BottomMargin="-141.4898" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
+            <Size X="138.0000" Y="150.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="230.5964" Y="-66.4898" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -262,10 +262,10 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="heroppoint" ActionTag="1069477996" VisibleForFrame="False" Tag="70" IconVisible="False" LeftMargin="-259.3326" RightMargin="202.3326" TopMargin="-14.5498" BottomMargin="-23.4502" FlipY="True" ctype="SpriteObjectData">
+          <AbstractNodeData Name="heroppoint" ActionTag="1069477996" VisibleForFrame="False" Tag="70" IconVisible="False" LeftMargin="-254.9943" RightMargin="197.9943" TopMargin="-144.6955" BottomMargin="106.6955" ctype="SpriteObjectData">
             <Size X="57.0000" Y="38.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-            <Position X="-230.8326" Y="14.5498" />
+            <Position X="-226.4943" Y="144.6955" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -273,7 +273,7 @@
             <FileData Type="MarkedSubImage" Path="ui/heroppoint.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="heroselectbg" ActionTag="997868806" VisibleForFrame="False" Tag="69" IconVisible="False" LeftMargin="-361.9990" RightMargin="-312.0010" TopMargin="-42.0009" BottomMargin="-739.9991" ctype="SpriteObjectData">
+          <AbstractNodeData Name="heroselectbg" ActionTag="997868806" VisibleForFrame="False" Tag="69" IconVisible="False" LeftMargin="-342.9991" RightMargin="-331.0009" TopMargin="-42.0009" BottomMargin="-739.9991" ctype="SpriteObjectData">
             <Size X="674.0000" Y="782.0000" />
             <Children>
               <AbstractNodeData Name="syssmalltie_0" ActionTag="-1310471874" Tag="73" IconVisible="False" LeftMargin="195.7106" RightMargin="385.2894" TopMargin="82.6620" BottomMargin="655.3380" ctype="SpriteObjectData">
@@ -310,7 +310,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="ScrollView" ActionTag="-723096159" Tag="74" IconVisible="False" LeftMargin="74.9881" RightMargin="59.0118" TopMargin="128.4550" BottomMargin="253.5450" TouchEnable="True" ClipAble="True" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" IsBounceEnabled="True" ScrollDirectionType="Vertical" ctype="ScrollViewObjectData">
+              <AbstractNodeData Name="ScrollView" ActionTag="-723096159" Tag="74" IconVisible="False" LeftMargin="74.9881" RightMargin="59.0119" TopMargin="128.4550" BottomMargin="253.5450" TouchEnable="True" ClipAble="True" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" IsBounceEnabled="True" ScrollDirectionType="Vertical" ctype="ScrollViewObjectData">
                 <Size X="540.0000" Y="400.0000" />
                 <AnchorPoint />
                 <Position X="74.9881" Y="253.5450" />
@@ -324,7 +324,7 @@
                 <ColorVector ScaleY="1.0000" />
                 <InnerNodeSize Width="600" Height="400" />
               </AbstractNodeData>
-              <AbstractNodeData Name="okbtn" ActionTag="-1655275635" Tag="93" IconVisible="False" LeftMargin="223.2650" RightMargin="218.7350" TopMargin="534.5336" BottomMargin="198.4664" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="okbtn" ActionTag="-1655275635" Tag="93" IconVisible="False" LeftMargin="199.2645" RightMargin="242.7355" TopMargin="534.5336" BottomMargin="198.4664" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="232.0000" Y="49.0000" />
                 <Children>
                   <AbstractNodeData Name="oklabel_1" ActionTag="-1128743037" Tag="707" IconVisible="False" LeftMargin="88.8519" RightMargin="27.1481" TopMargin="-2.5907" BottomMargin="2.5907" ctype="SpriteObjectData">
@@ -340,10 +340,10 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="339.2650" Y="222.9664" />
+                <Position X="315.2645" Y="222.9664" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5034" Y="0.2851" />
+                <PrePosition X="0.4678" Y="0.2851" />
                 <PreSize X="0.3442" Y="0.0627" />
                 <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
                 <TextColor A="255" R="255" G="255" B="255" />
@@ -367,12 +367,12 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-            <Position X="-24.9990" Y="42.0009" />
+            <Position X="-5.9991" Y="42.0009" />
             <Scale ScaleX="0.9000" ScaleY="0.9000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="images/heroselectbg.png" Plist="" />
+            <FileData Type="Normal" Path="images/syssmallbg.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>

@@ -6,7 +6,7 @@
       <ObjectData Name="Node" Tag="36" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="itembg" ActionTag="42567500" Tag="152" IconVisible="False" LeftMargin="-321.0000" RightMargin="-321.0000" TopMargin="-101.0000" BottomMargin="-101.0000" TouchEnable="True" LeftEage="94" RightEage="94" TopEage="66" BottomEage="66" Scale9OriginX="94" Scale9OriginY="66" Scale9Width="454" Scale9Height="70" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="itembg" ActionTag="42567500" Tag="152" IconVisible="False" LeftMargin="-321.0000" RightMargin="-321.0000" TopMargin="-101.0000" BottomMargin="-101.0000" TouchEnable="True" LeftEage="94" RightEage="94" TopEage="66" BottomEage="66" Scale9OriginX="94" Scale9OriginY="66" Scale9Width="446" Scale9Height="22" ctype="ImageViewObjectData">
             <Size X="642.0000" Y="202.0000" />
             <Children>
               <AbstractNodeData Name="name" ActionTag="589127072" Tag="95" IconVisible="False" LeftMargin="147.5294" RightMargin="350.4706" TopMargin="25.4521" BottomMargin="140.5479" FontSize="35" LabelText="经验药水" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -21,14 +21,14 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="shopsepline" ActionTag="1619530326" Tag="174" IconVisible="False" LeftMargin="151.3520" RightMargin="182.6480" TopMargin="61.9585" BottomMargin="136.0415" ctype="SpriteObjectData">
-                <Size X="308.0000" Y="4.0000" />
+              <AbstractNodeData Name="shopsepline" ActionTag="1619530326" Tag="174" IconVisible="False" LeftMargin="108.8520" RightMargin="134.1480" TopMargin="65.9586" BottomMargin="132.0414" ctype="SpriteObjectData">
+                <Size X="399.0000" Y="4.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="305.3520" Y="138.0415" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Position X="308.3520" Y="134.0414" />
+                <Scale ScaleX="0.9000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4756" Y="0.6834" />
-                <PreSize X="0.4798" Y="0.0198" />
+                <PrePosition X="0.4803" Y="0.6636" />
+                <PreSize X="0.6215" Y="0.0198" />
                 <FileData Type="MarkedSubImage" Path="ui/shopsepline.png" Plist="uipacker.plist" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
@@ -86,8 +86,21 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/saveitembg.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="buybtn" ActionTag="362216330" Tag="173" IconVisible="False" LeftMargin="153.3657" RightMargin="-303.3657" TopMargin="-55.0002" BottomMargin="-34.9998" TouchEnable="True" FontSize="40" ButtonText="购买" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="120" Scale9Height="68" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="150.0000" Y="90.0000" />
+          <AbstractNodeData Name="buybtn" ActionTag="362216330" Tag="173" IconVisible="False" LeftMargin="186.3657" RightMargin="-270.3657" TopMargin="-51.5002" BottomMargin="-31.4998" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="54" Scale9Height="61" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="84.0000" Y="83.0000" />
+            <Children>
+              <AbstractNodeData Name="buylabel" ActionTag="332471962" Tag="294" IconVisible="False" LeftMargin="-8.5016" RightMargin="-10.4984" TopMargin="17.0002" BottomMargin="17.9998" ctype="SpriteObjectData">
+                <Size X="103.0000" Y="48.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="42.9984" Y="41.9998" />
+                <Scale ScaleX="0.8000" ScaleY="0.8000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5119" Y="0.5060" />
+                <PreSize X="1.2262" Y="0.5783" />
+                <FileData Type="MarkedSubImage" Path="ui/buylabel.png" Plist="uipacker.plist" />
+                <BlendFunc Src="1" Dst="771" />
+              </AbstractNodeData>
+            </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="228.3657" Y="10.0002" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -96,9 +109,9 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="MarkedSubImage" Path="ui/disbtn.png" Plist="uipacker.plist" />
-            <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
-            <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
+            <DisabledFileData Type="MarkedSubImage" Path="ui/shopbuybtn.png" Plist="uipacker.plist" />
+            <PressedFileData Type="MarkedSubImage" Path="ui/shopbuybtn.png" Plist="uipacker.plist" />
+            <NormalFileData Type="MarkedSubImage" Path="ui/shopbuybtn.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>

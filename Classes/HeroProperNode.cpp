@@ -166,9 +166,9 @@ void HeroProperNode::onImageClick(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		title->setString(CommonFuncs::gbk2utf(name[tag].c_str()));
 		heroppoint->setVisible(true);
 		heroselectbg->setVisible(true);
-		heroppoint->setPosition(Vec2(propeImages[tag]->getPositionX(), propeImages[tag]->getPositionY() - propeImages[tag]->getContentSize().height / 2 + 30));
+		heroppoint->setPosition(Vec2(propeImages[tag]->getPositionX(), propeImages[tag]->getPositionY() + propeImages[tag]->getContentSize().height / 2 + 20));
 
-		heroselectbg->setPositionY(heroppoint->getPositionY() - heroppoint->getContentSize().height + 70);
+		heroselectbg->setPositionY(heroppoint->getPositionY() + heroselectbg->getContentSize().height - 240);
 
 		showNewerGuide(++m_step);
 		this->setLocalZOrder(1);

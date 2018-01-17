@@ -664,6 +664,15 @@
       <FilePathData Path="ui/freshlabel.png" />
       <FilePathData Path="ui/oklabel.png" />
       <FilePathData Path="ui/peerless.png" />
+      <FilePathData Path="ui/VerticalLabel.png" />
+      <FilePathData Path="ui/resumebuybtn.png" />
+      <FilePathData Path="ui/setCloud.png" />
+      <FilePathData Path="ui/goldtextname.png" />
+      <FilePathData Path="ui/shopbuybtn.png" />
+      <FilePathData Path="ui/buylabel.png" />
+      <FilePathData Path="ui/yuan.png" />
+      <FilePathData Path="ui/timegiftframe.png" />
+      <FilePathData Path="ui/loginritemlight.png" />
     </ImageFiles>
     <MaxSize Width="4096" Height="4096" />
   </Content>

@@ -41,7 +41,11 @@ bool RmbGoodsItem::init(GoodsData* gdata)
 	cocos2d::ui::Button* buybtn = (cocos2d::ui::Button*)bgnode->getChildByName("buybtn");//整块节点击
 	buybtn->addTouchEventListener(CC_CALLBACK_2(RmbGoodsItem::onBuyBtn, this));
 	buybtn->setSwallowTouches(false);
-	buybtn->setTitleText(CommonFuncs::gbk2utf(pricestr.c_str()));
+	//buybtn->setTitleText(CommonFuncs::gbk2utf(pricestr.c_str()));
+
+	cocos2d::ui::TextBMFont* price = (cocos2d::ui::TextBMFont*)buybtn->getChildByName("price");
+	price->setString(CommonFuncs::gbk2utf(pricestr.c_str()));
+
 	return true;
 }
 
