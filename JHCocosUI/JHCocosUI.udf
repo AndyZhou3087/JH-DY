@@ -7,5 +7,15 @@
         <LastRunType Value="Windows" />
       </Value>
     </Item>
+    <Item Key="TabsParamsKey">
+      <Value ctype="TabsInfo">
+        <OpenedDocuments>
+          <FilePathData Path="uipacker.csi" />
+          <FilePathData Path="loginRewardLayer.csd" />
+          <FilePathData Path="sysSmallLayer.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="sysSmallLayer.csd" />
+      </Value>
+    </Item>
   </Properties>
 </UserData>
