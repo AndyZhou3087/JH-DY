@@ -50,8 +50,8 @@ bool ReviveLayer::init()
 	m_revivedesc = (cocos2d::ui::Text*)m_csbnode->getChildByName("revivecountlbl");
 
 	cocos2d::ui::Text* revivetxtlbl = (cocos2d::ui::Text*)revivebtn->getChildByName("text");
-	cocos2d::ui::Text* revivepricelbl = (cocos2d::ui::Text*)revivebtn->getChildByName("price");
-	cocos2d::ui::Widget* reviveicon = (cocos2d::ui::Widget*)revivebtn->getChildByName("priceicon");
+	cocos2d::ui::Text* revivepricelbl = (cocos2d::ui::Text*)m_csbnode->getChildByName("price");
+	cocos2d::ui::Widget* reviveicon = (cocos2d::ui::Widget*)m_csbnode->getChildByName("priceicon");
 
 	revivecount = StorageRoom::getCountById("73");
 
@@ -73,7 +73,7 @@ bool ReviveLayer::init()
 		m_revivedesc->setString(CommonFuncs::gbk2utf(strcount.c_str()));
 		revivepricelbl->setVisible(false);
 		reviveicon->setVisible(false);
-		revivetxtlbl->setPositionY(45);
+		//revivetxtlbl->setPositionY(45);
 	}
 	else
 	{
@@ -83,7 +83,7 @@ bool ReviveLayer::init()
 		std::string pricestr = StringUtils::format("%d", needgold);
 		revivepricelbl->setString(pricestr);
 		reviveicon->setVisible(true);
-		revivetxtlbl->setPositionY(50);
+		//revivetxtlbl->setPositionY(50);
 	}
 
 #ifdef UMENG_SHARE

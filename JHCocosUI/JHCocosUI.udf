@@ -11,10 +11,11 @@
       <Value ctype="TabsInfo">
         <OpenedDocuments>
           <FilePathData Path="uipacker.csi" />
-          <FilePathData Path="loginRewardLayer.csd" />
-          <FilePathData Path="sysSmallLayer.csd" />
+          <FilePathData Path="rankLayer.csd" />
+          <FilePathData Path="rankNode.csd" />
+          <FilePathData Path="fightlistNode.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="sysSmallLayer.csd" />
+        <ActiveDocument Path="rankLayer.csd" />
       </Value>
     </Item>
   </Properties>

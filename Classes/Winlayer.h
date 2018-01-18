@@ -52,8 +52,8 @@ private:
 	std::string m_addrid;
 	std::vector<PackageData> getRewardData;
 	std::vector<PackageData> tempResData;
-	cocos2d::ui::Text* explbl;
-	cocos2d::ui::Text* gfexplbl;
+	cocos2d::ui::TextBMFont* explbl;
+	cocos2d::ui::TextBMFont* gfexplbl;
 	cocos2d::ui::Button* m_backbtn;
 	cocos2d::ui::Button* m_getallbtn;
 	std::vector<std::string> vec_lvup;

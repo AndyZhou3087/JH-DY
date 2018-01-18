@@ -107,8 +107,8 @@ bool FightLayer::init(std::string addrid, std::string npcid)
 	herohpbar = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("herohpbar");
 	herohpbar->setPercent(herohppercent);
 
-	herohpbar2 = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("herohpbar2");
-	herohpbar2->setPercent(herohppercent);
+	/*herohpbar2 = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("herohpbar2");
+	herohpbar2->setPercent(herohppercent);*/
 
 	npcmaxhp = GlobalData::map_npcs[m_npcid].life;
 	npchp = npcmaxhp;
@@ -126,13 +126,15 @@ bool FightLayer::init(std::string addrid, std::string npcid)
 	npchpbar = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("npchpbar");
 	npchpbar->setPercent(npchppercent);
 
-	npchpbar2 = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("npchpbar2");
-	npchpbar2->setPercent(npchppercent);
+	/*npchpbar2 = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("npchpbar2");
+	npchpbar2->setPercent(npchppercent);*/
 
 	//逃跑按钮
 	m_escapebtn = (cocos2d::ui::Button*)csbnode->getChildByName("escapebtn");
 	m_escapebtn->addTouchEventListener(CC_CALLBACK_2(FightLayer::onEscape, this));
 	m_escapebtn->setTag(0);
+
+	escapetext = (cocos2d::ui::Text*)m_escapebtn->getChildByName("text");
 
 	if (NewerGuideLayer::checkifNewerGuide(39))
 		m_escapebtn->setVisible(false);
@@ -217,7 +219,7 @@ void FightLayer::onEscape(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEvent
 					fightRobber();
 				}
 			}
-			m_escapebtn->setTitleText(CommonFuncs::gbk2utf("返回"));
+			escapetext->setString(CommonFuncs::gbk2utf("返回"));
 			m_escapebtn->setTag(1);
 			if (isecapeok && m_npcid.compare("n001") == 0)//山贼
 			{
@@ -586,7 +588,7 @@ void FightLayer::delayBossFight(float dt)
 	}
 	else
 	{
-		m_escapebtn->setTitleText(CommonFuncs::gbk2utf("返回"));
+		escapetext->setString(CommonFuncs::gbk2utf("返回"));
 		m_escapebtn->setTag(1);
 
 #ifdef ANALYTICS
@@ -599,7 +601,7 @@ void FightLayer::delayBossFight(float dt)
 
 void FightLayer::delayShowWinLayer(float dt)
 {
-	m_escapebtn->setTitleText(CommonFuncs::gbk2utf("返回"));
+	escapetext->setString(CommonFuncs::gbk2utf("返回"));
 	m_escapebtn->setEnabled(true);
 	m_escapebtn->setTag(1);
 
@@ -981,8 +983,8 @@ void FightLayer::checkHeroLife(float dt)
 	float herohppercent = 100 * g_hero->getLifeValue() / g_hero->getMaxLifeValue();
 	herohpbar->setPercent(herohppercent);
 
-	MyProgressTo * fromto = MyProgressTo::create(0.5f, herohppercent);
-	herohpbar2->runAction(fromto);
+	/*MyProgressTo * fromto = MyProgressTo::create(0.5f, herohppercent);
+	herohpbar2->runAction(fromto);*/
 }
 
 void FightLayer::updateNpcLife()
@@ -994,8 +996,8 @@ void FightLayer::updateNpcLife()
 	//NCP血量进度
 	int npchppercent = 100 * npchp / npcmaxhp;
 	npchpbar->setPercent(npchppercent);
-	MyProgressTo * to = MyProgressTo::create(0.5f, npchppercent);
-	npchpbar2->runAction(to);
+	/*MyProgressTo * to = MyProgressTo::create(0.5f, npchppercent);
+	npchpbar2->runAction(to);*/
 }
 
 void FightLayer::nextFightNpc(float dt)
@@ -1024,7 +1026,7 @@ void FightLayer::continueChallenge()
 {
 	if (winnpcount % 3 == 0)
 	{
-		m_escapebtn->setTitleText(CommonFuncs::gbk2utf("返回"));
+		escapetext->setString(CommonFuncs::gbk2utf("返回"));
 		m_escapebtn->setEnabled(true);
 		m_escapebtn->setTag(1);
 		showChallengeCountLayer(false);
@@ -1038,7 +1040,7 @@ void FightLayer::continueChallenge()
 void FightLayer::updateFightNextNpc()
 {
 	isecapeok = false;
-	m_escapebtn->setTitleText(CommonFuncs::gbk2utf("逃跑"));
+	escapetext->setString(CommonFuncs::gbk2utf("逃跑"));
 	m_escapebtn->setEnabled(true);
 	m_escapebtn->setTag(0);
 	checkHeroLife(0);
@@ -1048,7 +1050,7 @@ void FightLayer::updateFightNextNpc()
 void FightLayer::reviveContinueChallege()
 {
 	isecapeok = false;
-	m_escapebtn->setTitleText(CommonFuncs::gbk2utf("逃跑"));
+	escapetext->setString(CommonFuncs::gbk2utf("逃跑"));
 	m_escapebtn->setEnabled(true);
 	m_escapebtn->setTag(0);
 	checkHeroLife(0);

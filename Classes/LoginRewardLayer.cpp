@@ -92,7 +92,7 @@ bool LoginRewardLayer::init()
 
 		if (i < logindays)
 		{
-			item->setColor(Color3B(11, 32, 22));
+			item->setColor(Color3B(84, 84, 84));
 			loginritemlight->setVisible(false);
 			//item->loadTexture("ui/loginritem0.png", cocos2d::ui::Widget::TextureResType::PLIST);
 			getimg->loadTexture("ui/buildtagbtn2.png", cocos2d::ui::Widget::TextureResType::PLIST);

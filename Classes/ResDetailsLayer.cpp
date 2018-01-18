@@ -36,6 +36,9 @@ bool ResDetailsLayer::init(PackageData* pdata)
 		return false;
     }
 
+	LayerColor* color = LayerColor::create(Color4B(0, 0, 0, 160));
+	this->addChild(color);
+
 	m_packageData = pdata;
 	m_csbnode = CSLoader::createNode("resDetailsLayer.csb");
 	this->addChild(m_csbnode);
@@ -106,7 +109,7 @@ bool ResDetailsLayer::init(PackageData* pdata)
 		}
 	}
 
-	cocos2d::ui::ImageView* resimg = (cocos2d::ui::ImageView*)resbox->getChildByName("Image");
+	cocos2d::ui::ImageView* resimg = (cocos2d::ui::ImageView*)m_csbnode->getChildByName("Image");
 
 	std::string str = StringUtils::format("ui/%s.png", pdata->strid.c_str());
 	resimg->loadTexture(str, cocos2d::ui::TextureResType::PLIST);

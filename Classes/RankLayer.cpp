@@ -75,6 +75,9 @@ bool RankLayer::init()
 	myFihgtNode = (cocos2d::ui::Widget*)m_csbnode->getChildByName("mynode");
 	myFihgtNode->setVisible(false);
 
+	hintdown = (cocos2d::ui::Widget*)m_csbnode->getChildByName("hintdown");
+	hintdown->setVisible(true);
+
 	GlobalData::g_gameStatus = GAMEPAUSE;
 
 	selectrank = 0;
@@ -236,9 +239,11 @@ void RankLayer::delayShowData(float dt)
 		mynode->setPosition(Vec2(360, 130));
 		this->addChild(mynode, 0, "mynode");
 		myFihgtNode->setVisible(false);
+		hintdown->setVisible(true);
 	}
 	else
 	{
+		hintdown->setVisible(false);
 		myFihgtNode->setVisible(true);
 		cocos2d::ui::Button* addbtn = (cocos2d::ui::Button*)myFihgtNode->getChildByName("addbtn");
 		addbtn->addTouchEventListener(CC_CALLBACK_2(RankLayer::onAddCount, this));
@@ -371,13 +376,13 @@ bool RankItem::init(RankData *data, int type)
 		}
 		else if (rank % 2 == 0)
 		{
-			itemstr = "ui/rankitem0.png";
+			itemstr = "ui/commonframe_1.png";
 		}
 	}
 	if (itemstr.length() > 0)
 	{
-		cocos2d::ui::ImageView* item = (cocos2d::ui::ImageView*)csbnode->getChildByName("item");
-		item->loadTexture(itemstr, cocos2d::ui::TextureResType::PLIST);
+		/*cocos2d::ui::ImageView* item = (cocos2d::ui::ImageView*)csbnode->getChildByName("item");
+		item->loadTexture(itemstr, cocos2d::ui::TextureResType::PLIST);*/
 	}
 
 	cocos2d::ui::Text* ranknumlbl = (cocos2d::ui::Text*)csbnode->getChildByName("ranknum");

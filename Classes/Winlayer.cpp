@@ -64,10 +64,10 @@ bool Winlayer::init(std::string addrid, std::string npcid)
 	if (m_npcid.compare("n001") == 0)//在路上碰到山贼
 		addrname->setString(CommonFuncs::gbk2utf("路上"));
 
-	explbl = (cocos2d::ui::Text*)csbnode->getChildByName("explbl");
+	explbl = (cocos2d::ui::TextBMFont*)csbnode->getChildByName("explbl");
 	std::string lblstr = StringUtils::format("+%d", addHeroExp());
 	explbl->setString(lblstr);
-	gfexplbl = (cocos2d::ui::Text*)csbnode->getChildByName("gfexplbl");
+	gfexplbl = (cocos2d::ui::TextBMFont*)csbnode->getChildByName("gfexplbl");
 	if (g_hero->getAtrByType(H_WG)->count > 0 || g_hero->getAtrByType(H_NG)->count > 0)
 	{
 
@@ -838,7 +838,7 @@ void Winlayer::updataMyPackageUI()
 			box,
 			CC_CALLBACK_1(Winlayer::onPackageItem, this));
 		boxItem->setTag(i);
-		boxItem->setPosition(Vec2(110 + i * 125, 220));
+		boxItem->setPosition(Vec2(170 + i * 125, 250));
 		Menu* menu = Menu::create();
 		menu->addChild(boxItem);
 		menu->setPosition(Vec2(0, 0));
@@ -880,7 +880,7 @@ void Winlayer::updataRewardUI()
 			CC_CALLBACK_1(Winlayer::onRewardItem, this));
 		boxItem->setTag(i);
 		boxItem->setUserData(&getRewardData[i]);
-		boxItem->setPosition(Vec2(150 + i * 135, 420));
+		boxItem->setPosition(Vec2(170 + i * 135, 420));
 		Menu* menu = Menu::create();
 		menu->addChild(boxItem);
 		menu->setPosition(Vec2(0, 0));

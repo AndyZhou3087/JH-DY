@@ -58,10 +58,14 @@
           <Image Name="mixdoneok.png" />
           <Image Name="normalboxgb.png" />
           <Image Name="noticebg.png" />
+          <Image Name="npcfightbg.png" />
           <Image Name="npctalkbg.png" />
+          <Image Name="npcwin.png" />
           <Image Name="prizebtn.png" />
           <Image Name="priztitle.png" />
           <Image Name="rafflerettitle.png" />
+          <Image Name="rankbg.png" />
+          <Image Name="ranktitlebg.png" />
           <Image Name="repairbox.png" />
           <Image Name="role_1.png" />
           <Image Name="role_2.png" />
@@ -238,6 +242,8 @@
           <Image Name="ck.png" />
           <Image Name="closebtn.png" />
           <Image Name="commonframe.png" />
+          <Image Name="commonframe_1.png" />
+          <Image Name="commonline.png" />
           <Image Name="contimuelabel.png" />
           <Image Name="contimuelabelpress.png" />
           <Image Name="cooktable.png" />
@@ -286,12 +292,15 @@
           <Image Name="fightaddcounttitle.png" />
           <Image Name="fightaddicon0.png" />
           <Image Name="fightaddicon1.png" />
+          <Image Name="fightherokuang.png" />
           <Image Name="fighthpbar.png" />
           <Image Name="fighthpbar2.png" />
           <Image Name="fighthpbg.png" />
           <Image Name="fighticon.png" />
           <Image Name="fightitem0.png" />
           <Image Name="fightitem1.png" />
+          <Image Name="fightliseicon.png" />
+          <Image Name="fightlistlabel.png" />
           <Image Name="fightnodebtn.png" />
           <Image Name="forgingtable.png" />
           <Image Name="frame_1.png" />
@@ -537,6 +546,7 @@
           <Image Name="normalbtn1.png" />
           <Image Name="normalbtn2.png" />
           <Image Name="npcbtn1.png" />
+          <Image Name="npcframebg.png" />
           <Image Name="npcheadbox.png" />
           <Image Name="npcprope0.png" />
           <Image Name="npcprope1.png" />
@@ -574,6 +584,8 @@
           <Image Name="relationtextbox.png" />
           <Image Name="relationtitle.png" />
           <Image Name="relationtitlebox.png" />
+          <Image Name="repairframe.png" />
+          <Image Name="repairframe_1.png" />
           <Image Name="repairokquan.png" />
           <Image Name="repairoktext.png" />
           <Image Name="resadd1.png" />

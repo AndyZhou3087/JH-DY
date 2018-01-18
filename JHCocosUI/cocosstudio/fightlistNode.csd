@@ -6,16 +6,6 @@
       <ObjectData Name="Node" Tag="27" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="item" ActionTag="1430711721" Tag="42" IconVisible="False" LeftMargin="-306.0000" RightMargin="-306.0000" TopMargin="-36.0000" BottomMargin="-36.0000" LeftEage="201" RightEage="201" TopEage="23" BottomEage="23" Scale9OriginX="201" Scale9OriginY="23" Scale9Width="210" Scale9Height="26" ctype="ImageViewObjectData">
-            <Size X="612.0000" Y="72.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
-            <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="MarkedSubImage" Path="ui/fightitem1.png" Plist="uipacker.plist" />
-          </AbstractNodeData>
           <AbstractNodeData Name="ranknum" ActionTag="-847121686" Tag="41" IconVisible="False" LeftMargin="-282.4331" RightMargin="269.4331" TopMargin="-16.5000" BottomMargin="-16.5000" FontSize="32" LabelText="1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="13.0000" Y="33.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -86,8 +76,30 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="actionbtn" ActionTag="-1458277947" Tag="64" IconVisible="False" LeftMargin="175.6285" RightMargin="-299.6285" TopMargin="-27.8151" BottomMargin="-24.1849" TouchEnable="True" FontSize="30" ButtonText="    挑战" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="94" Scale9Height="30" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="124.0000" Y="52.0000" />
+          <AbstractNodeData Name="actionbtn" ActionTag="-1458277947" Tag="64" IconVisible="False" LeftMargin="179.1285" RightMargin="-296.1285" TopMargin="-25.3151" BottomMargin="-21.6849" TouchEnable="True" FontSize="30" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="87" Scale9Height="25" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="117.0000" Y="47.0000" />
+            <Children>
+              <AbstractNodeData Name="Image_1" ActionTag="1824556034" Tag="746" IconVisible="False" LeftMargin="2.3819" RightMargin="74.6181" TopMargin="1.1439" BottomMargin="4.8561" LeftEage="13" RightEage="13" TopEage="13" BottomEage="13" Scale9OriginX="13" Scale9OriginY="13" Scale9Width="14" Scale9Height="15" ctype="ImageViewObjectData">
+                <Size X="40.0000" Y="41.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="22.3819" Y="25.3561" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.1913" Y="0.5395" />
+                <PreSize X="0.3419" Y="0.8723" />
+                <FileData Type="MarkedSubImage" Path="ui/fightliseicon.png" Plist="uipacker.plist" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Image_2" ActionTag="768314786" Tag="747" IconVisible="False" LeftMargin="47.2164" RightMargin="15.7836" TopMargin="8.6180" BottomMargin="10.3820" LeftEage="17" RightEage="17" TopEage="9" BottomEage="9" Scale9OriginX="17" Scale9OriginY="9" Scale9Width="20" Scale9Height="10" ctype="ImageViewObjectData">
+                <Size X="54.0000" Y="28.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="74.2164" Y="24.3820" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.6343" Y="0.5188" />
+                <PreSize X="0.4615" Y="0.5957" />
+                <FileData Type="MarkedSubImage" Path="ui/fightlistlabel.png" Plist="uipacker.plist" />
+              </AbstractNodeData>
+            </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="237.6285" Y="1.8151" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -96,11 +108,22 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="MarkedSubImage" Path="ui/fightnodebtn.png" Plist="uipacker.plist" />
-            <PressedFileData Type="MarkedSubImage" Path="ui/fightnodebtn.png" Plist="uipacker.plist" />
-            <NormalFileData Type="MarkedSubImage" Path="ui/fightnodebtn.png" Plist="uipacker.plist" />
+            <DisabledFileData Type="MarkedSubImage" Path="ui/buildtagbtn2.png" Plist="uipacker.plist" />
+            <PressedFileData Type="MarkedSubImage" Path="ui/buildtagbtn1.png" Plist="uipacker.plist" />
+            <NormalFileData Type="MarkedSubImage" Path="ui/buildtagbtn1.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="commonline_1" ActionTag="2113479273" Tag="748" IconVisible="False" LeftMargin="-286.0600" RightMargin="-302.9400" TopMargin="36.1400" BottomMargin="-41.1400" ctype="SpriteObjectData">
+            <Size X="589.0000" Y="5.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="8.4400" Y="-38.6400" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="MarkedSubImage" Path="ui/commonline.png" Plist="uipacker.plist" />
+            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

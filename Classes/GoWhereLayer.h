@@ -81,6 +81,8 @@ private:
 	cocos2d::ui::Button* m_gobtn;//出发按钮
 	cocos2d::ui::Button* m_enterbtn;//进入按钮
 	cocos2d::ui::Button* m_stbtn;//临时存放按钮
+	cocos2d::ui::Text* closebtnlabel;
+	cocos2d::ui::Text* enterbtnlabel;
 };
 #endif
 

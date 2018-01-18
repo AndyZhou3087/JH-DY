@@ -31,8 +31,8 @@
       <ObjectData Name="Layer" Tag="68" ctype="GameLayerObjectData">
         <Size X="720.0000" Y="1280.0000" />
         <Children>
-          <AbstractNodeData Name="ScrollView" ActionTag="-2135080053" Tag="69" IconVisible="False" TopMargin="388.0000" TouchEnable="True" ClipAble="True" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="Vertical_Horizontal" ctype="ScrollViewObjectData">
-            <Size X="720.0000" Y="892.0000" />
+          <AbstractNodeData Name="ScrollView" ActionTag="-2135080053" Tag="69" IconVisible="False" TopMargin="280.0000" TouchEnable="True" ClipAble="True" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="Vertical_Horizontal" ctype="ScrollViewObjectData">
+            <Size X="720.0000" Y="1000.0000" />
             <Children>
               <AbstractNodeData Name="mapbg" ActionTag="-1571269876" Tag="70" IconVisible="False" LeftMargin="-1.5475" RightMargin="1.5475" TopMargin="-1.5476" BottomMargin="1.5476" ctype="SpriteObjectData">
                 <Size X="2000.0000" Y="1396.0000" />
@@ -799,21 +799,21 @@
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
-            <PreSize X="1.0000" Y="0.6969" />
+            <PreSize X="1.0000" Y="0.7813" />
             <SingleColor A="255" R="255" G="150" B="100" />
             <FirstColor A="255" R="255" G="150" B="100" />
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
             <InnerNodeSize Width="2000" Height="1396" />
           </AbstractNodeData>
-          <AbstractNodeData Name="shopbtn" ActionTag="3558553" Tag="161" IconVisible="False" LeftMargin="-0.0880" RightMargin="602.0880" TopMargin="1154.6934" BottomMargin="-0.6934" TouchEnable="True" FontSize="50" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="88" Scale9Height="104" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="118.0000" Y="126.0000" />
+          <AbstractNodeData Name="shopbtn" ActionTag="3558553" Tag="161" IconVisible="False" LeftMargin="-7.9655" RightMargin="581.9655" TopMargin="1153.7473" BottomMargin="-2.7473" TouchEnable="True" FontSize="50" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="116" Scale9Height="107" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="146.0000" Y="129.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="58.9120" Y="62.3066" />
+            <Position X="65.0345" Y="61.7527" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0818" Y="0.0487" />
-            <PreSize X="0.1639" Y="0.0984" />
+            <PrePosition X="0.0903" Y="0.0482" />
+            <PreSize X="0.2028" Y="0.1008" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="MarkedSubImage" Path="ui/shopbtn.png" Plist="uipacker.plist" />

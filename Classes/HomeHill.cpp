@@ -34,7 +34,7 @@ bool HomeHill::init()
 	scrollView->setScrollBarEnabled(false);
 	scrollView->setBounceEnabled(true);
 
-	int itemheight = 140;
+	int itemheight = 160;
 	int innerheight = itemheight * ressize;
 	int contentheight = scrollView->getContentSize().height;
 	if (innerheight < contentheight)
@@ -47,7 +47,7 @@ bool HomeHill::init()
 		Node* resnode = CSLoader::createNode("resNode.csb");
 		std::string namestr = StringUtils::format("node%d", i);
 		scrollView->addChild(resnode,0, namestr);
-		resnode->setPosition(Vec2(scrollView->getContentSize().width/2, innerheight - i * itemheight - itemheight / 2));
+		resnode->setPosition(Vec2(scrollView->getContentSize().width/2-10, innerheight - i * itemheight - itemheight / 2));
 
 		//资源id
 		cocos2d::ui::ImageView* iconimg = (cocos2d::ui::ImageView*)resnode->getChildByName("icon");
@@ -66,6 +66,7 @@ bool HomeHill::init()
 		//操作按钮
 		cocos2d::ui::Button* actionbtn = (cocos2d::ui::Button*)resnode->getChildByName("actionbtn");
 		actionbtn->addTouchEventListener(CC_CALLBACK_2(HomeHill::onclick, this));
+		cocos2d::ui::Text* antionbtnlabel = (cocos2d::ui::Text*)actionbtn->getChildByName("text");
 
 		for (unsigned int m = 0; m < GlobalData::vec_resData.size(); m++)
 		{
@@ -104,7 +105,8 @@ bool HomeHill::init()
 					actionbtn->setEnabled(true);
 				}
 
-				actionbtn->setTitleText(CommonFuncs::gbk2utf(acname[data.actype].c_str()));
+				//actionbtn->setTitleText(CommonFuncs::gbk2utf(acname[data.actype].c_str()));
+				antionbtnlabel->setString(CommonFuncs::gbk2utf(acname[data.actype].c_str()));
 				
 			}
 		}

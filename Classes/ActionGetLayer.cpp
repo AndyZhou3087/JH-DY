@@ -41,7 +41,9 @@ bool ActionGetLayer::init(int rid, std::vector<int> res_ids, int type, int actyp
 	m_getbtn = (cocos2d::ui::Button*)csbnode->getChildByName("getbtn");
 	m_getbtn->addTouchEventListener(CC_CALLBACK_2(ActionGetLayer::onGet, this));
 	std::string str = StringUtils::format("继续%s", acname[actype].c_str());
-	m_getbtn->setTitleText(CommonFuncs::gbk2utf(str.c_str()));
+	cocos2d::ui::Text* getbtnlabel = (cocos2d::ui::Text*)m_getbtn->getChildByName("text");
+	getbtnlabel->setString(CommonFuncs::gbk2utf(str.c_str()));
+	//m_getbtn->setTitleText(CommonFuncs::gbk2utf(str.c_str()));
 
 	//全部拾取按钮
 	m_getallbtn = (cocos2d::ui::Button*)csbnode->getChildByName("allgetbtn");

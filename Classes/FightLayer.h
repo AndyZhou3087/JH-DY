@@ -158,6 +158,7 @@ private:
 private:
 	UIScroll* m_fihgtScorll;//文字滚动控件
 	cocos2d::ui::Button* m_escapebtn;//逃跑按钮控件
+	cocos2d::ui::Text* escapetext;//逃跑按钮下的text控件
 	cocos2d::ui::Button* m_fightbtn;//战斗按钮控件
 	cocos2d::ui::Text* herohpvaluetext;//角色血量控件
 	cocos2d::ui::Text* npchpvaluetext;//NCP血量控件

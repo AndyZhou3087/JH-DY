@@ -673,6 +673,14 @@
       <FilePathData Path="ui/yuan.png" />
       <FilePathData Path="ui/timegiftframe.png" />
       <FilePathData Path="ui/loginritemlight.png" />
+      <FilePathData Path="ui/npcframebg.png" />
+      <FilePathData Path="ui/repairframe.png" />
+      <FilePathData Path="ui/repairframe_1.png" />
+      <FilePathData Path="ui/fightherokuang.png" />
+      <FilePathData Path="ui/commonframe_1.png" />
+      <FilePathData Path="ui/commonline.png" />
+      <FilePathData Path="ui/fightliseicon.png" />
+      <FilePathData Path="ui/fightlistlabel.png" />
     </ImageFiles>
     <MaxSize Width="4096" Height="4096" />
   </Content>

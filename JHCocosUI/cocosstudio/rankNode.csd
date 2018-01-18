@@ -6,16 +6,6 @@
       <ObjectData Name="Node" Tag="34" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="item" ActionTag="-2076237047" Tag="36" IconVisible="False" LeftMargin="-306.0000" RightMargin="-306.0000" TopMargin="-36.0000" BottomMargin="-36.0000" LeftEage="201" RightEage="201" TopEage="23" BottomEage="23" Scale9OriginX="201" Scale9OriginY="23" Scale9Width="210" Scale9Height="26" ctype="ImageViewObjectData">
-            <Size X="612.0000" Y="72.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
-            <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="MarkedSubImage" Path="ui/rankitem1.png" Plist="uipacker.plist" />
-          </AbstractNodeData>
           <AbstractNodeData Name="ranknum" ActionTag="-1356106108" Tag="37" IconVisible="False" LeftMargin="-271.4334" RightMargin="258.4334" TopMargin="-16.5000" BottomMargin="-16.5000" FontSize="32" LabelText="1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="13.0000" Y="33.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -87,6 +77,17 @@
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="commonline_1" ActionTag="1395886539" Tag="716" IconVisible="False" LeftMargin="-286.0631" RightMargin="-302.9369" TopMargin="36.1372" BottomMargin="-41.1372" ctype="SpriteObjectData">
+            <Size X="589.0000" Y="5.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="8.4369" Y="-38.6372" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="MarkedSubImage" Path="ui/commonline.png" Plist="uipacker.plist" />
+            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

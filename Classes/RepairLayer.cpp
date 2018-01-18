@@ -58,11 +58,13 @@ bool RepairLayer::init(int type)
 	m_actionBtn->addTouchEventListener(CC_CALLBACK_2(RepairLayer::onAction, this));
 	m_actionBtn->setTag(type);
 	m_actionBtn->setEnabled(false);
+	cocos2d::ui::Text* actionlabel = (cocos2d::ui::Text*)m_actionBtn->getChildByName("text");
 
 	cocos2d::ui::Widget* desclbl = (cocos2d::ui::Button*)csbnode->getChildByName("desc");
 	if (m_type == 2)
 	{
-		m_actionBtn->setTitleText(CommonFuncs::gbk2utf("强化"));
+		actionlabel->setString(CommonFuncs::gbk2utf("强化"));
+		//m_actionBtn->setTitleText(CommonFuncs::gbk2utf("强化"));
 		desclbl->setVisible(true);
 	}
 

@@ -88,6 +88,7 @@ bool GoWhereLayer::init(std::string addrid, WHERELAYER_TYPE type, float distance
 	
 	cocos2d::ui::Button* closebtn = (cocos2d::ui::Button*)csbnode->getChildByName("closebtn");
 	closebtn->addTouchEventListener(CC_CALLBACK_2(GoWhereLayer::onClose, this));
+	closebtnlabel = (cocos2d::ui::Text*)closebtn->getChildByName("btnlabel");
 
 	m_gobtn = (cocos2d::ui::Button*)csbnode->getChildByName("gobtn");
 	m_gobtn->addTouchEventListener(CC_CALLBACK_2(GoWhereLayer::onGO, this));
@@ -101,6 +102,7 @@ bool GoWhereLayer::init(std::string addrid, WHERELAYER_TYPE type, float distance
 
 	m_enterbtn = (cocos2d::ui::Button*)csbnode->getChildByName("enterbtn");
 	m_enterbtn->addTouchEventListener(CC_CALLBACK_2(GoWhereLayer::onComeIn, this));
+	enterbtnlabel = (cocos2d::ui::Text*)m_enterbtn->getChildByName("btnlabel");
 
 	cocos2d::ui::Button* backbtn = (cocos2d::ui::Button*)csbnode->getChildByName("backbtn");
 	backbtn->addTouchEventListener(CC_CALLBACK_2(GoWhereLayer::onClose, this));
@@ -131,11 +133,13 @@ bool GoWhereLayer::init(std::string addrid, WHERELAYER_TYPE type, float distance
 	else if (type == ONWAY_JUMP)
 	{
 		closebtn->setVisible(true);
-		closebtn->setTitleText(CommonFuncs::gbk2utf("不跳"));
+		closebtnlabel->setString(CommonFuncs::gbk2utf("不跳"));
+		//closebtn->setTitleText(CommonFuncs::gbk2utf("不跳"));
 		m_gobtn->setVisible(false);
 		m_stbtn->setVisible(false);
 		m_enterbtn->setVisible(true);
-		m_enterbtn->setTitleText(CommonFuncs::gbk2utf("跳入"));
+		enterbtnlabel->setString(CommonFuncs::gbk2utf("跳入"));
+		//m_enterbtn->setTitleText(CommonFuncs::gbk2utf("跳入"));
 		fast->setVisible(false);
 		fasttitle->setVisible(false);
 		title->setString(CommonFuncs::gbk2utf("奇遇"));

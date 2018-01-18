@@ -179,17 +179,21 @@ void NpcLayer::refreshNpcNode()
 			cocos2d::ui::Button* talkbtn = (cocos2d::ui::Button*)npcitem->getChildByName("talkbtn");
 			talkbtn->addTouchEventListener(CC_CALLBACK_2(NpcLayer::onItemTalk, this));
 			talkbtn->setTag(i);
+			cocos2d::ui::Text* talkbtnlabel = (cocos2d::ui::Text*)talkbtn->getChildByName("text");
 
 			cocos2d::ui::Button* fightbtn = (cocos2d::ui::Button*)npcitem->getChildByName("fightbtn");
 			fightbtn->addTouchEventListener(CC_CALLBACK_2(NpcLayer::onItemFight, this));
+			cocos2d::ui::Text* fightbtnlabel = (cocos2d::ui::Text*)fightbtn->getChildByName("text");
 
 			cocos2d::ui::Button* masterbtn = (cocos2d::ui::Button*)npcitem->getChildByName("msterbtn");
 			masterbtn->setTag(i);
 			masterbtn->addTouchEventListener(CC_CALLBACK_2(NpcLayer::onItemMaster, this));
+			cocos2d::ui::Text* msterbtnlabel = (cocos2d::ui::Text*)masterbtn->getChildByName("text");
 
 			cocos2d::ui::Button* friendbtn = (cocos2d::ui::Button*)npcitem->getChildByName("friendbtn");
 			friendbtn->setTag(i);
 			friendbtn->addTouchEventListener(CC_CALLBACK_2(NpcLayer::onItemFriend, this));
+			cocos2d::ui::Text* friendbtnlabel = (cocos2d::ui::Text*)friendbtn->getChildByName("text");
 
 			int relation = F_NOMAR;
 			if (GlobalData::map_myfriendly.find(mdata.npcs[i]) != GlobalData::map_myfriendly.end())
@@ -197,16 +201,16 @@ void NpcLayer::refreshNpcNode()
 
 			if (relation == F_MASTEROUT)
 			{
-				masterbtn->setTitleText(CommonFuncs::gbk2utf("出师"));
+				msterbtnlabel->setString(CommonFuncs::gbk2utf("出师"));
 				masterbtn->setEnabled(false);
 			}
 			else if (relation == F_FRIEND)
 			{
-				friendbtn->setTitleText(CommonFuncs::gbk2utf("绝交"));
+				friendbtnlabel->setString(CommonFuncs::gbk2utf("绝交"));
 			}
 			else if (relation == F_MASTER)
 			{
-				masterbtn->setTitleText(CommonFuncs::gbk2utf("出师"));
+				msterbtnlabel->setString(CommonFuncs::gbk2utf("出师"));
 			}
 
 			cocos2d::ui::Button* givebtn = (cocos2d::ui::Button*)npcitem->getChildByName("givebtn");
@@ -221,14 +225,14 @@ void NpcLayer::refreshNpcNode()
 
 			if (mdata.npcs[i].compare("n009") == 0)
 			{
-				talkbtn->setTitleText(CommonFuncs::gbk2utf("吃饭"));
+				talkbtnlabel->setString(CommonFuncs::gbk2utf("吃饭"));
 				talkbtn->setTag(10 * i);
 				talkbtn->addTouchEventListener(CC_CALLBACK_2(NpcLayer::onHostelAction, this));
-				fightbtn->setTitleText(CommonFuncs::gbk2utf("睡觉"));
+				fightbtnlabel->setString(CommonFuncs::gbk2utf("睡觉"));
 				fightbtn->setTag(10 * i + 1);
 				fightbtn->addTouchEventListener(CC_CALLBACK_2(NpcLayer::onHostelAction, this));
 				masterbtn->setVisible(true);
-				masterbtn->setTitleText(CommonFuncs::gbk2utf("喝酒"));
+				msterbtnlabel->setString(CommonFuncs::gbk2utf("喝酒"));
 				masterbtn->setTag(10 * i + 2);
 				masterbtn->addTouchEventListener(CC_CALLBACK_2(NpcLayer::onHostelAction, this));
 				friendbtn->setVisible(false);
@@ -237,11 +241,11 @@ void NpcLayer::refreshNpcNode()
 			}
 			else if (mdata.npcs[i].compare("n092") == 0)
 			{
-				fightbtn->setTitleText(CommonFuncs::gbk2utf("修理"));
+				fightbtnlabel->setString(CommonFuncs::gbk2utf("修理"));
 				fightbtn->setTag(1);
 				fightbtn->addTouchEventListener(CC_CALLBACK_2(NpcLayer::onRepair, this));
 				masterbtn->setVisible(true);
-				masterbtn->setTitleText(CommonFuncs::gbk2utf("强化"));
+				msterbtnlabel->setString(CommonFuncs::gbk2utf("强化"));
 				masterbtn->setTag(2);
 				masterbtn->addTouchEventListener(CC_CALLBACK_2(NpcLayer::onRepair, this));
 				friendbtn->setVisible(false);
@@ -515,7 +519,8 @@ void NpcLayer::onItemMaster(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEve
 				GlobalData::saveFriendly();
 				std::string desc = StringUtils::format("%s%s%s", CommonFuncs::gbk2utf("拜入").c_str(), GlobalData::map_npcs[npcid].name, CommonFuncs::gbk2utf("门下！一日为师，终生为父！").c_str());
 				g_uiScroll->addEventText(desc, 25, Color3B(27, 141, 0));
-				btn->setTitleText(CommonFuncs::gbk2utf("出师"));
+				cocos2d::ui::Text* msterbtnlabel = (cocos2d::ui::Text*)btn->getChildByName("text");
+				msterbtnlabel->setString(CommonFuncs::gbk2utf("出师"));
 			}
 			else
 			{
@@ -539,6 +544,7 @@ void NpcLayer::onItemFriend(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEve
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
 		cocos2d::ui::Button* btn = (cocos2d::ui::Button*)pSender;
+		cocos2d::ui::Text* friendbtnlabel = (cocos2d::ui::Text*)btn->getChildByName("text");
 		std::string npcid = GlobalData::map_maps[m_addrstr].npcs[btn->getTag()];
 		if (btn->getTitleText().compare(CommonFuncs::gbk2utf("结交")) == 0)
 		{
@@ -601,7 +607,8 @@ void NpcLayer::onItemFriend(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEve
 				GlobalData::saveFriendly();
 				std::string desc = StringUtils::format("%s%s%s", CommonFuncs::gbk2utf("与").c_str(), GlobalData::map_npcs[npcid].name, CommonFuncs::gbk2utf("成为好友！").c_str());
 				g_uiScroll->addEventText(desc, 25, Color3B(27, 141, 0));
-				btn->setTitleText(CommonFuncs::gbk2utf("绝交"));
+
+				friendbtnlabel->setString(CommonFuncs::gbk2utf("绝交"));
 			}
 			else
 			{
@@ -613,7 +620,7 @@ void NpcLayer::onItemFriend(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEve
 		{
 			GlobalData::map_myfriendly[npcid].relation = F_NOMAR;
 			GlobalData::saveFriendly();
-			btn->setTitleText(CommonFuncs::gbk2utf("结交"));
+			friendbtnlabel->setString(CommonFuncs::gbk2utf("结交"));
 			GlobalData::map_myfriendly[npcid].friendly -= GlobalData::map_NPCFriendData[npcid].maxfriendly / 5;
 			updateFriendly(npcid);
 		}
@@ -1366,6 +1373,8 @@ void NpcLayer::reFreshRelationUI()
 
 		cocos2d::ui::Button* masterbtn = (cocos2d::ui::Button*)npcitemnode->getChildByName("msterbtn");
 		cocos2d::ui::Button* friendbtn = (cocos2d::ui::Button*)npcitemnode->getChildByName("friendbtn");
+		cocos2d::ui::Text* msterbtnlabel = (cocos2d::ui::Text*)masterbtn->getChildByName("text");
+		cocos2d::ui::Text* friendbtnlabel = (cocos2d::ui::Text*)friendbtn->getChildByName("text");
 
 		int relation = F_NOMAR;
 
@@ -1377,20 +1386,20 @@ void NpcLayer::reFreshRelationUI()
 		if (relation == F_MASTEROUT)
 		{
 			masterbtn->setEnabled(false);
-			masterbtn->setTitleText(CommonFuncs::gbk2utf("出师"));
+			msterbtnlabel->setString(CommonFuncs::gbk2utf("出师"));
 		}
 		else if (relation == F_NOMAR)
 		{
-			friendbtn->setTitleText(CommonFuncs::gbk2utf("结交"));
-			masterbtn->setTitleText(CommonFuncs::gbk2utf("拜师"));
+			friendbtnlabel->setString(CommonFuncs::gbk2utf("结交"));
+			msterbtnlabel->setString(CommonFuncs::gbk2utf("拜师"));
 		}
 		else if (relation == F_FRIEND)
 		{
-			friendbtn->setTitleText(CommonFuncs::gbk2utf("绝交"));
+			friendbtnlabel->setString(CommonFuncs::gbk2utf("绝交"));
 		}
 		else if (relation == F_MASTER)
 		{
-			masterbtn->setTitleText(CommonFuncs::gbk2utf("出师"));
+			msterbtnlabel->setString(CommonFuncs::gbk2utf("出师"));
 		}
 
 	}
