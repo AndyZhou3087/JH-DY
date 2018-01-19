@@ -48,7 +48,7 @@ bool PlayerChallengeResultLayer::init(RankData* fightPlayerData, int win)
 	cocos2d::ui::Widget *backbtn = (cocos2d::ui::Widget*)m_csbnode->getChildByName("backbtn");
 	backbtn->addTouchEventListener(CC_CALLBACK_2(PlayerChallengeResultLayer::onBack, this));
 
-	std::string str = StringUtils::format("ui/tophero%d.png", g_hero->getHeadID());
+	std::string str = StringUtils::format("ui/fhero%d.png", g_hero->getHeadID());
 	cocos2d::ui::ImageView* headimg = (cocos2d::ui::ImageView*)m_csbnode->getChildByName("heroimg");
 	headimg->loadTexture(str, cocos2d::ui::TextureResType::PLIST);
 
@@ -64,9 +64,9 @@ bool PlayerChallengeResultLayer::init(RankData* fightPlayerData, int win)
 	cocos2d::ui::ImageView* winbox = (cocos2d::ui::ImageView*)m_csbnode->getChildByName("winbox");
 	winbox->loadTexture(str, cocos2d::ui::TextureResType::PLIST);
 
-	str = StringUtils::format("ui/wintext%d.png", win);
-	cocos2d::ui::ImageView* wintext = (cocos2d::ui::ImageView*)m_csbnode->getChildByName("wintext");
-	wintext->loadTexture(str, cocos2d::ui::TextureResType::PLIST);
+	char* arr[] = { "再接再厉", "排名上升" };
+	cocos2d::ui::Text* wintext = (cocos2d::ui::Text*)m_csbnode->getChildByName("wintext");
+	wintext->setString(CommonFuncs::gbk2utf(arr[win]));
 
 	cocos2d::ui::Text* explbl = (cocos2d::ui::Text*)m_csbnode->getChildByName("explbl");
 
@@ -100,7 +100,8 @@ bool PlayerChallengeResultLayer::init(RankData* fightPlayerData, int win)
 		explbl->setString("-1");
 		GlobalData::myFihgtexp -= 1;
 		rankup->setVisible(false);
-		winicon->setVisible(false);
+		//winicon->setVisible(false);
+		winicon->setPositionY(266);
 	}
 
 	GlobalData::myFihgtCount--;

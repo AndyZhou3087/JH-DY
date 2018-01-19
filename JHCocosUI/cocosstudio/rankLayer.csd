@@ -443,8 +443,8 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="addbtn" ActionTag="-775562511" Tag="41" IconVisible="False" LeftMargin="250.5876" RightMargin="-310.5876" TopMargin="-55.8187" BottomMargin="-4.1813" TouchEnable="True" FontSize="30" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="30" Scale9Height="38" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                <Size X="60.0000" Y="60.0000" />
+              <AbstractNodeData Name="addbtn" ActionTag="-775562511" Tag="41" IconVisible="False" LeftMargin="260.0876" RightMargin="-301.0876" TopMargin="-47.8187" BottomMargin="3.8187" TouchEnable="True" FontSize="30" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="11" Scale9Height="22" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="41.0000" Y="44.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="280.5876" Y="25.8187" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -515,13 +515,13 @@
             <PrePosition X="0.4978" Y="0.0841" />
             <PreSize X="0.0000" Y="0.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="hintdown" ActionTag="-1868572039" Tag="719" IconVisible="False" LeftMargin="322.5350" RightMargin="322.4650" TopMargin="1159.6650" BottomMargin="55.3350" ctype="SpriteObjectData">
+          <AbstractNodeData Name="hintdown" ActionTag="-1868572039" Tag="719" IconVisible="False" LeftMargin="322.5351" RightMargin="322.4649" TopMargin="1178.6649" BottomMargin="36.3351" ctype="SpriteObjectData">
             <Size X="75.0000" Y="65.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="360.0350" Y="87.8350" />
+            <Position X="360.0351" Y="68.8351" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.0686" />
+            <PrePosition X="0.5000" Y="0.0538" />
             <PreSize X="0.1042" Y="0.0508" />
             <FileData Type="MarkedSubImage" Path="ui/hintdown.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />

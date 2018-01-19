@@ -247,8 +247,8 @@ bool FactionListItem::init(FactionListData *data)
 	}
 	if (itemstr.length() > 0)
 	{
-		cocos2d::ui::ImageView* item = (cocos2d::ui::ImageView*)csbnode->getChildByName("item");
-		item->loadTexture(itemstr, cocos2d::ui::TextureResType::PLIST);
+		/*cocos2d::ui::ImageView* item = (cocos2d::ui::ImageView*)csbnode->getChildByName("item");
+		item->loadTexture(itemstr, cocos2d::ui::TextureResType::PLIST);*/
 	}
 
 	cocos2d::ui::Text* ranknumlbl = (cocos2d::ui::Text*)csbnode->getChildByName("num");
@@ -279,20 +279,22 @@ bool FactionListItem::init(FactionListData *data)
 	actionbtn->addTouchEventListener(CC_CALLBACK_2(FactionListItem::onAction, this));
 	actionbtn->setSwallowTouches(false);
 
+	actionbtnlabel = (cocos2d::ui::Text*)actionbtn->getChildByName("text");
+
 	if (GlobalData::myFaction == data->id)
 	{
 		if (GlobalData::mytitle == 0)
 		{
-			actionbtn->setTitleText(CommonFuncs::gbk2utf("取消申请"));
+			actionbtnlabel->setString(CommonFuncs::gbk2utf("取消申请"));
 		}
 		else if (GlobalData::mytitle == 1)
 		{
-			actionbtn->setTitleText(CommonFuncs::gbk2utf("已创建"));
+			actionbtnlabel->setString(CommonFuncs::gbk2utf("已创建"));
 			actionbtn->setEnabled(false);
 		}
 		else if (GlobalData::mytitle == 2 || GlobalData::mytitle == 3 || GlobalData::mytitle == 4)
 		{
-			actionbtn->setTitleText(CommonFuncs::gbk2utf("已加入"));
+			actionbtnlabel->setString(CommonFuncs::gbk2utf("已加入"));
 			actionbtn->setEnabled(false);
 		}
 	}
@@ -432,7 +434,7 @@ void FactionListItem::onSuccess()
 
 	if (actionbtn->getTitleText().compare(CommonFuncs::gbk2utf("申请加入")) == 0)
 	{
-		actionbtn->setTitleText(CommonFuncs::gbk2utf("取消申请"));
+		actionbtnlabel->setString(CommonFuncs::gbk2utf("取消申请"));
 		GlobalData::myFaction = m_data->id;
 		GlobalData::mytitle = 0;
 		FactionMainLayer* fmainlayer = (FactionMainLayer*)g_gameLayer->getChildByName("factionmainlayer");
@@ -441,7 +443,7 @@ void FactionListItem::onSuccess()
 	}
 	else if (actionbtn->getTitleText().compare(CommonFuncs::gbk2utf("取消申请")) == 0)
 	{
-		actionbtn->setTitleText(CommonFuncs::gbk2utf("申请加入"));
+		actionbtnlabel->setString(CommonFuncs::gbk2utf("申请加入"));
 		GlobalData::myFaction = 0;
 		GlobalData::mytitle = 0;
 		FactionMainLayer* fmainlayer = (FactionMainLayer*)g_gameLayer->getChildByName("factionmainlayer");

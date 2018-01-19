@@ -135,9 +135,9 @@ bool AchiveItem::init(AchiveData *data)
 	cocos2d::ui::Text* desc = (cocos2d::ui::Text*)csbnode->getChildByName("desc");
 
 	m_barbg = (cocos2d::ui::Widget*)csbnode->getChildByName("finishbg");
-	m_bar = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("finishbar");
+	m_bar = (cocos2d::ui::LoadingBar*)m_barbg->getChildByName("finishbar");
 
-	m_finishtext = (cocos2d::ui::Text*)csbnode->getChildByName("finishtext");
+	m_finishtext = (cocos2d::ui::Text*)m_barbg->getChildByName("finishtext");
 
 	m_getimg = (cocos2d::ui::ImageView*)csbnode->getChildByName("getimg");
 	m_getimg->addTouchEventListener(CC_CALLBACK_2(AchiveItem::onGet, this));
@@ -164,6 +164,7 @@ bool AchiveItem::init(AchiveData *data)
 				count = res % 1000;
 			}
 		}
+
 		std::string respath = StringUtils::format("ui/%s.png", resid.c_str());
 
 		std::string str = StringUtils::format("rwd_%d", i + 1);
@@ -175,6 +176,10 @@ bool AchiveItem::init(AchiveData *data)
 		cocos2d::ui::Text* rwdcount = (cocos2d::ui::Text*)csbnode->getChildByName(str);
 		rwdcount->setString(countstr);
 		rwdcount->setVisible(true);
+
+		str = StringUtils::format("bg_%d", i + 1);
+		cocos2d::ui::Widget* rwdbg = (cocos2d::ui::Widget*)csbnode->getChildByName(str);
+		rwdbg->setVisible(true);
 	}
 	std::string descstr;
 	float finishpercert = 0.0f;
@@ -231,12 +236,13 @@ bool AchiveItem::init(AchiveData *data)
 	}
 	else if (data->finish >= needcount)
 	{
-		m_getimg->loadTexture("ui/loginrbtn.png", cocos2d::ui::Widget::TextureResType::PLIST);
+		m_getimg->loadTexture("ui/buildtagbtn0.png", cocos2d::ui::Widget::TextureResType::PLIST);
 		m_gettext->setString(CommonFuncs::gbk2utf("领取"));
+		m_barbg->setVisible(false);
 	}
 	else
 	{
-		m_gettext->setString(CommonFuncs::gbk2utf("未完成"));
+		m_getimg->setVisible(false);
 	}
 	return true;
 }
@@ -310,6 +316,7 @@ void AchiveItem::finish()
 	m_bar->setVisible(false);
 	m_finishtext->setVisible(false);
 	m_gettext->setString(CommonFuncs::gbk2utf("已领取"));
-	m_getimg->loadTexture("ui/disnpcbtn1.png", cocos2d::ui::Widget::TextureResType::PLIST);
+	m_barbg->setVisible(false);
+	m_getimg->loadTexture("ui/buildtagbtn2.png", cocos2d::ui::Widget::TextureResType::PLIST);
 	m_getimg->setEnabled(false);
 }

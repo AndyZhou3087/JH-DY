@@ -114,7 +114,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="commonline_1" ActionTag="2113479273" Tag="748" IconVisible="False" LeftMargin="-286.0600" RightMargin="-302.9400" TopMargin="36.1400" BottomMargin="-41.1400" ctype="SpriteObjectData">
+          <AbstractNodeData Name="commonline_1" ActionTag="1979001757" Tag="231" IconVisible="False" LeftMargin="-286.0600" RightMargin="-302.9400" TopMargin="36.1400" BottomMargin="-41.1400" LeftEage="194" RightEage="194" TopEage="1" BottomEage="1" Scale9OriginX="194" Scale9OriginY="1" Scale9Width="201" Scale9Height="3" ctype="ImageViewObjectData">
             <Size X="589.0000" Y="5.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="8.4400" Y="-38.6400" />
@@ -123,7 +123,6 @@
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/commonline.png" Plist="uipacker.plist" />
-            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

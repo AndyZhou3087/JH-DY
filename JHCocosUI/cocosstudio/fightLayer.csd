@@ -60,7 +60,7 @@
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.6244" Y="0.5571" />
-                <PreSize X="0.4741" Y="1.1633" />
+                <PreSize X="0.4784" Y="1.2041" />
                 <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
                 <OutlineColor A="255" R="0" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
@@ -133,14 +133,14 @@
             <PreSize X="0.2778" Y="0.1563" />
             <FileData Type="MarkedSubImage" Path="ui/n004.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="heroname" ActionTag="-899043201" Tag="128" IconVisible="False" LeftMargin="87.4009" RightMargin="492.5991" TopMargin="527.8981" BottomMargin="687.1019" IsCustomSize="True" FontSize="30" LabelText="小虾米" HorizontalAlignmentType="HT_Right" VerticalAlignmentType="VT_Bottom" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="140.0000" Y="65.0000" />
-            <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
-            <Position X="227.4009" Y="719.6019" />
+          <AbstractNodeData Name="heroname" ActionTag="-899043201" Tag="128" IconVisible="False" LeftMargin="135.4008" RightMargin="492.5992" TopMargin="563.4016" BottomMargin="685.5984" IsCustomSize="True" FontSize="30" LabelText="小虾米" HorizontalAlignmentType="HT_Right" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="92.0000" Y="31.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="181.4008" Y="701.0984" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="0" G="0" B="0" />
-            <PrePosition X="0.3158" Y="0.5622" />
-            <PreSize X="0.1944" Y="0.0508" />
+            <PrePosition X="0.2519" Y="0.5477" />
+            <PreSize X="0.1278" Y="0.0242" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -156,14 +156,14 @@
             <FileData Type="MarkedSubImage" Path="ui/fighticon.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="npcname" ActionTag="-1423917536" Tag="130" IconVisible="False" LeftMargin="499.7576" RightMargin="80.2424" TopMargin="532.0364" BottomMargin="682.9636" IsCustomSize="True" FontSize="30" LabelText="少侠" VerticalAlignmentType="VT_Bottom" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="140.0000" Y="65.0000" />
-            <AnchorPoint ScaleY="0.5000" />
-            <Position X="499.7576" Y="715.4636" />
+          <AbstractNodeData Name="npcname" ActionTag="-1423917536" Tag="130" IconVisible="False" LeftMargin="508.4264" RightMargin="147.5736" TopMargin="567.3730" BottomMargin="681.6270" IsCustomSize="True" FontSize="30" LabelText="少侠" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="64.0000" Y="31.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="540.4264" Y="697.1270" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="0" G="0" B="0" />
-            <PrePosition X="0.6941" Y="0.5590" />
-            <PreSize X="0.1944" Y="0.0508" />
+            <PrePosition X="0.7506" Y="0.5446" />
+            <PreSize X="0.0889" Y="0.0242" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -234,7 +234,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="fightbtn" ActionTag="-140830922" VisibleForFrame="False" Tag="22" IconVisible="False" LeftMargin="165.0002" RightMargin="404.9998" TopMargin="1084.3230" BottomMargin="105.6769" TouchEnable="True" FontSize="40" ButtonText="战斗" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="fightbtn" ActionTag="-140830922" VisibleForFrame="False" Tag="22" IconVisible="False" LeftMargin="165.0002" RightMargin="404.9998" TopMargin="1084.3231" BottomMargin="105.6769" TouchEnable="True" FontSize="40" ButtonText="战斗" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="150.0000" Y="90.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="240.0002" Y="150.6769" />

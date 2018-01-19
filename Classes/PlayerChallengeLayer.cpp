@@ -92,8 +92,8 @@ bool PlayerChallengeLayer::init(std::string addrid, RankData* rankData)
 	herohpbar = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("herohpbar");
 	herohpbar->setPercent(herohppercent);
 
-	herohpbar2 = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("herohpbar2");
-	herohpbar2->setPercent(herohppercent);
+	/*herohpbar2 = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("herohpbar2");
+	herohpbar2->setPercent(herohppercent);*/
 
 	playermaxhp = getPlayerMaxLife();
 	playerlife = playermaxhp;
@@ -111,8 +111,8 @@ bool PlayerChallengeLayer::init(std::string addrid, RankData* rankData)
 	playerhpbar = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("npchpbar");
 	playerhpbar->setPercent(playerhppercent);
 
-	playerhpbar2 = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("npchpbar2");
-	playerhpbar2->setPercent(playerhppercent);
+	/*playerhpbar2 = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("npchpbar2");
+	playerhpbar2->setPercent(playerhppercent);*/
 
 	// 滚动文字
 	m_fihgtScorll = UIScroll::create(610.0f, 435.0f);
@@ -1034,8 +1034,8 @@ void PlayerChallengeLayer::updateHeroLife()
 	float herohppercent = 100 * herolife / g_hero->getMaxLifeValue();
 	herohpbar->setPercent(herohppercent);
 
-	MyProgressTo * fromto = MyProgressTo::create(0.5f, herohppercent);
-	herohpbar2->runAction(fromto);
+	/*MyProgressTo * fromto = MyProgressTo::create(0.5f, herohppercent);
+	herohpbar2->runAction(fromto);*/
 }
 
 void PlayerChallengeLayer::updatePlayerLife()
@@ -1047,8 +1047,8 @@ void PlayerChallengeLayer::updatePlayerLife()
 	//NCP血量进度
 	int playerhppercent = 100 * playerlife / playermaxhp;
 	playerhpbar->setPercent(playerhppercent);
-	MyProgressTo * to = MyProgressTo::create(0.5f, playerhppercent);
-	playerhpbar2->runAction(to);
+	/*MyProgressTo * to = MyProgressTo::create(0.5f, playerhppercent);
+	playerhpbar2->runAction(to);*/
 }
 
 

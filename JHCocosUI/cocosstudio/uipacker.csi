@@ -406,8 +406,6 @@
       <FilePathData Path="ui/ssepline.jpg" />
       <FilePathData Path="ui/sshopbtn.png" />
       <FilePathData Path="ui/sstartbtn.png" />
-      <FilePathData Path="ui/startbtn.png" />
-      <FilePathData Path="ui/startbtndis.png" />
       <FilePathData Path="ui/storageroom.png" />
       <FilePathData Path="ui/storagesepline.png" />
       <FilePathData Path="ui/strengthoktext.png" />
@@ -681,6 +679,18 @@
       <FilePathData Path="ui/commonline.png" />
       <FilePathData Path="ui/fightliseicon.png" />
       <FilePathData Path="ui/fightlistlabel.png" />
+      <FilePathData Path="ui/fightbg1.png" />
+      <FilePathData Path="ui/fightbg5.png" />
+      <FilePathData Path="ui/commonline1.png" />
+      <FilePathData Path="ui/achieveframe.png" />
+      <FilePathData Path="ui/achieveitem.png" />
+      <FilePathData Path="ui/ornament.png" />
+      <FilePathData Path="ui/factionitembg.png" />
+      <FilePathData Path="ui/brush.png" />
+      <FilePathData Path="ui/frame_2.png" />
+      <FilePathData Path="ui/facitonframe.png" />
+      <FilePathData Path="ui/startbtndis.png" />
+      <FilePathData Path="ui/startbtn.png" />
     </ImageFiles>
     <MaxSize Width="4096" Height="4096" />
   </Content>

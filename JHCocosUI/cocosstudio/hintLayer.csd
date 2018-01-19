@@ -14,7 +14,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.4951" Y="0.5000" />
             <PreSize X="0.9361" Y="0.6109" />
-            <FileData Type="Normal" Path="images/heroselectbg.png" Plist="" />
+            <FileData Type="Normal" Path="images/syssmallbg.png" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="syssmalltie_right" ActionTag="-1308146465" Tag="114" IconVisible="False" LeftMargin="448.2109" RightMargin="178.7891" TopMargin="406.7155" BottomMargin="829.2845" FlipX="True" ctype="SpriteObjectData">
             <Size X="93.0000" Y="44.0000" />

@@ -357,6 +357,19 @@ bool RankItem::init(RankData *data, int type)
 	csbnode->setPosition(Vec2(this->getContentSize().width / 2, this->getContentSize().height / 2));
 	this->addChild(csbnode);
 
+
+	cocos2d::ui::Text* ranknumlbl = (cocos2d::ui::Text*)csbnode->getChildByName("ranknum");
+	cocos2d::ui::Text* nicknamelbl = (cocos2d::ui::Text*)csbnode->getChildByName("nickname");
+	cocos2d::ui::Text* herolvlbl = (cocos2d::ui::Text*)csbnode->getChildByName("herolv");
+	cocos2d::ui::Text* herosexlbl = (cocos2d::ui::Text*)csbnode->getChildByName("herosex");
+	cocos2d::ui::Text* herovallbl = (cocos2d::ui::Text*)csbnode->getChildByName("heroval");
+	cocos2d::ui::ImageView* commonline_1 = (cocos2d::ui::ImageView*)csbnode->getChildByName("commonline_1");
+	/*ranknumlbl->setColor(Color3B(0, 0, 0));
+	nicknamelbl->setColor(Color3B(0, 0, 0));
+	herolvlbl->setColor(Color3B(0, 0, 0));
+	herosexlbl->setColor(Color3B(0, 0, 0));
+	herovallbl->setColor(Color3B(0, 0, 0));*/
+
 	int rank = data->rank;
 
 	std::string itemstr;
@@ -365,14 +378,21 @@ bool RankItem::init(RankData *data, int type)
 	{
 		if (rank % 2 == 0)
 		{
-			itemstr = "ui/fightitem0.png";
+			//itemstr = "ui/fightitem0.png";
 		}
 	}
 	else
 	{
 		if (data->nickname.compare(GlobalData::getMyNickName()) == 0)
 		{
-			itemstr = "ui/myrankitem.png";
+			commonline_1->loadTexture("ui/commonline1.png", cocos2d::ui::TextureResType::PLIST);
+			cocos2d::ui::Text* heroname = (cocos2d::ui::Text*)csbnode->getChildByName("heroname");
+			heroname->setTextColor(Color4B(192, 88, 32, 255));
+			ranknumlbl->setTextColor(Color4B(192, 88, 32,255));
+			nicknamelbl->setTextColor(Color4B(192, 88, 32, 255));
+			herolvlbl->setTextColor(Color4B(192, 88, 32, 255));
+			herosexlbl->setTextColor(Color4B(192, 88, 32, 255));
+			herovallbl->setTextColor(Color4B(192, 88, 32, 255));
 		}
 		else if (rank % 2 == 0)
 		{
@@ -385,7 +405,6 @@ bool RankItem::init(RankData *data, int type)
 		item->loadTexture(itemstr, cocos2d::ui::TextureResType::PLIST);*/
 	}
 
-	cocos2d::ui::Text* ranknumlbl = (cocos2d::ui::Text*)csbnode->getChildByName("ranknum");
 	std::string str = StringUtils::format("%d", rank);
 	ranknumlbl->setString(str);
 
@@ -401,7 +420,6 @@ bool RankItem::init(RankData *data, int type)
 		csbnode->addChild(ranknum);
 	}
 
-	cocos2d::ui::Text* nicknamelbl = (cocos2d::ui::Text*)csbnode->getChildByName("nickname");
 	nicknamelbl->setString(data->nickname);
 
 	if (type == 0)
@@ -421,19 +439,16 @@ bool RankItem::init(RankData *data, int type)
 			fightbtn->setEnabled(false);
 	}
 
-	cocos2d::ui::Text* herolvlbl = (cocos2d::ui::Text*)csbnode->getChildByName("herolv");
 	str = StringUtils::format("%d", data->herolv + 1);
 	herolvlbl->setString(str);
 
 	const std::string sexstr[] = { "不详", "男", "女" };
-	cocos2d::ui::Text* herosexlbl = (cocos2d::ui::Text*)csbnode->getChildByName("herosex");
 	herosexlbl->setString(CommonFuncs::gbk2utf(sexstr[data->herosex].c_str()));
 	if (data->herosex == 0)
 	{
 		herosexlbl->setTextColor(Color4B(204, 4, 4,255));
 	}
 
-	cocos2d::ui::Text* herovallbl = (cocos2d::ui::Text*)csbnode->getChildByName("heroval");
 	str = StringUtils::format("%d", data->heroval);
 	herovallbl->setString(CommonFuncs::gbk2utf(str.c_str()));
 

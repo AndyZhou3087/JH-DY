@@ -4,6 +4,7 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Folder Name="fonts">
+          <Fnt Name="challengewinranknum.fnt" />
           <Fnt Name="coinpoolnum.fnt" />
           <Fnt Name="critnum.fnt" />
           <Fnt Name="shopnum.fnt" />
@@ -38,10 +39,12 @@
           <Image Name="dividetext.png" />
           <Image Name="exsercisedone.png" />
           <Image Name="factiondescinputbox.png" />
+          <Image Name="factiontipbg.png" />
           <Image Name="friendask.jpg" />
           <Image Name="friendgive.jpg" />
           <Image Name="gameovertext.png" />
           <Image Name="heroselectbg.png" />
+          <Image Name="hillbg.png" />
           <Image Name="hsljhero0.png" />
           <Image Name="hsljhero1.png" />
           <Image Name="hsljhero2.png" />
@@ -199,6 +202,8 @@
           <Image Name="a018.png" />
           <Image Name="a019.png" />
           <Image Name="a020.png" />
+          <Image Name="achieveframe.png" />
+          <Image Name="achieveitem.png" />
           <Image Name="achivebar.png" />
           <Image Name="achivebarbg.png" />
           <Image Name="achivetitle.png" />
@@ -222,6 +227,7 @@
           <Image Name="blank.png" />
           <Image Name="bookshelf.png" />
           <Image Name="branchmissionbox.png" />
+          <Image Name="brush.png" />
           <Image Name="btn_0.png" />
           <Image Name="btn_1.png" />
           <Image Name="btn_2.png" />
@@ -244,6 +250,7 @@
           <Image Name="commonframe.png" />
           <Image Name="commonframe_1.png" />
           <Image Name="commonline.png" />
+          <Image Name="commonline1.png" />
           <Image Name="contimuelabel.png" />
           <Image Name="contimuelabelpress.png" />
           <Image Name="cooktable.png" />
@@ -271,8 +278,10 @@
           <Image Name="e010.png" />
           <Image Name="enterfactionicon.png" />
           <Image Name="exerciseroom.png" />
+          <Image Name="facitonframe.png" />
           <Image Name="factionbtnselected.png" />
           <Image Name="factioncreatetitle.png" />
+          <Image Name="factionitembg.png" />
           <Image Name="factionlimitbtn.png" />
           <Image Name="factionmemberitem0.png" />
           <Image Name="factionmemberitem1.png" />
@@ -292,6 +301,8 @@
           <Image Name="fightaddcounttitle.png" />
           <Image Name="fightaddicon0.png" />
           <Image Name="fightaddicon1.png" />
+          <Image Name="fightbg1.png" />
+          <Image Name="fightbg5.png" />
           <Image Name="fightherokuang.png" />
           <Image Name="fighthpbar.png" />
           <Image Name="fighthpbar2.png" />
@@ -304,6 +315,7 @@
           <Image Name="fightnodebtn.png" />
           <Image Name="forgingtable.png" />
           <Image Name="frame_1.png" />
+          <Image Name="frame_2.png" />
           <Image Name="freelabel.png" />
           <Image Name="freshlabel.png" />
           <Image Name="furnace.png" />
@@ -555,6 +567,7 @@
           <Image Name="npcrsi1.png" />
           <Image Name="npcrsi2.png" />
           <Image Name="oklabel.png" />
+          <Image Name="ornament.png" />
           <Image Name="pauseback.png" />
           <Image Name="pausebtn.png" />
           <Image Name="pausecontinue.png" />

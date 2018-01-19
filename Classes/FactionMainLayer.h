@@ -35,6 +35,7 @@ private:
 	cocos2d::ui::ScrollView* srollView;
 	cocos2d::ui::Widget *enterbtn;
 	cocos2d::ui::Widget *createbtn;
+
 };
 
 class FactionListItem :public Sprite, public ServerDataDelegateProtocol
@@ -56,5 +57,6 @@ private:
 	cocos2d::ui::Button *actionbtn;
 	cocos2d::ui::Text* countlbl;
 	cocos2d::ui::Text* lvlbl;
+	cocos2d::ui::Text* actionbtnlabel;
 };
 #endif

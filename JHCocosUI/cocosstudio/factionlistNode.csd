@@ -6,15 +6,15 @@
       <ObjectData Name="Node" Tag="130" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="item" ActionTag="-176127823" Tag="137" IconVisible="False" LeftMargin="-307.0000" RightMargin="-307.0000" TopMargin="-36.0000" BottomMargin="-36.0000" LeftEage="201" RightEage="201" TopEage="23" BottomEage="23" Scale9OriginX="201" Scale9OriginY="23" Scale9Width="212" Scale9Height="26" ctype="ImageViewObjectData">
-            <Size X="614.0000" Y="72.0000" />
+          <AbstractNodeData Name="item" ActionTag="-176127823" Tag="137" IconVisible="False" LeftMargin="-192.0788" RightMargin="-206.9212" TopMargin="26.6862" BottomMargin="-30.6862" LeftEage="131" RightEage="131" TopEage="1" BottomEage="1" Scale9OriginX="131" Scale9OriginY="1" Scale9Width="137" Scale9Height="2" ctype="ImageViewObjectData">
+            <Size X="399.0000" Y="4.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="7.4212" Y="-28.6862" />
+            <Scale ScaleX="1.5000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="MarkedSubImage" Path="ui/factlistitem1.png" Plist="uipacker.plist" />
+            <FileData Type="MarkedSubImage" Path="ui/shopsepline.png" Plist="uipacker.plist" />
           </AbstractNodeData>
           <AbstractNodeData Name="num" ActionTag="1115503696" Tag="136" IconVisible="False" LeftMargin="-283.4326" RightMargin="270.4326" TopMargin="-14.5000" BottomMargin="-18.5000" FontSize="32" LabelText="1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="13.0000" Y="33.0000" />
@@ -76,8 +76,22 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="actionbtn" ActionTag="-238331569" Tag="91" IconVisible="False" LeftMargin="190.1293" RightMargin="-303.1293" TopMargin="-25.3151" BottomMargin="-21.6849" TouchEnable="True" FontSize="26" ButtonText="申请加入" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="120" Scale9Height="36" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="113.0000" Y="47.0000" />
+          <AbstractNodeData Name="actionbtn" ActionTag="-238331569" Tag="91" IconVisible="False" LeftMargin="188.1293" RightMargin="-305.1293" TopMargin="-25.3151" BottomMargin="-21.6849" TouchEnable="True" FontSize="26" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="87" Scale9Height="25" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="117.0000" Y="47.0000" />
+            <Children>
+              <AbstractNodeData Name="text" ActionTag="-253429673" Tag="542" IconVisible="False" LeftMargin="1.9214" RightMargin="12.0786" TopMargin="9.8806" BottomMargin="11.1194" FontSize="25" LabelText="申请加入" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="104.0000" Y="28.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="53.4214" Y="24.1194" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.4566" Y="0.5132" />
+                <PreSize X="0.8803" Y="0.5532" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="0" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+            </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="246.6293" Y="1.8151" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -86,9 +100,9 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="MarkedSubImage" Path="ui/factionlimitbtn.png" Plist="uipacker.plist" />
-            <PressedFileData Type="MarkedSubImage" Path="ui/factionlimitbtn.png" Plist="uipacker.plist" />
-            <NormalFileData Type="MarkedSubImage" Path="ui/mixbtn.png" Plist="uipacker.plist" />
+            <DisabledFileData Type="MarkedSubImage" Path="ui/buildtagbtn2.png" Plist="uipacker.plist" />
+            <PressedFileData Type="MarkedSubImage" Path="ui/buildtagbtn0.png" Plist="uipacker.plist" />
+            <NormalFileData Type="MarkedSubImage" Path="ui/buildtagbtn0.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>

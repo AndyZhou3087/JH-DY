@@ -53,10 +53,11 @@ bool FactionMemberLayer::init(FactionListData *fldata)
 
 	cocos2d::ui::Button* actionbtn = (cocos2d::ui::Button*)csbnode->getChildByName("actionbtn");
 	actionbtn->addTouchEventListener(CC_CALLBACK_2(FactionMemberLayer::onAction, this));
+	cocos2d::ui::Text* actiontext = (cocos2d::ui::Text*)actionbtn->getChildByName("text");
 	if (GlobalData::mytitle == 1)
 	{
 		actionbtn->setPositionX(220);
-		actionbtn->setTitleText(CommonFuncs::gbk2utf("解散帮派"));
+		actiontext->setString(CommonFuncs::gbk2utf("解散帮派"));
 		modifybtn->setVisible(true);
 	}
 
@@ -85,7 +86,7 @@ bool FactionMemberLayer::init(FactionListData *fldata)
 	str = StringUtils::format("%d/%d", fldata->exp, lv*lv*fldata->maxcount*100);
 	explbl->setString(str);
 
-	std::string descstr = StringUtils::format("                  %s", fldata->desc.c_str());
+	std::string descstr = StringUtils::format("%s", fldata->desc.c_str());
 	cocos2d::ui::Text* desclbl = (cocos2d::ui::Text*)csbnode->getChildByName("desc");
 	desclbl->setString(descstr);
 
@@ -372,9 +373,9 @@ bool FactionMemberItem::init(FactionMemberData *data)
 	}
 
 	std::string headstr = StringUtils::format("ui/fhero%d.png", m_data->herotype);
-	cocos2d::ui::ImageView* headimg = (cocos2d::ui::ImageView*)csbnode->getChildByName("headimg");
+	/*cocos2d::ui::ImageView* headimg = (cocos2d::ui::ImageView*)csbnode->getChildByName("headimg");
 	headimg->loadTexture(headstr, cocos2d::ui::TextureResType::PLIST);
-	headimg->setScale(0.32f);
+	headimg->setScale(0.32f);*/
 
 	cocos2d::ui::Text* nicknamelbl = (cocos2d::ui::Text*)csbnode->getChildByName("name");
 	nicknamelbl->setString(data->nickname);
