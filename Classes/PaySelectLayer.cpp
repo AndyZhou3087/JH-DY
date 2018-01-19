@@ -4,6 +4,9 @@
 #include "Const.h"
 #include "AnalyticUtil.h"
 #include "ShopLayer.h"
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#include "IOSPurchaseWrap.h"
+#endif
 
 static std::string goodsDesc[] = { "", "三少爷角色", "江小白角色", "阿青角色", "60元宝", "140元宝", "400元宝", "1080元宝", "荣耀月卡", "贵族月卡", "尊贵月卡", "限时礼包" };
 
