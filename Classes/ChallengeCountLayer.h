@@ -19,7 +19,7 @@ private:
 	int* m_wincount;
 	int m_winnpcount;
 	cocos2d::ui::Text* valuelbl[3];
-	cocos2d::ui::Text* totalwincountlbl;
+	cocos2d::ui::TextBMFont* totalwincountlbl;
 	cocos2d::ui::Button* selectbtn[3];
 	int lastclickindex;
 	bool m_isRevive;

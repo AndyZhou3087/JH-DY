@@ -112,7 +112,7 @@ void HSLJRankLayer::delayShowData(float dt)
 
 
 	Node* mynode = HSLJRankItem::create(&myrankdata);
-	mynode->setPosition(Vec2(360, 130));
+	mynode->setPosition(Vec2(360, 170));
 	this->addChild(mynode, 0, "mynode");
 
 	Director::getInstance()->getRunningScene()->removeChildByName("waitbox");
@@ -156,13 +156,22 @@ bool HSLJRankItem::init(HSLJRankData *data)
 
 	std::string itemstr;
 
+	cocos2d::ui::Text* ranknumlbl = (cocos2d::ui::Text*)csbnode->getChildByName("ranknum");
+	cocos2d::ui::Text* nicknamelbl = (cocos2d::ui::Text*)csbnode->getChildByName("nickname");
+	cocos2d::ui::Text* winpercentlbl = (cocos2d::ui::Text*)csbnode->getChildByName("winpercent");
+	cocos2d::ui::Text* explbl = (cocos2d::ui::Text*)csbnode->getChildByName("exp");
+	cocos2d::ui::Text* expnamelbl = (cocos2d::ui::Text*)csbnode->getChildByName("expname");
 
 	if (data->nickname.compare(GlobalData::getMyNickName()) == 0)
 	{
 		HSLJRankLayer* rlayer = (HSLJRankLayer*)g_gameLayer->getChildByName("shljranklayer");
 		rlayer->myrankdata.rank = rank;
-		itemstr = "ui/hsljmyitem.png";
-
+		//itemstr = "ui/hsljmyitem.png";
+		ranknumlbl->setTextColor(Color4B(192, 88, 32, 255));
+		nicknamelbl->setTextColor(Color4B(192, 88, 32, 255));
+		winpercentlbl->setTextColor(Color4B(192, 88, 32, 255));
+		explbl->setTextColor(Color4B(192, 88, 32, 255));
+		expnamelbl->setTextColor(Color4B(192, 88, 32, 255));
 	}
 	else if (rank % 2 == 0)
 	{
@@ -171,11 +180,10 @@ bool HSLJRankItem::init(HSLJRankData *data)
 
 	if (itemstr.length() > 0)
 	{
-		cocos2d::ui::ImageView* item = (cocos2d::ui::ImageView*)csbnode->getChildByName("item");
-		item->loadTexture(itemstr, cocos2d::ui::TextureResType::PLIST);
+		/*cocos2d::ui::ImageView* item = (cocos2d::ui::ImageView*)csbnode->getChildByName("item");
+		item->loadTexture(itemstr, cocos2d::ui::TextureResType::PLIST);*/
 	}
 
-	cocos2d::ui::Text* ranknumlbl = (cocos2d::ui::Text*)csbnode->getChildByName("ranknum");
 	std::string str = StringUtils::format("%d", rank);
 	ranknumlbl->setString(str);
 
@@ -193,24 +201,20 @@ bool HSLJRankItem::init(HSLJRankData *data)
 		ranknumlbl->setScale(0.7f);
 	}
 
-	cocos2d::ui::Text* nicknamelbl = (cocos2d::ui::Text*)csbnode->getChildByName("nickname");
 	nicknamelbl->setString(data->nickname);
 
 	if (data->totalcount > 0)
 		str = StringUtils::format("%d%%", data->wincount * 100 / data->totalcount);
 	else
 		str = "0%";
-	cocos2d::ui::Text* winpercentlbl = (cocos2d::ui::Text*)csbnode->getChildByName("winpercent");
 	winpercentlbl->setString(str);
 
 	int exp = data->exp;
-	cocos2d::ui::Text* explbl = (cocos2d::ui::Text*)csbnode->getChildByName("exp");
 	str = StringUtils::format("%d", exp);
 	explbl->setString(str);
 
 	str = HSLJMainLayer::getDwStr(exp);
 
-	cocos2d::ui::Text* expnamelbl = (cocos2d::ui::Text*)csbnode->getChildByName("expname");
 	expnamelbl->setString(CommonFuncs::gbk2utf(str.c_str()));
 
 	return true;

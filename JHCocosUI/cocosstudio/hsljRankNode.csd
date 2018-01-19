@@ -6,15 +6,15 @@
       <ObjectData Name="Node" Tag="220" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="item" ActionTag="-1419800716" Tag="227" IconVisible="False" LeftMargin="-306.0000" RightMargin="-306.0000" TopMargin="-36.0000" BottomMargin="-36.0000" LeftEage="201" RightEage="201" TopEage="23" BottomEage="23" Scale9OriginX="201" Scale9OriginY="23" Scale9Width="210" Scale9Height="26" ctype="ImageViewObjectData">
-            <Size X="612.0000" Y="72.0000" />
+          <AbstractNodeData Name="item" ActionTag="-1419800716" Tag="227" IconVisible="False" LeftMargin="-290.3048" RightMargin="-309.6952" TopMargin="34.9400" BottomMargin="-38.9400" LeftEage="131" RightEage="131" TopEage="1" BottomEage="1" Scale9OriginX="131" Scale9OriginY="1" Scale9Width="137" Scale9Height="2" ctype="ImageViewObjectData">
+            <Size X="600.0000" Y="4.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position />
+            <Position X="9.6952" Y="-36.9400" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="MarkedSubImage" Path="ui/hsljitem1.png" Plist="uipacker.plist" />
+            <FileData Type="MarkedSubImage" Path="ui/shopsepline.png" Plist="uipacker.plist" />
           </AbstractNodeData>
           <AbstractNodeData Name="ranknum" ActionTag="1753505170" Tag="226" IconVisible="False" LeftMargin="-271.4334" RightMargin="258.4334" TopMargin="-16.5000" BottomMargin="-16.5000" FontSize="32" LabelText="1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="13.0000" Y="33.0000" />

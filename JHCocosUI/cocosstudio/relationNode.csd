@@ -6,16 +6,15 @@
       <ObjectData Name="Node" Tag="125" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="relationheadbox" ActionTag="-418381562" Tag="126" IconVisible="False" LeftMargin="-296.6536" RightMargin="222.6536" TopMargin="-45.2089" BottomMargin="-28.7911" ctype="SpriteObjectData">
-            <Size X="74.0000" Y="74.0000" />
+          <AbstractNodeData Name="relationheadbox" ActionTag="-1293366594" Alpha="196" Tag="881" IconVisible="False" LeftMargin="-330.9072" RightMargin="190.9072" TopMargin="-68.0225" BottomMargin="-71.9775" Scale9Enable="True" LeftEage="66" RightEage="66" TopEage="67" BottomEage="67" Scale9OriginX="66" Scale9OriginY="67" Scale9Width="71" Scale9Height="70" ctype="ImageViewObjectData">
+            <Size X="140.0000" Y="140.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-259.6536" Y="8.2089" />
+            <Position X="-260.9072" Y="-1.9775" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="MarkedSubImage" Path="ui/relationheadbox.png" Plist="uipacker.plist" />
-            <BlendFunc Src="1" Dst="771" />
+            <FileData Type="MarkedSubImage" Path="ui/fightbg1.png" Plist="uipacker.plist" />
           </AbstractNodeData>
           <AbstractNodeData Name="head" ActionTag="-1137328656" Tag="127" IconVisible="False" LeftMargin="-360.2671" RightMargin="160.2671" TopMargin="-106.5158" BottomMargin="-93.4842" LeftEage="39" RightEage="39" TopEage="39" BottomEage="39" Scale9OriginX="39" Scale9OriginY="39" Scale9Width="122" Scale9Height="122" ctype="ImageViewObjectData">
             <Size X="200.0000" Y="200.0000" />
@@ -27,15 +26,15 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/n004.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="xline" ActionTag="1612897491" Tag="128" IconVisible="False" LeftMargin="-316.5000" RightMargin="-316.5000" TopMargin="31.9998" BottomMargin="-37.9998" ctype="SpriteObjectData">
-            <Size X="633.0000" Y="6.0000" />
+          <AbstractNodeData Name="xline" ActionTag="1612897491" Tag="128" IconVisible="False" LeftMargin="-199.5000" RightMargin="-199.5000" TopMargin="32.9998" BottomMargin="-36.9998" ctype="SpriteObjectData">
+            <Size X="399.0000" Y="4.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position Y="-34.9998" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Scale ScaleX="1.5000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="MarkedSubImage" Path="ui/xline.png" Plist="uipacker.plist" />
+            <FileData Type="MarkedSubImage" Path="ui/shopsepline.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="name" ActionTag="312641662" Tag="129" IconVisible="False" LeftMargin="-199.7880" RightMargin="93.7880" TopMargin="-24.8400" BottomMargin="-11.1600" FontSize="35" LabelText="田伯光" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">

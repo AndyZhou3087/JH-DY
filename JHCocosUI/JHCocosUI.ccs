@@ -573,6 +573,9 @@
           <Image Name="pausecontinue.png" />
           <Image Name="peerless.png" />
           <Image Name="playerfighttext.png" />
+          <Image Name="promition_1.png" />
+          <Image Name="promition_2.png" />
+          <Image Name="promition_3.png" />
           <Image Name="qqline0.png" />
           <Image Name="qubox1.png" />
           <Image Name="qubox2.png" />
@@ -597,6 +600,7 @@
           <Image Name="relationtextbox.png" />
           <Image Name="relationtitle.png" />
           <Image Name="relationtitlebox.png" />
+          <Image Name="renming.png" />
           <Image Name="repairframe.png" />
           <Image Name="repairframe_1.png" />
           <Image Name="repairokquan.png" />
@@ -617,6 +621,8 @@
           <Image Name="sbed.png" />
           <Image Name="sbookshelf.png" />
           <Image Name="scooktable.png" />
+          <Image Name="selectbox.png" />
+          <Image Name="selected.png" />
           <Image Name="setCloud.png" />
           <Image Name="setlabel.png" />
           <Image Name="setlabelpress.png" />

@@ -691,6 +691,12 @@
       <FilePathData Path="ui/facitonframe.png" />
       <FilePathData Path="ui/startbtndis.png" />
       <FilePathData Path="ui/startbtn.png" />
+      <FilePathData Path="ui/renming.png" />
+      <FilePathData Path="ui/selectbox.png" />
+      <FilePathData Path="ui/selected.png" />
+      <FilePathData Path="ui/promition_1.png" />
+      <FilePathData Path="ui/promition_2.png" />
+      <FilePathData Path="ui/promition_3.png" />
     </ImageFiles>
     <MaxSize Width="4096" Height="4096" />
   </Content>

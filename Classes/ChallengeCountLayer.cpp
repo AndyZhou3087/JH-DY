@@ -28,11 +28,11 @@ bool ChallengeCountLayer::init(int* wincount, int winnpccount, bool isRevive)
 	Node* csbnode = CSLoader::createNode("challengeCountLayer.csb");
 	this->addChild(csbnode);
 
-	cocos2d::ui::ImageView* heroimg = (cocos2d::ui::ImageView*)csbnode->getChildByName("heroimg");
+	/*cocos2d::ui::ImageView* heroimg = (cocos2d::ui::ImageView*)csbnode->getChildByName("heroimg");
 	heroimg->addTouchEventListener(CC_CALLBACK_2(ChallengeCountLayer::onHeroimg, this));
 	std::string heroidstr = StringUtils::format("ui/tophero%d.png", g_hero->getHeadID());
 	heroimg->loadTexture(heroidstr, cocos2d::ui::TextureResType::PLIST);
-	heroimg->setContentSize(Sprite::createWithSpriteFrameName(heroidstr)->getContentSize());
+	heroimg->setContentSize(Sprite::createWithSpriteFrameName(heroidstr)->getContentSize());*/
 
 	cocos2d::ui::Button* cancelbtn = (cocos2d::ui::Button*)csbnode->getChildByName("cancelbtn");
 	cancelbtn->addTouchEventListener(CC_CALLBACK_2(ChallengeCountLayer::onCancel, this));
@@ -40,7 +40,7 @@ bool ChallengeCountLayer::init(int* wincount, int winnpccount, bool isRevive)
 	cocos2d::ui::Button* continuebtn = (cocos2d::ui::Button*)csbnode->getChildByName("continuebtn");
 	continuebtn->addTouchEventListener(CC_CALLBACK_2(ChallengeCountLayer::onContinue, this));
 
-	totalwincountlbl = (cocos2d::ui::Text*)csbnode->getChildByName("wincountlbl");
+	totalwincountlbl = (cocos2d::ui::TextBMFont*)csbnode->getChildByName("wincountlbl");
 
 	std::string str = StringUtils::format("%d", *m_wincount);
 	totalwincountlbl->setString(str);
@@ -51,9 +51,9 @@ bool ChallengeCountLayer::init(int* wincount, int winnpccount, bool isRevive)
 		selectbtn[i] = (cocos2d::ui::Button*)csbnode->getChildByName(str);
 		selectbtn[i]->setTag(i);
 		selectbtn[i]->addTouchEventListener(CC_CALLBACK_2(ChallengeCountLayer::onSelect, this));
-		valuelbl[i] = (cocos2d::ui::Text*)selectbtn[i]->getChildByName("valuelbl");
+		/*valuelbl[i] = (cocos2d::ui::Text*)selectbtn[i]->getChildByName("valuelbl");
 		str = StringUtils::format("%d%%", winnpccount / 3);
-		valuelbl[i]->setString(str);
+		valuelbl[i]->setString(str);*/
 
 		str = StringUtils::format("usesprite%d",i);
 
