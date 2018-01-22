@@ -11,8 +11,9 @@
       <Value ctype="TabsInfo">
         <OpenedDocuments>
           <FilePathData Path="uipacker.csi" />
+          <FilePathData Path="goWhereLayer.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="uipacker.csi" />
+        <ActiveDocument Path="goWhereLayer.csd" />
       </Value>
     </Item>
   </Properties>

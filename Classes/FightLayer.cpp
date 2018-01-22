@@ -78,21 +78,28 @@ bool FightLayer::init(std::string addrid, std::string npcid)
 		continuefight = 0;
 	}
 
-	cocos2d::ui::ImageView* heroicon = (cocos2d::ui::ImageView*)csbnode->getChildByName("heroicon");
+	heroheadbox = (cocos2d::ui::Widget*)csbnode->getChildByName("heroheadbox");
+	npcheadbox = (cocos2d::ui::Widget*)csbnode->getChildByName("npcheadbox");
+	fightherokuang = (cocos2d::ui::Widget*)heroheadbox->getChildByName("fightherokuang");
+	fightnpckuang = (cocos2d::ui::Widget*)npcheadbox->getChildByName("fightnpckuang");
+	fightherokuang->setVisible(false);
+	fightnpckuang->setVisible(false);
+
+	cocos2d::ui::ImageView* heroicon = (cocos2d::ui::ImageView*)heroheadbox->getChildByName("heroicon");
 	std::string heroiconstr = StringUtils::format("ui/fhero%d.png", g_hero->getHeadID());
 	heroicon->loadTexture(heroiconstr, cocos2d::ui::TextureResType::PLIST);
 	heroicon->setScale(0.6f);
 	// NPC 图标
-	npchead = (cocos2d::ui::ImageView*)csbnode->getChildByName("npcicon");
+	npchead = (cocos2d::ui::ImageView*)npcheadbox->getChildByName("npcicon");
 	std::string npcheadstr = StringUtils::format("ui/%s.png", m_npcid.c_str());
 	npchead->loadTexture(npcheadstr, cocos2d::ui::TextureResType::PLIST);
 
 	//NPC名称
-	npcnametxt = (cocos2d::ui::Text*)csbnode->getChildByName("npcname");
+	npcnametxt = (cocos2d::ui::Text*)npcheadbox->getChildByName("npcname");
 	npcnametxt->setString(GlobalData::map_npcs[m_npcid].name);
 	
 	//角色名
-	cocos2d::ui::Text* heronametxt = (cocos2d::ui::Text*)csbnode->getChildByName("heroname");
+	cocos2d::ui::Text* heronametxt = (cocos2d::ui::Text*)heroheadbox->getChildByName("heroname");
 	heronametxt->setString(g_hero->getMyName());
 
 	int maxlife = g_hero->getMaxLifeValue();;
@@ -317,6 +324,11 @@ void FightLayer::delayHeroFight(float dt)
 	isHeroAct = -1;
 	isNpcAct = - 1;
 
+	heroheadbox->setScale(1.15);
+	npcheadbox->setScale(1);
+	fightherokuang->setVisible(true);
+	fightnpckuang->setVisible(false);
+
 	int critrnd = g_hero->getCritRate() * 100;
 
 	if (checkSkill(H_WG) == S_SKILL_4)
@@ -415,6 +427,11 @@ void FightLayer::delayBossFight(float dt)
 
 	float fminack = 0.1f * npcatk;
 	int intminack = int(fminack + 0.5f);
+
+	heroheadbox->setScale(1);
+	npcheadbox->setScale(1.15);
+	fightherokuang->setVisible(false);
+	fightnpckuang->setVisible(true);
 
 	if (herohurt < intminack)
 		herohurt = intminack;

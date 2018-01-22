@@ -177,6 +177,11 @@ private:
 	cocos2d::ui::Widget* herohurticon;//角色受伤
 	cocos2d::ui::Widget* npchurticon;//NPC受伤
 
+	cocos2d::ui::Widget* heroheadbox;
+	cocos2d::ui::Widget* npcheadbox;
+	cocos2d::ui::Widget* fightherokuang;
+	cocos2d::ui::Widget* fightnpckuang;
+
 	int npchp;//NPC 血量
 	int npcmaxhp;// NPC 最大血量
 	int npcatk;//NPC 攻击值

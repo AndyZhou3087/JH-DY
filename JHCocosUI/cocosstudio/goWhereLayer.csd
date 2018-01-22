@@ -227,13 +227,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="backbtn" ActionTag="-525231401" Tag="58" IconVisible="False" LeftMargin="622.2639" RightMargin="5.7361" TopMargin="351.6695" BottomMargin="837.3305" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="62" Scale9Height="69" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="backbtn" ActionTag="-525231401" Tag="58" IconVisible="False" LeftMargin="634.0876" RightMargin="-6.0876" TopMargin="338.6650" BottomMargin="850.3350" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="62" Scale9Height="69" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="92.0000" Y="91.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="668.2639" Y="882.8305" />
+            <Position X="680.0876" Y="895.8350" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.9281" Y="0.6897" />
+            <PrePosition X="0.9446" Y="0.6999" />
             <PreSize X="0.1278" Y="0.0711" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="MarkedSubImage" Path="ui/backbtn.png" Plist="uipacker.plist" />
