@@ -152,6 +152,7 @@ private:
 	Vec2 startPos;
 	int exersiceTag;
 	int curtime;
+	cocos2d::ui::Text* actionbtnlabel;
 };
 #endif
 

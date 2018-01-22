@@ -17,7 +17,7 @@
             <FileData Type="Normal" Path="images/syssmallbg.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="titlebg" ActionTag="-431710904" Tag="171" IconVisible="False" LeftMargin="219.2630" RightMargin="175.7371" TopMargin="305.3386" BottomMargin="893.6614" ctype="SpriteObjectData">
+          <AbstractNodeData Name="titlebg" ActionTag="-431710904" Tag="171" IconVisible="False" LeftMargin="219.2630" RightMargin="175.7370" TopMargin="305.3386" BottomMargin="893.6614" ctype="SpriteObjectData">
             <Size X="325.0000" Y="81.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="381.7630" Y="934.1614" />
@@ -217,6 +217,28 @@
             <NormalFileData Type="MarkedSubImage" Path="ui/buildtagbtn1.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Particle_1" ActionTag="115758789" Tag="35" IconVisible="True" LeftMargin="239.5716" RightMargin="480.4284" TopMargin="591.6476" BottomMargin="688.3524" ctype="ParticleObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <AnchorPoint />
+            <Position X="239.5716" Y="688.3524" />
+            <Scale ScaleX="1.1000" ScaleY="1.1000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.3327" Y="0.5378" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="particle/baisejia.plist" Plist="" />
+            <BlendFunc Src="770" Dst="1" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Particle_2" ActionTag="-1603624010" Tag="36" IconVisible="True" LeftMargin="502.3719" RightMargin="217.6281" TopMargin="585.1459" BottomMargin="694.8541" ctype="ParticleObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <AnchorPoint />
+            <Position X="502.3719" Y="694.8541" />
+            <Scale ScaleX="1.1000" ScaleY="1.1000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.6977" Y="0.5429" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="particle/jiahaohuang.plist" Plist="" />
+            <BlendFunc Src="770" Dst="1" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

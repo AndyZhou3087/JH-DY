@@ -27,6 +27,8 @@ bool LoginRewardLayer::init()
 	cocos2d::ui::Widget *closebtn = (cocos2d::ui::Widget*)csbnode->getChildByName("closebtn");
 	closebtn->addTouchEventListener(CC_CALLBACK_2(LoginRewardLayer::onClose, this));
 
+	particle = (cocos2d::ui::Widget*)csbnode->getChildByName("particle");
+
 	int logindays = GlobalData::continueLoginDays;
 
 
@@ -103,6 +105,7 @@ bool LoginRewardLayer::init()
 		}
 		else if (i == logindays)
 		{
+			particle->setPosition(Vec2(item->getPositionX(), item->getPositionY() - 10));
 			loginritemlight->setVisible(true);
 			item->setColor(Color3B(255, 255, 255));
 			//item->loadTexture("ui/loginritem1.png", cocos2d::ui::Widget::TextureResType::PLIST);
@@ -154,6 +157,8 @@ void LoginRewardLayer::onGet(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
 		cocos2d::ui::ImageView* getimg = (cocos2d::ui::ImageView*)pSender;
+
+		particle->setVisible(false);
 
 		cocos2d::ui::ImageView* item = (cocos2d::ui::ImageView*)getimg->getParent();
 		//item->loadTexture("ui/loginritem0.png", cocos2d::ui::Widget::TextureResType::PLIST);

@@ -17,7 +17,7 @@
             <FileData Type="Normal" Path="images/syssmallbg.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="desc" ActionTag="-89202878" Tag="46" IconVisible="False" LeftMargin="126.5013" RightMargin="113.4988" TopMargin="433.8397" BottomMargin="566.1603" IsCustomSize="True" FontSize="40" LabelText="是否立即复活？" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="desc" ActionTag="-89202878" Tag="46" IconVisible="False" LeftMargin="126.5013" RightMargin="113.4987" TopMargin="433.8397" BottomMargin="566.1603" IsCustomSize="True" FontSize="40" LabelText="是否立即复活？" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="480.0000" Y="280.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="366.5013" Y="706.1603" />
@@ -88,7 +88,7 @@
             <PreSize X="0.3222" Y="0.0383" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="MarkedSubImage" Path="ui/disbtn.png" Plist="uipacker.plist" />
+            <DisabledFileData Type="MarkedSubImage" Path="ui/normalbtn2.png" Plist="uipacker.plist" />
             <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
@@ -97,14 +97,14 @@
           <AbstractNodeData Name="cacelbtn" ActionTag="-221382661" Tag="48" IconVisible="False" LeftMargin="117.1072" RightMargin="370.8928" TopMargin="757.6982" BottomMargin="473.3018" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="232.0000" Y="49.0000" />
             <Children>
-              <AbstractNodeData Name="text" ActionTag="1340736550" Tag="536" IconVisible="False" LeftMargin="98.2814" RightMargin="37.7186" TopMargin="-1.9223" BottomMargin="-1.0777" FontSize="50" LabelText="放弃" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="text" ActionTag="1340736550" Tag="536" IconVisible="False" LeftMargin="97.7814" RightMargin="37.2186" TopMargin="-2.9223" BottomMargin="-2.0777" FontSize="50" LabelText="放弃" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="97.0000" Y="54.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="146.2814" Y="24.9223" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.6305" Y="0.5086" />
-                <PreSize X="0.4138" Y="1.0612" />
+                <PreSize X="0.4181" Y="1.1020" />
                 <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
                 <OutlineColor A="255" R="0" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
@@ -118,7 +118,7 @@
             <PreSize X="0.3222" Y="0.0383" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="MarkedSubImage" Path="ui/disbtn.png" Plist="uipacker.plist" />
+            <DisabledFileData Type="MarkedSubImage" Path="ui/normalbtn2.png" Plist="uipacker.plist" />
             <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />

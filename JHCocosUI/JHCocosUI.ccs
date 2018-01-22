@@ -125,6 +125,12 @@
           <Image Name="wxb0.png" />
           <Image Name="wxb1.png" />
         </Folder>
+        <Folder Name="particle">
+          <PlistParticleFile Name="baisejia.plist" />
+          <PlistParticleFile Name="jiahaohuang.plist" />
+          <PlistParticleFile Name="tex1.plist" />
+          <PlistParticleFile Name="tex2.plist" />
+        </Folder>
         <Folder Name="ui">
           <Image Name="0-ba0.png" />
           <Image Name="0-ba1.png" />
@@ -349,6 +355,7 @@
           <Image Name="herotitle.png" />
           <Image Name="herotitlebg.png" />
           <Image Name="hintdown.png" />
+          <Image Name="hongs.png" />
           <Image Name="hp3.png" />
           <Image Name="hp4.png" />
           <Image Name="hp5.png" />

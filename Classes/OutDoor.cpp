@@ -31,7 +31,7 @@ bool OutDoor::init()
 	this->addChild(m_csbnode, 0, "csbnode");
 
 	m_heroproper = HeroProperNode::create();
-	m_heroproper->setPosition(Vec2(360, 775));
+	m_heroproper->setPosition(Vec2(360, 585));
 	m_csbnode->addChild(m_heroproper, 1, "HeroProperNode");
 
 	scrollview = (cocos2d::ui::ScrollView*)m_csbnode->getChildByName("ScrollView");
@@ -160,7 +160,7 @@ void OutDoor::updataMyPackageUI()
 			box,
 			CC_CALLBACK_1(OutDoor::onPackageItem, this));
 		boxItem->setTag(i);
-		boxItem->setPosition(Vec2(110 + countindex * 125, 530));
+		boxItem->setPosition(Vec2(130 + countindex * 145, 830));
 		Menu* menu = Menu::create();
 		menu->addChild(boxItem);
 		menu->setPosition(Vec2(0, 0));
@@ -174,7 +174,7 @@ void OutDoor::updataMyPackageUI()
 
 		Label * reslbl = Label::createWithTTF(countorlvstr, "fonts/STXINGKA.TTF", 18);//Label::createWithSystemFont(str, "", 18);
 		reslbl->setAnchorPoint(Vec2(1, 0.5));
-		reslbl->setPosition(Vec2(box->getContentSize().width - 10, 20));
+		reslbl->setPosition(Vec2(box->getContentSize().width - 20, 35));
 		box->addChild(reslbl);
 
 		std::string mymixgf = GlobalData::getMixGF();
@@ -278,7 +278,7 @@ void OutDoor::updataStorageUI()
 		boxItem->addChild(reslbl, 0, "lbl");
 		reslbl->setAnchorPoint(Vec2(1, 0.5f));
 
-		reslbl->setPosition(Vec2(boxItem->getContentSize().width - 10, 20));
+		reslbl->setPosition(Vec2(boxItem->getContentSize().width - 20, 35));
 
 		std::string mymixgf = GlobalData::getMixGF();
 		MixGfData mdata = GlobalData::map_MixGfData[mymixgf];

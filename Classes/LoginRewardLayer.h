@@ -15,7 +15,7 @@ public:
 	static LoginRewardLayer* create();
 
 private:
-
+	cocos2d::ui::Widget* particle;
 private:
 	void onGet(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 	void onClose(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);

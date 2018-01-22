@@ -276,6 +276,61 @@
             <OutlineColor A="255" R="0" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
+          <AbstractNodeData Name="particle_1" ActionTag="-1708839999" VisibleForFrame="False" Tag="196" IconVisible="True" LeftMargin="-82.3164" RightMargin="82.3164" TopMargin="1.3655" BottomMargin="-1.3655" ctype="ParticleObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <AnchorPoint />
+            <Position X="-82.3164" Y="-1.3655" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="particle/tex2.plist" Plist="" />
+            <BlendFunc Src="770" Dst="1" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="particle_2" ActionTag="-50567586" VisibleForFrame="False" Tag="197" IconVisible="True" LeftMargin="-31.4666" RightMargin="31.4666" TopMargin="-1.6321" BottomMargin="1.6321" ctype="ParticleObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <AnchorPoint />
+            <Position X="-31.4666" Y="1.6321" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="particle/tex2.plist" Plist="" />
+            <BlendFunc Src="770" Dst="1" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="particle_3" ActionTag="-1944606921" VisibleForFrame="False" Tag="198" IconVisible="True" LeftMargin="20.3118" RightMargin="-20.3118" TopMargin="-3.5581" BottomMargin="3.5581" ctype="ParticleObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <AnchorPoint />
+            <Position X="20.3118" Y="3.5581" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="particle/tex2.plist" Plist="" />
+            <BlendFunc Src="770" Dst="1" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="particle_4" ActionTag="-917183125" VisibleForFrame="False" Tag="199" IconVisible="True" LeftMargin="69.3048" RightMargin="-69.3048" TopMargin="-2.8421" BottomMargin="2.8421" ctype="ParticleObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <AnchorPoint />
+            <Position X="69.3048" Y="2.8421" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="particle/tex2.plist" Plist="" />
+            <BlendFunc Src="770" Dst="1" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="particle_5" ActionTag="-1054330673" VisibleForFrame="False" Tag="200" IconVisible="True" LeftMargin="119.1551" RightMargin="-119.1551" TopMargin="-2.5058" BottomMargin="2.5058" ctype="ParticleObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <AnchorPoint />
+            <Position X="119.1551" Y="2.5058" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="particle/tex2.plist" Plist="" />
+            <BlendFunc Src="770" Dst="1" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>

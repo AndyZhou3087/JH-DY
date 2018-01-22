@@ -6,14 +6,14 @@
       <ObjectData Name="Layer" Tag="180" ctype="GameLayerObjectData">
         <Size X="720.0000" Y="1280.0000" />
         <Children>
-          <AbstractNodeData Name="bg" ActionTag="-633966306" Tag="186" IconVisible="False" LeftMargin="94.9800" RightMargin="102.0200" TopMargin="379.5000" BottomMargin="379.5000" Scale9Enable="True" LeftEage="172" RightEage="172" TopEage="183" BottomEage="183" Scale9OriginX="172" Scale9OriginY="183" Scale9Width="179" Scale9Height="190" ctype="ImageViewObjectData">
-            <Size X="523.0000" Y="521.0000" />
+          <AbstractNodeData Name="bg" ActionTag="-633966306" Tag="186" IconVisible="False" LeftMargin="16.4796" RightMargin="29.5204" TopMargin="293.0014" BottomMargin="204.9986" Scale9Enable="True" LeftEage="172" RightEage="172" TopEage="183" BottomEage="183" Scale9OriginX="172" Scale9OriginY="183" Scale9Width="330" Scale9Height="416" ctype="ImageViewObjectData">
+            <Size X="674.0000" Y="782.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="356.4800" Y="640.0000" />
+            <Position X="353.4796" Y="595.9986" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4951" Y="0.5000" />
-            <PreSize X="0.7264" Y="0.4070" />
+            <PrePosition X="0.4909" Y="0.4656" />
+            <PreSize X="0.9361" Y="0.6109" />
             <FileData Type="Normal" Path="images/syssmallbg.png" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="title" ActionTag="-1208806373" Tag="183" IconVisible="False" LeftMargin="312.1458" RightMargin="318.8542" TopMargin="436.0801" BottomMargin="796.9199" FontSize="45" LabelText="提示" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -28,25 +28,25 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="syssmalltie_right" ActionTag="1283165700" Tag="185" IconVisible="False" LeftMargin="404.7109" RightMargin="135.2891" TopMargin="439.7092" BottomMargin="802.2908" FlipX="True" ctype="SpriteObjectData">
-            <Size X="180.0000" Y="38.0000" />
+          <AbstractNodeData Name="syssmalltie_right" ActionTag="1283165700" Tag="185" IconVisible="False" LeftMargin="448.2109" RightMargin="178.7891" TopMargin="436.7092" BottomMargin="799.2908" FlipX="True" ctype="SpriteObjectData">
+            <Size X="93.0000" Y="44.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="494.7109" Y="821.2908" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.6871" Y="0.6416" />
-            <PreSize X="0.2500" Y="0.0297" />
+            <PreSize X="0.1292" Y="0.0344" />
             <FileData Type="MarkedSubImage" Path="ui/syssmalltie.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="syssmalltie_left" ActionTag="1812684633" Tag="184" IconVisible="False" LeftMargin="131.4476" RightMargin="408.5524" TopMargin="439.7092" BottomMargin="802.2908" ctype="SpriteObjectData">
-            <Size X="180.0000" Y="38.0000" />
+          <AbstractNodeData Name="syssmalltie_left" ActionTag="1812684633" Tag="184" IconVisible="False" LeftMargin="174.9476" RightMargin="452.0524" TopMargin="436.7092" BottomMargin="799.2908" ctype="SpriteObjectData">
+            <Size X="93.0000" Y="44.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="221.4476" Y="821.2908" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.3076" Y="0.6416" />
-            <PreSize X="0.2500" Y="0.0297" />
+            <PreSize X="0.1292" Y="0.0344" />
             <FileData Type="MarkedSubImage" Path="ui/syssmalltie.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>

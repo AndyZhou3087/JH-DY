@@ -6,7 +6,7 @@
       <ObjectData Name="Layer" Tag="72" ctype="GameLayerObjectData">
         <Size X="720.0000" Y="1280.0000" />
         <Children>
-          <AbstractNodeData Name="bg" ActionTag="1225599391" Tag="119" IconVisible="False" LeftMargin="21.5960" RightMargin="24.4039" TopMargin="308.8455" BottomMargin="189.1545" Scale9Enable="True" LeftEage="172" RightEage="172" TopEage="183" BottomEage="183" Scale9OriginX="172" Scale9OriginY="183" Scale9Width="330" Scale9Height="416" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="bg" ActionTag="1225599391" Tag="119" IconVisible="False" LeftMargin="21.5960" RightMargin="24.4040" TopMargin="308.8455" BottomMargin="189.1545" Scale9Enable="True" LeftEage="172" RightEage="172" TopEage="183" BottomEage="183" Scale9OriginX="172" Scale9OriginY="183" Scale9Width="330" Scale9Height="416" ctype="ImageViewObjectData">
             <Size X="674.0000" Y="782.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="358.5960" Y="580.1545" />
@@ -40,7 +40,7 @@
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="MarkedSubImage" Path="ui/normalbtn2.png" Plist="uipacker.plist" />
-            <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn1.png" Plist="uipacker.plist" />
+            <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />

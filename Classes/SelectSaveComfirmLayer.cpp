@@ -13,6 +13,9 @@ bool SelectSaveComfirmLayer::init(int index)
 		return false;
     }
 
+	LayerColor* color = LayerColor::create(Color4B(0, 0, 0, 200));
+	this->addChild(color);
+
 	Node* csbnode = CSLoader::createNode("selectSaveComfirmLayer.csb");
 	this->addChild(csbnode);
 

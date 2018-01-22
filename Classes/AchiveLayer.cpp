@@ -180,6 +180,11 @@ bool AchiveItem::init(AchiveData *data)
 		str = StringUtils::format("bg_%d", i + 1);
 		cocos2d::ui::Widget* rwdbg = (cocos2d::ui::Widget*)csbnode->getChildByName(str);
 		rwdbg->setVisible(true);
+
+		str = StringUtils::format("particle_%d", i + 1);
+		cocos2d::ui::Widget* particle = (cocos2d::ui::Widget*)csbnode->getChildByName(str);
+		particle->setVisible(true);
+		
 	}
 	std::string descstr;
 	float finishpercert = 0.0f;

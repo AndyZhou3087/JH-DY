@@ -40,8 +40,8 @@
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="MarkedSubImage" Path="ui/normalbtn2.png" Plist="uipacker.plist" />
-            <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn1.png" Plist="uipacker.plist" />
-            <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn1.png" Plist="uipacker.plist" />
+            <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
+            <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -101,7 +101,7 @@
             <FileData Type="Normal" Path="images/bottomfigure.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="mixbtn_6_0" ActionTag="976132112" Tag="787" IconVisible="False" LeftMargin="378.8991" RightMargin="157.1010" TopMargin="627.7128" BottomMargin="612.2872" ctype="SpriteObjectData">
+          <AbstractNodeData Name="mixbtn_6_0" ActionTag="976132112" Tag="787" IconVisible="False" LeftMargin="378.8991" RightMargin="157.1009" TopMargin="627.7128" BottomMargin="612.2872" ctype="SpriteObjectData">
             <Size X="184.0000" Y="40.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="470.8991" Y="632.2872" />
@@ -191,7 +191,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="maxlvtext" ActionTag="76617599" Tag="79" IconVisible="False" LeftMargin="410.2807" RightMargin="198.7192" TopMargin="635.0435" BottomMargin="618.9565" IsCustomSize="True" FontSize="25" LabelText="最高等级：" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="maxlvtext" ActionTag="76617599" Tag="79" IconVisible="False" LeftMargin="410.2807" RightMargin="198.7193" TopMargin="635.0435" BottomMargin="618.9565" IsCustomSize="True" FontSize="25" LabelText="最高等级：" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="111.0000" Y="26.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="465.7807" Y="631.9565" />
@@ -275,7 +275,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="where" ActionTag="-486117375" Tag="86" IconVisible="False" LeftMargin="306.7508" RightMargin="113.2493" TopMargin="761.3611" BottomMargin="464.6389" IsCustomSize="True" FontSize="25" LabelText="" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="where" ActionTag="-486117375" Tag="86" IconVisible="False" LeftMargin="306.7508" RightMargin="113.2492" TopMargin="761.3611" BottomMargin="464.6389" IsCustomSize="True" FontSize="25" LabelText="" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="300.0000" Y="54.0000" />
             <AnchorPoint ScaleY="1.0000" />
             <Position X="306.7508" Y="518.6389" />

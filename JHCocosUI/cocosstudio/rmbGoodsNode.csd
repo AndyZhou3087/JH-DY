@@ -79,6 +79,17 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/golditem.png" Plist="uipacker.plist" />
           </AbstractNodeData>
+          <AbstractNodeData Name="Particle_1" ActionTag="1861814011" Tag="162" IconVisible="True" LeftMargin="0.2230" RightMargin="-0.2230" TopMargin="-48.5762" BottomMargin="48.5762" ctype="ParticleObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <AnchorPoint />
+            <Position X="0.2230" Y="48.5762" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="particle/tex1.plist" Plist="" />
+            <BlendFunc Src="770" Dst="1" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>

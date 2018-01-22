@@ -16,7 +16,7 @@
             <PreSize X="0.9861" Y="0.8102" />
             <FileData Type="Normal" Path="images/normalboxgb.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="bottomfigure" ActionTag="-2124647251" Tag="385" IconVisible="False" LeftMargin="66.8946" RightMargin="11.1053" TopMargin="347.3619" BottomMargin="858.6381" ctype="SpriteObjectData">
+          <AbstractNodeData Name="bottomfigure" ActionTag="-2124647251" Tag="385" IconVisible="False" LeftMargin="66.8946" RightMargin="11.1054" TopMargin="347.3619" BottomMargin="858.6381" ctype="SpriteObjectData">
             <Size X="642.0000" Y="74.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="387.8946" Y="895.6381" />
@@ -27,7 +27,7 @@
             <FileData Type="Normal" Path="images/bottomfigure.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="bottomfigure_0" ActionTag="-597802627" Tag="386" IconVisible="False" LeftMargin="66.8946" RightMargin="11.1053" TopMargin="456.6785" BottomMargin="749.3215" FlipY="True" ctype="SpriteObjectData">
+          <AbstractNodeData Name="bottomfigure_0" ActionTag="-597802627" Tag="386" IconVisible="False" LeftMargin="66.8946" RightMargin="11.1054" TopMargin="456.6785" BottomMargin="749.3215" FlipY="True" ctype="SpriteObjectData">
             <Size X="642.0000" Y="74.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="387.8946" Y="786.3215" />
@@ -185,8 +185,8 @@
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="MarkedSubImage" Path="ui/normalbtn2.png" Plist="uipacker.plist" />
-            <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn1.png" Plist="uipacker.plist" />
-            <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn1.png" Plist="uipacker.plist" />
+            <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
+            <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>

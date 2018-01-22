@@ -170,7 +170,7 @@ void StorageUILayer::updateResContent()
 					CC_CALLBACK_1(StorageUILayer::onclick, this));
 				boxItem->setTag(0);
 				boxItem->setUserData(&StorageRoom::map_storageData[i].at(m));
-				boxItem->setPosition(Vec2(box->getContentSize().width / 2 + 20 + countindex % 5 * 120, sepline->getPositionY() - 5 - 65 - countindex / 5 * 130));
+				boxItem->setPosition(Vec2(box->getContentSize().width / 2 + 20 + countindex % 5 * 120, sepline->getPositionY() - 5 - 80 - countindex / 5 * 130));
 				MyMenu* menu = MyMenu::create();
 				menu->addChild(boxItem);
 				menu->setTouchlimit(scrollview);
@@ -186,7 +186,7 @@ void StorageUILayer::updateResContent()
 
 				Label * reslbl = Label::createWithTTF(countorlvstr, "fonts/STXINGKA.TTF", 18);//Label::createWithSystemFont(str, "", 18);
 				reslbl->setAnchorPoint(Vec2(1, 0.5));
-				reslbl->setPosition(Vec2(box->getContentSize().width - 10, 20));
+				reslbl->setPosition(Vec2(box->getContentSize().width - 20, 35));
 				box->addChild(reslbl);
 
 				std::string mymixgf = GlobalData::getMixGF();

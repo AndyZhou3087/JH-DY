@@ -53,7 +53,7 @@
                 <PreSize X="0.1906" Y="0.6883" />
                 <FileData Type="MarkedSubImage" Path="ui/vip1.png" Plist="uipacker.plist" />
               </AbstractNodeData>
-              <AbstractNodeData Name="VerticalLabel" ActionTag="508802541" Tag="431" IconVisible="False" LeftMargin="-18.3737" RightMargin="520.3738" TopMargin="-14.2168" BottomMargin="-0.7832" ctype="SpriteObjectData">
+              <AbstractNodeData Name="VerticalLabel" ActionTag="508802541" Tag="431" IconVisible="False" LeftMargin="-18.3737" RightMargin="520.3737" TopMargin="-14.2168" BottomMargin="-0.7832" ctype="SpriteObjectData">
                 <Size X="54.0000" Y="169.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="8.6263" Y="83.7168" />
@@ -161,6 +161,17 @@
             <NormalFileData Type="MarkedSubImage" Path="ui/shopbuybtn.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="particle" ActionTag="-780510484" Tag="274" IconVisible="True" LeftMargin="-202.0012" RightMargin="202.0012" TopMargin="-12.9702" BottomMargin="12.9702" ctype="ParticleObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <AnchorPoint />
+            <Position X="-202.0012" Y="12.9702" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="particle/tex1.plist" Plist="" />
+            <BlendFunc Src="770" Dst="1" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

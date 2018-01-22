@@ -806,14 +806,14 @@
             <ColorVector ScaleY="1.0000" />
             <InnerNodeSize Width="2000" Height="1396" />
           </AbstractNodeData>
-          <AbstractNodeData Name="shopbtn" ActionTag="3558553" Tag="161" IconVisible="False" LeftMargin="-7.9655" RightMargin="581.9655" TopMargin="1153.7473" BottomMargin="-2.7473" TouchEnable="True" FontSize="50" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="116" Scale9Height="107" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="146.0000" Y="129.0000" />
+          <AbstractNodeData Name="shopbtn" ActionTag="3558553" Tag="161" IconVisible="False" LeftMargin="-2.9646" RightMargin="604.9646" TopMargin="1157.2473" BottomMargin="-3.2473" TouchEnable="True" FontSize="50" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="88" Scale9Height="104" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="118.0000" Y="126.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="65.0345" Y="61.7527" />
+            <Position X="56.0354" Y="59.7527" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0903" Y="0.0482" />
-            <PreSize X="0.2028" Y="0.1008" />
+            <PrePosition X="0.0778" Y="0.0467" />
+            <PreSize X="0.1639" Y="0.0984" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="MarkedSubImage" Path="ui/shopbtn.png" Plist="uipacker.plist" />

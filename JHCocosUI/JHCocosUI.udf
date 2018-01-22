@@ -11,9 +11,8 @@
       <Value ctype="TabsInfo">
         <OpenedDocuments>
           <FilePathData Path="uipacker.csi" />
-          <FilePathData Path="challengeCountLayer.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="challengeCountLayer.csd" />
+        <ActiveDocument Path="uipacker.csi" />
       </Value>
     </Item>
   </Properties>

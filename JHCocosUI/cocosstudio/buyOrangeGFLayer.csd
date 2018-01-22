@@ -17,13 +17,13 @@
             <FileData Type="Normal" Path="images/vipbg.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="backbtn" ActionTag="-1489872506" Tag="18" IconVisible="False" LeftMargin="600.1219" RightMargin="42.8781" TopMargin="235.3971" BottomMargin="969.6029" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="47" Scale9Height="53" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="backbtn" ActionTag="-1489872506" Tag="18" IconVisible="False" LeftMargin="606.3725" RightMargin="36.6275" TopMargin="241.6489" BottomMargin="963.3511" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="47" Scale9Height="53" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="77.0000" Y="75.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="638.6219" Y="1007.1029" />
+            <Position X="644.8725" Y="1000.8511" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8870" Y="0.7868" />
+            <PrePosition X="0.8957" Y="0.7819" />
             <PreSize X="0.1069" Y="0.0586" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="MarkedSubImage" Path="ui/bigbgclosebtn.png" Plist="uipacker.plist" />
@@ -32,13 +32,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="title" ActionTag="603866389" Tag="17" IconVisible="False" LeftMargin="243.1333" RightMargin="238.8667" TopMargin="284.8568" BottomMargin="929.1432" ctype="SpriteObjectData">
+          <AbstractNodeData Name="title" ActionTag="603866389" Tag="17" IconVisible="False" LeftMargin="242.1334" RightMargin="239.8666" TopMargin="333.1822" BottomMargin="880.8178" ctype="SpriteObjectData">
             <Size X="238.0000" Y="66.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="362.1333" Y="962.1432" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="361.1334" Y="913.8178" />
+            <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5030" Y="0.7517" />
+            <PrePosition X="0.5016" Y="0.7139" />
             <PreSize X="0.3306" Y="0.0516" />
             <FileData Type="MarkedSubImage" Path="ui/gettext.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />

@@ -64,6 +64,10 @@ bool ChallengeCountLayer::init(int* wincount, int winnpccount, bool isRevive)
 		uselbl->setString(CommonFuncs::gbk2utf(str.c_str()));
 		if (*m_wincount < usecount[winnpccount / 3 - 1])
 			uselbl->setTextColor(Color4B(204,4,4,255));
+
+
+		cocos2d::ui::Widget* particle = (cocos2d::ui::Widget*)selectbtn[i]->getChildByName("particle");
+		particle->setVisible(false);
 	}
 
 	auto listener = EventListenerTouchOneByOne::create();
@@ -154,9 +158,12 @@ void ChallengeCountLayer::onSelect(cocos2d::Ref *pSender, cocos2d::ui::Widget::T
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
 		cocos2d::ui::Button* btnnode = (cocos2d::ui::Button*)pSender;
+
 		int tag = btnnode->getTag();
 		if (tag == lastclickindex)
 		{
+			cocos2d::ui::Widget* particle = (cocos2d::ui::Widget*)btnnode->getChildByName("particle");
+			particle->setVisible(true);
 			btnnode->setBright(true);
 			lastclickindex = -1;
 			*m_wincount += usecount[m_winnpcount / 3 - 1];
@@ -180,6 +187,9 @@ void ChallengeCountLayer::onSelect(cocos2d::Ref *pSender, cocos2d::ui::Widget::T
 			}
 			selectbtn[tag]->setBright(false);
 			lastclickindex = tag;
+
+			cocos2d::ui::Widget* particle = (cocos2d::ui::Widget*)selectbtn[tag]->getChildByName("particle");
+			particle->setVisible(false);
 
 		}
 		std::string str = StringUtils::format("%d", *m_wincount);

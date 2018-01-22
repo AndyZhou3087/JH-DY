@@ -98,6 +98,17 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
+              <AbstractNodeData Name="particle" ActionTag="1265692645" Tag="340" IconVisible="True" LeftMargin="102.9377" RightMargin="100.0623" TopMargin="90.2245" BottomMargin="113.7755" ctype="ParticleObjectData">
+                <Size X="0.0000" Y="0.0000" />
+                <AnchorPoint />
+                <Position X="102.9377" Y="113.7755" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5071" Y="0.5577" />
+                <PreSize X="0.0000" Y="0.0000" />
+                <FileData Type="Normal" Path="particle/tex2.plist" Plist="" />
+                <BlendFunc Src="770" Dst="1" />
+              </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="209.8971" Y="760.7120" />
@@ -138,6 +149,17 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
+              <AbstractNodeData Name="particle" ActionTag="-942129143" Tag="341" IconVisible="True" LeftMargin="105.3536" RightMargin="97.6464" TopMargin="92.6397" BottomMargin="111.3603" ctype="ParticleObjectData">
+                <Size X="0.0000" Y="0.0000" />
+                <AnchorPoint />
+                <Position X="105.3536" Y="111.3603" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5190" Y="0.5459" />
+                <PreSize X="0.0000" Y="0.0000" />
+                <FileData Type="Normal" Path="particle/tex2.plist" Plist="" />
+                <BlendFunc Src="770" Dst="1" />
+              </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="371.7292" Y="760.7123" />
@@ -177,6 +199,17 @@
                 <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="particle" ActionTag="-1149176663" Tag="342" IconVisible="True" LeftMargin="105.6009" RightMargin="97.3991" TopMargin="89.6365" BottomMargin="114.3635" ctype="ParticleObjectData">
+                <Size X="0.0000" Y="0.0000" />
+                <AnchorPoint />
+                <Position X="105.6009" Y="114.3635" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5202" Y="0.5606" />
+                <PreSize X="0.0000" Y="0.0000" />
+                <FileData Type="Normal" Path="particle/tex2.plist" Plist="" />
+                <BlendFunc Src="770" Dst="1" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -291,7 +324,7 @@
             <PreSize X="0.3222" Y="0.0383" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="MarkedSubImage" Path="ui/disbtn.png" Plist="uipacker.plist" />
+            <DisabledFileData Type="MarkedSubImage" Path="ui/normalbtn2.png" Plist="uipacker.plist" />
             <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
@@ -321,7 +354,7 @@
             <PreSize X="0.3222" Y="0.0383" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="MarkedSubImage" Path="ui/disbtn.png" Plist="uipacker.plist" />
+            <DisabledFileData Type="MarkedSubImage" Path="ui/normalbtn2.png" Plist="uipacker.plist" />
             <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />

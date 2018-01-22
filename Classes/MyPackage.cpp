@@ -4,7 +4,7 @@
 #include "GlobalData.h"
 #include "StorageRoom.h"
 
-int MyPackage::max = 5;
+int MyPackage::max = 4;
 std::vector<PackageData> MyPackage::vec_packages;
 
 MyPackage::MyPackage()

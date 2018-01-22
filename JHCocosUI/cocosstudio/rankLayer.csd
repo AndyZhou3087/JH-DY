@@ -27,13 +27,13 @@
             <FileData Type="Normal" Path="images/ranktitlebg.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="backbtn" ActionTag="-2055725913" Tag="63" IconVisible="False" LeftMargin="636.5395" RightMargin="6.4605" TopMargin="72.8790" BottomMargin="1132.1210" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="47" Scale9Height="53" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="backbtn" ActionTag="-2055725913" Tag="63" IconVisible="False" LeftMargin="637.5393" RightMargin="5.4607" TopMargin="72.8792" BottomMargin="1132.1208" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="47" Scale9Height="53" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="77.0000" Y="75.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="675.0395" Y="1169.6210" />
+            <Position X="676.0393" Y="1169.6208" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.9376" Y="0.9138" />
+            <PrePosition X="0.9389" Y="0.9138" />
             <PreSize X="0.1069" Y="0.0586" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="MarkedSubImage" Path="ui/bigbgclosebtn.png" Plist="uipacker.plist" />
@@ -525,6 +525,17 @@
             <PreSize X="0.1042" Y="0.0508" />
             <FileData Type="MarkedSubImage" Path="ui/hintdown.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="particle" ActionTag="-381340428" Tag="45" IconVisible="True" LeftMargin="157.4517" RightMargin="562.5483" TopMargin="184.7206" BottomMargin="1095.2794" ctype="ParticleObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <AnchorPoint />
+            <Position X="157.4517" Y="1095.2794" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.2187" Y="0.8557" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="particle/tex2.plist" Plist="" />
+            <BlendFunc Src="770" Dst="1" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

@@ -21,11 +21,21 @@ bool MixGFDoneLayer::init(int ret)
 
 	cocos2d::ui::ImageView* doneimg = (cocos2d::ui::ImageView*)csbnode->getChildByName("doneimg");
 	std::string str;
-	if (ret == 0)
-		str = StringUtils::format("images/mixdoneok.png");
-	else
+	if (ret == 0){
+		//str = StringUtils::format("images/mixdoneok.png");
+		doneimg->setVisible(false);
+		Node* csbnode = CSLoader::createNode("sgdc.csb");
+		csbnode->setPosition(Vec2(360, 600));
+		this->addChild(csbnode, 0, "sgdc");
+		auto action = CSLoader::createTimeline("sgdc.csb");
+		csbnode->runAction(action);
+		action->gotoFrameAndPlay(0, false);
+	}
+	else{
+		doneimg->setVisible(true);
 		str = StringUtils::format("images/mixdonefail.png");
-	doneimg->loadTexture(str, cocos2d::ui::Widget::TextureResType::LOCAL);
+		doneimg->loadTexture(str, cocos2d::ui::Widget::TextureResType::LOCAL);
+	}
 
 	////layer 点击事件，屏蔽下层事件
 	auto listener = EventListenerTouchOneByOne::create();

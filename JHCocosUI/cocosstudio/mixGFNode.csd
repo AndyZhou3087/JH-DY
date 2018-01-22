@@ -197,8 +197,8 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="mixbtn" ActionTag="-794496965" Tag="79" IconVisible="False" LeftMargin="106.3414" RightMargin="-276.3414" TopMargin="-132.5959" BottomMargin="74.5959" TouchEnable="True" FontSize="32" ButtonText="确认组合" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="154" Scale9Height="18" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="170.0000" Y="58.0000" />
+          <AbstractNodeData Name="mixbtn" ActionTag="-794496965" Tag="79" IconVisible="False" LeftMargin="119.8414" RightMargin="-262.8414" TopMargin="-121.5959" BottomMargin="85.5959" TouchEnable="True" FontSize="30" ButtonText="确认组合" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="113" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="143.0000" Y="36.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="191.3414" Y="103.5959" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -207,9 +207,9 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="MarkedSubImage" Path="ui/mixbtn.png" Plist="uipacker.plist" />
-            <PressedFileData Type="MarkedSubImage" Path="ui/mixbtn.png" Plist="uipacker.plist" />
-            <NormalFileData Type="MarkedSubImage" Path="ui/mixbtn.png" Plist="uipacker.plist" />
+            <DisabledFileData Type="MarkedSubImage" Path="ui/hongs.png" Plist="uipacker.plist" />
+            <PressedFileData Type="MarkedSubImage" Path="ui/hongs.png" Plist="uipacker.plist" />
+            <NormalFileData Type="MarkedSubImage" Path="ui/hongs.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>

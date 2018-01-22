@@ -83,6 +83,9 @@ bool BuildingUILayer::init(Building* build)
 	buildbtn->addTouchEventListener(CC_CALLBACK_2(BuildingUILayer::onAction, this));
 	buildbtn->setTag(BUILD);
 
+	//建造label
+	actionbtnlabel = (cocos2d::ui::Text*)buildbtn->getChildByName("text");
+
 	//建筑物图标
 	cocos2d::ui::ImageView* buildicon = (cocos2d::ui::ImageView*)buildnode->getChildByName("item")->getChildByName("box")->getChildByName("icon");
 	std::string iconstr = StringUtils::format("ui/s%s.png", m_build->data.name);
@@ -228,7 +231,8 @@ void BuildingUILayer::loadActionUi()
 		cocos2d::ui::Button* actbtn = (cocos2d::ui::Button*)item->getChildByName("actionbtn");
 		actbtn->addTouchEventListener(CC_CALLBACK_2(BuildingUILayer::onAction, this));
 		actbtn->setTag(ACTION + i);
-		actbtn->setTitleText(vec_buildAcitonData.at(i).actext);
+		cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)actbtn->getChildByName("text");
+		actbtnlabel->setString(vec_buildAcitonData.at(i).actext);
 		vec_actionbtn.push_back(actbtn);
 		int type = vec_buildAcitonData.at(i).type - 1;
 		if (type == WEAPON || type == PROTECT_EQU)
@@ -568,12 +572,12 @@ void BuildingUILayer::updataBuildRes()
 			buildbar->setVisible(false);
 			buildnode->getChildByName("item")->getChildByName("progressbg")->setVisible(false);
 			buildbtn->setEnabled(false);
-			buildbtn->setTitleText(CommonFuncs::gbk2utf("最高级"));
+			actionbtnlabel->setString(CommonFuncs::gbk2utf("最高级"));
 			buildnode->getChildByName("item")->getChildByName("needtime")->setVisible(false);
 		}
 		else
 		{
-			buildbtn->setTitleText(CommonFuncs::gbk2utf("升级"));
+			actionbtnlabel->setString(CommonFuncs::gbk2utf("升级"));
 		}
 	}
 

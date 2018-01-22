@@ -44,6 +44,14 @@ bool VipGoodsItem::init(GoodsData* gdata)
 	icon->loadTexture(imagepath, cocos2d::ui::TextureResType::PLIST);
 	icon->setContentSize(Sprite::createWithSpriteFrameName(imagepath)->getContentSize());
 
+	cocos2d::ui::Widget* particle = (cocos2d::ui::Widget*)csbnode->getChildByName("particle");
+	particle->setVisible(false);
+
+	if (gdata->name.compare(CommonFuncs::gbk2utf("尊贵月卡")) == 0)
+	{
+		particle->setVisible(true);
+	}
+
 	nameTxt->setString(gdata->name);
 	//descTxt->setString(gdata->desc);
 	std::string pricestr = StringUtils::format("￥%d.00", gdata->price);

@@ -62,8 +62,22 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="cancelbtn" ActionTag="-980256445" Tag="296" IconVisible="False" LeftMargin="116.1387" RightMargin="371.8613" TopMargin="733.4215" BottomMargin="497.5785" TouchEnable="True" FontSize="40" ButtonText="取消" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="cancelbtn" ActionTag="-980256445" Tag="296" IconVisible="False" LeftMargin="116.1387" RightMargin="371.8613" TopMargin="733.4215" BottomMargin="497.5785" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="232.0000" Y="49.0000" />
+            <Children>
+              <AbstractNodeData Name="text" ActionTag="87848891" Tag="603" IconVisible="False" LeftMargin="98.4890" RightMargin="47.5110" TopMargin="-0.5031" BottomMargin="0.5031" FontSize="45" LabelText="取消" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="86.0000" Y="49.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="141.4890" Y="25.0031" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.6099" Y="0.5103" />
+                <PreSize X="0.3707" Y="1.0000" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="0" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+            </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="232.1387" Y="522.0785" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -78,8 +92,22 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="okbtn" ActionTag="-2059609218" Tag="297" IconVisible="False" LeftMargin="352.0388" RightMargin="135.9612" TopMargin="733.4215" BottomMargin="497.5785" TouchEnable="True" FontSize="40" ButtonText="确定" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="okbtn" ActionTag="-2059609218" Tag="297" IconVisible="False" LeftMargin="352.0388" RightMargin="135.9612" TopMargin="733.4215" BottomMargin="497.5785" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="232.0000" Y="49.0000" />
+            <Children>
+              <AbstractNodeData Name="text" ActionTag="390012598" Tag="602" IconVisible="False" LeftMargin="97.8236" RightMargin="40.1764" TopMargin="-0.4281" BottomMargin="0.4281" FontSize="45" LabelText="确定" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="94.0000" Y="49.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="144.8236" Y="24.9281" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.6242" Y="0.5087" />
+                <PreSize X="0.4052" Y="1.0000" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="0" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+            </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="468.0388" Y="522.0785" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />

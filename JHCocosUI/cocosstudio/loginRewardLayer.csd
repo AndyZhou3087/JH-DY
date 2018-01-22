@@ -38,13 +38,13 @@
             <FileData Type="MarkedSubImage" Path="ui/herotitlebg.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="loginrtitle" ActionTag="1070862251" Tag="206" IconVisible="False" LeftMargin="245.9999" RightMargin="242.0001" TopMargin="194.1799" BottomMargin="1023.8201" ctype="SpriteObjectData">
+          <AbstractNodeData Name="loginrtitle" ActionTag="1070862251" Tag="206" IconVisible="False" LeftMargin="252.9996" RightMargin="235.0004" TopMargin="193.1799" BottomMargin="1024.8201" ctype="SpriteObjectData">
             <Size X="232.0000" Y="62.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="361.9999" Y="1054.8201" />
+            <Position X="368.9996" Y="1055.8201" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5028" Y="0.8241" />
+            <PrePosition X="0.5125" Y="0.8249" />
             <PreSize X="0.3222" Y="0.0484" />
             <FileData Type="MarkedSubImage" Path="ui/loginrtitle.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
@@ -191,7 +191,7 @@
             <PreSize X="0.2250" Y="0.2148" />
             <FileData Type="MarkedSubImage" Path="ui/loginritem2.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="item3" ActionTag="-1313375519" Tag="171" IconVisible="False" LeftMargin="358.9826" RightMargin="199.0175" TopMargin="285.0615" BottomMargin="719.9385" LeftEage="49" RightEage="49" TopEage="66" BottomEage="66" Scale9OriginX="49" Scale9OriginY="66" Scale9Width="64" Scale9Height="143" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="item3" ActionTag="-1313375519" Tag="171" IconVisible="False" LeftMargin="358.9826" RightMargin="199.0174" TopMargin="285.0615" BottomMargin="719.9385" LeftEage="49" RightEage="49" TopEage="66" BottomEage="66" Scale9OriginX="49" Scale9OriginY="66" Scale9Width="64" Scale9Height="143" ctype="ImageViewObjectData">
             <Size X="162.0000" Y="275.0000" />
             <Children>
               <AbstractNodeData Name="name" ActionTag="-541034881" Tag="174" IconVisible="False" LeftMargin="34.5000" RightMargin="40.5000" TopMargin="189.9199" BottomMargin="62.0801" FontSize="22" LabelText="夺宝规则" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -407,7 +407,7 @@
           <AbstractNodeData Name="item6" ActionTag="1076346385" Tag="189" IconVisible="False" LeftMargin="277.4644" RightMargin="280.5356" TopMargin="575.5988" BottomMargin="429.4012" LeftEage="49" RightEage="49" TopEage="66" BottomEage="66" Scale9OriginX="49" Scale9OriginY="66" Scale9Width="64" Scale9Height="143" ctype="ImageViewObjectData">
             <Size X="162.0000" Y="275.0000" />
             <Children>
-              <AbstractNodeData Name="name" ActionTag="-852377981" Tag="192" IconVisible="False" LeftMargin="35.5938" RightMargin="39.4063" TopMargin="188.7200" BottomMargin="63.2800" FontSize="22" LabelText="夺宝规则" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="name" ActionTag="-852377981" Tag="192" IconVisible="False" LeftMargin="35.5938" RightMargin="39.4062" TopMargin="188.7200" BottomMargin="63.2800" FontSize="22" LabelText="夺宝规则" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="87.0000" Y="23.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="79.0938" Y="74.7800" />
@@ -478,7 +478,7 @@
           <AbstractNodeData Name="item7" ActionTag="-816552465" Tag="195" IconVisible="False" LeftMargin="448.5103" RightMargin="109.4897" TopMargin="575.6000" BottomMargin="429.4000" LeftEage="49" RightEage="49" TopEage="66" BottomEage="66" Scale9OriginX="49" Scale9OriginY="66" Scale9Width="64" Scale9Height="143" ctype="ImageViewObjectData">
             <Size X="162.0000" Y="275.0000" />
             <Children>
-              <AbstractNodeData Name="name" ActionTag="1076744176" Tag="198" IconVisible="False" LeftMargin="36.9595" RightMargin="38.0405" TopMargin="187.9904" BottomMargin="64.0095" FontSize="22" LabelText="夺宝规则" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="name" ActionTag="1076744176" Tag="198" IconVisible="False" LeftMargin="36.9595" RightMargin="38.0405" TopMargin="187.9905" BottomMargin="64.0095" FontSize="22" LabelText="夺宝规则" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="87.0000" Y="23.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="80.4595" Y="75.5095" />
@@ -560,6 +560,17 @@
             <NormalFileData Type="MarkedSubImage" Path="ui/bigbgclosebtn.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="particle" ActionTag="-71447711" Tag="249" IconVisible="True" LeftMargin="288.0000" RightMargin="432.0000" TopMargin="433.0000" BottomMargin="847.0000" ctype="ParticleObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <AnchorPoint />
+            <Position X="288.0000" Y="847.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.4000" Y="0.6617" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="particle/tex1.plist" Plist="" />
+            <BlendFunc Src="770" Dst="1" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

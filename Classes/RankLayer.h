@@ -45,6 +45,7 @@ private:
 	cocos2d::ui::Text* exptext;
 	cocos2d::ui::Text* ranktext;
 	bool isLastFight;
+	cocos2d::ui::Widget* m_particle;
 };
 
 class RankItem :public Sprite, public ServerDataDelegateProtocol

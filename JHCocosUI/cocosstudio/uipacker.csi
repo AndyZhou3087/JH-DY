@@ -697,6 +697,7 @@
       <FilePathData Path="ui/promition_1.png" />
       <FilePathData Path="ui/promition_2.png" />
       <FilePathData Path="ui/promition_3.png" />
+      <FilePathData Path="ui/hongs.png" />
     </ImageFiles>
     <MaxSize Width="4096" Height="4096" />
   </Content>

@@ -17,7 +17,7 @@
             <FileData Type="Normal" Path="images/syssmallbg.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="bottomfigure_7_0" ActionTag="768863206" Tag="105" IconVisible="False" LeftMargin="82.2256" RightMargin="-4.2256" TopMargin="467.0683" BottomMargin="738.9317" FlipY="True" ctype="SpriteObjectData">
+          <AbstractNodeData Name="bottomfigure_7_0" ActionTag="768863206" Tag="105" IconVisible="False" LeftMargin="82.2218" RightMargin="-4.2218" TopMargin="467.0699" BottomMargin="738.9301" FlipY="True" ctype="SpriteObjectData">
             <Size X="642.0000" Y="74.0000" />
             <AnchorPoint ScaleX="0.5021" ScaleY="0.5315" />
             <Position X="404.5700" Y="778.2611" />
@@ -28,7 +28,7 @@
             <FileData Type="Normal" Path="images/bottomfigure.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="bottomfigure_7" ActionTag="-487072172" Tag="104" IconVisible="False" LeftMargin="82.2256" RightMargin="-4.2256" TopMargin="379.4949" BottomMargin="826.5051" ctype="SpriteObjectData">
+          <AbstractNodeData Name="bottomfigure_7" ActionTag="-487072172" Tag="104" IconVisible="False" LeftMargin="82.2218" RightMargin="-4.2218" TopMargin="379.4965" BottomMargin="826.5035" ctype="SpriteObjectData">
             <Size X="642.0000" Y="74.0000" />
             <AnchorPoint ScaleX="0.5021" ScaleY="0.5315" />
             <Position X="404.5700" Y="865.8345" />
@@ -84,8 +84,22 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="backbtn" ActionTag="-97956353" Tag="319" IconVisible="False" LeftMargin="114.8506" RightMargin="373.1494" TopMargin="749.5004" BottomMargin="481.4996" TouchEnable="True" FontSize="40" ButtonText="返回" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="backbtn" ActionTag="-97956353" Tag="319" IconVisible="False" LeftMargin="114.8506" RightMargin="373.1494" TopMargin="749.5004" BottomMargin="481.4996" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="232.0000" Y="49.0000" />
+            <Children>
+              <AbstractNodeData Name="text" ActionTag="892419380" Tag="488" IconVisible="False" LeftMargin="92.7499" RightMargin="41.2501" TopMargin="-2.7429" BottomMargin="-2.2571" FontSize="50" LabelText="返回" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="98.0000" Y="54.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="141.7499" Y="24.7429" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.6110" Y="0.5050" />
+                <PreSize X="0.4224" Y="1.1020" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="0" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+            </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="230.8506" Y="505.9996" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -94,23 +108,37 @@
             <PreSize X="0.3222" Y="0.0383" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="MarkedSubImage" Path="ui/disbtn.png" Plist="uipacker.plist" />
+            <DisabledFileData Type="MarkedSubImage" Path="ui/normalbtn2.png" Plist="uipacker.plist" />
             <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="buybtn" ActionTag="626707429" Tag="318" IconVisible="False" LeftMargin="361.1585" RightMargin="126.8415" TopMargin="749.5004" BottomMargin="481.4996" TouchEnable="True" FontSize="40" ButtonText="购买" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="buybtn" ActionTag="626707429" Tag="318" IconVisible="False" LeftMargin="361.1583" RightMargin="126.8417" TopMargin="748.2411" BottomMargin="482.7589" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="232.0000" Y="49.0000" />
+            <Children>
+              <AbstractNodeData Name="text" ActionTag="590043436" Tag="487" IconVisible="False" LeftMargin="95.6034" RightMargin="38.3966" TopMargin="-3.1871" BottomMargin="-1.8129" FontSize="50" LabelText="购买" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="98.0000" Y="54.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="144.6034" Y="25.1871" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.6233" Y="0.5140" />
+                <PreSize X="0.4224" Y="1.1020" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="0" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+            </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="477.1585" Y="505.9996" />
+            <Position X="477.1583" Y="507.2589" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.6627" Y="0.3953" />
+            <PrePosition X="0.6627" Y="0.3963" />
             <PreSize X="0.3222" Y="0.0383" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="MarkedSubImage" Path="ui/disbtn.png" Plist="uipacker.plist" />
+            <DisabledFileData Type="MarkedSubImage" Path="ui/normalbtn2.png" Plist="uipacker.plist" />
             <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
@@ -139,7 +167,7 @@
             <FileData Type="MarkedSubImage" Path="ui/VerticalLabel.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="name" ActionTag="-113833345" Tag="106" IconVisible="False" LeftMargin="123.2384" RightMargin="562.7615" TopMargin="383.6671" BottomMargin="782.3329" LeftEage="11" RightEage="11" TopEage="37" BottomEage="37" Scale9OriginX="11" Scale9OriginY="37" Scale9Width="12" Scale9Height="40" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="name" ActionTag="-113833345" Tag="106" IconVisible="False" LeftMargin="123.2384" RightMargin="562.7616" TopMargin="383.6671" BottomMargin="782.3329" LeftEage="11" RightEage="11" TopEage="37" BottomEage="37" Scale9OriginX="11" Scale9OriginY="37" Scale9Width="12" Scale9Height="40" ctype="ImageViewObjectData">
             <Size X="34.0000" Y="114.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="140.2384" Y="839.3329" />

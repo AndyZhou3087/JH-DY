@@ -59,6 +59,8 @@ bool RankLayer::init()
 	tag2btn->setTag(2);
 	tag2btn->setBright(true);
 
+	m_particle = (cocos2d::ui::Widget*)m_csbnode->getChildByName("particle");
+
 	srollView = (cocos2d::ui::ScrollView*)m_csbnode->getChildByName("scrollview");
 	srollView->setScrollBarEnabled(false);
 	srollView->setBounceEnabled(true);
@@ -126,6 +128,7 @@ void RankLayer::onRank(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventTyp
 
 		if (tag == 0)
 		{
+			m_particle->setPositionX(160);
 			rankcatabox0->setVisible(true);
 			rankcatabox1->setVisible(false);
 			tag1btn->setBright(true);
@@ -134,6 +137,7 @@ void RankLayer::onRank(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventTyp
 		}
 		else if (tag == 1)
 		{
+			m_particle->setPositionX(356);
 			rankcatabox0->setVisible(true);
 			rankcatabox1->setVisible(false);
 			tag0btn->setBright(true);
@@ -142,6 +146,7 @@ void RankLayer::onRank(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventTyp
 		}
 		else if (tag == 2)
 		{
+			m_particle->setPositionX(553);
 			rankcatabox0->setVisible(false);
 			rankcatabox1->setVisible(true);
 			tag0btn->setBright(true);

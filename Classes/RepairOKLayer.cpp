@@ -18,7 +18,15 @@ bool RepairOKLayer::init(PackageData* pdata, int type)
 	LayerColor* color = LayerColor::create(Color4B(0, 0, 0, 150));
 	this->addChild(color);
 
-	Node* csbnode = CSLoader::createNode("repairOKLayer.csb");
+
+	Node* csbnode = CSLoader::createNode("qhcg.csb");
+	csbnode->setPosition(Vec2(360, 600));
+	this->addChild(csbnode, 0, "qhcg");
+	auto action = CSLoader::createTimeline("qhcg.csb");
+	csbnode->runAction(action);
+	action->gotoFrameAndPlay(0, false);
+
+	/*Node* csbnode = CSLoader::createNode("repairOKLayer.csb");
 	this->addChild(csbnode);
 
 	m_unlockbg = (cocos2d::ui::Widget*)csbnode->getChildByName("unlockbg");
@@ -58,7 +66,7 @@ bool RepairOKLayer::init(PackageData* pdata, int type)
 		str = "ui/strengthoktext.png";
 	m_okimg->loadTexture(str, cocos2d::ui::TextureResType::PLIST);
 	m_okimg->setContentSize(Sprite::createWithSpriteFrameName(str)->getContentSize());
-	m_okimg->setVisible(false);
+	m_okimg->setVisible(false);*/
 
 
 	////layer 点击事件，屏蔽下层事件
@@ -71,7 +79,8 @@ bool RepairOKLayer::init(PackageData* pdata, int type)
 	listener->setSwallowTouches(true);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
-	this->scheduleOnce(schedule_selector(RepairOKLayer::showText), 0.6f);
+	//this->scheduleOnce(schedule_selector(RepairOKLayer::showText), 0.5f);
+	this->scheduleOnce(schedule_selector(RepairOKLayer::removeself), 3.5f);
 
 	return true;
 }
@@ -93,7 +102,7 @@ RepairOKLayer* RepairOKLayer::create(PackageData* pdata, int type)
 
 void RepairOKLayer::showText(float dt)
 {
-	m_repairokquan->setOpacity(0);
+	/*m_repairokquan->setOpacity(0);
 	m_repairokquan->runAction(Sequence::create(Show::create(), FadeIn::create(1.0f), NULL));
 	
 	m_title->setOpacity(0);
@@ -108,7 +117,7 @@ void RepairOKLayer::showText(float dt)
 	m_okimg->runAction(Sequence::create(Show::create(), FadeIn::create(1.0f), NULL));
 
 	m_repairImgbox->setOpacity(0);
-	m_repairImgbox->runAction(Sequence::create(Show::create(), FadeIn::create(1.0f), NULL));
+	m_repairImgbox->runAction(Sequence::create(Show::create(), FadeIn::create(1.0f), NULL));*/
 
 	this->scheduleOnce(schedule_selector(RepairOKLayer::removeself), 3.5f);
 }

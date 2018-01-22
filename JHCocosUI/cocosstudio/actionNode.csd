@@ -163,18 +163,32 @@
                 <PreSize X="0.5198" Y="0.1864" />
                 <ImageFileData Type="MarkedSubImage" Path="ui/buildprogressbar.png" Plist="uipacker.plist" />
               </AbstractNodeData>
-              <AbstractNodeData Name="actionbtn" ActionTag="294009507" Tag="73" IconVisible="False" LeftMargin="392.0010" RightMargin="-18.0010" TopMargin="33.4998" BottomMargin="35.5002" TouchEnable="True" FontSize="40" ButtonText="建造" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                <Size X="232.0000" Y="49.0000" />
+              <AbstractNodeData Name="actionbtn" ActionTag="294009507" Tag="73" IconVisible="False" LeftMargin="427.0010" RightMargin="16.9990" TopMargin="33.4998" BottomMargin="35.5002" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="162.0000" Y="49.0000" />
+                <Children>
+                  <AbstractNodeData Name="text" ActionTag="2071248387" Tag="321" IconVisible="False" LeftMargin="58.4752" RightMargin="19.5248" TopMargin="1.8763" BottomMargin="4.1237" FontSize="40" LabelText="建造" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="84.0000" Y="43.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="100.4752" Y="25.6237" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.6202" Y="0.5229" />
+                    <PreSize X="0.5185" Y="0.8776" />
+                    <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                    <OutlineColor A="255" R="0" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="508.0010" Y="60.0002" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.8383" Y="0.5085" />
-                <PreSize X="0.3828" Y="0.4153" />
+                <PreSize X="0.2673" Y="0.4153" />
                 <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
                 <TextColor A="255" R="255" G="255" B="255" />
                 <DisabledFileData Type="MarkedSubImage" Path="ui/normalbtn2.png" Plist="uipacker.plist" />
-                <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn1.png" Plist="uipacker.plist" />
+                <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
                 <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />

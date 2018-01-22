@@ -60,7 +60,7 @@
             <FileData Type="MarkedSubImage" Path="ui/relationtitlebox.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="title" ActionTag="-1527141312" Tag="1908" IconVisible="False" LeftMargin="247.1867" RightMargin="224.8133" TopMargin="53.1714" BottomMargin="1151.8286" LeftEage="56" RightEage="56" TopEage="15" BottomEage="15" Scale9OriginX="56" Scale9OriginY="15" Scale9Width="136" Scale9Height="45" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="title" ActionTag="-1527141312" Tag="1908" IconVisible="False" LeftMargin="247.1787" RightMargin="224.8213" TopMargin="53.1742" BottomMargin="1151.8258" LeftEage="56" RightEage="56" TopEage="15" BottomEage="15" Scale9OriginX="56" Scale9OriginY="15" Scale9Width="136" Scale9Height="45" ctype="ImageViewObjectData">
             <Size X="248.0000" Y="75.0000" />
             <AnchorPoint ScaleX="0.5361" ScaleY="0.3027" />
             <Position X="380.1315" Y="1174.5283" />
@@ -102,7 +102,7 @@
             <FileData Type="MarkedSubImage" Path="ui/brush.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="lvtext" ActionTag="-568067648" Tag="319" IconVisible="False" LeftMargin="57.9505" RightMargin="538.0494" TopMargin="292.8936" BottomMargin="958.1064" FontSize="28" LabelText="等级限制：" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="lvtext" ActionTag="-568067648" Tag="319" IconVisible="False" LeftMargin="57.9505" RightMargin="538.0495" TopMargin="292.8936" BottomMargin="958.1064" FontSize="28" LabelText="等级限制：" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="124.0000" Y="29.0000" />
             <AnchorPoint ScaleX="0.4628" ScaleY="0.4775" />
             <Position X="115.3377" Y="971.9539" />
@@ -452,7 +452,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="rule" ActionTag="1451711472" Tag="367" IconVisible="False" LeftMargin="82.4776" RightMargin="57.5225" TopMargin="853.4133" BottomMargin="226.5866" IsCustomSize="True" FontSize="25" LabelText="1、角色等级满50级。&#xA;2、创建帮派消耗50元宝。&#xA;3、门派名称不可与已有门派名称重名。&#xA;4、创建帮派时可限制性别类型：男、女、不详等。&#xA;5、创建帮派时可限制角色等级，限制等级以下无法申请加入。&#xA;6、每个角色只可创建一个公会。" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="rule" ActionTag="1451711472" Tag="367" IconVisible="False" LeftMargin="82.4776" RightMargin="57.5224" TopMargin="853.4134" BottomMargin="226.5866" IsCustomSize="True" FontSize="25" LabelText="1、角色等级满50级。&#xA;2、创建帮派消耗50元宝。&#xA;3、门派名称不可与已有门派名称重名。&#xA;4、创建帮派时可限制性别类型：男、女、不详等。&#xA;5、创建帮派时可限制角色等级，限制等级以下无法申请加入。&#xA;6、每个角色只可创建一个公会。" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="580.0000" Y="200.0000" />
             <AnchorPoint ScaleX="0.4628" ScaleY="0.4775" />
             <Position X="350.9016" Y="322.0866" />
@@ -485,7 +485,7 @@
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.6420" Y="0.5698" />
-                <PreSize X="0.6724" Y="0.7959" />
+                <PreSize X="0.6767" Y="0.8367" />
                 <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
                 <OutlineColor A="255" R="0" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
@@ -499,7 +499,7 @@
             <PreSize X="0.3222" Y="0.0383" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
-            <DisabledFileData Type="MarkedSubImage" Path="ui/disbtn.png" Plist="uipacker.plist" />
+            <DisabledFileData Type="MarkedSubImage" Path="ui/normalbtn2.png" Plist="uipacker.plist" />
             <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />

@@ -32,13 +32,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="backbtn" ActionTag="1647840050" Tag="37" IconVisible="False" LeftMargin="605.2670" RightMargin="22.7330" TopMargin="192.4539" BottomMargin="996.5461" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="62" Scale9Height="69" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="backbtn" ActionTag="1647840050" Tag="37" IconVisible="False" LeftMargin="629.9783" RightMargin="-1.9783" TopMargin="175.9797" BottomMargin="1013.0203" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="62" Scale9Height="69" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="92.0000" Y="91.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="651.2670" Y="1042.0461" />
+            <Position X="675.9783" Y="1058.5203" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.9045" Y="0.8141" />
+            <PrePosition X="0.9389" Y="0.8270" />
             <PreSize X="0.1278" Y="0.0711" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="MarkedSubImage" Path="ui/backbtn.png" Plist="uipacker.plist" />
@@ -313,7 +313,7 @@
             <PreSize X="0.0250" Y="0.0203" />
             <FileData Type="MarkedSubImage" Path="ui/arrowup.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="sexhintimg" ActionTag="-574798800" Tag="160" IconVisible="False" LeftMargin="548.5906" RightMargin="141.4094" TopMargin="373.3620" BottomMargin="876.6380" TouchEnable="True" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="sexhintimg" ActionTag="-574798800" Tag="160" IconVisible="False" LeftMargin="548.5906" RightMargin="141.4094" TopMargin="373.3620" BottomMargin="876.6380" TouchEnable="True" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="8" Scale9Height="11" ctype="ImageViewObjectData">
             <Size X="30.0000" Y="30.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="563.5906" Y="891.6380" />
