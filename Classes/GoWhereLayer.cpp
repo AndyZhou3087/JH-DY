@@ -43,6 +43,9 @@ GoWhereLayer* GoWhereLayer::create(std::string addrname, WHERELAYER_TYPE type, f
 
 bool GoWhereLayer::init(std::string addrid, WHERELAYER_TYPE type, float distance)
 {
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	this->addChild(color);
+
 	Node* csbnode = CSLoader::createNode("goWhereLayer.csb");
 	this->addChild(csbnode);
 

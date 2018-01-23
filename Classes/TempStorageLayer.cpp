@@ -35,6 +35,9 @@ TempStorageLayer* TempStorageLayer::create(std::string addrname)
 
 bool TempStorageLayer::init(std::string addrname)
 {
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	this->addChild(color);
+
 	Node* csbnode = CSLoader::createNode("tempStorageLayer.csb");
 	this->addChild(csbnode);
 	m_addrname = addrname;

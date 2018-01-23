@@ -79,6 +79,18 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
+                  <AbstractNodeData Name="text" ActionTag="1431127576" Tag="661" IconVisible="False" LeftMargin="10.0712" RightMargin="17.9288" TopMargin="-1.2552" BottomMargin="4.2552" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="72.0000" Y="37.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="46.0712" Y="22.7552" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.4607" Y="0.5689" />
+                    <PreSize X="0.7200" Y="0.9250" />
+                    <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                    <OutlineColor A="255" R="0" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.4033" ScaleY="0.5643" />
                 <Position X="72.7042" Y="43.7676" />
@@ -98,18 +110,6 @@
                 <PreSize X="1.0000" Y="1.0000" />
                 <FileData Type="MarkedSubImage" Path="ui/loginritemlight.png" Plist="uipacker.plist" />
                 <BlendFunc Src="1" Dst="771" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="text" ActionTag="1431127576" Tag="661" IconVisible="False" LeftMargin="43.1774" RightMargin="46.8226" TopMargin="213.8259" BottomMargin="24.1741" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="72.0000" Y="37.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="79.1774" Y="42.6741" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4887" Y="0.1552" />
-                <PreSize X="0.4444" Y="0.1345" />
-                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                <OutlineColor A="255" R="0" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -150,6 +150,18 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
+                  <AbstractNodeData Name="text" ActionTag="-984909470" Tag="667" IconVisible="False" LeftMargin="9.4927" RightMargin="18.5073" TopMargin="-0.9695" BottomMargin="3.9695" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="72.0000" Y="37.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="45.4927" Y="22.4695" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.4549" Y="0.5617" />
+                    <PreSize X="0.7200" Y="0.9250" />
+                    <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                    <OutlineColor A="255" R="0" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.4033" ScaleY="0.5643" />
                 <Position X="72.6800" Y="44.8531" />
@@ -169,18 +181,6 @@
                 <PreSize X="1.0000" Y="1.0000" />
                 <FileData Type="MarkedSubImage" Path="ui/loginritemlight.png" Plist="uipacker.plist" />
                 <BlendFunc Src="1" Dst="771" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="text" ActionTag="-984909470" Tag="667" IconVisible="False" LeftMargin="43.7808" RightMargin="46.2192" TopMargin="212.5634" BottomMargin="25.4366" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="72.0000" Y="37.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="79.7808" Y="43.9366" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4925" Y="0.1598" />
-                <PreSize X="0.4444" Y="0.1345" />
-                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                <OutlineColor A="255" R="0" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -221,6 +221,18 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
+                  <AbstractNodeData Name="text" ActionTag="169346832" Tag="668" IconVisible="False" LeftMargin="8.7793" RightMargin="19.2207" TopMargin="-1.5973" BottomMargin="4.5973" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="72.0000" Y="37.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="44.7793" Y="23.0973" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.4478" Y="0.5774" />
+                    <PreSize X="0.7200" Y="0.9250" />
+                    <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                    <OutlineColor A="255" R="0" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.4033" ScaleY="0.5643" />
                 <Position X="73.6806" Y="44.8531" />
@@ -240,18 +252,6 @@
                 <PreSize X="1.0000" Y="1.0000" />
                 <FileData Type="MarkedSubImage" Path="ui/loginritemlight.png" Plist="uipacker.plist" />
                 <BlendFunc Src="1" Dst="771" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="text" ActionTag="169346832" Tag="668" IconVisible="False" LeftMargin="44.2498" RightMargin="45.7502" TopMargin="212.3006" BottomMargin="25.6994" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="72.0000" Y="37.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="80.2498" Y="44.1994" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4954" Y="0.1607" />
-                <PreSize X="0.4444" Y="0.1345" />
-                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                <OutlineColor A="255" R="0" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -292,6 +292,18 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
+                  <AbstractNodeData Name="text" ActionTag="-327362611" Tag="669" IconVisible="False" LeftMargin="10.2509" RightMargin="17.7491" TopMargin="-0.8115" BottomMargin="3.8115" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="72.0000" Y="37.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="46.2509" Y="22.3115" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.4625" Y="0.5578" />
+                    <PreSize X="0.7200" Y="0.9250" />
+                    <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                    <OutlineColor A="255" R="0" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.4033" ScaleY="0.5643" />
                 <Position X="73.6807" Y="44.8531" />
@@ -311,18 +323,6 @@
                 <PreSize X="1.0000" Y="1.0000" />
                 <FileData Type="MarkedSubImage" Path="ui/loginritemlight.png" Plist="uipacker.plist" />
                 <BlendFunc Src="1" Dst="771" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="text" ActionTag="-327362611" Tag="669" IconVisible="False" LeftMargin="44.7197" RightMargin="45.2803" TopMargin="212.9045" BottomMargin="25.0955" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="72.0000" Y="37.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="80.7197" Y="43.5955" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4983" Y="0.1585" />
-                <PreSize X="0.4444" Y="0.1345" />
-                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                <OutlineColor A="255" R="0" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -363,6 +363,18 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
+                  <AbstractNodeData Name="text" ActionTag="2118773977" Tag="670" IconVisible="False" LeftMargin="11.0302" RightMargin="16.9698" TopMargin="0.0254" BottomMargin="2.9746" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="72.0000" Y="37.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="47.0302" Y="21.4746" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.4703" Y="0.5369" />
+                    <PreSize X="0.7200" Y="0.9250" />
+                    <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                    <OutlineColor A="255" R="0" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.4033" ScaleY="0.5643" />
                 <Position X="72.1394" Y="42.6122" />
@@ -382,18 +394,6 @@
                 <PreSize X="1.0000" Y="1.0000" />
                 <FileData Type="MarkedSubImage" Path="ui/loginritemlight.png" Plist="uipacker.plist" />
                 <BlendFunc Src="1" Dst="771" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="text" ActionTag="2118773977" Tag="670" IconVisible="False" LeftMargin="41.5904" RightMargin="48.4096" TopMargin="215.1072" BottomMargin="22.8928" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="72.0000" Y="37.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="77.5904" Y="41.3928" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4790" Y="0.1505" />
-                <PreSize X="0.4444" Y="0.1345" />
-                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                <OutlineColor A="255" R="0" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -434,6 +434,18 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
+                  <AbstractNodeData Name="text" ActionTag="-308667914" Tag="671" IconVisible="False" LeftMargin="10.7391" RightMargin="17.2609" TopMargin="-0.1887" BottomMargin="3.1887" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="72.0000" Y="37.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="46.7391" Y="21.6887" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.4674" Y="0.5422" />
+                    <PreSize X="0.7200" Y="0.9250" />
+                    <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                    <OutlineColor A="255" R="0" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.4033" ScaleY="0.5643" />
                 <Position X="75.8677" Y="43.4296" />
@@ -453,18 +465,6 @@
                 <PreSize X="1.0000" Y="1.0000" />
                 <FileData Type="MarkedSubImage" Path="ui/loginritemlight.png" Plist="uipacker.plist" />
                 <BlendFunc Src="1" Dst="771" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="text" ActionTag="-308667914" Tag="671" IconVisible="False" LeftMargin="46.3922" RightMargin="43.6078" TopMargin="213.7107" BottomMargin="24.2893" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="72.0000" Y="37.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="82.3922" Y="42.7893" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5086" Y="0.1556" />
-                <PreSize X="0.4444" Y="0.1345" />
-                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                <OutlineColor A="255" R="0" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -505,6 +505,18 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
+                  <AbstractNodeData Name="text" ActionTag="891299061" Tag="672" IconVisible="False" LeftMargin="10.2414" RightMargin="17.7586" TopMargin="-1.1349" BottomMargin="4.1349" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="72.0000" Y="37.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="46.2414" Y="22.6349" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.4624" Y="0.5659" />
+                    <PreSize X="0.7200" Y="0.9250" />
+                    <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                    <OutlineColor A="255" R="0" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.4033" ScaleY="0.5643" />
                 <Position X="73.3221" Y="44.6123" />
@@ -524,18 +536,6 @@
                 <PreSize X="1.0000" Y="1.0000" />
                 <FileData Type="MarkedSubImage" Path="ui/loginritemlight.png" Plist="uipacker.plist" />
                 <BlendFunc Src="1" Dst="771" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="text" ActionTag="891299061" Tag="672" IconVisible="False" LeftMargin="44.5300" RightMargin="45.4700" TopMargin="212.5815" BottomMargin="25.4185" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="72.0000" Y="37.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="80.5300" Y="43.9185" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4971" Y="0.1597" />
-                <PreSize X="0.4444" Y="0.1345" />
-                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                <OutlineColor A="255" R="0" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />

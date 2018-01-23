@@ -49,6 +49,7 @@ bool LoginRewardLayer::init()
 
 		cocos2d::ui::ImageView* getimg = (cocos2d::ui::ImageView*)item->getChildByName("getimg");
 		getimg->addTouchEventListener(CC_CALLBACK_2(LoginRewardLayer::onGet, this));
+		getimg->setVisible(true);
 
 		cocos2d::ui::Text* statutext = (cocos2d::ui::Text*)getimg->getChildByName("statutext");
 
@@ -94,7 +95,7 @@ bool LoginRewardLayer::init()
 
 		if (i < logindays)
 		{
-			item->setColor(Color3B(84, 84, 84));
+			item->setColor(Color3B(200, 200, 200));
 			loginritemlight->setVisible(false);
 			//item->loadTexture("ui/loginritem0.png", cocos2d::ui::Widget::TextureResType::PLIST);
 			getimg->loadTexture("ui/buildtagbtn2.png", cocos2d::ui::Widget::TextureResType::PLIST);
@@ -114,6 +115,7 @@ bool LoginRewardLayer::init()
 		}
 		else
 		{
+			getimg->setVisible(false);
 			loginritemlight->setVisible(false);
 			item->setColor(Color3B(255, 255, 255));
 			getimg->setEnabled(false);
@@ -162,7 +164,7 @@ void LoginRewardLayer::onGet(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 
 		cocos2d::ui::ImageView* item = (cocos2d::ui::ImageView*)getimg->getParent();
 		//item->loadTexture("ui/loginritem0.png", cocos2d::ui::Widget::TextureResType::PLIST);
-		item->setColor(Color3B(11, 32, 22));
+		item->setColor(Color3B(84, 84, 84));
 		cocos2d::ui::Widget* loginritemlight = (cocos2d::ui::Widget*)item->getChildByName("loginritemlight");
 		loginritemlight->setVisible(false);
 		getimg->loadTexture("ui/buildtagbtn2.png", cocos2d::ui::Widget::TextureResType::PLIST);

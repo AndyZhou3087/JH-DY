@@ -19,16 +19,17 @@
           <AbstractNodeData Name="okbtn" ActionTag="-37325359" Tag="118" IconVisible="False" LeftMargin="240.0869" RightMargin="247.9131" TopMargin="835.5068" BottomMargin="395.4932" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="232.0000" Y="49.0000" />
             <Children>
-              <AbstractNodeData Name="oklabel" ActionTag="1980289248" Tag="86" IconVisible="False" LeftMargin="84.8715" RightMargin="31.1285" TopMargin="-2.2966" BottomMargin="2.2966" ctype="SpriteObjectData">
-                <Size X="116.0000" Y="49.0000" />
+              <AbstractNodeData Name="oklabel" ActionTag="791047462" Tag="537" IconVisible="False" LeftMargin="105.2965" RightMargin="47.7035" TopMargin="3.4884" BottomMargin="6.5116" FontSize="38" LabelText="确定" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="80.0000" Y="41.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="142.8715" Y="26.7966" />
+                <Position X="144.7965" Y="26.0116" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.6158" Y="0.5469" />
-                <PreSize X="0.5000" Y="1.0000" />
-                <FileData Type="MarkedSubImage" Path="ui/oklabel.png" Plist="uipacker.plist" />
-                <BlendFunc Src="1" Dst="771" />
+                <PrePosition X="0.6241" Y="0.5308" />
+                <PreSize X="0.3405" Y="0.7959" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="0" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -124,7 +125,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="usebtn" ActionTag="-25072642" VisibleForFrame="False" Tag="17" IconVisible="False" LeftMargin="108.4411" RightMargin="379.5589" TopMargin="834.7862" BottomMargin="396.2138" TouchEnable="True" FontSize="36" ButtonText="使用" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="usebtn" ActionTag="-25072642" VisibleForFrame="False" Tag="17" IconVisible="False" LeftMargin="108.4411" RightMargin="379.5589" TopMargin="834.7862" BottomMargin="396.2138" TouchEnable="True" FontSize="38" ButtonText="     使用" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="232.0000" Y="49.0000" />
             <Children>
               <AbstractNodeData Name="valuelbl" ActionTag="1704639579" Tag="18" IconVisible="False" LeftMargin="20.4249" RightMargin="104.5751" TopMargin="-20.2107" BottomMargin="46.2107" FontSize="22" LabelText="大力丸 x10" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -149,7 +150,7 @@
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="MarkedSubImage" Path="ui/normalbtn2.png" Plist="uipacker.plist" />
-            <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn1.png" Plist="uipacker.plist" />
+            <PressedFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <NormalFileData Type="MarkedSubImage" Path="ui/normalbtn.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />

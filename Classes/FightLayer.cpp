@@ -52,6 +52,9 @@ FightLayer* FightLayer::create(std::string addrid, std::string npcid)
 
 bool FightLayer::init(std::string addrid, std::string npcid)
 {
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	this->addChild(color);
+
 	Node* csbnode = CSLoader::createNode("fightLayer.csb");
 	this->addChild(csbnode);
 

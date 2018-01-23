@@ -28,7 +28,7 @@ private:
 	float _visualmyrank;
 	cocos2d::ui::TextBMFont* ranknum;
 	cocos2d::ui::ImageView* winicon;
-	cocos2d::ui::ImageView* wintext;
+	cocos2d::ui::Text* wintext;
 	cocos2d::ui::Text* rankup;
 };
 #endif

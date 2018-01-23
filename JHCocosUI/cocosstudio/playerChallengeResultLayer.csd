@@ -111,7 +111,7 @@
             <PreSize X="0.2778" Y="0.1563" />
             <FileData Type="MarkedSubImage" Path="ui/fhero1.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="winicon" ActionTag="1077692668" Tag="576" IconVisible="False" LeftMargin="309.5636" RightMargin="296.4364" TopMargin="770.0521" BottomMargin="423.9478" LeftEage="37" RightEage="37" TopEage="28" BottomEage="28" Scale9OriginX="37" Scale9OriginY="28" Scale9Width="40" Scale9Height="30" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="winicon" ActionTag="1077692668" Tag="576" IconVisible="False" LeftMargin="309.5636" RightMargin="296.4364" TopMargin="770.0522" BottomMargin="423.9478" LeftEage="37" RightEage="37" TopEage="28" BottomEage="28" Scale9OriginX="37" Scale9OriginY="28" Scale9Width="40" Scale9Height="30" ctype="ImageViewObjectData">
             <Size X="114.0000" Y="86.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="366.5636" Y="466.9478" />
@@ -121,7 +121,7 @@
             <PreSize X="0.1583" Y="0.0672" />
             <FileData Type="MarkedSubImage" Path="ui/winicon1.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="exptext_0" ActionTag="-1587824322" Tag="578" IconVisible="False" LeftMargin="326.1344" RightMargin="260.8656" TopMargin="919.4777" BottomMargin="329.5224" FontSize="30" LabelText="当前排名：" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="exptext_0" ActionTag="-1587824322" Tag="578" IconVisible="False" LeftMargin="326.1344" RightMargin="260.8656" TopMargin="919.4776" BottomMargin="329.5224" FontSize="30" LabelText="当前排名：" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="133.0000" Y="31.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="392.6344" Y="345.0224" />
@@ -166,17 +166,6 @@
             <FileData Type="MarkedSubImage" Path="ui/herotitlebg.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ranktitle" ActionTag="-450166381" Tag="176" IconVisible="False" LeftMargin="235.0075" RightMargin="209.9925" TopMargin="448.9788" BottomMargin="750.0212" ctype="SpriteObjectData">
-            <Size X="275.0000" Y="81.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="372.5075" Y="790.5212" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5174" Y="0.6176" />
-            <PreSize X="0.3819" Y="0.0633" />
-            <FileData Type="MarkedSubImage" Path="ui/ranktitle.png" Plist="uipacker.plist" />
-            <BlendFunc Src="1" Dst="771" />
-          </AbstractNodeData>
           <AbstractNodeData Name="wintext" ActionTag="-838421952" Tag="177" IconVisible="False" LeftMargin="288.9161" RightMargin="254.0839" TopMargin="861.1611" BottomMargin="371.8389" FontSize="45" LabelText="排名上升" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="177.0000" Y="47.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -187,6 +176,18 @@
             <PreSize X="0.2458" Y="0.0367" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="title" ActionTag="472791592" Tag="251" IconVisible="False" LeftMargin="246.1536" RightMargin="223.8464" TopMargin="461.4857" BottomMargin="762.5143" FontSize="50" LabelText="武林风云榜" OutlineSize="2" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="250.0000" Y="56.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="371.1536" Y="790.5143" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5155" Y="0.6176" />
+            <PreSize X="0.3444" Y="0.0406" />
+            <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+            <OutlineColor A="255" R="0" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
         </Children>

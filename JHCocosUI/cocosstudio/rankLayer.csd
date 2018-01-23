@@ -173,79 +173,6 @@
             <FileData Type="MarkedSubImage" Path="ui/rankcatatitlebox1.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="rankcatabox1" ActionTag="1895474446" Tag="34" IconVisible="False" LeftMargin="60.0001" RightMargin="59.9999" TopMargin="224.9985" BottomMargin="1017.0015" ctype="SpriteObjectData">
-            <Size X="600.0000" Y="38.0000" />
-            <Children>
-              <AbstractNodeData Name="text1" ActionTag="-2087167116" Tag="35" IconVisible="False" LeftMargin="3.2026" RightMargin="541.7974" TopMargin="1.9454" BottomMargin="7.0546" FontSize="28" LabelText="排名" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="55.0000" Y="29.0000" />
-                <AnchorPoint ScaleY="0.5000" />
-                <Position X="3.2026" Y="21.5546" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.0053" Y="0.5672" />
-                <PreSize X="0.0917" Y="0.7632" />
-                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="text2" ActionTag="-256323849" Tag="36" IconVisible="False" LeftMargin="107.6947" RightMargin="380.3053" TopMargin="1.9454" BottomMargin="7.0546" FontSize="28" LabelText="侠客昵称" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="112.0000" Y="29.0000" />
-                <AnchorPoint ScaleY="0.5000" />
-                <Position X="107.6947" Y="21.5546" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.1795" Y="0.5672" />
-                <PreSize X="0.1867" Y="0.7632" />
-                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="text3" ActionTag="-1711634702" Tag="37" IconVisible="False" LeftMargin="272.3891" RightMargin="268.6109" TopMargin="1.9454" BottomMargin="7.0546" FontSize="28" LabelText="等级" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="59.0000" Y="29.0000" />
-                <AnchorPoint ScaleY="0.5000" />
-                <Position X="272.3891" Y="21.5546" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4540" Y="0.5672" />
-                <PreSize X="0.0983" Y="0.7632" />
-                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="text4" ActionTag="-2105795906" Tag="38" IconVisible="False" LeftMargin="392.3235" RightMargin="125.6765" TopMargin="1.9454" BottomMargin="7.0546" FontSize="28" LabelText="战斗力" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="82.0000" Y="29.0000" />
-                <AnchorPoint ScaleY="0.5000" />
-                <Position X="392.3235" Y="21.5546" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.6539" Y="0.5672" />
-                <PreSize X="0.1367" Y="0.7632" />
-                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="text5" ActionTag="313310940" Tag="39" IconVisible="False" LeftMargin="330.6740" RightMargin="214.3260" TopMargin="1.9454" BottomMargin="7.0546" FontSize="28" LabelText="性别" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="55.0000" Y="29.0000" />
-                <AnchorPoint ScaleY="0.5000" />
-                <Position X="330.6740" Y="21.5546" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5511" Y="0.5672" />
-                <PreSize X="0.0917" Y="0.7632" />
-                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-            </Children>
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="360.0001" Y="1036.0015" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.8094" />
-            <PreSize X="0.8333" Y="0.0297" />
-            <FileData Type="MarkedSubImage" Path="ui/rankcatatitlebox1.png" Plist="uipacker.plist" />
-            <BlendFunc Src="1" Dst="771" />
-          </AbstractNodeData>
           <AbstractNodeData Name="tagbtn0" ActionTag="1714169879" Tag="79" IconVisible="False" LeftMargin="74.5001" RightMargin="474.4999" TopMargin="142.9902" BottomMargin="1025.0098" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="141" Scale9Height="90" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="171.0000" Y="112.0000" />
             <Children>
@@ -329,6 +256,79 @@
             <NormalFileData Type="MarkedSubImage" Path="ui/ranktag0.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="rankcatabox1" ActionTag="1895474446" Tag="34" IconVisible="False" LeftMargin="60.0001" RightMargin="59.9999" TopMargin="224.9985" BottomMargin="1017.0015" ctype="SpriteObjectData">
+            <Size X="600.0000" Y="38.0000" />
+            <Children>
+              <AbstractNodeData Name="text1" ActionTag="-2087167116" Tag="35" IconVisible="False" LeftMargin="3.2026" RightMargin="541.7974" TopMargin="1.9454" BottomMargin="7.0546" FontSize="28" LabelText="排名" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="55.0000" Y="29.0000" />
+                <AnchorPoint ScaleY="0.5000" />
+                <Position X="3.2026" Y="21.5546" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.0053" Y="0.5672" />
+                <PreSize X="0.0917" Y="0.7632" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="text2" ActionTag="-256323849" Tag="36" IconVisible="False" LeftMargin="107.6947" RightMargin="380.3053" TopMargin="1.9454" BottomMargin="7.0546" FontSize="28" LabelText="侠客昵称" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="112.0000" Y="29.0000" />
+                <AnchorPoint ScaleY="0.5000" />
+                <Position X="107.6947" Y="21.5546" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.1795" Y="0.5672" />
+                <PreSize X="0.1867" Y="0.7632" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="text3" ActionTag="-1711634702" Tag="37" IconVisible="False" LeftMargin="272.3891" RightMargin="268.6109" TopMargin="1.9454" BottomMargin="7.0546" FontSize="28" LabelText="等级" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="59.0000" Y="29.0000" />
+                <AnchorPoint ScaleY="0.5000" />
+                <Position X="272.3891" Y="21.5546" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.4540" Y="0.5672" />
+                <PreSize X="0.0983" Y="0.7632" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="text4" ActionTag="-2105795906" Tag="38" IconVisible="False" LeftMargin="392.3235" RightMargin="125.6765" TopMargin="1.9454" BottomMargin="7.0546" FontSize="28" LabelText="战斗力" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="82.0000" Y="29.0000" />
+                <AnchorPoint ScaleY="0.5000" />
+                <Position X="392.3235" Y="21.5546" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.6539" Y="0.5672" />
+                <PreSize X="0.1367" Y="0.7632" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="text5" ActionTag="313310940" Tag="39" IconVisible="False" LeftMargin="330.6740" RightMargin="214.3260" TopMargin="1.9454" BottomMargin="7.0546" FontSize="28" LabelText="性别" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="55.0000" Y="29.0000" />
+                <AnchorPoint ScaleY="0.5000" />
+                <Position X="330.6740" Y="21.5546" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5511" Y="0.5672" />
+                <PreSize X="0.0917" Y="0.7632" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+            </Children>
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="360.0001" Y="1036.0015" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5000" Y="0.8094" />
+            <PreSize X="0.8333" Y="0.0297" />
+            <FileData Type="MarkedSubImage" Path="ui/rankcatatitlebox1.png" Plist="uipacker.plist" />
+            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="mynode" ActionTag="-1862795513" Tag="36" IconVisible="True" LeftMargin="358.4366" RightMargin="361.5634" TopMargin="1172.3298" BottomMargin="107.6702" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />

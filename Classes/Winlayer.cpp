@@ -43,6 +43,9 @@ Winlayer* Winlayer::create(std::string addrid, std::string npcid)
 
 bool Winlayer::init(std::string addrid, std::string npcid)
 {
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	this->addChild(color);
+
 	Node* csbnode = CSLoader::createNode("winLayer.csb");
 	this->addChild(csbnode);
 
@@ -838,7 +841,7 @@ void Winlayer::updataMyPackageUI()
 			box,
 			CC_CALLBACK_1(Winlayer::onPackageItem, this));
 		boxItem->setTag(i);
-		boxItem->setPosition(Vec2(170 + i * 125, 250));
+		boxItem->setPosition(Vec2(170 + i * 125, 441));
 		Menu* menu = Menu::create();
 		menu->addChild(boxItem);
 		menu->setPosition(Vec2(0, 0));
@@ -880,7 +883,7 @@ void Winlayer::updataRewardUI()
 			CC_CALLBACK_1(Winlayer::onRewardItem, this));
 		boxItem->setTag(i);
 		boxItem->setUserData(&getRewardData[i]);
-		boxItem->setPosition(Vec2(170 + i * 135, 420));
+		boxItem->setPosition(Vec2(170 + i * 135, 611));
 		Menu* menu = Menu::create();
 		menu->addChild(boxItem);
 		menu->setPosition(Vec2(0, 0));

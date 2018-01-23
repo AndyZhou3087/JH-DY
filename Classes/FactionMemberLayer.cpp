@@ -42,6 +42,9 @@ FactionMemberLayer* FactionMemberLayer::create(FactionListData *fldata)
 
 bool FactionMemberLayer::init(FactionListData *fldata)
 {
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	this->addChild(color);
+
 	Node* csbnode = CSLoader::createNode("factionMemberLayer.csb");
 	this->addChild(csbnode);
 
@@ -395,6 +398,8 @@ bool FactionMemberItem::init(FactionMemberData *data)
 	actionbtn->addTouchEventListener(CC_CALLBACK_2(FactionMemberItem::onAction, this));
 	actionbtn->setSwallowTouches(false);
 
+	cocos2d::ui::Text* actionbtnlabel = (cocos2d::ui::Text*)actionbtn->getChildByName("text");
+
 	refusebtn = (cocos2d::ui::Button*)csbnode->getChildByName("refusebtn");
 	refusebtn->addTouchEventListener(CC_CALLBACK_2(FactionMemberItem::onRefuse, this));
 	refusebtn->setSwallowTouches(false);
@@ -419,7 +424,7 @@ bool FactionMemberItem::init(FactionMemberData *data)
 		{
 			if (data->position == 0)
 			{
-				actionbtn->setTitleText(CommonFuncs::gbk2utf("同意加入"));
+				actionbtnlabel->setString(CommonFuncs::gbk2utf("同意加入"));
 				modifybtn->setVisible(false);
 				refusebtn->setVisible(true);
 			}
@@ -430,7 +435,7 @@ bool FactionMemberItem::init(FactionMemberData *data)
 			}
 			else
 			{
-				actionbtn->setTitleText(CommonFuncs::gbk2utf("逐出"));
+				actionbtnlabel->setString(CommonFuncs::gbk2utf("逐出"));
 			}
 		}
 	}
@@ -458,13 +463,14 @@ void FactionMemberItem::onAction(cocos2d::Ref *pSender, cocos2d::ui::Widget::Tou
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
 		cocos2d::ui::Button* actionbtn = (cocos2d::ui::Button*)pSender;
-		if (actionbtn->getTitleText().compare(CommonFuncs::gbk2utf("同意加入")) == 0)
+		cocos2d::ui::Text* actionbtnlabel = (cocos2d::ui::Text*)actionbtn->getChildByName("text");
+		if (actionbtnlabel->getString().compare(CommonFuncs::gbk2utf("同意加入")) == 0)
 		{
 			WaitingProgress* waitbox = WaitingProgress::create("处理中...");
 			Director::getInstance()->getRunningScene()->addChild(waitbox, 1, "waitbox");
 			ServerDataSwap::init(this)->joinFaction(m_data->factionid, m_data->userid, m_data->herotype);
 		}
-		else if (actionbtn->getTitleText().compare(CommonFuncs::gbk2utf("逐出")) == 0)
+		else if (actionbtnlabel->getString().compare(CommonFuncs::gbk2utf("逐出")) == 0)
 		{
 			FactionKickComfirmLayer* player = FactionKickComfirmLayer::create(this, m_data);
 			g_gameLayer->addChild(player, 5);
@@ -503,13 +509,14 @@ void FactionMemberItem::onSuccess()
 	}
 	else
 	{
-		if (actionbtn->getTitleText().compare(CommonFuncs::gbk2utf("同意加入")) == 0)
+		cocos2d::ui::Text* actionbtnlabel = (cocos2d::ui::Text*)actionbtn->getChildByName("text");
+		if (actionbtnlabel->getString().compare(CommonFuncs::gbk2utf("同意加入")) == 0)
 		{
 			Director::getInstance()->getRunningScene()->removeChildByName("waitbox");
 			m_data->position = 4;
 			modifybtn->setVisible(true);
 			refusebtn->setVisible(false);
-			actionbtn->setTitleText(CommonFuncs::gbk2utf("逐出"));
+			actionbtnlabel->setString(CommonFuncs::gbk2utf("逐出"));
 			postionlbl->setString(CommonFuncs::gbk2utf("帮众"));
 
 			for (unsigned int i = 0; i < GlobalData::vec_factionListData.size(); i++)

@@ -153,20 +153,20 @@ bool GameScene::init()
 		addChild(g_maplayer, 1, "maplayer");
 	}
 
+	//任务属性和天气
+	topBar = TopBar::create();
+	topBar->setPosition(Vec2(visibleSize.width / 2, 1063));
+	addChild(topBar, 2, "topbar");
+
 	//滚动文字的背景
 	Sprite* bg = Sprite::create("images/topeventwordbox.png");
 	bg->setPosition(Vec2(visibleSize.width / 2, 1010));
-	this->addChild(bg, 4);
+	this->addChild(bg, 2);
 
 	//滚动文字
-	g_uiScroll = UIScroll::create(620.0F, 70.0f);
-	g_uiScroll->setPosition(Vec2(visibleSize.width / 2, 1025));
-	addChild(g_uiScroll, 4);
-
-	//任务属性和天气
-	topBar = TopBar::create();
-	topBar->setPosition(Vec2(visibleSize.width/2, 1063));
-	addChild(topBar, 3, "topbar");
+	g_uiScroll = UIScroll::create(620.0F, 83.0f);
+	g_uiScroll->setPosition(Vec2(visibleSize.width / 2, 1015));
+	addChild(g_uiScroll, 2);
 	
 	this->schedule(schedule_selector(GameScene::updata), 1.0f);
 	this->schedule(schedule_selector(GameScene::timerSaveData), 5.0f);

@@ -51,11 +51,13 @@ bool ResDetailsLayer::init(PackageData* pdata)
 
 	uselbl = (cocos2d::ui::Text*)usebtn->getChildByName("valuelbl");
 
+	cocos2d::ui::Text* oklabel = (cocos2d::ui::Text*)m_okbtn->getChildByName("oklabel");
+
 	if ((pdata->type == FOOD || (pdata->type == MEDICINAL && pdata->strid.compare(WINESTRID) != 0)) && whereClick == 0)
-		m_okbtn->setTitleText(CommonFuncs::gbk2utf("使用"));
+		oklabel->setString(CommonFuncs::gbk2utf("使用"));
 	else if (pdata->type == RES_1 && pdata->strid.compare(GRASSRID) == 0 && whereClick == 0)
 	{
-		m_okbtn->setTitleText(CommonFuncs::gbk2utf("喂马"));
+		oklabel->setString(CommonFuncs::gbk2utf("喂马"));
 		updateHorseData(0);
 	}
 

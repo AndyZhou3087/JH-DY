@@ -26,10 +26,10 @@ bool RepairOKLayer::init(PackageData* pdata, int type)
 	csbnode->runAction(action);
 	action->gotoFrameAndPlay(0, false);
 
-	/*Node* csbnode = CSLoader::createNode("repairOKLayer.csb");
-	this->addChild(csbnode);
+	Node* bnode = CSLoader::createNode("repairOKLayer.csb");
+	this->addChild(bnode);
 
-	m_unlockbg = (cocos2d::ui::Widget*)csbnode->getChildByName("unlockbg");
+	/*m_unlockbg = (cocos2d::ui::Widget*)csbnode->getChildByName("unlockbg");
 	m_unlockbg->setScale(0);
 
 	m_unlockbg->runAction(ScaleTo::create(0.5f, 1.0f));

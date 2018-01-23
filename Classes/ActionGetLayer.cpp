@@ -532,7 +532,7 @@ void ActionGetLayer::updataMyPackageUI()
 			box,
 			CC_CALLBACK_1(ActionGetLayer::onPackageItem, this));
 		boxItem->setTag(i);
-		boxItem->setPosition(Vec2(110 + i * 125, 305));
+		boxItem->setPosition(Vec2(110 + i * 125, 385));
 		Menu* menu = Menu::create();
 		menu->addChild(boxItem);
 		menu->setPosition(Vec2(0, 0));
@@ -545,7 +545,7 @@ void ActionGetLayer::updataMyPackageUI()
 		box->addChild(res);
 		str = StringUtils::format("%d", MyPackage::vec_packages[i].count);
 		Label * reslbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 18);
-		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 25));
+		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 30));
 		box->addChild(reslbl);
 	}
 }
@@ -575,7 +575,7 @@ void ActionGetLayer::updataRewardUI()
 			CC_CALLBACK_1(ActionGetLayer::onRewardItem, this));
 		boxItem->setTag(i);
 		boxItem->setUserData(&getResData[i]);
-		boxItem->setPosition(Vec2(150 + i * 135, 512));
+		boxItem->setPosition(Vec2(150 + i * 135, 592));
 		Menu* menu = Menu::create();
 		menu->addChild(boxItem);
 		menu->setPosition(Vec2(0, 0));
@@ -589,7 +589,7 @@ void ActionGetLayer::updataRewardUI()
 
 		str = StringUtils::format("%d", getResData[i].count);
 		Label * reslbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 18);
-		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 25));
+		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 30));
 		box->addChild(reslbl);
 	}
 }

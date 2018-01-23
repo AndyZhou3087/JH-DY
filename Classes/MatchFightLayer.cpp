@@ -53,22 +53,29 @@ bool MatchFightLayer::init(std::string addrid)
 	csbnode->setPositionY(100);
 	this->addChild(csbnode);
 
+	heroheadbox = (cocos2d::ui::Widget*)csbnode->getChildByName("heroheadbox");
+	npcheadbox = (cocos2d::ui::Widget*)csbnode->getChildByName("npcheadbox");
+	fightherokuang = (cocos2d::ui::Widget*)heroheadbox->getChildByName("fightherokuang");
+	fightnpckuang = (cocos2d::ui::Widget*)npcheadbox->getChildByName("fightnpckuang");
+	fightherokuang->setVisible(false);
+	fightnpckuang->setVisible(false);
+
 	//地点名称
 	cocos2d::ui::Text* addrnametxt = (cocos2d::ui::Text*)csbnode->getChildByName("title");
 	addrnametxt->setString(GlobalData::map_maps[addrid].cname);
 
-	myheroicon = (cocos2d::ui::ImageView*)csbnode->getChildByName("heroicon");
+	myheroicon = (cocos2d::ui::ImageView*)heroheadbox->getChildByName("heroicon");
 
 	// player 图标
-	playerhead = (cocos2d::ui::ImageView*)csbnode->getChildByName("npcicon");
+	playerhead = (cocos2d::ui::ImageView*)npcheadbox->getChildByName("npcicon");
 
 	//player名称
-	playernametxt = (cocos2d::ui::Text*)csbnode->getChildByName("npcname");
+	playernametxt = (cocos2d::ui::Text*)npcheadbox->getChildByName("npcname");
 	playernametxt->setString(GlobalData::matchPlayerInfo.nickname);
 	if (GlobalData::matchPlayerInfo.nickname.length() >= 12)
 		playernametxt->setFontSize(25);
 	//角色名
-	cocos2d::ui::Text* heronametxt = (cocos2d::ui::Text*)csbnode->getChildByName("heroname");
+	cocos2d::ui::Text* heronametxt = (cocos2d::ui::Text*)heroheadbox->getChildByName("heroname");
 	heronametxt->setString(GlobalData::getMyNickName());
 
 	//角色血量显示
@@ -77,7 +84,7 @@ bool MatchFightLayer::init(std::string addrid)
 	//角色血量进度
 	myhpbar = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("herohpbar");
 
-	myhpbar2 = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("herohpbar2");
+	//myhpbar2 = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("herohpbar2");
 
 	updateMyInfo();
 
@@ -93,7 +100,7 @@ bool MatchFightLayer::init(std::string addrid)
 	//palyer血量进度
 	playerhpbar = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("npchpbar");
 
-	playerhpbar2 = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("npchpbar2");
+	//playerhpbar2 = (cocos2d::ui::LoadingBar*)csbnode->getChildByName("npchpbar2");
 
 	updatePlayerInfo();
 	// 滚动文字
@@ -144,7 +151,7 @@ void MatchFightLayer::updateMyInfo()
 
 	myhpbar->setPercent(herohppercent);
 
-	myhpbar2->setPercent(herohppercent);
+	//myhpbar2->setPercent(herohppercent);
 
 	resetSkills();
 
@@ -172,7 +179,7 @@ void MatchFightLayer::updatePlayerInfo()
 	int playerhppercent = 100 * playerlife / playermaxhp;
 	playerhpbar->setPercent(playerhppercent);
 
-	playerhpbar2->setPercent(playerhppercent);
+	//playerhpbar2->setPercent(playerhppercent);
 	resetSkills();
 	this->scheduleOnce(schedule_selector(MatchFightLayer::delayPlayerFight), 1.5f);
 }
@@ -688,6 +695,11 @@ void MatchFightLayer::delayMyFight(float dt)
 
 	int skilltype = checkPlayerSkill(H_WG);
 
+	heroheadbox->setScale(1.15);
+	npcheadbox->setScale(1);
+	fightherokuang->setVisible(true);
+	fightnpckuang->setVisible(false);
+
 	if (skilltype == S_SKILL_1 || skilltype == S_SKILL_2 || skilltype == S_SKILL_5)
 	{
 		GlobalData::map_gfskills[skilltype].fightPlayerleftval--;
@@ -877,6 +889,11 @@ void MatchFightLayer::delayPlayerFight(float dt)
 	float curmyHp = mylife;
 
 	int myhurt = getMyHurt(curmyherolocalid);
+
+	heroheadbox->setScale(1);
+	npcheadbox->setScale(1.15);
+	fightherokuang->setVisible(false);
+	fightnpckuang->setVisible(true);
 
 	std::string myngstr;
 	std::map<std::string, int>::iterator fite;
@@ -1577,8 +1594,8 @@ void MatchFightLayer::updateMyLife()
 	float herohppercent = 100 * mylife / mymaxlife;
 	myhpbar->setPercent(herohppercent);
 
-	MyProgressTo * fromto = MyProgressTo::create(0.5f, herohppercent);
-	myhpbar2->runAction(fromto);
+	/*MyProgressTo * fromto = MyProgressTo::create(0.5f, herohppercent);
+	myhpbar2->runAction(fromto);*/
 }
 
 void MatchFightLayer::updatePlayerLife()
@@ -1590,8 +1607,8 @@ void MatchFightLayer::updatePlayerLife()
 	//NCP血量进度
 	int playerhppercent = 100 * playerlife / playermaxhp;
 	playerhpbar->setPercent(playerhppercent);
-	MyProgressTo * to = MyProgressTo::create(0.5f, playerhppercent);
-	playerhpbar2->runAction(to);
+	/*MyProgressTo * to = MyProgressTo::create(0.5f, playerhppercent);
+	playerhpbar2->runAction(to);*/
 }
 
 

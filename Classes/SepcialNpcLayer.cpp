@@ -35,6 +35,10 @@ SepcialNpcLayer* SepcialNpcLayer::create(std::string addrname)
 bool SepcialNpcLayer::init(std::string addrid)
 {
 	m_addrstr = addrid;
+
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	this->addChild(color);
+
 	m_csbnode = CSLoader::createNode("specialNpcLayer.csb");
 	this->addChild(m_csbnode);
 

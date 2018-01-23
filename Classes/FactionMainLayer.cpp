@@ -36,6 +36,9 @@ FactionMainLayer* FactionMainLayer::create()
 
 bool FactionMainLayer::init()
 {
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	this->addChild(color);
+
 	Node* csbnode = CSLoader::createNode("factionMainLayer.csb");
 	this->addChild(csbnode);
 

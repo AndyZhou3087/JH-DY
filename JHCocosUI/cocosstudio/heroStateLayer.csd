@@ -283,33 +283,33 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="arrow1" ActionTag="-1977143153" VisibleForFrame="False" Tag="85" IconVisible="False" LeftMargin="520.5480" RightMargin="181.4520" TopMargin="443.2939" BottomMargin="810.7061" LeftEage="5" RightEage="5" TopEage="8" BottomEage="8" Scale9OriginX="5" Scale9OriginY="8" Scale9Width="8" Scale9Height="10" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="arrow1" ActionTag="-1977143153" VisibleForFrame="False" Tag="85" IconVisible="False" LeftMargin="570.8993" RightMargin="131.1007" TopMargin="411.6217" BottomMargin="842.3783" LeftEage="5" RightEage="5" TopEage="8" BottomEage="8" Scale9OriginX="5" Scale9OriginY="8" Scale9Width="8" Scale9Height="10" ctype="ImageViewObjectData">
             <Size X="18.0000" Y="26.0000" />
             <AnchorPoint ScaleY="0.5000" />
-            <Position X="520.5480" Y="823.7061" />
+            <Position X="570.8993" Y="855.3783" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7230" Y="0.6435" />
+            <PrePosition X="0.7929" Y="0.6683" />
             <PreSize X="0.0250" Y="0.0203" />
             <FileData Type="MarkedSubImage" Path="ui/arrowup.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="arrow2" ActionTag="758598671" VisibleForFrame="False" Tag="86" IconVisible="False" LeftMargin="520.6318" RightMargin="181.3682" TopMargin="488.7916" BottomMargin="765.2084" LeftEage="5" RightEage="5" TopEage="8" BottomEage="8" Scale9OriginX="5" Scale9OriginY="8" Scale9Width="8" Scale9Height="10" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="arrow2" ActionTag="758598671" VisibleForFrame="False" Tag="86" IconVisible="False" LeftMargin="570.9829" RightMargin="131.0171" TopMargin="457.1193" BottomMargin="796.8807" LeftEage="5" RightEage="5" TopEage="8" BottomEage="8" Scale9OriginX="5" Scale9OriginY="8" Scale9Width="8" Scale9Height="10" ctype="ImageViewObjectData">
             <Size X="18.0000" Y="26.0000" />
             <AnchorPoint ScaleY="0.5000" />
-            <Position X="520.6318" Y="778.2084" />
+            <Position X="570.9829" Y="809.8807" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7231" Y="0.6080" />
+            <PrePosition X="0.7930" Y="0.6327" />
             <PreSize X="0.0250" Y="0.0203" />
             <FileData Type="MarkedSubImage" Path="ui/arrowup.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="arrow3" ActionTag="-74450583" VisibleForFrame="False" Tag="87" IconVisible="False" LeftMargin="660.5356" RightMargin="41.4644" TopMargin="579.5742" BottomMargin="674.4258" LeftEage="5" RightEage="5" TopEage="8" BottomEage="8" Scale9OriginX="5" Scale9OriginY="8" Scale9Width="8" Scale9Height="10" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="arrow3" ActionTag="-74450583" VisibleForFrame="False" Tag="87" IconVisible="False" LeftMargin="664.4084" RightMargin="37.5916" TopMargin="548.4659" BottomMargin="705.5341" LeftEage="5" RightEage="5" TopEage="8" BottomEage="8" Scale9OriginX="5" Scale9OriginY="8" Scale9Width="8" Scale9Height="10" ctype="ImageViewObjectData">
             <Size X="18.0000" Y="26.0000" />
             <AnchorPoint ScaleY="0.5000" />
-            <Position X="660.5356" Y="687.4258" />
+            <Position X="664.4084" Y="718.5341" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.9174" Y="0.5371" />
+            <PrePosition X="0.9228" Y="0.5614" />
             <PreSize X="0.0250" Y="0.0203" />
             <FileData Type="MarkedSubImage" Path="ui/arrowup.png" Plist="uipacker.plist" />
           </AbstractNodeData>

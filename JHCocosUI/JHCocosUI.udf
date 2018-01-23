@@ -10,10 +10,13 @@
     <Item Key="TabsParamsKey">
       <Value ctype="TabsInfo">
         <OpenedDocuments>
-          <FilePathData Path="uipacker.csi" />
-          <FilePathData Path="goWhereLayer.csd" />
+          <FilePathData Path="repairOKLayer.csd" />
+          <FilePathData Path="tempStorageLayer.csd" />
+          <FilePathData Path="specialNpcLayer.csd" />
+          <FilePathData Path="sepcialLayer.csd" />
+          <FilePathData Path="settingLayer.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="goWhereLayer.csd" />
+        <ActiveDocument Path="settingLayer.csd" />
       </Value>
     </Item>
   </Properties>

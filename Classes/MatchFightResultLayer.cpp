@@ -54,6 +54,7 @@ bool MatchFightResultLayer::init(int myfinalhero, int win)
 	std::string str = StringUtils::format("ui/tophero%d.png", myfinalhero);
 	cocos2d::ui::ImageView* headimg = (cocos2d::ui::ImageView*)m_csbnode->getChildByName("heroimg");
 	headimg->loadTexture(str, cocos2d::ui::TextureResType::PLIST);
+	headimg->setContentSize(Sprite::createWithSpriteFrameName(str)->getContentSize());
 
 	str = StringUtils::format("ui/wintitle%d.png", win);
 	cocos2d::ui::ImageView* wintitle = (cocos2d::ui::ImageView*)m_csbnode->getChildByName("wintitle");
@@ -66,7 +67,7 @@ bool MatchFightResultLayer::init(int myfinalhero, int win)
 	cocos2d::ui::ImageView* winbox = (cocos2d::ui::ImageView*)m_csbnode->getChildByName("winbox");
 	winbox->loadTexture(str, cocos2d::ui::TextureResType::PLIST);
 
-	wintext = (cocos2d::ui::ImageView*)m_csbnode->getChildByName("wintext");
+	wintext = (cocos2d::ui::Text*)m_csbnode->getChildByName("wintext");
 	wintext->setVisible(false);
 
 	cocos2d::ui::Text* explbl = (cocos2d::ui::Text*)m_csbnode->getChildByName("explbl");
@@ -153,18 +154,18 @@ void MatchFightResultLayer::showResult()
 	int up = GlobalData::myMatchInfo.afterrank - GlobalData::myMatchInfo.beforerank;
 	if (up <= 0)
 	{
-		str1 = "ui/wintext1.png";
+		str1 = CommonFuncs::gbk2utf("排名上升");
 		str2 = "ui/winicon1.png";
 		str3 = StringUtils::format("%d", -up);
 	}
 	else
 	{
-		str1 = "ui/wintext-1.png";
+		str1 = CommonFuncs::gbk2utf("排名下降");
 		str2 = "ui/winicon0.png";
 		str3 = StringUtils::format("%d", up);
 	}
 	wintext->setVisible(true);
-	wintext->loadTexture(str1, cocos2d::ui::TextureResType::PLIST);
+	wintext->setString(str1);
 	winicon->setVisible(true);
 	winicon->loadTexture(str2, cocos2d::ui::TextureResType::PLIST);
 	rankup->setVisible(true);

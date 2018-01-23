@@ -3,6 +3,9 @@
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
+        <Folder Name="achiveanim">
+          <PlistParticleFile Name="pp.plist" />
+        </Folder>
         <Folder Name="fonts">
           <Fnt Name="challengewinranknum.fnt" />
           <Fnt Name="coinpoolnum.fnt" />

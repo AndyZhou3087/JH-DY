@@ -185,13 +185,13 @@ void BuildingUILayer::setActionScrollViewUI()
 		Node* categoryBtnNode = m_csbnode->getChildByName("tagnode");
 		vec_categoryBtn[0]->setBright(false);
 		categoryBtnNode->setVisible(true);
-		scrollview->setContentSize(Size(scrollview->getContentSize().width, 600));
+		scrollview->setContentSize(Size(scrollview->getContentSize().width, 530));
 	}
 }
 
 void BuildingUILayer::loadActionUi()
 {
-	int itemheight = 120;
+	int itemheight = 135;
 	int acsize = vec_buildAcitonData.size();
 
 	int scrollinnerheight = acsize * itemheight;
@@ -209,7 +209,7 @@ void BuildingUILayer::loadActionUi()
 	for (int i = 0; i < acsize; i++)
 	{
 		Node *acnode = CSLoader::createNode("actionNode.csb");
-		acnode->setPosition(Vec2(scrollview->getContentSize().width / 2 - 13, scrollinnerheight - itemheight / 2 - i * itemheight));
+		acnode->setPosition(Vec2(scrollview->getContentSize().width / 2 - 4, scrollinnerheight - itemheight / 2 - i * itemheight - 15));
 
 		scrollview->addChild(acnode);
 		vec_actionItem.push_back(acnode);
