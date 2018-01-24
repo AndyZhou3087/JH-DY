@@ -42,7 +42,7 @@ bool FactionCreateLayer::init(int action, FactionListData* modifyfdata)
 	m_action = action;
 	m_modifyfdata = modifyfdata;
 
-	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
 	this->addChild(color);
 
 	Node* csbnode = CSLoader::createNode("factionCreateLayer.csb");

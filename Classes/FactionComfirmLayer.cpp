@@ -18,7 +18,7 @@ bool FactionComfirmLayer::init(FactionListData *fldata)
 	f_action = F_NONE;
 	m_fldata = fldata;
 
-	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
 	this->addChild(color);
 
 	Node* csbnode = CSLoader::createNode("factionComfirmLayer.csb");

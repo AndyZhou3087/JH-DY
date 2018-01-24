@@ -160,10 +160,11 @@ void OutDoor::updataMyPackageUI()
 			box,
 			CC_CALLBACK_1(OutDoor::onPackageItem, this));
 		boxItem->setTag(i);
-		boxItem->setPosition(Vec2(130 + countindex * 145, 830));
+		boxItem->setPosition(Vec2(105 + countindex * 130, 850));
 		Menu* menu = Menu::create();
 		menu->addChild(boxItem);
 		menu->setPosition(Vec2(0, 0));
+		menu->setScale(0.9);
 		std::string name = StringUtils::format("pitem%d", countindex);
 		m_csbnode->addChild(menu, 0, name);
 

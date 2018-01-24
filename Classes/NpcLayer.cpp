@@ -50,7 +50,7 @@ NpcLayer* NpcLayer::create(std::string addrname)
 
 bool NpcLayer::init(std::string addrid)
 {
-	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
 	this->addChild(color);
 
 	m_csbnode = CSLoader::createNode("npcLayer.csb");

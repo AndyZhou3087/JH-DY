@@ -31,7 +31,7 @@ RaffleResultLayer* RaffleResultLayer::create()
 
 bool RaffleResultLayer::init()
 {
-	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
 	this->addChild(color);
 
 	Node* csbnode = CSLoader::createNode("raffleResultLayer.csb");

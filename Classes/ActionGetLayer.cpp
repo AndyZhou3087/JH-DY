@@ -532,10 +532,11 @@ void ActionGetLayer::updataMyPackageUI()
 			box,
 			CC_CALLBACK_1(ActionGetLayer::onPackageItem, this));
 		boxItem->setTag(i);
-		boxItem->setPosition(Vec2(110 + i * 125, 385));
+		boxItem->setPosition(Vec2(100 + i * 130, 355));
 		Menu* menu = Menu::create();
 		menu->addChild(boxItem);
 		menu->setPosition(Vec2(0, 0));
+		menu->setScale(0.9);
 		std::string name = StringUtils::format("pitem%d", i);
 		this->addChild(menu, 0, name);
 

@@ -30,7 +30,7 @@ ReviveLayer::~ReviveLayer()
 
 bool ReviveLayer::init()
 {
-	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
 	this->addChild(color);
 
 	m_csbnode = CSLoader::createNode("reviveLayer.csb");

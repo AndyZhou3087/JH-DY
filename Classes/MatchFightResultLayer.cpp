@@ -38,7 +38,7 @@ MatchFightResultLayer* MatchFightResultLayer::create(int myfinalhero, int win)
 
 bool MatchFightResultLayer::init(int myfinalhero, int win)
 {
-	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
 	this->addChild(color);
 
 	m_csbnode = CSLoader::createNode("playerChallengeResultLayer.csb");

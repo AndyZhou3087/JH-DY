@@ -43,7 +43,7 @@ Winlayer* Winlayer::create(std::string addrid, std::string npcid)
 
 bool Winlayer::init(std::string addrid, std::string npcid)
 {
-	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
 	this->addChild(color);
 
 	Node* csbnode = CSLoader::createNode("winLayer.csb");
@@ -841,9 +841,10 @@ void Winlayer::updataMyPackageUI()
 			box,
 			CC_CALLBACK_1(Winlayer::onPackageItem, this));
 		boxItem->setTag(i);
-		boxItem->setPosition(Vec2(170 + i * 125, 441));
+		boxItem->setPosition(Vec2(110 + i * 130, 400));
 		Menu* menu = Menu::create();
 		menu->addChild(boxItem);
+		menu->setScale(0.8);
 		menu->setPosition(Vec2(0, 0));
 		std::string name = StringUtils::format("pitem%d", i);
 		this->addChild(menu, 0, name);
@@ -854,7 +855,7 @@ void Winlayer::updataMyPackageUI()
 		box->addChild(res);
 		str = StringUtils::format("%d", MyPackage::vec_packages[i].count);
 		Label * reslbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 18);//Label::createWithSystemFont(str, "", 18);
-		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 25));
+		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 35));
 		box->addChild(reslbl);
 	}
 }

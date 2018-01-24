@@ -22,7 +22,7 @@ bool ChallengeCountLayer::init(int* wincount, int winnpccount, bool isRevive)
 	m_wincount = wincount;
 	m_winnpcount = winnpccount;
 	m_isRevive = isRevive;
-	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
 	this->addChild(color);
 
 	Node* csbnode = CSLoader::createNode("challengeCountLayer.csb");

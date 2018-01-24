@@ -37,6 +37,9 @@ HelpMainLayer* HelpMainLayer::create()
 
 bool HelpMainLayer::init()
 {
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
+	this->addChild(color);
+
 	Node* csbnode = CSLoader::createNode("helpLayer.csb");
 	this->addChild(csbnode);
 

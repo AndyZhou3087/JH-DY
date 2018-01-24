@@ -18,7 +18,7 @@ TimeGiftLayer::~TimeGiftLayer()
 
 bool TimeGiftLayer::init(int goodsId)
 {
-	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
 	this->addChild(color);
 
 	Node* csbnode = CSLoader::createNode("timeGfitLayer.csb");

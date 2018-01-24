@@ -47,6 +47,9 @@ ExchangeLayer* ExchangeLayer::create(std::string npcid)
 
 bool ExchangeLayer::init(std::string npcid)
 {
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
+	this->addChild(color);
+
 	Node* csbnode = CSLoader::createNode("exgLayer.csb");
 	this->addChild(csbnode);
 

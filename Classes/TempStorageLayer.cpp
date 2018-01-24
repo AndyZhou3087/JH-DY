@@ -35,7 +35,7 @@ TempStorageLayer* TempStorageLayer::create(std::string addrname)
 
 bool TempStorageLayer::init(std::string addrname)
 {
-	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 200));
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
 	this->addChild(color);
 
 	Node* csbnode = CSLoader::createNode("tempStorageLayer.csb");
@@ -202,7 +202,7 @@ void TempStorageLayer::updataTempUI()
 
 		str = StringUtils::format("%d", tempResData[i].count);
 		Label * reslbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 18);//Label::createWithSystemFont(str, "", 18);
-		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 25));
+		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 35));
 		box->addChild(reslbl);
 	}
 }
@@ -347,7 +347,7 @@ void TempStorageLayer::updataMyPackageUI()
 			box,
 			CC_CALLBACK_1(TempStorageLayer::onPackageItem, this));
 		boxItem->setTag(i);
-		boxItem->setPosition(Vec2(110 + i * 125, 225));
+		boxItem->setPosition(Vec2(110 + i * 125, 325));
 		Menu* menu = Menu::create();
 		menu->addChild(boxItem);
 		menu->setPosition(Vec2(0, 0));
@@ -360,7 +360,7 @@ void TempStorageLayer::updataMyPackageUI()
 		box->addChild(res);
 		str = StringUtils::format("%d", MyPackage::vec_packages[i].count);
 		Label * reslbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 18);//Label::createWithSystemFont(str, "", 18);
-		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 25));
+		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 35));
 		box->addChild(reslbl);
 	}
 }

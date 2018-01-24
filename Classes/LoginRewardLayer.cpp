@@ -164,7 +164,7 @@ void LoginRewardLayer::onGet(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 
 		cocos2d::ui::ImageView* item = (cocos2d::ui::ImageView*)getimg->getParent();
 		//item->loadTexture("ui/loginritem0.png", cocos2d::ui::Widget::TextureResType::PLIST);
-		item->setColor(Color3B(84, 84, 84));
+		item->setColor(Color3B(200, 200, 200));
 		cocos2d::ui::Widget* loginritemlight = (cocos2d::ui::Widget*)item->getChildByName("loginritemlight");
 		loginritemlight->setVisible(false);
 		getimg->loadTexture("ui/buildtagbtn2.png", cocos2d::ui::Widget::TextureResType::PLIST);
