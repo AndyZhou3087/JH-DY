@@ -132,6 +132,7 @@ private:
 	cocos2d::ui::Widget* amountdesc;//坐骑说明
 	cocos2d::ui::Widget* heroppoint;//装备背景上的三角形
 	cocos2d::ui::Text* title;//标题
+	cocos2d::ui::ImageView* shade;//遮罩
 	int lastclickindex;//上次选中装备栏类型index
 	bool isout;//是否在外面
 	std::map<HeroAtrType, std::vector<PackageData>> map_carryData;//装备栏数据

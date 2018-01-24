@@ -31,7 +31,7 @@ bool HeroStateUILayer::init()
 	this->addChild(m_csbnode, 0, "csbnode");
 
 	HeroProperNode* heroproper = HeroProperNode::create();
-	heroproper->setPosition(Vec2(360, 480));
+	heroproper->setPosition(Vec2(360, 515));
 	m_csbnode->addChild(heroproper, 0, "HeroProperNode");
 
 	cocos2d::ui::Button* backbtn = (cocos2d::ui::Button*)m_csbnode->getChildByName("backbtn");
@@ -66,7 +66,7 @@ bool HeroStateUILayer::init()
 	updateStatus(0);
 
 	MixGFNode* mixnode = MixGFNode::create();
-	mixnode->setPosition(Vec2(360, 220));
+	mixnode->setPosition(Vec2(360, 238));
 	m_csbnode->addChild(mixnode, 0, "mixnode");
 
 

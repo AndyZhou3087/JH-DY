@@ -156,6 +156,11 @@ private:
 	cocos2d::ui::TextBMFont* herocritfnt;//角色暴击数字
 	cocos2d::ui::TextBMFont* playercritfnt;//player暴击数字
 
+	cocos2d::ui::Widget* heroheadbox;
+	cocos2d::ui::Widget* npcheadbox;
+	cocos2d::ui::Widget* fightherokuang;
+	cocos2d::ui::Widget* fightnpckuang;
+
 	int playermaxhp;// player 最大血量
 	int playeratk;//player 攻击值
 	int playerdf;//player 防御值

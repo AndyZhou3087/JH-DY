@@ -93,6 +93,7 @@ private:
 	cocos2d::ui::Widget* mixokbtn;
 	cocos2d::ui::Text* mixtitle;
 	cocos2d::ui::ImageView* suggestbtn;
+	cocos2d::ui::ImageView* shade;
 	int lastclickindex;
 	Sprite* m_select;
 	Sprite* m_secselect[3];

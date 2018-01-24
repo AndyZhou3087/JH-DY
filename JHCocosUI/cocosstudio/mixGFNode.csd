@@ -6,10 +6,10 @@
       <ObjectData Name="Node" Tag="258" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="mixadd_2" ActionTag="1436419429" Tag="259" IconVisible="False" LeftMargin="125.5005" RightMargin="-164.5005" TopMargin="-28.5000" BottomMargin="-12.5000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="mixadd_2" ActionTag="1436419429" Tag="259" IconVisible="False" LeftMargin="107.5004" RightMargin="-146.5004" TopMargin="-28.5000" BottomMargin="-12.5000" ctype="SpriteObjectData">
             <Size X="39.0000" Y="41.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="145.0005" Y="8.0000" />
+            <Position X="127.0004" Y="8.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -17,10 +17,10 @@
             <FileData Type="MarkedSubImage" Path="ui/mixadd.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="mixadd_1" ActionTag="1996835179" Tag="260" IconVisible="False" LeftMargin="-27.5000" RightMargin="-11.5000" TopMargin="-28.5000" BottomMargin="-12.5000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="mixadd_1" ActionTag="1996835179" Tag="260" IconVisible="False" LeftMargin="-39.5000" RightMargin="0.5000" TopMargin="-28.5000" BottomMargin="-12.5000" ctype="SpriteObjectData">
             <Size X="39.0000" Y="41.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-8.0000" Y="8.0000" />
+            <AnchorPoint ScaleX="0.5568" ScaleY="0.5165" />
+            <Position X="-17.7843" Y="8.6764" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -28,10 +28,10 @@
             <FileData Type="MarkedSubImage" Path="ui/mixadd.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="mixadd_0" ActionTag="-1660774377" Tag="261" IconVisible="False" LeftMargin="-180.5000" RightMargin="141.5000" TopMargin="-28.5000" BottomMargin="-12.5000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="mixadd_0" ActionTag="-1660774377" Tag="261" IconVisible="False" LeftMargin="-183.5001" RightMargin="144.5001" TopMargin="-28.5000" BottomMargin="-12.5000" ctype="SpriteObjectData">
             <Size X="39.0000" Y="41.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-161.0000" Y="8.0000" />
+            <Position X="-164.0001" Y="8.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -53,86 +53,86 @@
           <AbstractNodeData Name="mixbox_0" ActionTag="1051265720" Tag="266" IconVisible="False" LeftMargin="-304.0000" RightMargin="166.0000" TopMargin="-83.0000" BottomMargin="-67.0000" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
             <Size X="138.0000" Y="150.0000" />
             <Children>
-              <AbstractNodeData Name="img" ActionTag="-543485130" Tag="271" IconVisible="False" LeftMargin="15.0941" RightMargin="16.9059" TopMargin="16.9004" BottomMargin="27.0996" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
-                <Size X="106.0000" Y="106.0000" />
+              <AbstractNodeData Name="img" ActionTag="-543485130" Tag="271" IconVisible="False" LeftMargin="26.5941" RightMargin="28.4059" TopMargin="23.4004" BottomMargin="33.5996" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="15" Scale9Height="25" ctype="ImageViewObjectData">
+                <Size X="83.0000" Y="93.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="68.0941" Y="80.0996" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4934" Y="0.5340" />
-                <PreSize X="0.7681" Y="0.7067" />
+                <PreSize X="0.6014" Y="0.6200" />
                 <FileData Type="MarkedSubImage" Path="ui/mixmtext.png" Plist="uipacker.plist" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-235.0000" Y="8.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Scale ScaleX="0.9000" ScaleY="0.9000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="mixbox_1" ActionTag="-54284073" Tag="267" IconVisible="False" LeftMargin="-153.3333" RightMargin="15.3333" TopMargin="-83.0000" BottomMargin="-67.0000" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="mixbox_1" ActionTag="-54284073" Tag="267" IconVisible="False" LeftMargin="-159.3331" RightMargin="21.3331" TopMargin="-83.0000" BottomMargin="-67.0000" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
             <Size X="138.0000" Y="150.0000" />
             <Children>
-              <AbstractNodeData Name="img" ActionTag="364130105" Tag="272" IconVisible="False" LeftMargin="16.2766" RightMargin="15.7234" TopMargin="19.4474" BottomMargin="24.5526" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
-                <Size X="106.0000" Y="106.0000" />
+              <AbstractNodeData Name="img" ActionTag="364130105" Tag="272" IconVisible="False" LeftMargin="27.7766" RightMargin="27.2234" TopMargin="25.9474" BottomMargin="31.0526" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="15" Scale9Height="25" ctype="ImageViewObjectData">
+                <Size X="83.0000" Y="93.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="69.2766" Y="77.5526" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5020" Y="0.5170" />
-                <PreSize X="0.7681" Y="0.7067" />
+                <PreSize X="0.6014" Y="0.6200" />
                 <FileData Type="MarkedSubImage" Path="ui/mixsectext.png" Plist="uipacker.plist" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-84.3333" Y="8.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="-90.3331" Y="8.0000" />
+            <Scale ScaleX="0.9000" ScaleY="0.9000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="mixbox_2" ActionTag="-631589414" Tag="268" IconVisible="False" LeftMargin="1.3334" RightMargin="-139.3334" TopMargin="-83.0000" BottomMargin="-67.0000" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="mixbox_2" ActionTag="-631589414" Tag="268" IconVisible="False" LeftMargin="-13.6669" RightMargin="-124.3331" TopMargin="-83.0000" BottomMargin="-67.0000" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
             <Size X="138.0000" Y="150.0000" />
             <Children>
-              <AbstractNodeData Name="img" ActionTag="1489806061" Tag="273" IconVisible="False" LeftMargin="16.2761" RightMargin="15.7239" TopMargin="18.2650" BottomMargin="25.7350" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
-                <Size X="106.0000" Y="106.0000" />
+              <AbstractNodeData Name="img" ActionTag="1489806061" Tag="273" IconVisible="False" LeftMargin="27.7761" RightMargin="27.2239" TopMargin="24.7650" BottomMargin="32.2350" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="15" Scale9Height="25" ctype="ImageViewObjectData">
+                <Size X="83.0000" Y="93.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="69.2761" Y="78.7350" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5020" Y="0.5249" />
-                <PreSize X="0.7681" Y="0.7067" />
+                <PreSize X="0.6014" Y="0.6200" />
                 <FileData Type="MarkedSubImage" Path="ui/mixsectext.png" Plist="uipacker.plist" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="70.3334" Y="8.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="55.3331" Y="8.0000" />
+            <Scale ScaleX="0.9000" ScaleY="0.9000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildsmall.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="mixbox_3" ActionTag="-1688192105" Tag="270" IconVisible="False" LeftMargin="153.0002" RightMargin="-291.0002" TopMargin="-83.0000" BottomMargin="-67.0000" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="mixbox_3" ActionTag="-1688192105" Tag="270" IconVisible="False" LeftMargin="132.0001" RightMargin="-270.0001" TopMargin="-83.0000" BottomMargin="-67.0000" TouchEnable="True" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="58" Scale9Height="70" ctype="ImageViewObjectData">
             <Size X="138.0000" Y="150.0000" />
             <Children>
-              <AbstractNodeData Name="img" ActionTag="298497688" Tag="274" IconVisible="False" LeftMargin="15.0939" RightMargin="16.9061" TopMargin="15.9002" BottomMargin="28.0998" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
-                <Size X="106.0000" Y="106.0000" />
+              <AbstractNodeData Name="img" ActionTag="298497688" Tag="274" IconVisible="False" LeftMargin="26.5939" RightMargin="28.4061" TopMargin="22.4002" BottomMargin="34.5998" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="15" Scale9Height="25" ctype="ImageViewObjectData">
+                <Size X="83.0000" Y="93.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="68.0939" Y="81.0998" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4934" Y="0.5407" />
-                <PreSize X="0.7681" Y="0.7067" />
+                <PreSize X="0.6014" Y="0.6200" />
                 <FileData Type="MarkedSubImage" Path="ui/mixsectext.png" Plist="uipacker.plist" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="222.0002" Y="8.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="201.0001" Y="8.0000" />
+            <Scale ScaleX="0.9000" ScaleY="0.9000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
@@ -244,6 +244,16 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/tipimg.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="shade" ActionTag="1942219721" VisibleForFrame="False" Alpha="102" Tag="677" IconVisible="False" LeftMargin="-1000.0000" RightMargin="-1000.0000" TopMargin="-1300.0000" BottomMargin="-1300.0000" Scale9Enable="True" LeftEage="28" RightEage="28" TopEage="28" BottomEage="28" Scale9OriginX="28" Scale9OriginY="28" Scale9Width="4" Scale9Height="4" ctype="ImageViewObjectData">
+            <Size X="2000.0000" Y="2600.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="MarkedSubImage" Path="ui/black.png" Plist="uipacker.plist" />
           </AbstractNodeData>
           <AbstractNodeData Name="heroselectbg" ActionTag="-1351732762" VisibleForFrame="False" Tag="275" IconVisible="False" LeftMargin="-350.0143" RightMargin="-323.9857" TopMargin="-695.1866" BottomMargin="-86.8134" ctype="SpriteObjectData">
             <Size X="674.0000" Y="782.0000" />

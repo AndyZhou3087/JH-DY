@@ -351,7 +351,7 @@ void FactionListItem::onAction(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touch
 		{
 			if (GlobalData::mytitle == 0)
 			{ 
-				if (actionbtn->getTitleText().compare(CommonFuncs::gbk2utf("取消申请")) == 0)
+				if (actionbtnlabel->getString().compare(CommonFuncs::gbk2utf("取消申请")) == 0)
 				{
 					WaitingProgress* waitbox = WaitingProgress::create("处理中...");
 					Director::getInstance()->getRunningScene()->addChild(waitbox, 1, "waitbox");
@@ -435,7 +435,7 @@ void FactionListItem::onSuccess()
 {
 	Director::getInstance()->getRunningScene()->removeChildByName("waitbox");
 
-	if (actionbtn->getTitleText().compare(CommonFuncs::gbk2utf("申请加入")) == 0)
+	if (actionbtnlabel->getString().compare(CommonFuncs::gbk2utf("申请加入")) == 0)
 	{
 		actionbtnlabel->setString(CommonFuncs::gbk2utf("取消申请"));
 		GlobalData::myFaction = m_data->id;
@@ -444,7 +444,7 @@ void FactionListItem::onSuccess()
 		if (fmainlayer != NULL)
 			fmainlayer->disBtn();
 	}
-	else if (actionbtn->getTitleText().compare(CommonFuncs::gbk2utf("取消申请")) == 0)
+	else if (actionbtnlabel->getString().compare(CommonFuncs::gbk2utf("取消申请")) == 0)
 	{
 		actionbtnlabel->setString(CommonFuncs::gbk2utf("申请加入"));
 		GlobalData::myFaction = 0;

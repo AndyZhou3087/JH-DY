@@ -45,6 +45,8 @@ bool MixGFNode::init()
 
 	}
 
+	shade = (cocos2d::ui::ImageView*)csbroot->getChildByName("shade");
+
 	mixokbtn = (cocos2d::ui::Widget*)csbroot->getChildByName("mixbtn");
 	mixokbtn->addTouchEventListener(CC_CALLBACK_2(MixGFNode::onMix, this));
 	mixokbtn->setVisible(false);
@@ -109,6 +111,7 @@ void MixGFNode::onOK(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType 
 	CommonFuncs::BtnAction(pSender, type);
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
+		shade->setVisible(false);
 		heroselectbg->setVisible(false);
 		m_listener->setSwallowTouches(false);
 		this->setLocalZOrder(0);
@@ -134,6 +137,7 @@ void MixGFNode::onImageClick(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 			return;
 
 		lastclickindex = tag;
+		shade->setVisible(true);
 		heroselectbg->setVisible(true);
 		m_listener->setSwallowTouches(true);
 		this->setLocalZOrder(1);

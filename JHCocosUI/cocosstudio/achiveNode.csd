@@ -52,7 +52,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="getimg" ActionTag="1847043272" Tag="84" IconVisible="False" LeftMargin="159.4456" RightMargin="-276.4456" TopMargin="-32.0262" BottomMargin="-14.9738" TouchEnable="True" LeftEage="37" RightEage="37" TopEage="15" BottomEage="15" Scale9OriginX="37" Scale9OriginY="15" Scale9Width="43" Scale9Height="17" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="getimg" ActionTag="1847043272" Tag="84" IconVisible="False" LeftMargin="173.7320" RightMargin="-290.7320" TopMargin="-32.0262" BottomMargin="-14.9738" TouchEnable="True" LeftEage="37" RightEage="37" TopEage="15" BottomEage="15" Scale9OriginX="37" Scale9OriginY="15" Scale9Width="43" Scale9Height="17" ctype="ImageViewObjectData">
             <Size X="117.0000" Y="47.0000" />
             <Children>
               <AbstractNodeData Name="statutext" ActionTag="-1551880636" Tag="85" IconVisible="False" LeftMargin="9.5000" RightMargin="14.5000" TopMargin="8.0000" BottomMargin="8.0000" FontSize="30" LabelText="未完成" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -69,14 +69,14 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.4033" ScaleY="0.5643" />
-            <Position X="206.6317" Y="11.5483" />
+            <Position X="220.9181" Y="11.5483" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/buildtagbtn0.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="finishbg" ActionTag="1883340414" Tag="119" IconVisible="False" LeftMargin="149.0104" RightMargin="-297.0104" TopMargin="-2.1384" BottomMargin="-20.8616" ctype="SpriteObjectData">
+          <AbstractNodeData Name="finishbg" ActionTag="1883340414" Tag="119" IconVisible="False" LeftMargin="151.5556" RightMargin="-299.5556" TopMargin="-2.1384" BottomMargin="-20.8616" ctype="SpriteObjectData">
             <Size X="148.0000" Y="23.0000" />
             <Children>
               <AbstractNodeData Name="finishbar" ActionTag="-1700739977" Tag="118" IconVisible="False" LeftMargin="0.2020" RightMargin="-0.2020" TopMargin="-0.5705" BottomMargin="0.5705" ProgressInfo="100" ctype="LoadingBarObjectData">
@@ -103,7 +103,7 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="223.0104" Y="-9.3616" />
+            <Position X="225.5556" Y="-9.3616" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -111,33 +111,33 @@
             <FileData Type="MarkedSubImage" Path="ui/achivebarbg.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="bg_1" ActionTag="813788353" VisibleForFrame="False" Tag="400" IconVisible="False" LeftMargin="-182.2706" RightMargin="-20.7294" TopMargin="-104.7860" BottomMargin="-99.2140" ctype="SpriteObjectData">
+          <AbstractNodeData Name="bg_1" ActionTag="813788353" VisibleForFrame="False" Tag="400" IconVisible="False" LeftMargin="-165.3863" RightMargin="-37.6137" TopMargin="-105.4348" BottomMargin="-98.5652" ctype="SpriteObjectData">
             <Size X="203.0000" Y="204.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-80.7706" Y="2.7860" />
-            <Scale ScaleX="0.3500" ScaleY="0.3500" />
+            <Position X="-63.8863" Y="3.4348" />
+            <Scale ScaleX="0.4500" ScaleY="0.4500" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/fightbg1.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="bg_2" ActionTag="1664839561" VisibleForFrame="False" Tag="401" IconVisible="False" LeftMargin="-132.2780" RightMargin="-70.7220" TopMargin="-105.1418" BottomMargin="-98.8582" ctype="SpriteObjectData">
+          <AbstractNodeData Name="bg_2" ActionTag="1664839561" VisibleForFrame="False" Tag="401" IconVisible="False" LeftMargin="-89.4178" RightMargin="-113.5822" TopMargin="-105.4915" BottomMargin="-98.5085" ctype="SpriteObjectData">
             <Size X="203.0000" Y="204.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-30.7780" Y="3.1418" />
-            <Scale ScaleX="0.3500" ScaleY="0.3500" />
+            <Position X="12.0822" Y="3.4915" />
+            <Scale ScaleX="0.4500" ScaleY="0.4500" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/fightbg1.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="bg_3" ActionTag="-1154598776" VisibleForFrame="False" Tag="402" IconVisible="False" LeftMargin="-82.2850" RightMargin="-120.7150" TopMargin="-105.3544" BottomMargin="-98.6456" ctype="SpriteObjectData">
+          <AbstractNodeData Name="bg_3" ActionTag="-1154598776" VisibleForFrame="False" Tag="402" IconVisible="False" LeftMargin="-13.2869" RightMargin="-189.7131" TopMargin="-105.3542" BottomMargin="-98.6458" ctype="SpriteObjectData">
             <Size X="203.0000" Y="204.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="19.2150" Y="3.3544" />
-            <Scale ScaleX="0.3500" ScaleY="0.3500" />
+            <Position X="88.2131" Y="3.3542" />
+            <Scale ScaleX="0.4500" ScaleY="0.4500" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
@@ -166,31 +166,31 @@
             <FileData Type="MarkedSubImage" Path="ui/fightbg1.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="rwd_1" ActionTag="-710991802" VisibleForFrame="False" Tag="157" IconVisible="False" LeftMargin="-135.6209" RightMargin="29.6209" TopMargin="-61.1889" BottomMargin="-44.8111" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="rwd_1" ActionTag="-710991802" VisibleForFrame="False" Tag="157" IconVisible="False" LeftMargin="-118.7365" RightMargin="12.7365" TopMargin="-61.8378" BottomMargin="-44.1622" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
             <Size X="106.0000" Y="106.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-82.6209" Y="8.1889" />
-            <Scale ScaleX="0.4000" ScaleY="0.4000" />
+            <Position X="-65.7365" Y="8.8378" />
+            <Scale ScaleX="0.5000" ScaleY="0.5000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/1.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="rwd_2" ActionTag="2021447375" VisibleForFrame="False" Tag="158" IconVisible="False" LeftMargin="-85.9319" RightMargin="-20.0681" TopMargin="-61.1889" BottomMargin="-44.8111" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="rwd_2" ActionTag="2021447375" VisibleForFrame="False" Tag="158" IconVisible="False" LeftMargin="-43.0712" RightMargin="-62.9288" TopMargin="-61.5382" BottomMargin="-44.4618" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
             <Size X="106.0000" Y="106.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-32.9319" Y="8.1889" />
-            <Scale ScaleX="0.4000" ScaleY="0.4000" />
+            <Position X="9.9288" Y="8.5382" />
+            <Scale ScaleX="0.5000" ScaleY="0.5000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/1.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="rwd_3" ActionTag="426542314" VisibleForFrame="False" Tag="159" IconVisible="False" LeftMargin="-36.2429" RightMargin="-69.7571" TopMargin="-61.1889" BottomMargin="-44.8111" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="rwd_3" ActionTag="426542314" VisibleForFrame="False" Tag="159" IconVisible="False" LeftMargin="34.7542" RightMargin="-140.7542" TopMargin="-60.1886" BottomMargin="-45.8114" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
             <Size X="106.0000" Y="106.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="16.7571" Y="8.1889" />
-            <Scale ScaleX="0.4000" ScaleY="0.4000" />
+            <Position X="87.7542" Y="7.1886" />
+            <Scale ScaleX="0.5000" ScaleY="0.5000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
@@ -216,10 +216,10 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/1.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="count_1" ActionTag="994690061" VisibleForFrame="False" Tag="163" IconVisible="False" LeftMargin="-97.3934" RightMargin="65.3934" TopMargin="3.1211" BottomMargin="-18.1211" FontSize="13" LabelText="x100" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="32.0000" Y="15.0000" />
+          <AbstractNodeData Name="count_1" ActionTag="994690061" VisibleForFrame="False" Tag="163" IconVisible="False" LeftMargin="-86.2101" RightMargin="40.2101" TopMargin="2.7195" BottomMargin="-25.7195" FontSize="20" LabelText="x100" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="46.0000" Y="23.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-81.3934" Y="-10.6211" />
+            <Position X="-63.2101" Y="-14.2195" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -228,10 +228,10 @@
             <OutlineColor A="255" R="0" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="count_2" ActionTag="1072656225" VisibleForFrame="False" Tag="164" IconVisible="False" LeftMargin="-47.5096" RightMargin="15.5096" TopMargin="3.1211" BottomMargin="-18.1211" FontSize="13" LabelText="x100" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="32.0000" Y="15.0000" />
+          <AbstractNodeData Name="count_2" ActionTag="1072656225" VisibleForFrame="False" Tag="164" IconVisible="False" LeftMargin="-10.9988" RightMargin="-35.0012" TopMargin="3.0187" BottomMargin="-26.0187" FontSize="20" LabelText="x100" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="46.0000" Y="23.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-31.5096" Y="-10.6211" />
+            <Position X="12.0012" Y="-14.5187" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -240,10 +240,10 @@
             <OutlineColor A="255" R="0" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="count_3" ActionTag="-1427967263" VisibleForFrame="False" Tag="165" IconVisible="False" LeftMargin="2.3740" RightMargin="-34.3740" TopMargin="3.1211" BottomMargin="-18.1211" FontSize="13" LabelText="x100" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="32.0000" Y="15.0000" />
+          <AbstractNodeData Name="count_3" ActionTag="-1427967263" VisibleForFrame="False" Tag="165" IconVisible="False" LeftMargin="66.9691" RightMargin="-112.9691" TopMargin="1.7190" BottomMargin="-24.7190" FontSize="20" LabelText="x100" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="46.0000" Y="23.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="18.3740" Y="-10.6211" />
+            <Position X="89.9691" Y="-13.2190" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -276,10 +276,10 @@
             <OutlineColor A="255" R="0" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="particle_1" ActionTag="-1708839999" VisibleForFrame="False" Tag="196" IconVisible="True" LeftMargin="-82.3164" RightMargin="82.3164" TopMargin="1.3655" BottomMargin="-1.3655" ctype="ParticleObjectData">
+          <AbstractNodeData Name="particle_1" ActionTag="-1708839999" VisibleForFrame="False" Tag="196" IconVisible="True" LeftMargin="-62.8341" RightMargin="62.8341" TopMargin="-4.4782" BottomMargin="4.4782" ctype="ParticleObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
-            <Position X="-82.3164" Y="-1.3655" />
+            <Position X="-62.8341" Y="4.4782" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -287,10 +287,10 @@
             <FileData Type="Normal" Path="particle/tex2.plist" Plist="" />
             <BlendFunc Src="770" Dst="1" />
           </AbstractNodeData>
-          <AbstractNodeData Name="particle_2" ActionTag="-50567586" VisibleForFrame="False" Tag="197" IconVisible="True" LeftMargin="-31.4666" RightMargin="31.4666" TopMargin="-1.6321" BottomMargin="1.6321" ctype="ParticleObjectData">
+          <AbstractNodeData Name="particle_2" ActionTag="-50567586" VisibleForFrame="False" Tag="197" IconVisible="True" LeftMargin="12.6939" RightMargin="-12.6939" TopMargin="-2.2810" BottomMargin="2.2810" ctype="ParticleObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
-            <Position X="-31.4666" Y="1.6321" />
+            <Position X="12.6939" Y="2.2810" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -298,10 +298,10 @@
             <FileData Type="Normal" Path="particle/tex2.plist" Plist="" />
             <BlendFunc Src="770" Dst="1" />
           </AbstractNodeData>
-          <AbstractNodeData Name="particle_3" ActionTag="-1944606921" VisibleForFrame="False" Tag="198" IconVisible="True" LeftMargin="20.3118" RightMargin="-20.3118" TopMargin="-3.5581" BottomMargin="3.5581" ctype="ParticleObjectData">
+          <AbstractNodeData Name="particle_3" ActionTag="-1944606921" VisibleForFrame="False" Tag="198" IconVisible="True" LeftMargin="89.1484" RightMargin="-89.1484" TopMargin="-6.1534" BottomMargin="6.1534" ctype="ParticleObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
-            <Position X="20.3118" Y="3.5581" />
+            <Position X="89.1484" Y="6.1534" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />

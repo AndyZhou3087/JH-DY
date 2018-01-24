@@ -78,25 +78,25 @@ bool HSLJMainLayer::init()
 	m_matchwincount = (cocos2d::ui::Text*)csbnode->getChildByName("matchwincount");
 	m_matchwincount->setString("");
 
-	/*cocos2d::ui::Text* mynicknamelbl = (cocos2d::ui::Text*)csbnode->getChildByName("mynickname");
-	mynicknamelbl->setString(GlobalData::getMyNickName());*/
+	cocos2d::ui::Text* mynicknamelbl = (cocos2d::ui::Text*)csbnode->getChildByName("mynickname");
+	mynicknamelbl->setString(GlobalData::getMyNickName());
 
-	Label* mynicknamelbl = Label::createWithTTF(GlobalData::getMyNickName(), "fonts/STXINGKA.TTF", 26);
+	/*Label* mynicknamelbl = Label::createWithTTF(GlobalData::getMyNickName(), "fonts/STXINGKA.TTF", 26);
 	mynicknamelbl->setAnchorPoint(Vec2(0.5, 0.5));
 	mynicknamelbl->setLineBreakWithoutSpace(true);
 	mynicknamelbl->setMaxLineWidth(10);
 	mynicknamelbl->setString(GlobalData::getMyNickName());
 	mynicknamelbl->setColor(Color3B(255, 255, 255));
 	mynicknamelbl->setPosition(Vec2(110,948));
-	this->addChild(mynicknamelbl);
+	this->addChild(mynicknamelbl);*/
 
-	m_heroname = Label::createWithTTF("", "fonts/STXINGKA.TTF", 26);
+	/*m_heroname = Label::createWithTTF("", "fonts/STXINGKA.TTF", 26);
 	m_heroname->setAnchorPoint(Vec2(0.5, 0.5));
 	m_heroname->setLineBreakWithoutSpace(true);
 	m_heroname->setMaxLineWidth(10);
 	m_heroname->setColor(Color3B(255, 255, 255));
 	m_heroname->setPosition(Vec2(-14, -42));
-	heroNode->addChild(m_heroname);
+	heroNode->addChild(m_heroname);*/
 	
 	cocos2d::ui::ImageView* myheroimg = (cocos2d::ui::ImageView*)csbnode->getChildByName("myheroimg");
 	std::string headimgstr = StringUtils::format("images/hsljhero%d.png", g_hero->getHeadID());
@@ -119,7 +119,7 @@ bool HSLJMainLayer::init()
 
 	m_herodw = (cocos2d::ui::Text*)heroNode->getChildByName("herodw");
 	m_herowinpercent = (cocos2d::ui::Text*)heroNode->getChildByName("herowin");
-	//m_heroname = (cocos2d::ui::Text*)heroNode->getChildByName("heronickname");
+	m_heroname = (cocos2d::ui::Text*)heroNode->getChildByName("heronickname");
 	
 	m_playerheadimg = (cocos2d::ui::ImageView*)csbnode->getChildByName("heroimg");
 

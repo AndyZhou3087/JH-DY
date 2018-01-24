@@ -70,6 +70,8 @@ bool HeroProperNode::init()
 		}
 	}
 
+	shade = (cocos2d::ui::ImageView*)csbroot->getChildByName("shade");
+
 	heroselectbg = (cocos2d::ui::Widget*)csbroot->getChildByName("heroselectbg");
 	heroppoint = (cocos2d::ui::Widget*)csbroot->getChildByName("heroppoint");
 
@@ -116,6 +118,7 @@ void HeroProperNode::onOK(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEvent
 	CommonFuncs::BtnAction(pSender, type);
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
+		shade->setVisible(false);
 		heroselectbg->setVisible(false);
 		heroppoint->setVisible(false);
 		m_listener->setSwallowTouches(false);
@@ -165,6 +168,7 @@ void HeroProperNode::onImageClick(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		lastclickindex = tag;
 		title->setString(CommonFuncs::gbk2utf(name[tag].c_str()));
 		heroppoint->setVisible(true);
+		shade->setVisible(true);
 		heroselectbg->setVisible(true);
 		heroppoint->setPosition(Vec2(propeImages[tag]->getPositionX(), propeImages[tag]->getPositionY() + propeImages[tag]->getContentSize().height / 2 + 20));
 

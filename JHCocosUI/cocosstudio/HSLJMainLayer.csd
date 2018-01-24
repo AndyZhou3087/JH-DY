@@ -152,113 +152,113 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="heroimg" ActionTag="-1278242848" Tag="68" IconVisible="False" LeftMargin="354.3369" RightMargin="27.6631" TopMargin="166.5012" BottomMargin="601.4988" FlipX="True" LeftEage="116" RightEage="116" TopEage="166" BottomEage="166" Scale9OriginX="116" Scale9OriginY="166" Scale9Width="106" Scale9Height="180" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="heroimg" ActionTag="-1278242848" Tag="68" IconVisible="False" LeftMargin="389.3342" RightMargin="-7.3342" TopMargin="166.5059" BottomMargin="601.4941" FlipX="True" LeftEage="116" RightEage="116" TopEage="166" BottomEage="166" Scale9OriginX="116" Scale9OriginY="166" Scale9Width="106" Scale9Height="180" ctype="ImageViewObjectData">
             <Size X="338.0000" Y="512.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="523.3369" Y="857.4988" />
+            <Position X="558.3342" Y="857.4941" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7269" Y="0.6699" />
+            <PrePosition X="0.7755" Y="0.6699" />
             <PreSize X="0.4694" Y="0.4000" />
             <FileData Type="Normal" Path="images/hsljhero0.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="myheroimg" ActionTag="-1398936384" Tag="67" IconVisible="False" LeftMargin="42.3162" RightMargin="325.6838" TopMargin="170.5012" BottomMargin="605.4988" LeftEage="116" RightEage="116" TopEage="166" BottomEage="166" Scale9OriginX="116" Scale9OriginY="166" Scale9Width="120" Scale9Height="172" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="myheroimg" ActionTag="-1398936384" Tag="67" IconVisible="False" LeftMargin="24.3161" RightMargin="343.6839" TopMargin="170.5037" BottomMargin="605.4964" LeftEage="116" RightEage="116" TopEage="166" BottomEage="166" Scale9OriginX="116" Scale9OriginY="166" Scale9Width="120" Scale9Height="172" ctype="ImageViewObjectData">
             <Size X="352.0000" Y="504.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="218.3162" Y="857.4988" />
+            <Position X="200.3161" Y="857.4964" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.3032" Y="0.6699" />
+            <PrePosition X="0.2782" Y="0.6699" />
             <PreSize X="0.4889" Y="0.3938" />
             <FileData Type="Normal" Path="images/hsljhero1.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="hsljmsgbox1" ActionTag="-1658480058" Tag="885" IconVisible="False" LeftMargin="79.6383" RightMargin="540.3617" TopMargin="188.4026" BottomMargin="775.5974" Scale9Enable="True" LeftEage="35" RightEage="35" TopEage="150" BottomEage="150" Scale9OriginX="35" Scale9OriginY="150" Scale9Width="10" Scale9Height="16" ctype="ImageViewObjectData">
-            <Size X="100.0000" Y="316.0000" />
+          <AbstractNodeData Name="hsljmsgbox1" ActionTag="-1658480058" Tag="885" IconVisible="False" LeftMargin="61.7733" RightMargin="356.2267" TopMargin="561.7458" BottomMargin="638.2542" Scale9Enable="True" LeftEage="35" RightEage="35" TopEage="26" BottomEage="26" Scale9OriginX="35" Scale9OriginY="26" Scale9Width="232" Scale9Height="28" ctype="ImageViewObjectData">
+            <Size X="302.0000" Y="80.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="129.6383" Y="933.5974" />
+            <Position X="212.7733" Y="678.2542" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1801" Y="0.7294" />
-            <PreSize X="0.1389" Y="0.2469" />
+            <PrePosition X="0.2955" Y="0.5299" />
+            <PreSize X="0.4194" Y="0.0625" />
             <FileData Type="MarkedSubImage" Path="ui/hsljmsgbox.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="mynickname" ActionTag="-1873863341" VisibleForFrame="False" Tag="16" IconVisible="False" LeftMargin="90.3463" RightMargin="597.6537" TopMargin="192.2954" BottomMargin="807.7046" IsCustomSize="True" FontSize="32" LabelText="少侠0001" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="32.0000" Y="280.0000" />
+          <AbstractNodeData Name="mynickname" ActionTag="-1873863341" Tag="16" IconVisible="False" LeftMargin="70.0196" RightMargin="399.9804" TopMargin="562.2216" BottomMargin="652.7784" IsCustomSize="True" FontSize="32" LabelText="少侠0001" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="250.0000" Y="65.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="106.3463" Y="947.7046" />
+            <Position X="195.0196" Y="685.2784" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1477" Y="0.7404" />
-            <PreSize X="0.0444" Y="0.2188" />
+            <PrePosition X="0.2709" Y="0.5354" />
+            <PreSize X="0.3472" Y="0.0508" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="mywin" ActionTag="110674733" Tag="19" IconVisible="False" LeftMargin="126.9395" RightMargin="535.0605" TopMargin="426.3566" BottomMargin="825.6434" FontSize="25" LabelText="50%" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="mywin" ActionTag="110674733" Tag="19" IconVisible="False" LeftMargin="264.8224" RightMargin="397.1776" TopMargin="608.6289" BottomMargin="643.3711" FontSize="25" LabelText="50%" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="58.0000" Y="28.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="155.9395" Y="839.6434" />
+            <AnchorPoint ScaleY="0.5000" />
+            <Position X="264.8224" Y="657.3711" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2166" Y="0.6560" />
+            <PrePosition X="0.3678" Y="0.5136" />
             <PreSize X="0.0806" Y="0.0219" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="0" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="mywintext" ActionTag="19986829" Tag="18" IconVisible="False" LeftMargin="141.2073" RightMargin="552.7927" TopMargin="345.2943" BottomMargin="834.7057" IsCustomSize="True" FontSize="25" LabelText="胜率" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="26.0000" Y="100.0000" />
+          <AbstractNodeData Name="mywintext" ActionTag="19986829" Tag="18" IconVisible="False" LeftMargin="210.2897" RightMargin="458.7103" TopMargin="609.3121" BottomMargin="644.6879" IsCustomSize="True" FontSize="25" LabelText="胜率" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="51.0000" Y="26.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="154.2073" Y="884.7057" />
+            <Position X="235.7897" Y="657.6879" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2142" Y="0.6912" />
-            <PreSize X="0.0361" Y="0.0781" />
+            <PrePosition X="0.3275" Y="0.5138" />
+            <PreSize X="0.0708" Y="0.0203" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="mydw" ActionTag="1591141276" Tag="17" IconVisible="False" LeftMargin="142.2059" RightMargin="551.7941" TopMargin="181.6979" BottomMargin="948.3021" IsCustomSize="True" FontSize="25" LabelText="江湖侠士" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="26.0000" Y="150.0000" />
+          <AbstractNodeData Name="mydw" ActionTag="1591141276" Tag="17" IconVisible="False" LeftMargin="79.1922" RightMargin="540.8079" TopMargin="609.0671" BottomMargin="644.9329" IsCustomSize="True" FontSize="25" LabelText="江湖侠士" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="100.0000" Y="26.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="155.2059" Y="1023.3021" />
+            <Position X="129.1922" Y="657.9329" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2156" Y="0.7995" />
-            <PreSize X="0.0361" Y="0.1172" />
+            <PrePosition X="0.1794" Y="0.5140" />
+            <PreSize X="0.1389" Y="0.0203" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="hsljmsgbox2" ActionTag="-3144667" Tag="886" IconVisible="False" LeftMargin="535.6995" RightMargin="84.3005" TopMargin="196.6235" BottomMargin="767.3764" Scale9Enable="True" LeftEage="35" RightEage="35" TopEage="150" BottomEage="150" Scale9OriginX="35" Scale9OriginY="150" Scale9Width="10" Scale9Height="16" ctype="ImageViewObjectData">
-            <Size X="100.0000" Y="316.0000" />
+          <AbstractNodeData Name="hsljmsgbox2" ActionTag="-3144667" Tag="886" IconVisible="False" LeftMargin="372.3985" RightMargin="45.6015" TopMargin="561.7458" BottomMargin="638.2542" FlipX="True" Scale9Enable="True" LeftEage="35" RightEage="35" TopEage="150" BottomEage="150" Scale9OriginX="35" Scale9OriginY="-70" Scale9Width="232" Scale9Height="220" ctype="ImageViewObjectData">
+            <Size X="302.0000" Y="80.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="585.6995" Y="925.3764" />
+            <Position X="523.3985" Y="678.2542" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8135" Y="0.7230" />
-            <PreSize X="0.1389" Y="0.2469" />
+            <PrePosition X="0.7269" Y="0.5299" />
+            <PreSize X="0.4194" Y="0.0625" />
             <FileData Type="MarkedSubImage" Path="ui/hsljmsgbox.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="hinttext" ActionTag="-1419934171" Tag="46" IconVisible="False" LeftMargin="410.0023" RightMargin="85.9977" TopMargin="608.9285" BottomMargin="636.0715" FontSize="32" LabelText="请匹配你的对手" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="hinttext" ActionTag="-1419934171" Tag="46" IconVisible="False" LeftMargin="419.4601" RightMargin="76.5399" TopMargin="586.4661" BottomMargin="658.5339" FontSize="32" LabelText="请匹配你的对手" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="224.0000" Y="35.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="522.0023" Y="653.5715" />
+            <Position X="531.4601" Y="676.0339" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7250" Y="0.5106" />
+            <PrePosition X="0.7381" Y="0.5282" />
             <PreSize X="0.3111" Y="0.0273" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="0" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="heronode" ActionTag="-1827492895" Tag="24" IconVisible="True" LeftMargin="584.1710" RightMargin="135.8290" TopMargin="289.4652" BottomMargin="990.5348" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="heronode" ActionTag="-1827492895" Tag="24" IconVisible="True" LeftMargin="546.3221" RightMargin="173.6779" TopMargin="593.3555" BottomMargin="686.6445" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <Children>
-              <AbstractNodeData Name="heronickname " ActionTag="-358672181" VisibleForFrame="False" Tag="20" IconVisible="False" LeftMargin="-36.1912" RightMargin="4.1912" TopMargin="-98.3220" BottomMargin="-181.6780" IsCustomSize="True" FontSize="32" LabelText="少侠0001" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="32.0000" Y="280.0000" />
+              <AbstractNodeData Name="heronickname" ActionTag="-358672181" Tag="20" IconVisible="False" LeftMargin="-129.8224" RightMargin="-120.1776" TopMargin="-29.6554" BottomMargin="-35.3446" IsCustomSize="True" FontSize="32" LabelText="少侠0001" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="250.0000" Y="65.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="-20.1912" Y="-41.6780" />
+                <Position X="-4.8224" Y="-2.8446" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
@@ -267,10 +267,10 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="herodw" ActionTag="954115169" Tag="21" IconVisible="False" LeftMargin="15.7917" RightMargin="-41.7917" TopMargin="-96.1239" BottomMargin="-53.8761" IsCustomSize="True" FontSize="25" LabelText="江湖侠士" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="26.0000" Y="150.0000" />
+              <AbstractNodeData Name="herodw" ActionTag="954115169" Tag="21" IconVisible="False" LeftMargin="-124.0759" RightMargin="24.0759" TopMargin="15.8871" BottomMargin="-41.8871" IsCustomSize="True" FontSize="25" LabelText="江湖侠士" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="100.0000" Y="26.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="28.7917" Y="21.1239" />
+                <Position X="-74.0759" Y="-28.8871" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
@@ -279,10 +279,10 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="herowintext" ActionTag="1762833302" Tag="22" IconVisible="False" LeftMargin="13.2761" RightMargin="-39.2761" TopMargin="55.9310" BottomMargin="-155.9310" IsCustomSize="True" FontSize="25" LabelText="胜率" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="26.0000" Y="100.0000" />
+              <AbstractNodeData Name="herowintext" ActionTag="1762833302" Tag="22" IconVisible="False" LeftMargin="0.4113" RightMargin="-51.4113" TopMargin="15.8871" BottomMargin="-41.8871" IsCustomSize="True" FontSize="25" LabelText="胜率" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="51.0000" Y="26.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="26.2761" Y="-105.9310" />
+                <Position X="25.9113" Y="-28.8871" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
@@ -291,10 +291,10 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="herowin" ActionTag="93161002" Tag="23" IconVisible="False" LeftMargin="1.4923" RightMargin="-59.4923" TopMargin="144.4929" BottomMargin="-172.4929" FontSize="25" LabelText="50%" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="herowin" ActionTag="93161002" Tag="23" IconVisible="False" LeftMargin="53.1492" RightMargin="-111.1492" TopMargin="15.8872" BottomMargin="-43.8872" FontSize="25" LabelText="50%" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="58.0000" Y="28.0000" />
                 <AnchorPoint ScaleY="0.5000" />
-                <Position X="1.4923" Y="-158.4929" />
+                <Position X="53.1492" Y="-29.8872" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
@@ -305,10 +305,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint />
-            <Position X="584.1710" Y="990.5348" />
+            <Position X="546.3221" Y="686.6445" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8113" Y="0.7739" />
+            <PrePosition X="0.7588" Y="0.5364" />
             <PreSize X="0.0000" Y="0.0000" />
           </AbstractNodeData>
           <AbstractNodeData Name="infobox" ActionTag="1122370781" Tag="100" IconVisible="False" LeftMargin="49.6887" RightMargin="36.3113" TopMargin="659.8643" BottomMargin="466.1357" TouchEnable="True" LeftEage="94" RightEage="94" TopEage="66" BottomEage="66" Scale9OriginX="94" Scale9OriginY="66" Scale9Width="446" Scale9Height="22" ctype="ImageViewObjectData">

@@ -266,7 +266,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="banner_2_10" ActionTag="1830709637" Tag="667" IconVisible="False" LeftMargin="59.2087" RightMargin="54.7913" TopMargin="282.3795" BottomMargin="975.6205" ctype="SpriteObjectData">
+          <AbstractNodeData Name="banner" ActionTag="1830709637" Tag="667" IconVisible="False" LeftMargin="59.2087" RightMargin="54.7913" TopMargin="282.3795" BottomMargin="975.6205" ctype="SpriteObjectData">
             <Size X="606.0000" Y="22.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="362.2087" Y="986.6205" />

@@ -233,6 +233,7 @@
           <Image Name="bb.png" />
           <Image Name="bed.png" />
           <Image Name="bigbgclosebtn.png" />
+          <Image Name="black.png" />
           <Image Name="blank.png" />
           <Image Name="bookshelf.png" />
           <Image Name="branchmissionbox.png" />

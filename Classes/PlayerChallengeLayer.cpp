@@ -56,25 +56,32 @@ bool PlayerChallengeLayer::init(std::string addrid, RankData* rankData)
 	cocos2d::ui::Text* addrnametxt = (cocos2d::ui::Text*)csbnode->getChildByName("title");
 	addrnametxt->setString(GlobalData::map_maps[addrid].cname);
 
-	cocos2d::ui::ImageView* heroicon = (cocos2d::ui::ImageView*)csbnode->getChildByName("heroicon");
+	heroheadbox = (cocos2d::ui::Widget*)csbnode->getChildByName("heroheadbox");
+	npcheadbox = (cocos2d::ui::Widget*)csbnode->getChildByName("npcheadbox");
+	fightherokuang = (cocos2d::ui::Widget*)heroheadbox->getChildByName("fightherokuang");
+	fightnpckuang = (cocos2d::ui::Widget*)npcheadbox->getChildByName("fightnpckuang");
+	fightherokuang->setVisible(false);
+	fightnpckuang->setVisible(false);
+
+	cocos2d::ui::ImageView* heroicon = (cocos2d::ui::ImageView*)heroheadbox->getChildByName("heroicon");
 	std::string heroiconstr = StringUtils::format("ui/fhero%d.png", g_hero->getHeadID());
 	heroicon->loadTexture(heroiconstr, cocos2d::ui::TextureResType::PLIST);
 	heroicon->setScale(0.6f);
 
 	// player 图标
-	playerhead = (cocos2d::ui::ImageView*)csbnode->getChildByName("npcicon");
+	playerhead = (cocos2d::ui::ImageView*)npcheadbox->getChildByName("npcicon");
 	std::string playerheadstr = StringUtils::format("ui/fhero%d.png", rankData->herotype);
 	playerhead->loadTexture(playerheadstr, cocos2d::ui::TextureResType::PLIST);
 	playerhead->setScale(0.6f);
 	playerhead->setFlippedX(true);
 
 	//player名称
-	playernametxt = (cocos2d::ui::Text*)csbnode->getChildByName("npcname");
+	playernametxt = (cocos2d::ui::Text*)npcheadbox->getChildByName("npcname");
 	playernametxt->setString(rankData->nickname);
 	if (rankData->nickname.length() >= 12)
 		playernametxt->setFontSize(25);
 	//角色名
-	cocos2d::ui::Text* heronametxt = (cocos2d::ui::Text*)csbnode->getChildByName("heroname");
+	cocos2d::ui::Text* heronametxt = (cocos2d::ui::Text*)heroheadbox->getChildByName("heroname");
 	heronametxt->setString(GlobalData::getMyNickName());
 
 	int maxlife = g_hero->getMaxLifeValue();
@@ -195,6 +202,11 @@ void PlayerChallengeLayer::delayHeroFight(float dt)
 	int playerhurt = getPlayerHurt();
 
 	int skilltype = checkPlayerSkill(H_WG);
+
+	heroheadbox->setScale(1.15);
+	npcheadbox->setScale(1);
+	fightherokuang->setVisible(true);
+	fightnpckuang->setVisible(false);
 
 	if (skilltype == S_SKILL_1 || skilltype == S_SKILL_2 || skilltype == S_SKILL_5)
 	{
@@ -378,6 +390,11 @@ void PlayerChallengeLayer::delayPlayerFight(float dt)
 	int herohurt = getHeroHurt();
 
     int skilltype = checkHeroSkill(H_WG);
+
+	heroheadbox->setScale(1);
+	npcheadbox->setScale(1.15);
+	fightherokuang->setVisible(false);
+	fightnpckuang->setVisible(true);
     
     if (skilltype == S_SKILL_1 || skilltype == S_SKILL_2 || skilltype == S_SKILL_5)
     {

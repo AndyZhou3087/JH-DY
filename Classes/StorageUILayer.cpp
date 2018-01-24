@@ -30,6 +30,9 @@ bool StorageUILayer::init()
 	m_csbnode->setPosition(Vec2(0, -90));
 	this->addChild(m_csbnode);
 
+	cocos2d::ui::Widget* banner = (cocos2d::ui::Widget*)m_csbnode->getChildByName("banner");
+	banner->setVisible(false);
+
 	cocos2d::ui::Text* title = (cocos2d::ui::Text*)m_csbnode->getChildByName("title");
 	title->setString(CommonFuncs::gbk2utf("仓库"));
 
@@ -48,8 +51,8 @@ bool StorageUILayer::init()
 	scrollview->setScrollBarEnabled(false);
 	scrollview->setBounceEnabled(true);
 
-	scrollview->setContentSize(Size(650, 750));
-	scrollview->setPositionY(200);
+	scrollview->setContentSize(Size(650, 780));
+	scrollview->setPositionY(220);
 	
 	updateResContent();
 
@@ -121,7 +124,7 @@ void StorageUILayer::updateResContent()
 
 			}
 			Sprite * sepline = Sprite::createWithSpriteFrameName("ui/banner_3.png");
-			sepline->setPosition(Vec2(sepline->getContentSize().width / 2 + 40, innerheight - 35 - preheight));
+			sepline->setPosition(Vec2(sepline->getContentSize().width / 2 + 40, innerheight - 20 - preheight));
 			scrollview->addChild(sepline);
 			Sprite * namelbl = Sprite::createWithSpriteFrameName(name[i].c_str());
 			namelbl->setPosition(Vec2(sepline->getContentSize().width / 2, 5));
