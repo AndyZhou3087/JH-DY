@@ -83,7 +83,7 @@ bool ShopLayer::init()
 	m_rmbScrollview->setScrollBarEnabled(false);
 	m_rmbScrollview->setBounceEnabled(true);
 
-	int itemwidth = 160;
+	int itemwidth = 130;
 	int innerwidth = itemwidth * vec_rmbGoods.size();
 	int contentwidth = m_rmbScrollview->getContentSize().width;
 	if (innerwidth < contentwidth)
@@ -96,7 +96,7 @@ bool ShopLayer::init()
 
 		node->setTag(sizeof(heroprice) / sizeof(heroprice[0]) + i);
 		m_rmbScrollview->addChild(node);
-		node->setPosition(Vec2(itemwidth / 2  + 10 + i * itemwidth, m_rmbScrollview->getContentSize().height/2));
+		node->setPosition(Vec2(itemwidth / 2  + 10 + i * itemwidth, m_rmbScrollview->getContentSize().height/2-10));
 	}
 
 	m_goldScrollview = (cocos2d::ui::ScrollView*)m_csbnode->getChildByName("goldgoodsscroll");

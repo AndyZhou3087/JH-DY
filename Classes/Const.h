@@ -62,10 +62,10 @@ static std::string herodesc[] = { "名门之后，因家族武功被邪教窥觑
 static int heroprice[] = { 0, 6, 12, 30 };
 
 static std::string payCode[] = { "", "wx010", "wx011", "wx013", "wx018", "wx020", "wx021", "wx026", "wx022", "wx023","wx024","wx025"};
-static int goldcount[] = {60, 400, 1080, 2388};
+static int goldcount[] = {60,140, 400, 1080, 2388};
 static int vipgoldcount[] = { 10,20, 50 };
 
-static int buyprice[] = { 0, 6, 12, 30, 6, 30, 68, 128, 6, 30, 68, 18 };
+static int buyprice[] = { 0, 6, 12, 30, 6,12, 30, 68, 128, 6, 30, 68, 18 };
 
 static std::string tipswords0[] = { "温度过低时会加速你的各项属性消耗，记得保持好温度！" };
 static std::string tipswords1[] = { "后山的狼和兔子是个练基本功的好对手", "季节的变换会影响温度与后山的资源动态！" };

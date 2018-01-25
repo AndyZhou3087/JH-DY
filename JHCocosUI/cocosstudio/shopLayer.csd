@@ -86,7 +86,7 @@
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.0580" />
-            <PreSize X="0.1250" Y="0.0234" />
+            <PreSize X="0.1042" Y="0.0508" />
             <FileData Type="MarkedSubImage" Path="ui/hintdown.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
@@ -97,17 +97,17 @@
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.1485" Y="0.8370" />
-            <PreSize X="0.3833" Y="0.0562" />
+            <PreSize X="0.2875" Y="0.0727" />
             <FileData Type="MarkedSubImage" Path="ui/goldtextname.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="rmbgoodsscroll" ActionTag="-95823977" Tag="66" IconVisible="False" LeftMargin="23.5795" RightMargin="26.4205" TopMargin="250.2167" BottomMargin="799.7833" ClipAble="True" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="Horizontal" ctype="ScrollViewObjectData">
+          <AbstractNodeData Name="rmbgoodsscroll" ActionTag="-95823977" Tag="66" IconVisible="False" LeftMargin="23.5795" RightMargin="26.4205" TopMargin="247.2168" BottomMargin="802.7833" ClipAble="True" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="Horizontal" ctype="ScrollViewObjectData">
             <Size X="670.0000" Y="230.0000" />
             <AnchorPoint />
-            <Position X="23.5795" Y="799.7833" />
+            <Position X="23.5795" Y="802.7833" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0327" Y="0.6248" />
+            <PrePosition X="0.0327" Y="0.6272" />
             <PreSize X="0.9306" Y="0.1797" />
             <SingleColor A="255" R="255" G="150" B="100" />
             <FirstColor A="255" R="255" G="150" B="100" />
@@ -199,13 +199,13 @@
             <FileData Type="Normal" Path="images/bottomfigure.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="bottomfigure_1_0" ActionTag="559744906" Tag="293" IconVisible="False" LeftMargin="39.1600" RightMargin="38.8400" TopMargin="408.8805" BottomMargin="797.1195" FlipY="True" ctype="SpriteObjectData">
+          <AbstractNodeData Name="bottomfigure_1_0" ActionTag="559744906" Tag="293" IconVisible="False" LeftMargin="39.1600" RightMargin="38.8400" TopMargin="422.8806" BottomMargin="783.1194" FlipY="True" ctype="SpriteObjectData">
             <Size X="642.0000" Y="74.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="360.1600" Y="834.1195" />
+            <Position X="360.1600" Y="820.1194" />
             <Scale ScaleX="1.1000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5002" Y="0.6517" />
+            <PrePosition X="0.5002" Y="0.6407" />
             <PreSize X="0.8917" Y="0.0578" />
             <FileData Type="Normal" Path="images/bottomfigure.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
