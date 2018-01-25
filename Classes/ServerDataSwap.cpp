@@ -1435,9 +1435,8 @@ void ServerDataSwap::httpVipIsOnCB(std::string retdata, int code, std::string ta
 			{
 				rapidjson::Value& retval = doc["login_days"];
 				int days = retval.GetInt();
-				//if (days > 0)
-				//	GlobalData::continueLoginDays = retval.GetInt();
-				GlobalData::continueLoginDays = 1;
+				if (days > 0)
+					GlobalData::continueLoginDays = retval.GetInt();
 			}
 
 			if (doc.HasMember("hei"))
