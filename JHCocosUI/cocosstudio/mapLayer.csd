@@ -822,13 +822,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="vipbtn" ActionTag="-877144570" Tag="154" IconVisible="False" RightMargin="598.0000" TopMargin="419.0000" BottomMargin="739.0000" TouchEnable="True" FontSize="50" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="92" Scale9Height="100" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="vipbtn" ActionTag="-877144570" Tag="154" IconVisible="False" LeftMargin="0.0001" RightMargin="597.9999" TopMargin="340.0004" BottomMargin="817.9996" TouchEnable="True" FontSize="50" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="92" Scale9Height="100" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="122.0000" Y="122.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="61.0000" Y="800.0000" />
+            <Position X="61.0001" Y="878.9996" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0847" Y="0.6250" />
+            <PrePosition X="0.0847" Y="0.6867" />
             <PreSize X="0.1694" Y="0.0953" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
@@ -910,7 +910,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="branchmission" ActionTag="-1789424580" Tag="123" IconVisible="False" LeftMargin="538.7158" RightMargin="1.2842" TopMargin="415.5306" BottomMargin="762.4694" TouchEnable="True" LeftEage="13" RightEage="13" TopEage="16" BottomEage="16" Scale9OriginX="13" Scale9OriginY="16" Scale9Width="154" Scale9Height="70" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="branchmission" ActionTag="-1789424580" Tag="123" IconVisible="False" LeftMargin="538.7157" RightMargin="1.2843" TopMargin="336.5316" BottomMargin="841.4684" TouchEnable="True" LeftEage="13" RightEage="13" TopEage="16" BottomEage="16" Scale9OriginX="13" Scale9OriginY="16" Scale9Width="154" Scale9Height="70" ctype="ImageViewObjectData">
             <Size X="180.0000" Y="102.0000" />
             <Children>
               <AbstractNodeData Name="mapmission" ActionTag="-173228260" Tag="112" IconVisible="False" LeftMargin="19.3143" RightMargin="118.6857" TopMargin="43.6623" BottomMargin="8.3377" ctype="SpriteObjectData">
@@ -950,10 +950,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="628.7158" Y="813.4694" />
+            <Position X="628.7157" Y="892.4684" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8732" Y="0.6355" />
+            <PrePosition X="0.8732" Y="0.6972" />
             <PreSize X="0.2500" Y="0.0797" />
             <FileData Type="MarkedSubImage" Path="ui/branchmissionbox.png" Plist="uipacker.plist" />
           </AbstractNodeData>
