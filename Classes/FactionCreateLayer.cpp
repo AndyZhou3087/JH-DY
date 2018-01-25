@@ -56,6 +56,8 @@ bool FactionCreateLayer::init(int action, FactionListData* modifyfdata)
 	m_createbtn = (cocos2d::ui::Button*)csbnode->getChildByName("createbtn");
 	m_createbtn->addTouchEventListener(CC_CALLBACK_2(FactionCreateLayer::onCreateFaction, this));
 
+	cocos2d::ui::Text* createbtnlabel = (cocos2d::ui::Text*)m_createbtn->getChildByName("text");
+
 	nameInput = (cocos2d::ui::TextField*)csbnode->getChildByName("name");
 	nameInput->setString("");
 	nameInput->setTag(0);
@@ -112,7 +114,7 @@ bool FactionCreateLayer::init(int action, FactionListData* modifyfdata)
 		nameInput->setString(m_modifyfdata->factionname);
 #endif
 		title->loadTexture("ui/modifyftitle.png", cocos2d::ui::Widget::TextureResType::PLIST);
-		m_createbtn->setTitleText(CommonFuncs::gbk2utf("修改"));
+		createbtnlabel->setString(CommonFuncs::gbk2utf("修改"));
 		m_createbtn->setEnabled(false);
 		csbnode->getChildByName("ruletext")->setVisible(false);
 		csbnode->getChildByName("rule")->setVisible(false);

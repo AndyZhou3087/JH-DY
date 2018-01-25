@@ -238,10 +238,10 @@ void BuildingUILayer::loadActionUi()
 		if (type == WEAPON || type == PROTECT_EQU)
 		{
 			if (g_hero->checkifHasGF_Equip(vec_buildAcitonData.at(i).icon))
-				actbtn->setTitleText(CommonFuncs::gbk2utf("分解"));
+				actbtnlabel->setString(CommonFuncs::gbk2utf("分解"));
 			else if (GlobalData::tempHasGf_Equip(vec_buildAcitonData.at(i).icon).length() > 0)
 			{
-				actbtn->setTitleText(CommonFuncs::gbk2utf("已有"));
+				actbtnlabel->setString(CommonFuncs::gbk2utf("已有"));
 			}
 		}
 
@@ -284,6 +284,7 @@ void BuildingUILayer::onAction(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touch
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
 		cocos2d::ui::Button* node = (cocos2d::ui::Button*)pSender;
+		cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)node->getChildByName("text");
 		int tag = node->getTag();
 		if (GlobalData::isExercising() && !GlobalData::isHasFSF() && strcmp(m_build->data.name, "exerciseroom") != 0)
 		{
@@ -340,7 +341,7 @@ void BuildingUILayer::onAction(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touch
 				m_build->setActionBarTime(ACTION_BAR_TIME);
 			}
 
-			if (node->getTitleText().compare(CommonFuncs::gbk2utf("已有")) == 0)
+			if (actbtnlabel->getString().compare(CommonFuncs::gbk2utf("已有")) == 0)
 			{
 				std::string mapid = GlobalData::tempHasGf_Equip(vec_buildAcitonData.at(tag - ACTION).icon);
 				std::string hasstr = StringUtils::format("%s%s%s", GlobalData::map_maps[mapid].cname, CommonFuncs::gbk2utf("临时存放点存有").c_str(), vec_buildAcitonData.at(tag - ACTION).cname.c_str());
@@ -349,7 +350,7 @@ void BuildingUILayer::onAction(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touch
 				return;
 			}
 
-			if (node->getTitleText().compare(CommonFuncs::gbk2utf("分解")) == 0)
+			if (actbtnlabel->getString().compare(CommonFuncs::gbk2utf("分解")) == 0)
 			{
 				DivideLayer* layer = DivideLayer::create(&vec_buildAcitonData.at(tag - ACTION));
 				g_gameLayer->addChild(layer, 4);
@@ -392,14 +393,15 @@ void BuildingUILayer::onAction(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touch
 						vec_actionbtn[i]->setEnabled(true);
 				}
 
-				if (vec_actionbtn[tag - ACTION]->getTitleText().compare(CommonFuncs::gbk2utf("闭关")) == 0)
+				cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)vec_actionbtn[tag - ACTION]->getChildByName("text");
+				if (actbtnlabel->getString().compare(CommonFuncs::gbk2utf("闭关")) == 0)
 				{
 					exersiceTag = tag;
 					WaitingProgress* waitbox = WaitingProgress::create("准备中...");
 					Director::getInstance()->getRunningScene()->addChild(waitbox, 1, "waitbox");
 					ServerDataSwap::init(this)->getServerTime();
 				}
-				else if (vec_actionbtn[tag - ACTION]->getTitleText().compare(CommonFuncs::gbk2utf("取消")) == 0)
+				else if (actbtnlabel->getString().compare(CommonFuncs::gbk2utf("取消")) == 0)
 				{
 					ExerciseCancelLayer* layer = ExerciseCancelLayer::create();
 
@@ -407,7 +409,7 @@ void BuildingUILayer::onAction(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touch
 					//resetExercise();
 				}
 
-				else if (vec_actionbtn[tag - ACTION]->getTitleText().compare(CommonFuncs::gbk2utf("出关")) == 0)
+				else if (actbtnlabel->getString().compare(CommonFuncs::gbk2utf("出关")) == 0)
 				{
 					exersiceTag = tag;
 					WaitingProgress* waitbox = WaitingProgress::create("准备中...");
@@ -430,7 +432,8 @@ void BuildingUILayer::ondivideSucc(Ref* pSender, BACTIONTYPE type, Node* divideL
 {
 	g_nature->setTimeInterval(NORMAL_TIMEINTERVAL);
 	vec_actionbar[type - ACTION]->setPercent(0);
-	vec_actionbtn[type - ACTION]->setTitleText(CommonFuncs::gbk2utf("锻造"));
+	cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)vec_actionbtn[type - ACTION]->getChildByName("text");
+	actbtnlabel->setString(CommonFuncs::gbk2utf("锻造"));
 	DivideLayer* layer = (DivideLayer*)divideLayer;
 	layer->showContent();
 
@@ -518,10 +521,11 @@ void BuildingUILayer::onfinish(Ref* pSender, BACTIONTYPE type)
 		if (m_build->data.level < m_build->data.maxlevel)
 			buildbtn->setEnabled(true);
 
+		cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)vec_actionbtn[type - ACTION]->getChildByName("text");
 		int stype = vec_buildAcitonData.at(type - ACTION).type - 1;
 		if (stype == WEAPON || stype == PROTECT_EQU)
 		{
-			vec_actionbtn[type - ACTION]->setTitleText(CommonFuncs::gbk2utf("分解"));
+			actbtnlabel->setString(CommonFuncs::gbk2utf("分解"));
 		}
 
 		vec_actionbar[type - ACTION]->setPercent(0);
@@ -882,7 +886,8 @@ void BuildingUILayer::checkNewerGuide()
 
 void BuildingUILayer::onExercisefinish(int index)
 {
-	vec_actionbtn[index]->setTitleText(CommonFuncs::gbk2utf("出关"));
+	cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)vec_actionbtn[index]->getChildByName("text");
+	actbtnlabel->setString(CommonFuncs::gbk2utf("出关"));
 	this->unschedule(schedule_selector(BuildingUILayer::updateExerciseLeftTime));
 	vec_progresstext[index]->setVisible(false);
 }
@@ -922,7 +927,8 @@ void BuildingUILayer::resetExercise()
 	vec_progresstext[selectActionIndex]->setVisible(false);
 	vec_actionbar[selectActionIndex]->setPercent(0);
 	vec_actionbar[selectActionIndex]->stopAllActions();
-	vec_actionbtn[selectActionIndex]->setTitleText(CommonFuncs::gbk2utf("闭关"));
+	cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)vec_actionbtn[selectActionIndex]->getChildByName("text");
+	actbtnlabel->setString(CommonFuncs::gbk2utf("闭关"));
 	for (unsigned int i = 0; i < vec_actionbtn.size(); i++)
 	{
 		vec_actionbtn[i]->setEnabled(true);
@@ -1047,10 +1053,11 @@ void BuildingUILayer::onSuccess()
 	Director::getInstance()->getRunningScene()->removeChildByName("waitbox");
 	if (exersiceTag > 0)
 	{
-		if (vec_actionbtn[exersiceTag - ACTION]->getTitleText().compare(CommonFuncs::gbk2utf("闭关")) == 0)
+		cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)vec_actionbtn[exersiceTag - ACTION]->getChildByName("text");
+		if (actbtnlabel->getString().compare(CommonFuncs::gbk2utf("闭关")) == 0)
 		{
 			estarttime = GlobalData::servertime;
-			vec_actionbtn[exersiceTag - ACTION]->setTitleText(CommonFuncs::gbk2utf("取消"));
+			actbtnlabel->setString(CommonFuncs::gbk2utf("取消"));
 			curtime = GlobalData::servertime;
 			updateExerciseLeftTime(0);
 			this->schedule(schedule_selector(BuildingUILayer::updateExerciseLeftTime), 1);
@@ -1067,7 +1074,7 @@ void BuildingUILayer::onSuccess()
 			std::string estr = StringUtils::format("%d-%d-%s-%s", exersiceTag - ACTION, estarttime, ex_wgstrid.c_str(), ex_ngstrid.c_str());
 			GameDataSave::getInstance()->setExersiceCfg(estr);
 		}
-		else if (vec_actionbtn[exersiceTag - ACTION]->getTitleText().compare(CommonFuncs::gbk2utf("出关")) == 0)
+		else if (actbtnlabel->getString().compare(CommonFuncs::gbk2utf("出关")) == 0)
 		{
 			int extime = vec_buildAcitonData.at(exersiceTag - ACTION).extime;
 			if (GlobalData::servertime + 2 - estarttime >= extime * 60)
@@ -1080,7 +1087,7 @@ void BuildingUILayer::onSuccess()
 			{
 				HintBox* hbox = HintBox::create(CommonFuncs::gbk2utf("出关失败"));
 				this->addChild(hbox, 4);
-				vec_actionbtn[exersiceTag - ACTION]->setTitleText(CommonFuncs::gbk2utf("取消"));
+				actbtnlabel->setString(CommonFuncs::gbk2utf("取消"));
 				curtime = GlobalData::servertime;
 
 				updateExerciseLeftTime(0);
@@ -1120,7 +1127,8 @@ void BuildingUILayer::onSuccess()
 				}
 				else
 				{
-					vec_actionbtn[index]->setTitleText(CommonFuncs::gbk2utf("取消"));
+					cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)vec_actionbtn[index]->getChildByName("text");
+					actbtnlabel->setString(CommonFuncs::gbk2utf("取消"));
 					updateExerciseLeftTime(0);
 					this->schedule(schedule_selector(BuildingUILayer::updateExerciseLeftTime), 1);
 				}

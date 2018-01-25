@@ -373,7 +373,8 @@ void ResDetailsLayer::onOk(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEven
 
 		if (whereClick == 0)
 		{
-			if (GlobalData::isExercising() && !GlobalData::isHasFSF() && m_okbtn->getTitleText().compare(CommonFuncs::gbk2utf("使用")) == 0)
+			cocos2d::ui::Text* oklabel = (cocos2d::ui::Text*)m_okbtn->getChildByName("oklabel");
+			if (GlobalData::isExercising() && !GlobalData::isHasFSF() && oklabel->getString().compare(CommonFuncs::gbk2utf("使用")) == 0)
 			{
 				int index = -1;
 				for (unsigned int i = 0; i < GlobalData::vec_goods.size(); i++)

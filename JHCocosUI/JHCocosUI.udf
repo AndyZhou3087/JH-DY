@@ -10,12 +10,11 @@
     <Item Key="TabsParamsKey">
       <Value ctype="TabsInfo">
         <OpenedDocuments>
-          <FilePathData Path="uipacker.csi" />
-          <FilePathData Path="buidingUiLayer.csd" />
-          <FilePathData Path="npcLayer.csd" />
-          <FilePathData Path="npcNode.csd" />
+          <FilePathData Path="actionNode.csd" />
+          <FilePathData Path="factionCreateLayer.csd" />
+          <FilePathData Path="resDetailsLayer.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="npcNode.csd" />
+        <ActiveDocument Path="resDetailsLayer.csd" />
       </Value>
     </Item>
   </Properties>
