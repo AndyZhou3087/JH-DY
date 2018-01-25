@@ -77,8 +77,8 @@ bool StartScene::init()
 	setimg = (cocos2d::ui::ImageView*)setbtn->getChildByName("Image_4");
 	setimg->loadTexture("ui/setlabel.png", cocos2d::ui::Widget::TextureResType::PLIST);
 
-	/*cocos2d::ui::ImageView* logo = (cocos2d::ui::ImageView*)csbnode->getChildByName("logo");
-	logo->addTouchEventListener(CC_CALLBACK_2(StartScene::onLogo, this));*/
+	cocos2d::ui::ImageView* logo = (cocos2d::ui::ImageView*)csbnode->getChildByName("logo");
+	logo->addTouchEventListener(CC_CALLBACK_2(StartScene::onLogo, this));
 
 	cocos2d::ui::Text* vesiontxt = (cocos2d::ui::Text*)csbnode->getChildByName("version");
 	vesiontxt->setString(GlobalData::getVersion());

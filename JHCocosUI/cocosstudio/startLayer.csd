@@ -17,15 +17,15 @@
             <FileData Type="Normal" Path="images/startbg.jpg" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="logo" ActionTag="388764111" VisibleForFrame="False" Tag="29" IconVisible="False" LeftMargin="118.0000" RightMargin="118.0000" TopMargin="51.0000" BottomMargin="771.0000" TouchEnable="True" LeftEage="159" RightEage="159" TopEage="151" BottomEage="151" Scale9OriginX="159" Scale9OriginY="151" Scale9Width="166" Scale9Height="156" ctype="ImageViewObjectData">
-            <Size X="484.0000" Y="458.0000" />
+          <AbstractNodeData Name="logo" ActionTag="388764111" Tag="29" IconVisible="False" LeftMargin="132.3340" RightMargin="87.6660" TopMargin="149.9755" BottomMargin="630.0245" TouchEnable="True" Scale9Enable="True" LeftEage="45" RightEage="45" TopEage="45" BottomEage="45" Scale9OriginX="45" Scale9OriginY="45" Scale9Width="16" Scale9Height="16" ctype="ImageViewObjectData">
+            <Size X="500.0000" Y="500.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="360.0000" Y="1000.0000" />
+            <Position X="382.3340" Y="880.0245" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.7813" />
-            <PreSize X="0.6722" Y="0.3578" />
-            <FileData Type="Normal" Path="images/logo.png" Plist="" />
+            <PrePosition X="0.5310" Y="0.6875" />
+            <PreSize X="0.6944" Y="0.3906" />
+            <FileData Type="MarkedSubImage" Path="ui/blank.png" Plist="uipacker.plist" />
           </AbstractNodeData>
           <AbstractNodeData Name="newstartbtn" ActionTag="-1952433060" Tag="65" IconVisible="False" LeftMargin="137.1392" RightMargin="158.8608" TopMargin="759.9122" BottomMargin="433.0878" TouchEnable="True" FontSize="50" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="394" Scale9Height="65" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="424.0000" Y="87.0000" />
