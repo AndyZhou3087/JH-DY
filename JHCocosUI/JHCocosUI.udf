@@ -12,8 +12,10 @@
         <OpenedDocuments>
           <FilePathData Path="uipacker.csi" />
           <FilePathData Path="buidingUiLayer.csd" />
+          <FilePathData Path="npcLayer.csd" />
+          <FilePathData Path="npcNode.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="buidingUiLayer.csd" />
+        <ActiveDocument Path="npcNode.csd" />
       </Value>
     </Item>
   </Properties>

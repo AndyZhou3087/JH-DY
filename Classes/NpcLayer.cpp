@@ -450,8 +450,9 @@ void NpcLayer::onItemMaster(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEve
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
 		cocos2d::ui::Button* btn = (cocos2d::ui::Button*)pSender;
+		cocos2d::ui::Text* msterbtnlabel = (cocos2d::ui::Text*)btn->getChildByName("text");
 		std::string npcid = GlobalData::map_maps[m_addrstr].npcs[btn->getTag()];
-		if (btn->getTitleText().compare(CommonFuncs::gbk2utf("拜师")) == 0)
+		if (msterbtnlabel->getString().compare(CommonFuncs::gbk2utf("拜师")) == 0)
 		{
 			int friendly = 0;
 			int relation = F_NOMAR;
@@ -549,7 +550,7 @@ void NpcLayer::onItemFriend(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEve
 		cocos2d::ui::Button* btn = (cocos2d::ui::Button*)pSender;
 		cocos2d::ui::Text* friendbtnlabel = (cocos2d::ui::Text*)btn->getChildByName("text");
 		std::string npcid = GlobalData::map_maps[m_addrstr].npcs[btn->getTag()];
-		if (btn->getTitleText().compare(CommonFuncs::gbk2utf("结交")) == 0)
+		if (friendbtnlabel->getString().compare(CommonFuncs::gbk2utf("结交")) == 0)
 		{
 			int friendly = 0;
 			int relation = F_NOMAR;
