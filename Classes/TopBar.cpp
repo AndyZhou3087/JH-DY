@@ -572,8 +572,6 @@ void TopBar::updataUI(float dt)
 	spiritBar->setPercentage(g_hero->getSpiritValue());
 	lifeBar->setPercentage(g_hero->getLifeValue() * 100.0f / g_hero->getMaxLifeValue());
 
-	log("---------------------------%f ---- ", hungerBar->getPercentage());
-
 	int lv = g_hero->getLVValue();
 	int percent = g_hero->getExpValue() * 100 / GlobalData::map_heroAtr[g_hero->getHeadID()].vec_exp[lv];
 	toplvexpbar->setPercent(percent);
