@@ -51,7 +51,7 @@ bool LoginRewardLayer::init()
 		getimg->addTouchEventListener(CC_CALLBACK_2(LoginRewardLayer::onGet, this));
 		getimg->setVisible(true);
 
-		cocos2d::ui::Text* statutext = (cocos2d::ui::Text*)getimg->getChildByName("statutext");
+		cocos2d::ui::Text* statutext = (cocos2d::ui::Text*)item->getChildByName("statutext");
 
 		cocos2d::ui::Widget* loginritemlight = (cocos2d::ui::Widget*)item->getChildByName("loginritemlight");
 
@@ -119,10 +119,11 @@ bool LoginRewardLayer::init()
 			loginritemlight->setVisible(false);
 			item->setColor(Color3B(255, 255, 255));
 			getimg->setEnabled(false);
-			const std::string cndays[] = { "一", "二", "三", "四", "五", "六", "七" };
-			str = StringUtils::format("第%s天", cndays[i - 1].c_str());
-			statutext->setString(CommonFuncs::gbk2utf(str.c_str()));
 		}
+
+		const std::string cndays[] = { "一", "二", "三", "四", "五", "六", "七" };
+		str = StringUtils::format("第%s天", cndays[i - 1].c_str());
+		statutext->setString(CommonFuncs::gbk2utf(str.c_str()));
 	}
 
 	GlobalData::g_gameStatus = GAMEPAUSE;
@@ -169,7 +170,7 @@ void LoginRewardLayer::onGet(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 		loginritemlight->setVisible(false);
 		getimg->loadTexture("ui/buildtagbtn2.png", cocos2d::ui::Widget::TextureResType::PLIST);
 		getimg->setEnabled(false);
-		cocos2d::ui::Text* statutext = (cocos2d::ui::Text*)getimg->getChildByName("statutext");
+		//cocos2d::ui::Text* statutext = (cocos2d::ui::Text*)getimg->getChildByName("statutext");
 		//statutext->setString(CommonFuncs::gbk2utf("已领取"));
 		//CommonFuncs::changeGray(item->getChildByName("rwdboximg"));
 		CommonFuncs::changeGray(item->getChildByName("rwdimg"));

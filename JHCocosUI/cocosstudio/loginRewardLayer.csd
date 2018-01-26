@@ -64,21 +64,21 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
+              <AbstractNodeData Name="statutext" ActionTag="1025747085" Tag="164" IconVisible="False" LeftMargin="33.3056" RightMargin="36.6944" TopMargin="69.9757" BottomMargin="174.0243" FontSize="30" LabelText="第三天" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="92.0000" Y="31.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="79.3056" Y="189.5243" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="77" G="63" B="29" />
+                <PrePosition X="0.4895" Y="0.6892" />
+                <PreSize X="0.5679" Y="0.1127" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
               <AbstractNodeData Name="getimg" ActionTag="-931739678" Tag="163" IconVisible="False" LeftMargin="32.3742" RightMargin="29.6258" TopMargin="213.8044" BottomMargin="21.1956" TouchEnable="True" LeftEage="37" RightEage="37" TopEage="15" BottomEage="15" Scale9OriginX="37" Scale9OriginY="15" Scale9Width="43" Scale9Height="17" ctype="ImageViewObjectData">
                 <Size X="100.0000" Y="40.0000" />
                 <Children>
-                  <AbstractNodeData Name="statutext" ActionTag="1025747085" Tag="164" IconVisible="False" LeftMargin="-0.2451" RightMargin="8.2451" TopMargin="-145.1212" BottomMargin="154.1212" FontSize="30" LabelText="第三天" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                    <Size X="92.0000" Y="31.0000" />
-                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="45.7549" Y="169.6212" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                    <CColor A="255" R="77" G="63" B="29" />
-                    <PrePosition X="0.4575" Y="4.2405" />
-                    <PreSize X="0.9200" Y="0.7750" />
-                    <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                    <OutlineColor A="255" R="255" G="0" B="0" />
-                    <ShadowColor A="255" R="110" G="110" B="110" />
-                  </AbstractNodeData>
                   <AbstractNodeData Name="text" ActionTag="1431127576" Tag="661" IconVisible="False" LeftMargin="10.0712" RightMargin="17.9288" TopMargin="-1.2552" BottomMargin="4.2552" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="72.0000" Y="37.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -135,21 +135,21 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
+              <AbstractNodeData Name="statutext" ActionTag="-512910191" Tag="170" IconVisible="False" LeftMargin="33.0000" RightMargin="37.0000" TopMargin="70.5000" BottomMargin="173.5000" FontSize="30" LabelText="第三天" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="92.0000" Y="31.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="79.0000" Y="189.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="77" G="63" B="29" />
+                <PrePosition X="0.4877" Y="0.6873" />
+                <PreSize X="0.5679" Y="0.1127" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
               <AbstractNodeData Name="getimg" ActionTag="827642073" Tag="169" IconVisible="False" LeftMargin="32.3500" RightMargin="29.6500" TopMargin="212.7189" BottomMargin="22.2811" TouchEnable="True" LeftEage="37" RightEage="37" TopEage="15" BottomEage="15" Scale9OriginX="37" Scale9OriginY="15" Scale9Width="43" Scale9Height="17" ctype="ImageViewObjectData">
                 <Size X="100.0000" Y="40.0000" />
                 <Children>
-                  <AbstractNodeData Name="statutext" ActionTag="-512910191" Tag="170" IconVisible="False" RightMargin="8.0000" TopMargin="-145.0000" BottomMargin="154.0000" FontSize="30" LabelText="第三天" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                    <Size X="92.0000" Y="31.0000" />
-                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="46.0000" Y="169.5000" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                    <CColor A="255" R="77" G="63" B="29" />
-                    <PrePosition X="0.4600" Y="4.2375" />
-                    <PreSize X="0.9200" Y="0.7750" />
-                    <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                    <OutlineColor A="255" R="255" G="0" B="0" />
-                    <ShadowColor A="255" R="110" G="110" B="110" />
-                  </AbstractNodeData>
                   <AbstractNodeData Name="text" ActionTag="-984909470" Tag="667" IconVisible="False" LeftMargin="9.4927" RightMargin="18.5073" TopMargin="-0.9695" BottomMargin="3.9695" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="72.0000" Y="37.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -206,21 +206,21 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
+              <AbstractNodeData Name="statutext" ActionTag="-348175801" Tag="176" IconVisible="False" LeftMargin="33.0000" RightMargin="37.0000" TopMargin="70.5000" BottomMargin="173.5000" FontSize="30" LabelText="第三天" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="92.0000" Y="31.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="79.0000" Y="189.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="77" G="63" B="29" />
+                <PrePosition X="0.4877" Y="0.6873" />
+                <PreSize X="0.5679" Y="0.1127" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
               <AbstractNodeData Name="getimg" ActionTag="-80315610" Tag="175" IconVisible="False" LeftMargin="33.3506" RightMargin="28.6494" TopMargin="212.7189" BottomMargin="22.2811" TouchEnable="True" LeftEage="37" RightEage="37" TopEage="15" BottomEage="15" Scale9OriginX="37" Scale9OriginY="15" Scale9Width="43" Scale9Height="17" ctype="ImageViewObjectData">
                 <Size X="100.0000" Y="40.0000" />
                 <Children>
-                  <AbstractNodeData Name="statutext" ActionTag="-348175801" Tag="176" IconVisible="False" RightMargin="8.0000" TopMargin="-144.0000" BottomMargin="153.0000" FontSize="30" LabelText="第三天" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                    <Size X="92.0000" Y="31.0000" />
-                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="46.0000" Y="168.5000" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                    <CColor A="255" R="77" G="63" B="29" />
-                    <PrePosition X="0.4600" Y="4.2125" />
-                    <PreSize X="0.9200" Y="0.7750" />
-                    <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                    <OutlineColor A="255" R="255" G="0" B="0" />
-                    <ShadowColor A="255" R="110" G="110" B="110" />
-                  </AbstractNodeData>
                   <AbstractNodeData Name="text" ActionTag="169346832" Tag="668" IconVisible="False" LeftMargin="8.7793" RightMargin="19.2207" TopMargin="-1.5973" BottomMargin="4.5973" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="72.0000" Y="37.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -277,21 +277,21 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
+              <AbstractNodeData Name="statutext" ActionTag="-858086825" Tag="182" IconVisible="False" LeftMargin="33.0000" RightMargin="37.0000" TopMargin="70.5000" BottomMargin="173.5000" FontSize="30" LabelText="第三天" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="92.0000" Y="31.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="79.0000" Y="189.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="77" G="63" B="29" />
+                <PrePosition X="0.4877" Y="0.6873" />
+                <PreSize X="0.5679" Y="0.1127" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
               <AbstractNodeData Name="getimg" ActionTag="169902437" Tag="181" IconVisible="False" LeftMargin="33.3507" RightMargin="28.6493" TopMargin="212.7189" BottomMargin="22.2811" TouchEnable="True" LeftEage="37" RightEage="37" TopEage="15" BottomEage="15" Scale9OriginX="37" Scale9OriginY="15" Scale9Width="43" Scale9Height="17" ctype="ImageViewObjectData">
                 <Size X="100.0000" Y="40.0000" />
                 <Children>
-                  <AbstractNodeData Name="statutext" ActionTag="-858086825" Tag="182" IconVisible="False" RightMargin="8.0000" TopMargin="-144.0000" BottomMargin="153.0000" FontSize="30" LabelText="第三天" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                    <Size X="92.0000" Y="31.0000" />
-                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="46.0000" Y="168.5000" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                    <CColor A="255" R="77" G="63" B="29" />
-                    <PrePosition X="0.4600" Y="4.2125" />
-                    <PreSize X="0.9200" Y="0.7750" />
-                    <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                    <OutlineColor A="255" R="255" G="0" B="0" />
-                    <ShadowColor A="255" R="110" G="110" B="110" />
-                  </AbstractNodeData>
                   <AbstractNodeData Name="text" ActionTag="-327362611" Tag="669" IconVisible="False" LeftMargin="10.2509" RightMargin="17.7491" TopMargin="-0.8115" BottomMargin="3.8115" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="72.0000" Y="37.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -348,21 +348,21 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
+              <AbstractNodeData Name="statutext" ActionTag="-1728649485" Tag="188" IconVisible="False" LeftMargin="33.0000" RightMargin="37.0000" TopMargin="70.5000" BottomMargin="173.5000" FontSize="30" LabelText="第三天" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="92.0000" Y="31.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="79.0000" Y="189.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="77" G="63" B="29" />
+                <PrePosition X="0.4877" Y="0.6873" />
+                <PreSize X="0.5679" Y="0.1127" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
               <AbstractNodeData Name="getimg" ActionTag="1682987550" Tag="187" IconVisible="False" LeftMargin="31.8094" RightMargin="30.1906" TopMargin="214.9598" BottomMargin="20.0402" TouchEnable="True" LeftEage="37" RightEage="37" TopEage="15" BottomEage="15" Scale9OriginX="37" Scale9OriginY="15" Scale9Width="43" Scale9Height="17" ctype="ImageViewObjectData">
                 <Size X="100.0000" Y="40.0000" />
                 <Children>
-                  <AbstractNodeData Name="statutext" ActionTag="-1728649485" Tag="188" IconVisible="False" LeftMargin="1.5396" RightMargin="6.4604" TopMargin="-147.9736" BottomMargin="156.9736" FontSize="30" LabelText="第三天" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                    <Size X="92.0000" Y="31.0000" />
-                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="47.5396" Y="172.4736" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                    <CColor A="255" R="77" G="63" B="29" />
-                    <PrePosition X="0.4754" Y="4.3118" />
-                    <PreSize X="0.9200" Y="0.7750" />
-                    <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                    <OutlineColor A="255" R="255" G="0" B="0" />
-                    <ShadowColor A="255" R="110" G="110" B="110" />
-                  </AbstractNodeData>
                   <AbstractNodeData Name="text" ActionTag="2118773977" Tag="670" IconVisible="False" LeftMargin="11.0302" RightMargin="16.9698" TopMargin="0.0254" BottomMargin="2.9746" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="72.0000" Y="37.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -419,21 +419,21 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
+              <AbstractNodeData Name="statutext" ActionTag="-2054827115" Tag="194" IconVisible="False" LeftMargin="33.0000" RightMargin="37.0000" TopMargin="70.5000" BottomMargin="173.5000" FontSize="30" LabelText="第三天" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="92.0000" Y="31.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="79.0000" Y="189.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="77" G="63" B="29" />
+                <PrePosition X="0.4877" Y="0.6873" />
+                <PreSize X="0.5679" Y="0.1127" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
               <AbstractNodeData Name="getimg" ActionTag="-752169536" Tag="193" IconVisible="False" LeftMargin="35.5377" RightMargin="26.4623" TopMargin="214.1424" BottomMargin="20.8576" TouchEnable="True" LeftEage="37" RightEage="37" TopEage="15" BottomEage="15" Scale9OriginX="37" Scale9OriginY="15" Scale9Width="43" Scale9Height="17" ctype="ImageViewObjectData">
                 <Size X="100.0000" Y="40.0000" />
                 <Children>
-                  <AbstractNodeData Name="statutext" ActionTag="-2054827115" Tag="194" IconVisible="False" LeftMargin="-0.6427" RightMargin="8.6427" TopMargin="-149.1581" BottomMargin="158.1581" FontSize="30" LabelText="第三天" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                    <Size X="92.0000" Y="31.0000" />
-                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="45.3573" Y="173.6581" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                    <CColor A="255" R="77" G="63" B="29" />
-                    <PrePosition X="0.4536" Y="4.3415" />
-                    <PreSize X="0.9200" Y="0.7750" />
-                    <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                    <OutlineColor A="255" R="255" G="0" B="0" />
-                    <ShadowColor A="255" R="110" G="110" B="110" />
-                  </AbstractNodeData>
                   <AbstractNodeData Name="text" ActionTag="-308667914" Tag="671" IconVisible="False" LeftMargin="10.7391" RightMargin="17.2609" TopMargin="-0.1887" BottomMargin="3.1887" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="72.0000" Y="37.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -490,21 +490,21 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
+              <AbstractNodeData Name="statutext" ActionTag="-849437446" Tag="200" IconVisible="False" LeftMargin="33.0000" RightMargin="37.0000" TopMargin="70.5000" BottomMargin="173.5000" FontSize="30" LabelText="第三天" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="92.0000" Y="31.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="79.0000" Y="189.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="77" G="63" B="29" />
+                <PrePosition X="0.4877" Y="0.6873" />
+                <PreSize X="0.5679" Y="0.1127" />
+                <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
               <AbstractNodeData Name="getimg" ActionTag="264018526" Tag="199" IconVisible="False" LeftMargin="32.9921" RightMargin="29.0079" TopMargin="212.9597" BottomMargin="22.0403" TouchEnable="True" LeftEage="37" RightEage="37" TopEage="15" BottomEage="15" Scale9OriginX="37" Scale9OriginY="15" Scale9Width="43" Scale9Height="17" ctype="ImageViewObjectData">
                 <Size X="100.0000" Y="40.0000" />
                 <Children>
-                  <AbstractNodeData Name="statutext" ActionTag="-849437446" Tag="200" IconVisible="False" LeftMargin="1.7233" RightMargin="6.2767" TopMargin="-146.6125" BottomMargin="155.6125" FontSize="30" LabelText="第三天" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                    <Size X="92.0000" Y="31.0000" />
-                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="47.7233" Y="171.1125" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                    <CColor A="255" R="77" G="63" B="29" />
-                    <PrePosition X="0.4772" Y="4.2778" />
-                    <PreSize X="0.9200" Y="0.7750" />
-                    <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-                    <OutlineColor A="255" R="255" G="0" B="0" />
-                    <ShadowColor A="255" R="110" G="110" B="110" />
-                  </AbstractNodeData>
                   <AbstractNodeData Name="text" ActionTag="891299061" Tag="672" IconVisible="False" LeftMargin="10.2414" RightMargin="17.7586" TopMargin="-1.1349" BottomMargin="4.1349" FontSize="34" LabelText="领取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="72.0000" Y="37.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
