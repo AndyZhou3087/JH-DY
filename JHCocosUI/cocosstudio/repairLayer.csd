@@ -87,40 +87,40 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="repairbox" ActionTag="1317822316" Tag="34" IconVisible="False" LeftMargin="157.5949" RightMargin="160.4051" TopMargin="497.7550" BottomMargin="398.2450" ctype="SpriteObjectData">
+          <AbstractNodeData Name="repairbox" ActionTag="1317822316" Tag="34" IconVisible="False" LeftMargin="157.5948" RightMargin="160.4052" TopMargin="487.7548" BottomMargin="408.2452" ctype="SpriteObjectData">
             <Size X="402.0000" Y="384.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="358.5949" Y="590.2450" />
+            <Position X="358.5948" Y="600.2452" />
             <Scale ScaleX="0.9000" ScaleY="0.9000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4980" Y="0.4611" />
+            <PrePosition X="0.4980" Y="0.4689" />
             <PreSize X="0.5583" Y="0.3000" />
             <FileData Type="Normal" Path="images/repairbox.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="repair" ActionTag="1301489823" Tag="53" IconVisible="False" LeftMargin="279.9902" RightMargin="285.0098" TopMargin="621.2780" BottomMargin="516.7220" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="75" Scale9Height="62" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="repair" ActionTag="1301489823" Tag="53" IconVisible="False" LeftMargin="279.9903" RightMargin="285.0097" TopMargin="611.2778" BottomMargin="526.7222" LeftEage="40" RightEage="40" TopEage="40" BottomEage="40" Scale9OriginX="40" Scale9OriginY="40" Scale9Width="75" Scale9Height="62" ctype="ImageViewObjectData">
             <Size X="155.0000" Y="142.0000" />
             <Children>
-              <AbstractNodeData Name="img" ActionTag="462326355" Tag="42" IconVisible="False" LeftMargin="7.0000" RightMargin="42.0000" TopMargin="27.0000" BottomMargin="9.0000" TouchEnable="True" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="img" ActionTag="462326355" Tag="42" IconVisible="False" LeftMargin="22.5032" RightMargin="26.4968" TopMargin="18.1855" BottomMargin="17.8145" TouchEnable="True" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
                 <Size X="106.0000" Y="106.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="60.0000" Y="62.0000" />
+                <Position X="75.5032" Y="70.8145" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.3871" Y="0.4366" />
+                <PrePosition X="0.4871" Y="0.4987" />
                 <PreSize X="0.6839" Y="0.7465" />
                 <FileData Type="MarkedSubImage" Path="ui/blank.png" Plist="uipacker.plist" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="357.4902" Y="587.7220" />
+            <Position X="357.4903" Y="597.7222" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4965" Y="0.4592" />
+            <PrePosition X="0.4965" Y="0.4670" />
             <PreSize X="0.2153" Y="0.1109" />
             <FileData Type="MarkedSubImage" Path="ui/repairframe_1.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box1" ActionTag="878642657" VisibleForFrame="False" Tag="35" IconVisible="False" LeftMargin="299.9918" RightMargin="295.0082" TopMargin="470.5004" BottomMargin="700.4996" ctype="SpriteObjectData">
+          <AbstractNodeData Name="box1" ActionTag="878642657" VisibleForFrame="False" Tag="35" IconVisible="False" LeftMargin="299.9917" RightMargin="295.0083" TopMargin="460.5006" BottomMargin="710.4994" ctype="SpriteObjectData">
             <Size X="125.0000" Y="109.0000" />
             <Children>
               <AbstractNodeData Name="img" ActionTag="1672816129" Tag="36" IconVisible="False" LeftMargin="5.9164" RightMargin="13.0836" TopMargin="-0.5821" BottomMargin="3.5821" TouchEnable="True" LeftEage="15" RightEage="15" TopEage="15" BottomEage="15" Scale9OriginX="15" Scale9OriginY="15" Scale9Width="76" Scale9Height="76" ctype="ImageViewObjectData">
@@ -147,15 +147,15 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="362.4918" Y="754.9996" />
+            <Position X="362.4917" Y="764.9994" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5035" Y="0.5898" />
+            <PrePosition X="0.5035" Y="0.5977" />
             <PreSize X="0.1736" Y="0.0852" />
             <FileData Type="MarkedSubImage" Path="ui/repairframe.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box2" ActionTag="1063887369" VisibleForFrame="False" Tag="37" IconVisible="False" LeftMargin="148.2548" RightMargin="446.7452" TopMargin="731.1870" BottomMargin="439.8130" ctype="SpriteObjectData">
+          <AbstractNodeData Name="box2" ActionTag="1063887369" VisibleForFrame="False" Tag="37" IconVisible="False" LeftMargin="148.2548" RightMargin="446.7452" TopMargin="721.1875" BottomMargin="449.8125" ctype="SpriteObjectData">
             <Size X="125.0000" Y="109.0000" />
             <Children>
               <AbstractNodeData Name="img" ActionTag="-1188480651" Tag="38" IconVisible="False" LeftMargin="7.0001" RightMargin="11.9999" TopMargin="0.5013" BottomMargin="2.4987" TouchEnable="True" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
@@ -182,15 +182,15 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="210.7548" Y="494.3130" />
+            <Position X="210.7548" Y="504.3125" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2927" Y="0.3862" />
+            <PrePosition X="0.2927" Y="0.3940" />
             <PreSize X="0.1736" Y="0.0852" />
             <FileData Type="MarkedSubImage" Path="ui/repairframe.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="box3" ActionTag="1873784214" VisibleForFrame="False" Tag="39" IconVisible="False" LeftMargin="442.3920" RightMargin="152.6080" TopMargin="729.0200" BottomMargin="441.9800" ctype="SpriteObjectData">
+          <AbstractNodeData Name="box3" ActionTag="1873784214" VisibleForFrame="False" Tag="39" IconVisible="False" LeftMargin="442.3920" RightMargin="152.6080" TopMargin="719.0205" BottomMargin="451.9795" ctype="SpriteObjectData">
             <Size X="125.0000" Y="109.0000" />
             <Children>
               <AbstractNodeData Name="img" ActionTag="1098172802" Tag="40" IconVisible="False" LeftMargin="7.0005" RightMargin="11.9995" TopMargin="0.5014" BottomMargin="2.4986" TouchEnable="True" LeftEage="34" RightEage="34" TopEage="34" BottomEage="34" Scale9OriginX="34" Scale9OriginY="34" Scale9Width="38" Scale9Height="38" ctype="ImageViewObjectData">
@@ -217,10 +217,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="504.8920" Y="496.4800" />
+            <Position X="504.8920" Y="506.4795" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7012" Y="0.3879" />
+            <PrePosition X="0.7012" Y="0.3957" />
             <PreSize X="0.1736" Y="0.0852" />
             <FileData Type="MarkedSubImage" Path="ui/repairframe.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
@@ -255,25 +255,25 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="succrndtext" ActionTag="937828589" VisibleForFrame="False" Tag="61" IconVisible="False" LeftMargin="301.4665" RightMargin="309.5335" TopMargin="723.8611" BottomMargin="536.1389" FontSize="19" LabelText="成功率100%" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="succrndtext" ActionTag="937828589" VisibleForFrame="False" Tag="61" IconVisible="False" LeftMargin="301.4664" RightMargin="309.5336" TopMargin="713.8609" BottomMargin="546.1391" FontSize="19" LabelText="成功率100%" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="109.0000" Y="20.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="355.9665" Y="546.1389" />
+            <Position X="355.9664" Y="556.1391" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4944" Y="0.4267" />
+            <PrePosition X="0.4944" Y="0.4345" />
             <PreSize X="0.1514" Y="0.0156" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="strengthfail" ActionTag="-254705373" VisibleForFrame="False" Tag="62" IconVisible="False" LeftMargin="213.4897" RightMargin="208.5103" TopMargin="557.2781" BottomMargin="458.7219" ctype="SpriteObjectData">
+          <AbstractNodeData Name="strengthfail" ActionTag="-254705373" VisibleForFrame="False" Tag="62" IconVisible="False" LeftMargin="213.4897" RightMargin="208.5103" TopMargin="547.2778" BottomMargin="468.7222" ctype="SpriteObjectData">
             <Size X="298.0000" Y="264.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="362.4897" Y="590.7219" />
+            <Position X="362.4897" Y="600.7222" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5035" Y="0.4615" />
+            <PrePosition X="0.5035" Y="0.4693" />
             <PreSize X="0.4139" Y="0.2062" />
             <FileData Type="Normal" Path="images/strengthfail.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />

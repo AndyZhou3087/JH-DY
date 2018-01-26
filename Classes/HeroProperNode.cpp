@@ -344,8 +344,9 @@ void HeroProperNode::showSelectFrame(HeroAtrType index)
 			m_lastSelectedData = &map_carryData[index][i];
 		}
 
-		boxItem->setPosition(Vec2(80 + i % 4 * 145, innerheight - i / 4 * itemheight - itemheight / 2));
+		boxItem->setPosition(Vec2(50 + i % 4 * 125, innerheight - i / 4 * itemheight - itemheight / 2 - 20));
 		MyMenu* menu = MyMenu::create();
+		menu->setScale(0.9);
 		menu->setTouchlimit(m_scrollView);
 		menu->addChild(boxItem);
 		menu->setPosition(Vec2(0, 0));
@@ -367,7 +368,7 @@ void HeroProperNode::showSelectFrame(HeroAtrType index)
 		Label * lvlbl = Label::createWithTTF("", "fonts/STXINGKA.TTF", 15);//Label::createWithSystemFont("", "", 15);
 		lvlbl->setColor(Color3B(255, 255, 255));
 		lvlbl->setAnchorPoint(Vec2(1, 0));
-		lvlbl->setPosition(Vec2(box->getContentSize().width - 10, 8));
+		lvlbl->setPosition(Vec2(box->getContentSize().width - 20, 25));
 		box->addChild(lvlbl);
 
 		std::string mymixgf = GlobalData::getMixGF();

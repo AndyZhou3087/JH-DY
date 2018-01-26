@@ -497,7 +497,7 @@ void RepairLayer::updataUI()
 			str = StringUtils::format("耐久度%d", tmpdata->goodvalue);
 		goodlbl->setString(CommonFuncs::gbk2utf(str.c_str()));
 		goodlbl->setAnchorPoint(Vec2(1, 0));
-		goodlbl->setPosition(Vec2(box->getContentSize().width - 10, 8));
+		goodlbl->setPosition(Vec2(box->getContentSize().width - 15, 30));
 		box->addChild(goodlbl);
 
 		str = StringUtils::format("%s", GlobalData::map_allResource[tmpdata->strid].cname.c_str());

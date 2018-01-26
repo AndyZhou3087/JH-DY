@@ -17,21 +17,33 @@ bool UnlockLayer::init()
 	LayerColor* color = LayerColor::create(Color4B(0, 0, 0, 150));
 	this->addChild(color);
 
-	Node* csbnode = CSLoader::createNode("unlockLayer.csb");
-	this->addChild(csbnode);
+	//Node* csbnode = CSLoader::createNode("unlockLayer.csb");
+	//this->addChild(csbnode);
 
-	m_unlockbg = (cocos2d::ui::Widget*)csbnode->getChildByName("unlockbg");
-	m_unlockbg->setScale(0);
-	//m_unlockbg->runAction(Sequence::create(ScaleTo::create(0.3f, 0.7f), ScaleTo::create(0.7f, 1.0f), NULL));
-	m_unlockbg->runAction(ScaleTo::create(0.5f, 1.0f));
-	m_title = (cocos2d::ui::Widget*)csbnode->getChildByName("unlocktitle");
-	m_title->setVisible(false);
+	//m_unlockbg = (cocos2d::ui::Widget*)csbnode->getChildByName("unlockbg");
+	//m_unlockbg->setScale(0);
+	////m_unlockbg->runAction(Sequence::create(ScaleTo::create(0.3f, 0.7f), ScaleTo::create(0.7f, 1.0f), NULL));
+	//m_unlockbg->runAction(ScaleTo::create(0.5f, 1.0f));
+	//m_title = (cocos2d::ui::Widget*)csbnode->getChildByName("unlocktitle");
+	//m_title->setVisible(false);
 
-	m_desc = (cocos2d::ui::Text*)csbnode->getChildByName("desc");
-	m_desc->setVisible(false);
+	//m_desc = (cocos2d::ui::Text*)csbnode->getChildByName("desc");
+	//m_desc->setVisible(false);
 
-	m_addrname = (cocos2d::ui::Text*)csbnode->getChildByName("addrname");
+	//m_addrname = (cocos2d::ui::Text*)csbnode->getChildByName("addrname");
+	//m_addrname->setVisible(false);
+
+
+	Node* csbnode = CSLoader::createNode("unlock.csb");
+	csbnode->setPosition(Vec2(360, 600));
+	this->addChild(csbnode, 0, "unlock");
+	auto action = CSLoader::createTimeline("unlock.csb");
+	csbnode->runAction(action);
+	action->gotoFrameAndPlay(0, false);
+
+	m_addrname = (cocos2d::ui::Text*)csbnode->getChildByName("text");
 	m_addrname->setVisible(false);
+
 
 	std::map<std::string, MapData>::iterator it;
 
@@ -51,6 +63,8 @@ bool UnlockLayer::init()
 		}
 	}
 	m_addrname->setString(addrnamestr.substr(0, addrnamestr.length() - 3));
+
+
 	////layer 点击事件，屏蔽下层事件
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = [=](Touch *touch, Event *event)
@@ -83,10 +97,10 @@ UnlockLayer* UnlockLayer::create()
 
 void UnlockLayer::showText(float dt)
 {
-	m_title->setOpacity(0);
+	/*m_title->setOpacity(0);
 	m_title->runAction(Sequence::create(Show::create(), FadeIn::create(1.0f), NULL));
 	m_desc->setOpacity(0);
-	m_desc->runAction(Sequence::create(Show::create(), FadeIn::create(1.0f), NULL));
+	m_desc->runAction(Sequence::create(Show::create(), FadeIn::create(1.0f), NULL));*/
 	m_addrname->setOpacity(0);
 	m_addrname->runAction(Sequence::create(Show::create(), FadeIn::create(1.0f), NULL));
 	this->scheduleOnce(schedule_selector(UnlockLayer::removeself), 3.5f);
