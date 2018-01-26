@@ -90,7 +90,8 @@ bool BookDetailsLayer::init(BookData* bookdata)
 		{
 			tmpstr = StringUtils::format("防御力增加%d", GlobalData::map_equips[bookdata->strid].df);
 		}
-
+		cocos2d::ui::Text* maxlv_0 = (cocos2d::ui::Text*)m_csbnode->getChildByName("maxlv_0");
+		maxlv_0->setVisible(false);
 		cocos2d::ui::Text* maxlvtext = (cocos2d::ui::Text*)m_csbnode->getChildByName("maxlvtext");
 		maxlvtext->setString(CommonFuncs::gbk2utf("品质："));
 		maxlvstr = qulbl->getString();
@@ -102,6 +103,8 @@ bool BookDetailsLayer::init(BookData* bookdata)
 
 		cocos2d::ui::Text* crittext = (cocos2d::ui::Text*)m_csbnode->getChildByName("crittext");
 		crittext->setVisible(true);
+		cocos2d::ui::Widget* black_5 = (cocos2d::ui::Widget*)m_csbnode->getChildByName("black_5");
+		black_5->setVisible(true);
 
 		cocos2d::ui::Text* critlbl = (cocos2d::ui::Text*)m_csbnode->getChildByName("critlbl");
 		critlbl->setVisible(true);
@@ -109,6 +112,9 @@ bool BookDetailsLayer::init(BookData* bookdata)
 		cocos2d::ui::Text* skilltext = (cocos2d::ui::Text*)m_csbnode->getChildByName("skilltext");
 		cocos2d::ui::Text* skillname = (cocos2d::ui::Text*)m_csbnode->getChildByName("skillname");
 		cocos2d::ui::Text* skilldesc = (cocos2d::ui::Text*)m_csbnode->getChildByName("skilldesc");
+
+		
+		cocos2d::ui::Widget* black_6 = (cocos2d::ui::Widget*)m_csbnode->getChildByName("black_6");
 
 		std::string critstr;
 		if (bookdata->type == W_GONG)
@@ -128,6 +134,7 @@ bool BookDetailsLayer::init(BookData* bookdata)
 		int skilltype = GlobalData::map_wgngs[bookdata->strid].skilltype;
 		if (skilltype > S_SNONE)
 		{
+			black_6->setVisible(true);
 			skilltext->setVisible(true);
 			skillname->setString(GlobalData::map_gfskills[skilltype].name);
 			std::string sdesc = skilldesc->getString();

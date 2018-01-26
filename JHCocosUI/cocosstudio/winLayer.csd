@@ -38,7 +38,7 @@
             <FileData Type="MarkedSubImage" Path="ui/herotitlebg.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="syssmalltie_0" ActionTag="-1345097395" Tag="220" IconVisible="False" LeftMargin="100.2965" RightMargin="526.7035" TopMargin="313.1984" BottomMargin="922.8016" ctype="SpriteObjectData">
+          <AbstractNodeData Name="syssmalltie_0" ActionTag="-1345097395" VisibleForFrame="False" Tag="220" IconVisible="False" LeftMargin="100.2965" RightMargin="526.7035" TopMargin="313.1984" BottomMargin="922.8016" ctype="SpriteObjectData">
             <Size X="93.0000" Y="44.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="146.7965" Y="944.8016" />
@@ -49,7 +49,7 @@
             <FileData Type="MarkedSubImage" Path="ui/syssmalltie.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="syssmalltie" ActionTag="-410731337" Tag="219" IconVisible="False" LeftMargin="501.7607" RightMargin="125.2393" TopMargin="313.1984" BottomMargin="922.8016" FlipX="True" ctype="SpriteObjectData">
+          <AbstractNodeData Name="syssmalltie" ActionTag="-410731337" VisibleForFrame="False" Tag="219" IconVisible="False" LeftMargin="501.7607" RightMargin="125.2393" TopMargin="313.1984" BottomMargin="922.8016" FlipX="True" ctype="SpriteObjectData">
             <Size X="93.0000" Y="44.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="548.2607" Y="944.8016" />

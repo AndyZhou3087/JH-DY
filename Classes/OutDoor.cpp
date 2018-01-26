@@ -174,6 +174,7 @@ void OutDoor::updataMyPackageUI()
 		box->addChild(res);
 
 		Label * reslbl = Label::createWithTTF(countorlvstr, "fonts/STXINGKA.TTF", 18);//Label::createWithSystemFont(str, "", 18);
+		reslbl->enableOutline(Color4B(0, 0, 0, 255), 3);
 		reslbl->setAnchorPoint(Vec2(1, 0.5));
 		reslbl->setPosition(Vec2(box->getContentSize().width - 20, 35));
 		box->addChild(reslbl);
@@ -276,6 +277,7 @@ void OutDoor::updataStorageUI()
 		res->setPosition(Vec2(boxItem->getContentSize().width / 2, boxItem->getContentSize().height / 2));
 
 		Label * reslbl = Label::createWithTTF(countorlvstr, "fonts/STXINGKA.TTF", 18);
+		reslbl->enableOutline(Color4B(0, 0, 0, 255), 3);
 		boxItem->addChild(reslbl, 0, "lbl");
 		reslbl->setAnchorPoint(Vec2(1, 0.5f));
 

@@ -194,7 +194,7 @@ void BookShelfLayer::updateContent(int category)
 
 				Label *namelbl = Label::createWithTTF(GlobalData::map_allResource[datastrid].cname, "fonts/STXINGKA.TTF", 23);
 				namelbl->setColor(Color3B(0, 0, 0));
-				namelbl->setPosition(Vec2(box->getContentSize().width / 2, -17));
+				namelbl->setPosition(Vec2(box->getContentSize().width / 2, -7));
 				box->addChild(namelbl);
 
 	

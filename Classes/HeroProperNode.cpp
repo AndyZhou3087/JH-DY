@@ -365,8 +365,9 @@ void HeroProperNode::showSelectFrame(HeroAtrType index)
 		namelbl->setPosition(Vec2(box->getContentSize().width / 2, - 10));
 		box->addChild(namelbl);
 
-		Label * lvlbl = Label::createWithTTF("", "fonts/STXINGKA.TTF", 15);//Label::createWithSystemFont("", "", 15);
+		Label * lvlbl = Label::createWithTTF("", "fonts/STXINGKA.TTF", 18);//Label::createWithSystemFont("", "", 15);
 		lvlbl->setColor(Color3B(255, 255, 255));
+		lvlbl->enableOutline(Color4B(0,0,0,255),3);
 		lvlbl->setAnchorPoint(Vec2(1, 0));
 		lvlbl->setPosition(Vec2(box->getContentSize().width - 20, 25));
 		box->addChild(lvlbl);

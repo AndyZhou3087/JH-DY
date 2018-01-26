@@ -83,7 +83,7 @@
           <AbstractNodeData Name="heroheadbox" ActionTag="747621722" Tag="492" IconVisible="False" LeftMargin="89.9536" RightMargin="449.0464" TopMargin="402.5966" BottomMargin="652.4034" ctype="SpriteObjectData">
             <Size X="181.0000" Y="225.0000" />
             <Children>
-              <AbstractNodeData Name="fightherokuang" ActionTag="-1996706584" Tag="544" IconVisible="False" LeftMargin="0.0305" RightMargin="-0.0305" TopMargin="-0.4873" BottomMargin="0.4873" ctype="SpriteObjectData">
+              <AbstractNodeData Name="fightherokuang" ActionTag="-1996706584" VisibleForFrame="False" Tag="544" IconVisible="False" LeftMargin="0.0305" RightMargin="-0.0305" TopMargin="-0.4873" BottomMargin="0.4873" ctype="SpriteObjectData">
                 <Size X="181.0000" Y="225.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="90.5305" Y="112.9873" />
@@ -129,7 +129,7 @@
           <AbstractNodeData Name="npcheadbox" ActionTag="-339542923" Tag="493" IconVisible="False" LeftMargin="446.7454" RightMargin="92.2546" TopMargin="405.1073" BottomMargin="649.8927" ctype="SpriteObjectData">
             <Size X="181.0000" Y="225.0000" />
             <Children>
-              <AbstractNodeData Name="fightnpckuang" ActionTag="1926745252" Tag="32" IconVisible="False" LeftMargin="0.2067" RightMargin="-0.2067" TopMargin="-0.1288" BottomMargin="0.1288" ctype="SpriteObjectData">
+              <AbstractNodeData Name="fightnpckuang" ActionTag="1926745252" VisibleForFrame="False" Tag="32" IconVisible="False" LeftMargin="0.2067" RightMargin="-0.2067" TopMargin="-0.1288" BottomMargin="0.1288" ctype="SpriteObjectData">
                 <Size X="181.0000" Y="225.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="90.7067" Y="112.6288" />
@@ -187,7 +187,7 @@
             <Size X="315.0000" Y="22.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="190.8888" Y="636.3888" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Scale ScaleX="0.8000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.2651" Y="0.4972" />
             <PreSize X="0.4375" Y="0.0172" />
@@ -198,7 +198,7 @@
             <Size X="315.0000" Y="22.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="532.0994" Y="636.5902" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Scale ScaleX="0.8000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.7390" Y="0.4973" />
             <PreSize X="0.4375" Y="0.0172" />
@@ -209,7 +209,7 @@
             <Size X="315.0000" Y="22.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="190.8857" Y="636.3888" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Scale ScaleX="0.8000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.2651" Y="0.4972" />
             <PreSize X="0.4375" Y="0.0172" />
@@ -219,7 +219,7 @@
             <Size X="315.0000" Y="22.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="532.0994" Y="636.5902" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Scale ScaleX="0.8000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.7390" Y="0.4973" />
             <PreSize X="0.4375" Y="0.0172" />

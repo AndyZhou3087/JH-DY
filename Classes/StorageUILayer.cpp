@@ -188,6 +188,7 @@ void StorageUILayer::updateResContent()
 
 
 				Label * reslbl = Label::createWithTTF(countorlvstr, "fonts/STXINGKA.TTF", 18);//Label::createWithSystemFont(str, "", 18);
+				reslbl->enableOutline(Color4B(0, 0, 0, 255), 3);
 				reslbl->setAnchorPoint(Vec2(1, 0.5));
 				reslbl->setPosition(Vec2(box->getContentSize().width - 20, 35));
 				box->addChild(reslbl);

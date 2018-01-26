@@ -329,8 +329,8 @@ void FightLayer::delayHeroFight(float dt)
 
 	heroheadbox->setScale(1.15);
 	npcheadbox->setScale(1);
-	fightherokuang->setVisible(true);
-	fightnpckuang->setVisible(false);
+	/*fightherokuang->setVisible(true);
+	fightnpckuang->setVisible(false);*/
 
 	int critrnd = g_hero->getCritRate() * 100;
 
@@ -433,8 +433,8 @@ void FightLayer::delayBossFight(float dt)
 
 	heroheadbox->setScale(1);
 	npcheadbox->setScale(1.15);
-	fightherokuang->setVisible(false);
-	fightnpckuang->setVisible(true);
+	/*fightherokuang->setVisible(false);
+	fightnpckuang->setVisible(true);*/
 
 	if (herohurt < intminack)
 		herohurt = intminack;

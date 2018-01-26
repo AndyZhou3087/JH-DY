@@ -697,8 +697,8 @@ void MatchFightLayer::delayMyFight(float dt)
 
 	heroheadbox->setScale(1.15);
 	npcheadbox->setScale(1);
-	fightherokuang->setVisible(true);
-	fightnpckuang->setVisible(false);
+	/*fightherokuang->setVisible(true);
+	fightnpckuang->setVisible(false);*/
 
 	if (skilltype == S_SKILL_1 || skilltype == S_SKILL_2 || skilltype == S_SKILL_5)
 	{
@@ -892,8 +892,8 @@ void MatchFightLayer::delayPlayerFight(float dt)
 
 	heroheadbox->setScale(1);
 	npcheadbox->setScale(1.15);
-	fightherokuang->setVisible(false);
-	fightnpckuang->setVisible(true);
+	/*fightherokuang->setVisible(false);
+	fightnpckuang->setVisible(true);*/
 
 	std::string myngstr;
 	std::map<std::string, int>::iterator fite;

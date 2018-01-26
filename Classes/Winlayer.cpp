@@ -856,6 +856,7 @@ void Winlayer::updataMyPackageUI()
 		box->addChild(res);
 		str = StringUtils::format("%d", MyPackage::vec_packages[i].count);
 		Label * reslbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 18);//Label::createWithSystemFont(str, "", 18);
+		reslbl->enableOutline(Color4B(0, 0, 0, 255), 3);
 		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 35));
 		box->addChild(reslbl);
 	}
@@ -899,6 +900,7 @@ void Winlayer::updataRewardUI()
 
 		str = StringUtils::format("%d", getRewardData[i].count);
 		Label * reslbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 18);//Label::createWithSystemFont(str, "", 18);
+		reslbl->enableOutline(Color4B(0, 0, 0, 255), 3);
 		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 25));
 		box->addChild(reslbl);
 	}

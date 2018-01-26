@@ -828,6 +828,7 @@ void ExchangeLayer::updataMyGoodsUI()
 		str = StringUtils::format("%d", tmpdata->count);
 
 		Label * reslbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 18);
+		reslbl->enableOutline(Color4B(0, 0, 0, 255), 3);
 		boxItem->addChild(reslbl, 0, "lbl");
 		reslbl->setPosition(Vec2(boxItem->getContentSize().width - 25, 25));
 
@@ -903,6 +904,7 @@ void ExchangeLayer::updataNpcGoodsUI()
 		str = StringUtils::format("%d", tmpdata->count);
 
 		Label * reslbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 18);
+		reslbl->enableOutline(Color4B(0, 0, 0, 255), 3);
 		boxItem->addChild(reslbl, 0, "lbl");
 		reslbl->setPosition(Vec2(boxItem->getContentSize().width - 25, 25));
 

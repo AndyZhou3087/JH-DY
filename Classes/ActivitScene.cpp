@@ -334,6 +334,7 @@ void ActivitScene::checkstoleData(float dt)
 
 			std::string strcount = StringUtils::format("x%d", r1);
 			Label * coutlbl = Label::createWithTTF(strcount, "fonts/STXINGKA.TTF", 25);//Label::createWithSystemFont(strcount, "", 25);
+			coutlbl->enableOutline(Color4B(0, 0, 0, 255), 3);
 			coutlbl->setAnchorPoint(Vec2(0, 0.5f));
 			coutlbl->setColor(Color3B(255, 255, 255));
 			coutlbl->setPosition(Vec2(box->getPositionX() + 40, 100));
@@ -491,6 +492,7 @@ void ActivitScene::getRndRes(float dt)
 
 		std::string strcount = StringUtils::format("x%d", tmpdata.count);
 		Label * coutlbl = Label::createWithTTF(strcount, "fonts/STXINGKA.TTF", 25);//Label::createWithSystemFont(strcount, "", 25);
+		coutlbl->enableOutline(Color4B(0, 0, 0, 255), 3);
 		coutlbl->setAnchorPoint(Vec2(0, 0.5f));
 		coutlbl->setColor(Color3B(255, 255, 255));
 		coutlbl->setPosition(Vec2(box->getPositionX() + 40, 100));

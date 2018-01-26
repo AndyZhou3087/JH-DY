@@ -546,6 +546,7 @@ void ActionGetLayer::updataMyPackageUI()
 		box->addChild(res);
 		str = StringUtils::format("%d", MyPackage::vec_packages[i].count);
 		Label * reslbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 18);
+		reslbl->enableOutline(Color4B(0, 0, 0, 255), 3);
 		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 30));
 		box->addChild(reslbl);
 	}
@@ -590,6 +591,7 @@ void ActionGetLayer::updataRewardUI()
 
 		str = StringUtils::format("%d", getResData[i].count);
 		Label * reslbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 18);
+		reslbl->enableOutline(Color4B(0, 0, 0, 255),3);
 		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 30));
 		box->addChild(reslbl);
 	}

@@ -302,6 +302,7 @@ void GiveLayer::updataMyGoodsUI()
 		box->addChild(res);
 		str = StringUtils::format("%d", tmpdata->count);
 		Label * reslbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 18);//Label::createWithSystemFont(str, "", 18);
+		reslbl->enableOutline(Color4B(0, 0, 0, 255), 3);
 		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 25));
 		box->addChild(reslbl);
 	}
@@ -371,6 +372,7 @@ void GiveLayer::updataGiveGoodsUI()
 
 		str = StringUtils::format("%d", tmpdata->count);
 		Label * reslbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 18);//Label::createWithSystemFont(str, "", 18);
+		reslbl->enableOutline(Color4B(0, 0, 0, 255), 3);
 		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 25));
 		box->addChild(reslbl);
 	}

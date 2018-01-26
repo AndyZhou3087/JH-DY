@@ -202,6 +202,7 @@ void TempStorageLayer::updataTempUI()
 
 		str = StringUtils::format("%d", tempResData[i].count);
 		Label * reslbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 18);//Label::createWithSystemFont(str, "", 18);
+		reslbl->enableOutline(Color4B(0, 0, 0, 255), 3);
 		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 35));
 		box->addChild(reslbl);
 	}
@@ -360,6 +361,7 @@ void TempStorageLayer::updataMyPackageUI()
 		box->addChild(res);
 		str = StringUtils::format("%d", MyPackage::vec_packages[i].count);
 		Label * reslbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 18);//Label::createWithSystemFont(str, "", 18);
+		reslbl->enableOutline(Color4B(0, 0, 0, 255), 3);
 		reslbl->setPosition(Vec2(box->getContentSize().width - 25, 35));
 		box->addChild(reslbl);
 	}
