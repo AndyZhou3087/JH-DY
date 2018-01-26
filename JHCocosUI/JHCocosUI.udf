@@ -10,10 +10,10 @@
     <Item Key="TabsParamsKey">
       <Value ctype="TabsInfo">
         <OpenedDocuments>
-          <FilePathData Path="loginRewardLayer.csd" />
           <FilePathData Path="uipacker.csi" />
+          <FilePathData Path="resDetailsLayer.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="uipacker.csi" />
+        <ActiveDocument Path="resDetailsLayer.csd" />
       </Value>
     </Item>
   </Properties>

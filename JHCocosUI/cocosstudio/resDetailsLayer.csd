@@ -19,14 +19,14 @@
           <AbstractNodeData Name="okbtn" ActionTag="-37325359" Tag="118" IconVisible="False" LeftMargin="240.0869" RightMargin="247.9131" TopMargin="835.5068" BottomMargin="395.4932" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="232.0000" Y="49.0000" />
             <Children>
-              <AbstractNodeData Name="oklabel" ActionTag="791047462" Tag="537" IconVisible="False" LeftMargin="105.2965" RightMargin="47.7035" TopMargin="3.4884" BottomMargin="6.5116" FontSize="38" LabelText="确定" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="oklabel" ActionTag="791047462" Tag="537" IconVisible="False" LeftMargin="104.7965" RightMargin="47.2035" TopMargin="2.4884" BottomMargin="5.5116" FontSize="38" LabelText="确定" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="80.0000" Y="41.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="144.7965" Y="26.0116" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.6241" Y="0.5308" />
-                <PreSize X="0.3405" Y="0.7959" />
+                <PreSize X="0.3448" Y="0.8367" />
                 <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
                 <OutlineColor A="255" R="0" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
@@ -239,7 +239,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="selectcountnode" ActionTag="-1605081743" VisibleForFrame="False" Tag="19" IconVisible="True" LeftMargin="345.6102" RightMargin="374.3898" TopMargin="718.8262" BottomMargin="561.1738" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="selectcountnode" ActionTag="-1605081743" Tag="19" IconVisible="True" LeftMargin="345.6102" RightMargin="374.3898" TopMargin="718.8262" BottomMargin="561.1738" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <Children>
               <AbstractNodeData Name="resselectcountbox" ActionTag="1393675395" Tag="27" IconVisible="False" LeftMargin="-128.5366" RightMargin="48.5366" TopMargin="-39.6351" BottomMargin="-44.3649" ctype="SpriteObjectData">
@@ -273,10 +273,10 @@
                 <PreSize X="0.0000" Y="0.0000" />
                 <FileData Type="MarkedSubImage" Path="ui/resminus1.png" Plist="uipacker.plist" />
               </AbstractNodeData>
-              <AbstractNodeData Name="slider" ActionTag="-1002428070" Tag="26" IconVisible="False" LeftMargin="-36.8445" RightMargin="-179.1555" TopMargin="-11.4610" BottomMargin="-12.5390" TouchEnable="True" PercentInfo="100" ctype="SliderObjectData">
+              <AbstractNodeData Name="slider" ActionTag="-1002428070" Tag="26" IconVisible="False" LeftMargin="-52.8445" RightMargin="-163.1555" TopMargin="-10.4610" BottomMargin="-13.5390" TouchEnable="True" PercentInfo="100" ctype="SliderObjectData">
                 <Size X="216.0000" Y="24.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="71.1555" Y="-0.5390" />
+                <Position X="55.1555" Y="-1.5390" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
@@ -307,7 +307,7 @@
             <PrePosition X="0.4800" Y="0.4384" />
             <PreSize X="0.0000" Y="0.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="banner" ActionTag="1759994516" Tag="88" IconVisible="False" LeftMargin="69.7451" RightMargin="44.2549" TopMargin="656.5301" BottomMargin="601.4699" ctype="SpriteObjectData">
+          <AbstractNodeData Name="banner" ActionTag="1759994516" VisibleForFrame="False" Tag="88" IconVisible="False" LeftMargin="69.7451" RightMargin="44.2549" TopMargin="656.5301" BottomMargin="601.4699" ctype="SpriteObjectData">
             <Size X="606.0000" Y="22.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="372.7451" Y="612.4699" />

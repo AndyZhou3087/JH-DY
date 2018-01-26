@@ -419,7 +419,7 @@ void HeroProperNode::showSelectFrame(HeroAtrType index)
 		{
 			if (i == 0)
 			{
-				m_select->setPosition(Vec2(boxItem->getPositionX() - boxItem->getContentSize().width / 2, boxItem->getPositionY() + boxItem->getContentSize().height / 2));
+				m_select->setPosition(Vec2(boxItem->getPositionX() - 30, boxItem->getPositionY() + boxItem->getContentSize().height / 2 + 20));
 				m_select->setVisible(true);
 			}
 		}
@@ -527,7 +527,7 @@ void HeroProperNode::selectCarryData()
 
 	}
 
-	m_select->setPosition(Vec2(m_select_itemnode->getPositionX() - m_select_itemnode->getContentSize().width / 2, m_select_itemnode->getPositionY() + m_select_itemnode->getContentSize().height / 2));
+	m_select->setPosition(Vec2(m_select_itemnode->getPositionX() - 30, m_select_itemnode->getPositionY() + m_select_itemnode->getContentSize().height / 2 + 20));
 
 	PackageData curCarrydata = *m_select_udata;
 	//之前是选中m_select可见，现在点了就是没选中
