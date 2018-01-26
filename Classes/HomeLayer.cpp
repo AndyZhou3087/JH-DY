@@ -206,7 +206,8 @@ bool HomeLayer::init()
 	SoundManager::getInstance()->playBackMusic(SoundManager::MUSIC_ID_HOME);
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-	ServerDataSwap::init(NULL)->postOneData(GlobalData::getUId());
+	if (GlobalData::isOnline)
+		ServerDataSwap::init(NULL)->postOneData(GlobalData::getUId());
 #endif
 
 	this->scheduleOnce(schedule_selector(HomeLayer::delayShowNewerGuide), 0.1f);

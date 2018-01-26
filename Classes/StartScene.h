@@ -28,6 +28,7 @@ private:
 
 	void showQQ();
 private:
+	void getCommonCfgData(float dt);
 	void checkServerData(float dt);
 	cocos2d::ui::Widget* m_continuebtn;
 	int clicklogocount;
@@ -35,6 +36,7 @@ private:
 	cocos2d::ui::Text* qq1;
 	cocos2d::ui::Text* qq2;
 	cocos2d::ui::Text* qqtitle;
+	bool isgetCommonData;
 	cocos2d::ui::ImageView* startimg;
 	cocos2d::ui::ImageView* continueimg;
 	cocos2d::ui::ImageView* roleimg;

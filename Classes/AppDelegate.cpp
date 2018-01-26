@@ -141,7 +141,8 @@ void AppDelegate::applicationDidEnterBackground() {
 		g_gameLayer->saveAllData();
 	}
 
-	ServerDataSwap::init(NULL)->postOneData(GlobalData::getUId());
+	if (GlobalData::isOnline)
+		ServerDataSwap::init(NULL)->postOneData(GlobalData::getUId());
     // if you use SimpleAudioEngine, it must be pause
     // SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
 }
@@ -162,20 +163,25 @@ void AppDelegate::applicationWillEnterForeground() {
 		{
 			if (mlayer != NULL)
 			{
-				mlayer->getServerTime();
+				if (GlobalData::isOnline)
+					mlayer->getServerTime();
 			}
 			else
 			{
 				if (g_hero != NULL && !ServerDataSwap::isGetingData())
 				{
-					ServerDataSwap::init(g_gameLayer)->vipIsOn(g_hero->getHeadID());
-					ServerDataSwap::init(NULL)->getFactionList();
+					if (GlobalData::isOnline)
+					{
+						ServerDataSwap::init(g_gameLayer)->vipIsOn(g_hero->getHeadID());
+						ServerDataSwap::init(NULL)->getFactionList();
+					}
 				}
 			}
 		}
 		else
 		{
-			blayer->getServerTime();
+			if (GlobalData::isOnline)
+				blayer->getServerTime();
 		}
 	}
     // if you use SimpleAudioEngine, it must resume here

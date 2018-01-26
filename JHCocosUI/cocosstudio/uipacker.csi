@@ -700,6 +700,7 @@
       <FilePathData Path="ui/hongs.png" />
       <FilePathData Path="ui/black.png" />
       <FilePathData Path="ui/gd4.png" />
+      <FilePathData Path="ui/12d.png" />
     </ImageFiles>
     <MaxSize Width="4096" Height="4096" />
   </Content>

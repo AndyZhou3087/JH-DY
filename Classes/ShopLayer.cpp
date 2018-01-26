@@ -235,7 +235,7 @@ void ShopLayer::setMessage(PYARET ret)
 			GlobalData::setMyGoldCount(GlobalData::getMyGoldCount() + goldcount[payindex - herocount]);
 			SoundManager::getInstance()->playSound(SoundManager::SOUND_ID_BUYOK);
 #ifdef ANALYTICS
-			std::string name[] = { "b6", "b12", "b30", "b68"};
+			std::string name[] = { "b6", "b12", "b30", "b68", "b128"};
 			AnalyticUtil::onEvent(name[payindex - herocount].c_str());
 #endif
 		}

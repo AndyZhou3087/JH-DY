@@ -329,6 +329,8 @@ void FactionMemberLayer::onSuccess()
 			int c = GameDataSave::getInstance()->getGoldContribution();
 			GameDataSave::getInstance()->setGoldContribution(c + 10);
 			GlobalData::setMyGoldCount(GlobalData::getMyGoldCount() - 10);
+			int usegold = GlobalData::getUseGold() + 10;
+			GlobalData::setUseGold(usegold);
 		}
 	}
 	else

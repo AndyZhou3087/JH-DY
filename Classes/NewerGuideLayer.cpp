@@ -133,9 +133,7 @@ bool NewerGuideLayer::init(int step, std::vector<Node*> stencilNodes)
 	m_colorlayer = NULL;
 
 	initDialog();
-
 	m_step = step;
-
 	Node* csbnode = CSLoader::createNode("npctalkLayer.csb");
 	this->addChild(csbnode);
 
@@ -197,16 +195,19 @@ bool NewerGuideLayer::init(int step, std::vector<Node*> stencilNodes)
 		m_clippingNode->addChild(m_colorlayer);
 
 		Node* stencil = Node::create();
-		for (unsigned int i = 0; i < vec_userdata.size(); i++)
+		for (unsigned int i = 0; i < stencilNodes.size(); i++)
 		{
-			std::string path = StringUtils::format("ui/%s.png", vec_userdata[i].c_str());
-			Sprite* cnode = Sprite::createWithSpriteFrameName(path);
-			cnode->setPosition(stencilNodes[i]->getParent()->convertToWorldSpace(stencilNodes[i]->getPosition()));
-			//float scalex = stencilNodes[i]->getContentSize().width / cnode->getContentSize().width;
-			//float scaley = stencilNodes[i]->getContentSize().height / cnode->getContentSize().height;
-			//cnode->setScale(scalex + 0.1f, scaley + 0.1f);
-			cnode->runAction(RepeatForever::create(Blink::create(4.0f, 5)));
-			stencil->addChild(cnode);
+			if (i < vec_userdata.size())
+			{
+				std::string path = StringUtils::format("ui/%s.png", vec_userdata[i].c_str());
+				Sprite* cnode = Sprite::createWithSpriteFrameName(path);
+				cnode->setPosition(stencilNodes[i]->getParent()->convertToWorldSpace(stencilNodes[i]->getPosition()));
+				//float scalex = stencilNodes[i]->getContentSize().width / cnode->getContentSize().width;
+				//float scaley = stencilNodes[i]->getContentSize().height / cnode->getContentSize().height;
+				//cnode->setScale(scalex + 0.1f, scaley + 0.1f);
+				cnode->runAction(RepeatForever::create(Blink::create(4.0f, 5)));
+				stencil->addChild(cnode);
+			}
 		}
 		m_clippingNode->setStencil(stencil);
 
@@ -354,13 +355,18 @@ bool NewerGuideLayer::init(int step, std::vector<Node*> stencilNodes)
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(m_listener, this);
     GameDataSave::getInstance()->setIsNewerGuide(step, 0);
-    
+
 #ifdef ANALYTICS
 	if (step == 0)
 		AnalyticUtil::onEvent("newerstart");
-	else if (step == 68)
+	else if (step == 12)
+		AnalyticUtil::onEvent("firstout");
+	else if (step == 46)
+		AnalyticUtil::onEvent("secondout");
+	else if (step == 58)
 		AnalyticUtil::onEvent("newerend");
 #endif
+
 	return true;
 }
 

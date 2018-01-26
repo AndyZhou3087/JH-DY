@@ -155,7 +155,7 @@ void ServerDataSwap::postOneData(std::string userid, int tag)
 
 	int fightingpower = 0;
 
-	if (g_hero != NULL)
+	if (g_hero != NULL && !g_hero->getIsWDChallenge())
 	{
 		fightingpower = g_hero->getMaxLifeValue() + g_hero->getTotalDf() * 20 + g_hero->getTotalAtck() * 10 + g_hero->getCritRate() * 100 + g_hero->getdodgeRate() * 100;
 	}
@@ -848,6 +848,10 @@ void ServerDataSwap::getCommonData()
 	url.append(GlobalData::getPackageName());
 	url.append("&vercode=");
 	url.append(GlobalData::getVersion());
+	url.append("&playerid=");
+	url.append(GlobalData::UUID());
+	url.append("&cid=");
+	url.append(GlobalData::getChannelId());
 	HttpUtil::getInstance()->doData(url, httputil_calback(ServerDataSwap::httpGetCommonDataCB, this));
 }
 
@@ -870,13 +874,21 @@ void ServerDataSwap::httpPostOneDataCB(std::string retdata, int code, std::strin
 		rapidjson::Document doc;
 		if (JsonReader(retdata, doc))
 		{
-			rapidjson::Value& myidv = doc["id"];
-			std::string myidstr = myidv.GetString();
-			GameDataSave::getInstance()->setMyID(myidstr);
+			if (doc.HasMember("ret"))
+			{
+				rapidjson::Value& retval = doc["ret"];
+				if (retval.GetInt() == 0)
+				{
+					rapidjson::Value& myidv = doc["id"];
+					std::string myidstr = myidv.GetString();
+					GameDataSave::getInstance()->setMyID(myidstr);
 
-			rapidjson::Value& mynamev = doc["nickname"];
-			std::string mynamestr = mynamev.GetString();
-			GameDataSave::getInstance()->setMyNickName(mynamestr);
+					rapidjson::Value& mynamev = doc["nickname"];
+					std::string mynamestr = mynamev.GetString();
+					GameDataSave::getInstance()->setMyNickName(mynamestr);
+				}
+			}
+
 		}
 	}
 	else
@@ -896,270 +908,282 @@ void ServerDataSwap::httpGetAllDataCB(std::string retdata, int code, std::string
 		rapidjson::Document doc;
 		if (JsonReader(retdata, doc))
 		{
-			std::vector<std::string> vec_saveid;
-			for (int i = 0; i < 4; i++)
+			bool isok = false;
+			if (doc.HasMember("ret"))
 			{
-				vec_saveid.push_back("");
+				rapidjson::Value& retval = doc["ret"];
+				if (retval.GetInt() == 0)
+					isok = true;
 			}
-			rapidjson::Value& myidv = doc["id"];
-			std::string myidstr = myidv.GetString();
-			GameDataSave::getInstance()->setMyID(myidstr);
 
-			rapidjson::Value& mynamev = doc["nickname"];
-			std::string mynamestr = mynamev.GetString();
-			GameDataSave::getInstance()->setMyNickName(mynamestr);
 
-			if (doc.HasMember("coin"))
+			if (isok)
 			{
-				rapidjson::Value& coindata = doc["coin"];
-				GameDataSave::getInstance()->setGoldCount(atoi(coindata.GetString()));
-			}
-			if (doc.HasMember("costcoin"))
-			{
-				rapidjson::Value& coindata = doc["costcoin"];
-				GameDataSave::getInstance()->setUseGold(atoi(coindata.GetString()));
-			}
-			int hunlock = 1;
-			if (doc.HasMember("hunlock"))
-			{
-				rapidjson::Value& hunlockdata = doc["hunlock"];
-				hunlock = atoi(hunlockdata.GetString());
-
-				for (int k = 0; k < 4; k++)
+				std::vector<std::string> vec_saveid;
+				for (int i = 0; i < 4; i++)
 				{
-					int val = hunlock & (1 << k);
-					val = val >> k;
-					GlobalData::setUnlockHero(k, val == 1 ? true : false);
+					vec_saveid.push_back("");
 				}
-			}
+				rapidjson::Value& myidv = doc["id"];
+				std::string myidstr = myidv.GetString();
+				GameDataSave::getInstance()->setMyID(myidstr);
 
-			if (doc.HasMember("data"))
-            {
-				rapidjson::Value& dataArray = doc["data"];
-				for (unsigned int m = 0; m < dataArray.Size(); m++)
+				rapidjson::Value& mynamev = doc["nickname"];
+				std::string mynamestr = mynamev.GetString();
+				GameDataSave::getInstance()->setMyNickName(mynamestr);
+
+				if (doc.HasMember("coin"))
 				{
-					rapidjson::Value& item = dataArray[m];
+					rapidjson::Value& coindata = doc["coin"];
+					GameDataSave::getInstance()->setGoldCount(atoi(coindata.GetString()));
+				}
+				if (doc.HasMember("costcoin"))
+				{
+					rapidjson::Value& coindata = doc["costcoin"];
+					GameDataSave::getInstance()->setUseGold(atoi(coindata.GetString()));
+				}
+				int hunlock = 1;
+				if (doc.HasMember("hunlock"))
+				{
+					rapidjson::Value& hunlockdata = doc["hunlock"];
+					hunlock = atoi(hunlockdata.GetString());
 
-					rapidjson::Value& v = item["localid"];
-					std::string localuid = v.GetString();
-
-					GameDataSave::getInstance()->setUserId(localuid);
-
-					v = item["type"];
-					int type = atoi(v.GetString());
-					GameDataSave::getInstance()->setHeroId(type);
-
-					vec_saveid[type-1] = localuid;
-
-					v = item["exp"];
-					int exp = atoi(v.GetString());
-					int lv = 0;
-					int size = GlobalData::map_heroAtr[type].vec_exp.size();
-					for (int i = 0; i < size; i++)
+					for (int k = 0; k < 4; k++)
 					{
-						if (exp > GlobalData::map_heroAtr[type].vec_exp[i])
+						int val = hunlock & (1 << k);
+						val = val >> k;
+						GlobalData::setUnlockHero(k, val == 1 ? true : false);
+					}
+				}
+
+				if (doc.HasMember("data"))
+				{
+					rapidjson::Value& dataArray = doc["data"];
+					for (unsigned int m = 0; m < dataArray.Size(); m++)
+					{
+						rapidjson::Value& item = dataArray[m];
+
+						rapidjson::Value& v = item["localid"];
+						std::string localuid = v.GetString();
+
+						GameDataSave::getInstance()->setUserId(localuid);
+
+						v = item["type"];
+						int type = atoi(v.GetString());
+						GameDataSave::getInstance()->setHeroId(type);
+
+						vec_saveid[type - 1] = localuid;
+
+						v = item["exp"];
+						int exp = atoi(v.GetString());
+						int lv = 0;
+						int size = GlobalData::map_heroAtr[type].vec_exp.size();
+						for (int i = 0; i < size; i++)
 						{
-							lv = i;
-							exp = exp - GlobalData::map_heroAtr[type].vec_exp[i];
-						}
-						else
-						{
-							break;
-						}
-					}
-					if (lv >= size)
-					{
-						lv = size - 1;
-						exp = GlobalData::map_heroAtr[type].vec_exp[lv];
-					}
-
-					GameDataSave::getInstance()->setHeroLV(lv); 
-					GameDataSave::getInstance()->setHeroExp(exp);
-
-					v = item["sex"];
-					int sex = atoi(v.GetString());
-					if (type == 4)
-						sex = S_WOMEN;
-					GameDataSave::getInstance()->setHeroSex(sex);
-
-					v = item["hungry"];
-					int hungry = atoi(v.GetString());
-					GameDataSave::getInstance()->setHeroHunger(hungry);
-
-					v = item["innerhurt"];
-					int innerhurt = atoi(v.GetString());
-					GameDataSave::getInstance()->setHeroInnerinjury(innerhurt);
-
-					v = item["outerhurt"];
-					int outerhurt = atoi(v.GetString());
-					GameDataSave::getInstance()->setHeroOutinjury(outerhurt);
-
-					v = item["life"];
-					int life = atoi(v.GetString());
-					GameDataSave::getInstance()->setHeroLife(life);
-
-					v = item["days"];
-					int days = atoi(v.GetString());
-					GameDataSave::getInstance()->setLiveDays(days);
-
-					v = item["mood"];
-					int spirit = atoi(v.GetString());
-					GameDataSave::getInstance()->setHeroSpirit(spirit);
-
-					v = item["task"];
-					int task = atoi(v.GetString());
-					GameDataSave::getInstance()->setPlotMissionIndex(task);
-
-					GlobalData::loadPlotMissionJsonData(type);
-
-					std::string str;
-					int pdatasize = GlobalData::vec_PlotMissionData.size();
-					for (int i = 0; i < pdatasize; i++)
-					{
-						std::string tmpstr;
-						if (i < task)
-							tmpstr = "2-";
-						else
-							tmpstr = "0-";
-						str.append(tmpstr);
-					}
-					GameDataSave::getInstance()->setPlotMissionStatus(str.substr(0, str.length() - 1));
-
-					v = item["newbtask"];
-					std::string btask = v.GetString();
-
-					GameDataSave::getInstance()->setBranchPlotMissionStatus(btask);
-
-					v = item["unlock"];
-					int unlock = atoi(v.GetString());
-					GameDataSave::getInstance()->setPlotUnlockChapter(unlock);
-
-					rapidjson::Document doc = ReadJsonFile("data/buildings.json");
-					rapidjson::Value& allBuilds = doc["b"];
-					for (unsigned int i = 0; i < allBuilds.Size(); i++)
-					{
-						rapidjson::Value& oneBuild = allBuilds[i];
-						rapidjson::Value& oneitem = oneBuild["name"];
-						std::string buildname = oneitem.GetString();
-						v = item[buildname.c_str()];
-						int blv = atoi(v.GetString());
-						GameDataSave::getInstance()->setBuildLV(buildname, blv);
-					}
-
-					if (item.HasMember("friendship"))
-					{
-						v = item["friendship"];
-						std::string friendshipstr = v.GetString();
-						GameDataSave::getInstance()->setFriendly(friendshipstr);
-					}
-					if (item.HasMember("achievement"))
-					{
-						v = item["achievement"];
-						std::string achivestr = v.GetString();
-						GameDataSave::getInstance()->setAchiveData(achivestr);
-					}
-					
-
-					if (item.HasMember("mixgf"))
-					{
-						v = item["mixgf"];
-						GameDataSave::getInstance()->setMixGF(v.GetString());
-					}
-
-					v = item["holding"];
-				
-					for (unsigned int n = 0; n < v.Size(); n++)
-					{
-						rapidjson::Value& hv = v[n];
-						rapidjson::Value& resv = hv["flag"];
-						int flag = atoi(resv.GetString());
-						std::string str;
-						for (rapidjson::Value::ConstMemberIterator iter = hv.MemberBegin(); iter != hv.MemberEnd(); ++iter)
-						{
-							std::string strid = iter->name.GetString();
-
-							if (strid.compare("flag") != 0)
+							if (exp > GlobalData::map_heroAtr[type].vec_exp[i])
 							{
-								int val = atoi(iter->value.GetString());
-								int goodvalue = 100;
-								int lv = 0;
-								int tqu = 1;
-								int slv = 0;
-								int count = 0;
-								if (strid.compare(0, 1, "r") == 0)
+								lv = i;
+								exp = exp - GlobalData::map_heroAtr[type].vec_exp[i];
+							}
+							else
+							{
+								break;
+							}
+						}
+						if (lv >= size)
+						{
+							lv = size - 1;
+							exp = GlobalData::map_heroAtr[type].vec_exp[lv];
+						}
+
+						GameDataSave::getInstance()->setHeroLV(lv);
+						GameDataSave::getInstance()->setHeroExp(exp);
+
+						v = item["sex"];
+						int sex = atoi(v.GetString());
+						if (type == 4)
+							sex = S_WOMEN;
+						GameDataSave::getInstance()->setHeroSex(sex);
+
+						v = item["hungry"];
+						int hungry = atoi(v.GetString());
+						GameDataSave::getInstance()->setHeroHunger(hungry);
+
+						v = item["innerhurt"];
+						int innerhurt = atoi(v.GetString());
+						GameDataSave::getInstance()->setHeroInnerinjury(innerhurt);
+
+						v = item["outerhurt"];
+						int outerhurt = atoi(v.GetString());
+						GameDataSave::getInstance()->setHeroOutinjury(outerhurt);
+
+						v = item["life"];
+						int life = atoi(v.GetString());
+						GameDataSave::getInstance()->setHeroLife(life);
+
+						v = item["days"];
+						int days = atoi(v.GetString());
+						GameDataSave::getInstance()->setLiveDays(days);
+
+						v = item["mood"];
+						int spirit = atoi(v.GetString());
+						GameDataSave::getInstance()->setHeroSpirit(spirit);
+
+						v = item["task"];
+						int task = atoi(v.GetString());
+						GameDataSave::getInstance()->setPlotMissionIndex(task);
+
+						GlobalData::loadPlotMissionJsonData(type);
+
+						std::string str;
+						int pdatasize = GlobalData::vec_PlotMissionData.size();
+						for (int i = 0; i < pdatasize; i++)
+						{
+							std::string tmpstr;
+							if (i < task)
+								tmpstr = "2-";
+							else
+								tmpstr = "0-";
+							str.append(tmpstr);
+						}
+						GameDataSave::getInstance()->setPlotMissionStatus(str.substr(0, str.length() - 1));
+
+						v = item["newbtask"];
+						std::string btask = v.GetString();
+
+						GameDataSave::getInstance()->setBranchPlotMissionStatus(btask);
+
+						v = item["unlock"];
+						int unlock = atoi(v.GetString());
+						GameDataSave::getInstance()->setPlotUnlockChapter(unlock);
+
+						rapidjson::Document doc = ReadJsonFile("data/buildings.json");
+						rapidjson::Value& allBuilds = doc["b"];
+						for (unsigned int i = 0; i < allBuilds.Size(); i++)
+						{
+							rapidjson::Value& oneBuild = allBuilds[i];
+							rapidjson::Value& oneitem = oneBuild["name"];
+							std::string buildname = oneitem.GetString();
+							v = item[buildname.c_str()];
+							int blv = atoi(v.GetString());
+							GameDataSave::getInstance()->setBuildLV(buildname, blv);
+						}
+
+						if (item.HasMember("friendship"))
+						{
+							v = item["friendship"];
+							std::string friendshipstr = v.GetString();
+							GameDataSave::getInstance()->setFriendly(friendshipstr);
+						}
+						if (item.HasMember("achievement"))
+						{
+							v = item["achievement"];
+							std::string achivestr = v.GetString();
+							GameDataSave::getInstance()->setAchiveData(achivestr);
+						}
+
+
+						if (item.HasMember("mixgf"))
+						{
+							v = item["mixgf"];
+							GameDataSave::getInstance()->setMixGF(v.GetString());
+						}
+
+						v = item["holding"];
+
+						for (unsigned int n = 0; n < v.Size(); n++)
+						{
+							rapidjson::Value& hv = v[n];
+							rapidjson::Value& resv = hv["flag"];
+							int flag = atoi(resv.GetString());
+							std::string str;
+							for (rapidjson::Value::ConstMemberIterator iter = hv.MemberBegin(); iter != hv.MemberEnd(); ++iter)
+							{
+								std::string strid = iter->name.GetString();
+
+								if (strid.compare("flag") != 0)
 								{
-									strid = strid.substr(1);
-									count = val;
-								}
-								else
-								{
-									if (strid.compare(0, 1, "a") == 0 || strid.compare(0, 1, "e") == 0)
+									int val = atoi(iter->value.GetString());
+									int goodvalue = 100;
+									int lv = 0;
+									int tqu = 1;
+									int slv = 0;
+									int count = 0;
+									if (strid.compare(0, 1, "r") == 0)
 									{
-										goodvalue = val % 1000 - 1;
-										if (goodvalue < 0)
-											goodvalue = 0;
-										slv = val / 1000;
+										strid = strid.substr(1);
+										count = val;
 									}
 									else
 									{
-										lv = val - 1;
-									}
-									count = 1;
-								}
-								std::string tempstr = StringUtils::format("%s-%d-%d-%d-%d-%d-%d-%d-%d;", strid.c_str(), GlobalData::getResType(strid), count, GlobalData::getResExType(strid), lv, 0, goodvalue, slv, tqu);
-								str.append(tempstr);
-							}
-						}
-						if (str.length() > 1)
-						{
-							str = str.substr(0, str.length() - 1);
-							if (flag == 1)
-								GameDataSave::getInstance()->setStorageData(str);
-							else if (flag == 2)
-							{
-								GameDataSave::getInstance()->setPackage(str);
-							}
-							else if (flag == 3)
-							{
-								const std::string prestr[] = { "a", "24", "25", "26", "w", "x", "e","7"};
-								std::vector<std::string> tmp;
-								CommonFuncs::split(str, tmp, ";");
-								str.clear();
-								for (int c = 0; c < 8; c++)
-								{
-									int len = prestr[c].length();
-									bool isfind = false;
-									for (unsigned int k = 0; k < tmp.size(); k++)
-									{
-										if (prestr[c].compare(0, len, tmp[k], 0, len) == 0)
+										if (strid.compare(0, 1, "a") == 0 || strid.compare(0, 1, "e") == 0)
 										{
-											isfind = true;
-											str.append(tmp[k]);
-											str.append(";");
-											break;
+											goodvalue = val % 1000 - 1;
+											if (goodvalue < 0)
+												goodvalue = 0;
+											slv = val / 1000;
+										}
+										else
+										{
+											lv = val - 1;
+										}
+										count = 1;
+									}
+									std::string tempstr = StringUtils::format("%s-%d-%d-%d-%d-%d-%d-%d-%d;", strid.c_str(), GlobalData::getResType(strid), count, GlobalData::getResExType(strid), lv, 0, goodvalue, slv, tqu);
+									str.append(tempstr);
+								}
+							}
+							if (str.length() > 1)
+							{
+								str = str.substr(0, str.length() - 1);
+								if (flag == 1)
+									GameDataSave::getInstance()->setStorageData(str);
+								else if (flag == 2)
+								{
+									GameDataSave::getInstance()->setPackage(str);
+								}
+								else if (flag == 3)
+								{
+									const std::string prestr[] = { "a", "24", "25", "26", "w", "x", "e", "7" };
+									std::vector<std::string> tmp;
+									CommonFuncs::split(str, tmp, ";");
+									str.clear();
+									for (int c = 0; c < 8; c++)
+									{
+										int len = prestr[c].length();
+										bool isfind = false;
+										for (unsigned int k = 0; k < tmp.size(); k++)
+										{
+											if (prestr[c].compare(0, len, tmp[k], 0, len) == 0)
+											{
+												isfind = true;
+												str.append(tmp[k]);
+												str.append(";");
+												break;
+											}
+										}
+										if (!isfind)
+										{
+											str.append("-0-0-0-0-0-100-0-1;");
 										}
 									}
-									if (!isfind)
-									{
-										str.append("-0-0-0-0-0-100-0-1;");
-									}
+									GameDataSave::getInstance()->setHeroProperData(str.substr(0, str.length() - 1));
 								}
-								GameDataSave::getInstance()->setHeroProperData(str.substr(0, str.length() - 1));
 							}
 						}
+
 					}
-
 				}
-            }
 
-			GlobalData::setSaveListId(vec_saveid);
-			if (vec_saveid.size() > 0)
-				GlobalData::setUId(vec_saveid[0]);
+				GlobalData::setSaveListId(vec_saveid);
+				if (vec_saveid.size() > 0)
+					GlobalData::setUId(vec_saveid[0]);
 
-			if (m_pDelegateProtocol != NULL)
-			{
-				m_pDelegateProtocol->onSuccess();
-				GlobalData::init();
+				if (m_pDelegateProtocol != NULL)
+				{
+					m_pDelegateProtocol->onSuccess();
+					GlobalData::init();
+				}
 			}
 		}
 	}
@@ -3050,6 +3074,12 @@ void ServerDataSwap::httpGetCommonDataCB(std::string retdata, int code, std::str
 				std::string qqstr = v.GetString();
 				if (qqstr.length() > 0)
 					CommonFuncs::split(v.GetString(), GlobalData::vec_qq);
+			}
+
+			if (doc.HasMember("online"))
+			{
+				rapidjson::Value& v = doc["online"];
+				GlobalData::isOnline = v.GetInt() == 1?true : false;
 			}
 		}
 	}

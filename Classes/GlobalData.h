@@ -994,6 +994,8 @@ public:
 
 	static std::string getVersion();
 
+	static std::string getChannelId();
+
 	static std::string getPackageName();
 
 	/****************************
@@ -1154,6 +1156,8 @@ public:
 
 	static std::string curBranchMissionID;
 	static std::vector<std::string> vec_qq;
+
+	static bool isOnline;
 private:
 	static bool unlockhero[4];//角色解锁
 	static std::string uid;//

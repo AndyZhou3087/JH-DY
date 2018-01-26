@@ -71,7 +71,8 @@ void PauseLayer::onGoHome(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEvent
 	CommonFuncs::BtnAction(pSender, type);
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
-		ServerDataSwap::init()->postOneData(GlobalData::getUId());
+		if (GlobalData::isOnline)
+			ServerDataSwap::init()->postOneData(GlobalData::getUId());
 		removSelf();
 		Director::getInstance()->replaceScene(StartScene::createScene());
 	}

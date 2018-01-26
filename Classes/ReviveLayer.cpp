@@ -346,11 +346,14 @@ void ReviveLayer::checkFreeReviveCount(float dt)
 		m_cancelbtn->setVisible(true);
 		m_freeRevivebtn->setVisible(false);
 
-		int difsec = GlobalData::getTomorrowZeroTimeDif();
-		std::string rtext = StringUtils::format("%02d:%02d:%02d后可免费复活一次！", difsec / 3600, difsec % 3600 / 60, difsec % 3600 % 60);
-		m_sharetext->setVisible(true);
-		m_sharetext->setString(CommonFuncs::gbk2utf(rtext.c_str()));
-		m_sharetext->setTextColor(Color4B(204, 4, 4, 255));
+		if (GlobalData::isOnline)
+		{
+			int difsec = GlobalData::getTomorrowZeroTimeDif();
+			std::string rtext = StringUtils::format("%02d:%02d:%02d后可免费复活一次！", difsec / 3600, difsec % 3600 / 60, difsec % 3600 % 60);
+			m_sharetext->setVisible(true);
+			m_sharetext->setString(CommonFuncs::gbk2utf(rtext.c_str()));
+			m_sharetext->setTextColor(Color4B(204, 4, 4, 255));
+		}
 	}
 }
 

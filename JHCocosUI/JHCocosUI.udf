@@ -11,8 +11,9 @@
       <Value ctype="TabsInfo">
         <OpenedDocuments>
           <FilePathData Path="loginRewardLayer.csd" />
+          <FilePathData Path="uipacker.csi" />
         </OpenedDocuments>
-        <ActiveDocument Path="loginRewardLayer.csd" />
+        <ActiveDocument Path="uipacker.csi" />
       </Value>
     </Item>
   </Properties>

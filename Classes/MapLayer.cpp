@@ -160,6 +160,13 @@ bool MapLayer::init()
 
 	m_tgiftlefttimelbl = (cocos2d::ui::Text*)m_timegiftbtn->getChildByName("lefttimelbl");
 
+	if (!GlobalData::isOnline)
+	{
+		vipbtn->setVisible(false);
+		m_timegiftbtn->setVisible(true);
+		m_timegiftbtn->setPosition(vipbtn->getPosition());
+		m_tgiftlefttimelbl->setString(CommonFuncs::gbk2utf("限时礼包"));
+	}
 	checkTimeGift(0);
 	this->schedule(schedule_selector(MapLayer::checkTimeGift), 1.0f);
 	this->schedule(schedule_selector(MapLayer::checkAchive), 2.0f);
@@ -468,7 +475,21 @@ void MapLayer::updateUnlockChapter()
 			if (mapchapter <= GlobalData::getUnlockChapter())
 			{
 				if (mapNamImage != NULL)
-					mapNamImage->setVisible(true);
+				{
+					if (GlobalData::isOnline)
+						mapNamImage->setVisible(true);
+					else
+					{
+						if (mapid.compare("m1-7") == 0 )
+							mapNamImage->setVisible(false);
+						else if (mapid.compare("m1-8") == 0)
+							mapNamImage->setVisible(false);
+						else if (mapid.compare("m1-11") == 0)
+							mapNamImage->setVisible(false);
+						else
+							mapNamImage->setVisible(true);
+					}
+				}
 			}
 		}
 	}
@@ -776,7 +797,10 @@ void MapLayer::checkTimeGift(float dt)
 	}
 	else
 	{
-		m_timegiftbtn->setVisible(false);
+		if (!GlobalData::isOnline)
+			m_timegiftbtn->setVisible(true);
+		else
+			m_timegiftbtn->setVisible(false);
 	}
 	if (GlobalData::myRaffleData.isshow)
 	{
@@ -843,7 +867,7 @@ void MapLayer::updateBranchMissionTime()
 		if (GlobalData::map_BranchPlotMissionItem[curmid].time > 0)
 			str = StringUtils::format("%02d:%02d", GlobalData::map_BranchPlotMissionItem[curmid].time / 60, GlobalData::map_BranchPlotMissionItem[curmid].time % 60);
 		else
-			str = StringUtils::format("不限时", GlobalData::map_BranchPlotMissionItem[curmid].time / 60, GlobalData::map_BranchPlotMissionItem[curmid].time % 60);
+			str = "不限时";
 		timetext->setString(str);
 	}
 	else

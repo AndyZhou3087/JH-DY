@@ -16,11 +16,11 @@ USING_NS_CC;
 
 StartScene::StartScene()
 {
-
+	isgetCommonData = true;
 }
 StartScene::~StartScene()
 {
-
+	isgetCommonData = false;
 }
 
 Scene* StartScene::createScene()
@@ -102,8 +102,7 @@ bool StartScene::init()
 	GlobalData::isPopUpdate = false;
 	SoundManager::getInstance()->playBackMusic(SoundManager::MUSIC_ID_START);
 
-
-	this->scheduleOnce(schedule_selector(StartScene::checkServerData), 0.05f);
+	this->scheduleOnce(schedule_selector(StartScene::getCommonCfgData), 0.05f);
 	
     return true;
 }
@@ -208,7 +207,6 @@ void StartScene::onQQ(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType
 
 void StartScene::checkServerData(float dt)
 {
-	ServerDataSwap::init(this)->getCommonData();
 	if (GlobalData::getUId().length() > 0)
 	{
 		if (!GameDataSave::getInstance()->getIsPostAllData())
@@ -260,6 +258,14 @@ void StartScene::checkServerData(float dt)
 	}
 }
 
+void StartScene::getCommonCfgData(float dt)
+{
+	isgetCommonData = true;
+	WaitingProgress* waitbox = WaitingProgress::create("数据加载中...");
+	Director::getInstance()->getRunningScene()->addChild(waitbox, 1, "waitbox");
+	ServerDataSwap::init(this)->getCommonData();
+}
+
 void StartScene::onLogo(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
 	if (type == ui::Widget::TouchEventType::ENDED)
@@ -269,7 +275,8 @@ void StartScene::onLogo(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventTy
 		{
 			WaitingProgress* waitbox = WaitingProgress::create("数据处理中...");
 			Director::getInstance()->getRunningScene()->addChild(waitbox, 1, "waitbox");
-			ServerDataSwap::init(this)->propadjust();
+			if (GlobalData::isOnline)
+				ServerDataSwap::init(this)->propadjust();
 		}
 	}
 }
@@ -278,37 +285,45 @@ void StartScene::onSuccess()
 {
 	Director::getInstance()->getRunningScene()->removeChildByName("waitbox");
 
-	if (clicklogocount >= 5)
+	if (isgetCommonData)
 	{
-		HintBox* hbox = HintBox::create(CommonFuncs::gbk2utf("数据处理完毕，请确认。感谢您的支持！"));
-		this->addChild(hbox);
-	}
-	else
-	{
-		if (isdouserdata)
-		{
-			isdouserdata = false;
-			GameDataSave::getInstance()->setIsPostAllData(true);
-
-			m_continuebtn->setEnabled(GlobalData::getUId().length() <= 0 ? false : true);
-
-			GlobalData::init();
-			if (GlobalData::getNoPopNoticeDay() != GlobalData::getDayOfYear())
-			{
-				WaitingProgress* waitbox = WaitingProgress::create("数据加载中...");
-				Director::getInstance()->getRunningScene()->addChild(waitbox, 1, "waitbox");
-				ServerDataSwap::init(this)->getannouncement();
-			}
-		}
-		else
-		{
-			if (GlobalData::noticecontent.length() > 0)
-				Director::getInstance()->getRunningScene()->addChild(NoticeLayer::create(GlobalData::noticecontent), 1);
-		}
-
+		isgetCommonData = false;
 		if (GlobalData::vec_qq.size() > 0)
 		{
 			showQQ();
+		}
+		if (GlobalData::isOnline)
+			checkServerData(0);
+	}
+	else
+	{
+		if (clicklogocount >= 5)
+		{
+			HintBox* hbox = HintBox::create(CommonFuncs::gbk2utf("数据处理完毕，请确认。感谢您的支持！"));
+			this->addChild(hbox);
+		}
+		else
+		{
+			if (isdouserdata)
+			{
+				isdouserdata = false;
+				GameDataSave::getInstance()->setIsPostAllData(true);
+
+				m_continuebtn->setEnabled(GlobalData::getUId().length() <= 0 ? false : true);
+
+				GlobalData::init();
+				if (GlobalData::getNoPopNoticeDay() != GlobalData::getDayOfYear())
+				{
+					WaitingProgress* waitbox = WaitingProgress::create("数据加载中...");
+					Director::getInstance()->getRunningScene()->addChild(waitbox, 1, "waitbox");
+					ServerDataSwap::init(this)->getannouncement();
+				}
+			}
+			else
+			{
+				if (GlobalData::noticecontent.length() > 0)
+					Director::getInstance()->getRunningScene()->addChild(NoticeLayer::create(GlobalData::noticecontent), 1);
+			}
 		}
 	}
 }
@@ -316,13 +331,22 @@ void StartScene::onSuccess()
 void StartScene::onErr(int errcode)
 {
 	Director::getInstance()->getRunningScene()->removeChildByName("waitbox");
-	if (clicklogocount >= 5)
+	if (isgetCommonData)
 	{
-		std::string descstr = "请与客服联系，稍后重试！";
-		if (errcode == -2)
-			descstr = "没有数据，请与客服确认！";
-		HintBox* hbox = HintBox::create(CommonFuncs::gbk2utf(descstr.c_str()));
-		this->addChild(hbox);
+		isgetCommonData = false;
+		if (GlobalData::isOnline)
+			checkServerData(0);
+	}
+	else
+	{
+		if (clicklogocount >= 5)
+		{
+			std::string descstr = "请与客服联系，稍后重试！";
+			if (errcode == -2)
+				descstr = "没有数据，请与客服确认！";
+			HintBox* hbox = HintBox::create(CommonFuncs::gbk2utf(descstr.c_str()));
+			this->addChild(hbox);
+		}
 	}
 }
 

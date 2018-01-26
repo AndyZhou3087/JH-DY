@@ -76,6 +76,13 @@ bool SettingLayer::init()
 	m_editName->setVisible(true);
 #endif
 
+	if (!GlobalData::isOnline)
+	{
+		m_nameTextField->setVisible(false);
+		m_editName->setVisible(false);
+	}
+
+
 	//layer 点击事件，屏蔽下层事件
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = [=](Touch *touch, Event *event)
