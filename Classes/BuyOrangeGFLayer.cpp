@@ -31,6 +31,32 @@ BuyOrangeGFLayer* BuyOrangeGFLayer::create()
 	return pRet;
 }
 
+
+void BuyOrangeGFLayer::jumpDown(cocos2d::Node *node, float dt) {
+	if (nullptr == node) {
+		return;
+	}
+
+	const float originY = node->getPositionY();
+	node->setPositionY(originY + dt);
+
+	ActionInterval *action = Sequence::create(
+		MoveBy::create(0.2, Vec2(0, -dt - 10)),
+		MoveBy::create(0.2, Vec2(0, 20)),
+		MoveBy::create(0.1, Vec2(0, -18)),
+		MoveBy::create(0.1, Vec2(0, 13)),
+		MoveBy::create(0.1, Vec2(0, -5)),
+
+
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	node->runAction(action);
+}
+
 bool BuyOrangeGFLayer::init()
 {
 	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
@@ -111,6 +137,18 @@ bool BuyOrangeGFLayer::init()
 	return true;
 }
 
+void BuyOrangeGFLayer::shake(Node * node, float scaleLarge, float scaleSmall) {
+	if (NULL == node) {
+		return;
+	}
+
+	CCActionInterval * actionScaleLarge = CCScaleTo::create(0.1, scaleLarge, scaleLarge, 1);
+	CCActionInterval * actionScaleSmall = CCScaleTo::create(0.1, scaleSmall, scaleSmall, 1);
+	CCActionInterval * actionScaleNormal = CCScaleTo::create(0.1, 1, 1, 1);
+	node->runAction(CCSequence::create(actionScaleLarge, actionScaleSmall, actionScaleNormal, NULL));
+}
+
+
 void BuyOrangeGFLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
 	CommonFuncs::BtnAction(pSender, type);
@@ -120,7 +158,32 @@ void BuyOrangeGFLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchE
 	}
 }
 
+void BuyOrangeGFLayer::shake(Node * node) {
+	if (NULL == node) {
+		return;
+	}
+
+	node->runAction(CCSequence::create(
+		MoveBy::create(0.02, Vec2(0, 15)),
+		MoveBy::create(0.02, Vec2(0, -27)),
+		MoveBy::create(0.02, Vec2(0, 22)),
+		MoveBy::create(0.02, Vec2(0, -14)),
+		MoveBy::create(0.02, Vec2(0, 4)),
+		NULL));
+}
+
 std::vector<std::string> BuyOrangeGFLayer::getRandQu5Gf()
 {
 	return vec_qu5gf;
+}
+
+bool BuyOrangeGFLayer::isPhone() {
+	static const Size size = Director::getInstance()->getVisibleSize();
+	static const float rate = size.height / size.width;
+	if (rate >= 1.49) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }

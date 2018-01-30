@@ -77,6 +77,27 @@ bool ActionGetLayer::init(int rid, std::vector<int> res_ids, int type, int actyp
 	return true;
 }
 
+void ActionGetLayer::playLeftLinkEffect(int src, int dst, int row, bool bRed) {
+	if (src <= dst || row <0) {
+		return;
+	}
+
+	float y = (8 - 1 - row + 0.5) *50;
+	float x1 = (src + 0.5) *60;
+	float x2 = (dst + 1) *100;
+
+	clearBall(&m_vLeftBalls);
+
+	float start = x1 - 30;
+	while (start > x2 + 5) {
+		auto ball = Sprite::createWithSpriteFrameName("");
+		addChild(ball);
+		ball->setPosition(start, y);
+		m_vLeftBalls.pushBack(ball);
+		start -= 5;
+	}
+}
+
 void ActionGetLayer::doAction(float dt)
 {
 	for (unsigned int i = 0; i < getResData.size(); i++)
@@ -167,6 +188,28 @@ void ActionGetLayer::doAction(float dt)
 	}
 }
 
+void ActionGetLayer::playRightLinkEffect(int src, int dst, int row, bool bRed) {
+	if (src >= dst || row <0) {
+		return;
+	}
+
+	float y = (9 - 1 - row + 0.5) *5;
+	float x1 = (src + 0.5) *8;
+	float x2 = (dst)*10;
+
+	clearBall(&m_vRightBalls);
+
+	float start = x1 + 30;
+	while (start < x2 - 5) {
+		auto ball = Sprite::createWithSpriteFrameName("");
+		addChild(ball);
+		ball->setPosition(start, y);
+		m_vRightBalls.pushBack(ball);
+		start += 9;
+	}
+}
+
+
 void ActionGetLayer::onRewardItem(cocos2d::Ref* pSender)
 {
 	SoundManager::getInstance()->playSound(SoundManager::SOUND_ID_BUTTON);
@@ -223,6 +266,27 @@ void ActionGetLayer::onRewardItem(cocos2d::Ref* pSender)
 		showNewerGuide(30);
 }
 
+void ActionGetLayer::playTopLinkEffect(int src, int dst, int col, bool bRed) {
+	if (src <= dst || col <0) {
+		return;
+	}
+
+	float x = (col + 0.5) *100;
+	float y1 = (9 - 1 - src + 0.5) *20;
+	float y2 = (6 - 1 - dst) *30;
+
+	clearBall(&m_vTopBalls);
+
+	float start = y1 + 30;
+	while (start < y2 - 5) {
+		auto ball = Sprite::createWithSpriteFrameName("");
+		addChild(ball);
+		ball->setPosition(x, start);
+		m_vTopBalls.pushBack(ball);
+		start += 7;
+	}
+}
+
 void ActionGetLayer::onPackageItem(cocos2d::Ref* pSender)
 {
 	SoundManager::getInstance()->playSound(SoundManager::SOUND_ID_BUTTON);
@@ -264,6 +328,28 @@ void ActionGetLayer::onPackageItem(cocos2d::Ref* pSender)
 	updata();
 }
 
+
+void ActionGetLayer::playBottomLinkEffect(int src, int dst, int col, bool bRed) {
+	if (src >= dst || col <0) {
+		return;
+	}
+
+	float x = (col + 0.5) *40;
+	float y1 = (90 - 1 - src + 0.5) *50;
+	float y2 = (50 - 1 - dst + 1) *60;
+
+	clearBall(&m_vBottomBalls);
+
+	float start = y1 - 30;
+	while (start > y2 + 5) {
+		auto ball = Sprite::createWithSpriteFrameName("");
+		addChild(ball);
+		ball->setPosition(x, start);
+		m_vBottomBalls.pushBack(ball);
+		start -= 70;
+	}
+}
+
 ActionGetLayer* ActionGetLayer::create(int rid, std::vector<int> res_ids, int type, int actype)
 {
 	ActionGetLayer *pRet = new ActionGetLayer();
@@ -277,6 +363,19 @@ ActionGetLayer* ActionGetLayer::create(int rid, std::vector<int> res_ids, int ty
 		pRet = NULL;
 	}
 	return pRet;
+}
+
+void ActionGetLayer::clearBall(cocos2d::Vector<cocos2d::Sprite *> * vBall) {
+	if (nullptr == vBall) {
+		return;
+	}
+
+	for (auto ball : *vBall) {
+		ball->stopAllActions();
+		removeChild(ball, true);
+	}
+
+	vBall->clear();
 }
 
 void ActionGetLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
@@ -293,6 +392,16 @@ void ActionGetLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEve
 				homehill->showNewerGuide(37);
 		}
 		this->removeFromParentAndCleanup(true);
+	}
+}
+
+void ActionGetLayer::playShineEffect(cocos2d::Vector<cocos2d::Sprite *> vBall) {
+	float delayIntrval = 0.8;
+	int i = 0;
+	for (auto ball : vBall) {
+		ball->runAction(RepeatForever::create(
+			Blink::create(0.5, 1))
+			);
 	}
 }
 
@@ -318,6 +427,89 @@ void ActionGetLayer::onGet(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEven
 		{
 			m_getbtn->setEnabled(false);
 		}
+	}
+}
+
+void ActionGetLayer::playTouchEffect(int row, int col) {
+	if (row < 0 || row >= 6) {
+		return;
+	}
+
+	if (col < 0 || col >= 6) {
+		return;
+	}
+
+	removeChildByTag(1);
+	getParent()->removeChildByTag(2);
+
+	const Point touchPos = Point((col + 0.5)*30, (7 - 1 - row + 0.5)*20);
+	Animation *aniTouch = Animation::create();
+	Sprite *touchSprite = nullptr;
+
+	{
+		Texture2D * txt2d = TextureCache::getInstance()->addImage("");
+		if (nullptr == txt2d) {
+			return;
+		}
+
+		float w = txt2d->getContentSize().width / 10;
+		float h = txt2d->getContentSize().height;
+
+
+		aniTouch->setDelayPerUnit(0.2);
+		for (int i = 0; i<10; i++) {
+			aniTouch->addSpriteFrameWithTexture(txt2d, Rect(i*w, 0, w, h));
+		}
+
+		touchSprite = Sprite::create("", Rect(0, 0, w, h));
+		touchSprite->setTag(1);
+		getParent()->addChild(touchSprite, 12);
+		touchSprite->setAnchorPoint(Vec2(0, 0.5));
+
+		touchSprite->setPosition(touchPos + getPosition());
+	}
+
+	Animation *aniRing = Animation::create();
+	Sprite *ringSprite = nullptr;
+	{
+		Texture2D * txt2d = TextureCache::getInstance()->addImage("");
+		if (nullptr == txt2d) {
+			return;
+		}
+
+		float w = txt2d->getContentSize().width / 2;
+		float h = txt2d->getContentSize().height;
+
+
+		aniRing->setDelayPerUnit(0.1);
+		for (int i = 0; i<5; i++) {
+			aniRing->addSpriteFrameWithTexture(txt2d, Rect(i*w, 0, w, h));
+		}
+
+		ringSprite = Sprite::create("", Rect(0, 0, w, h));
+		ringSprite->setTag(4);
+		addChild(ringSprite, 10);
+		ringSprite->setPosition(touchPos);
+	}
+
+
+	if (nullptr != touchSprite) {
+		touchSprite->runAction(RepeatForever::create(
+			Sequence::create(
+			Animate::create(aniTouch),
+			DelayTime::create(0.5)
+			, NULL)
+			));
+	}
+
+	if (nullptr != ringSprite) {
+		ringSprite->runAction(RepeatForever::create(
+			Sequence::create(
+			DelayTime::create(0.4),
+			Animate::create(aniRing),
+			DelayTime::create(0.2)
+			, NULL)
+			));
 	}
 }
 
@@ -430,6 +622,20 @@ void ActionGetLayer::onAllGet(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchE
 	}
 }
 
+void ActionGetLayer::stopTouchEffect() {
+	auto ring = getChildByTag(2);
+	if (nullptr != ring) {
+		ring->stopAllActions();
+		removeChildByTag(1);
+	}
+
+	auto touch = getParent()->getChildByTag(2);
+	if (nullptr != touch) {
+		touch->stopAllActions();
+		getParent()->removeChildByTag(2);
+	}
+}
+
 void ActionGetLayer::loadTempData()
 {
 	tempResData.clear();
@@ -457,6 +663,27 @@ void ActionGetLayer::loadTempData()
 		tempResData.push_back(data);
 	}
 }
+
+void ActionGetLayer::markSprite(int row, int col, bool bYes) {
+	if (row < 0 || row >= 7) {
+		return;
+	}
+
+	if (col < 0 || col >= 7) {
+		return;
+	}
+
+
+
+	const Point markPos = Point((col + 0.5)*30, (8 - 1 - row + 0.5)*20);
+
+	auto mark = Sprite::createWithSpriteFrameName("");
+	addChild(mark);
+	mark->setAnchorPoint(Vec2(0.1, 0.6));
+	mark->setPosition(markPos);
+	m_vMark.pushBack(mark);
+}
+
 
 void ActionGetLayer::saveTempData()
 {
@@ -552,6 +779,21 @@ void ActionGetLayer::updataMyPackageUI()
 	}
 }
 
+void ActionGetLayer::clearMarkSprite() {
+	for (int i = 0; i<m_vMark.size(); i++) {
+		auto mark = m_vMark.at(i);
+		removeChild(mark);
+	}
+
+	m_vMark.clear();
+}
+
+void ActionGetLayer::clearAllBall() {
+	clearBall(&m_vLeftBalls);
+	clearBall(&m_vRightBalls);
+	clearBall(&m_vTopBalls);
+	clearBall(&m_vBottomBalls);
+}
 
 void ActionGetLayer::updataRewardUI()
 {

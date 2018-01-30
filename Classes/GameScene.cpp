@@ -612,7 +612,8 @@ void GameScene::onSuccess()
 	{
 		if (GlobalData::g_gameStatus == GAMESTART)
 			GlobalData::g_gameStatus = GAMEPAUSE;
-		Director::getInstance()->getRunningScene()->addChild(FrozenLayer::create(), 10000);
+		if (Director::getInstance()->getRunningScene()->getChildByName("frozenlayer") == NULL)
+			Director::getInstance()->getRunningScene()->addChild(FrozenLayer::create(), 10000, "frozenlayer");
 		return;
 	}
 	if (isAnewGetData)

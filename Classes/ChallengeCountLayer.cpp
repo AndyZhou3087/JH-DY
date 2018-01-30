@@ -82,6 +82,38 @@ bool ChallengeCountLayer::init(int* wincount, int winnpccount, bool isRevive)
 	return true;
 }
 
+void ChallengeCountLayer::jump(cocos2d::Node *node, float dt, bool repeat, float intrval) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+
+}
+
 ChallengeCountLayer* ChallengeCountLayer::create(int* wincount, int winnpccount, bool isRevive)
 {
 	ChallengeCountLayer *pRet = new ChallengeCountLayer();
@@ -97,11 +129,87 @@ ChallengeCountLayer* ChallengeCountLayer::create(int* wincount, int winnpccount,
 	return pRet;
 }
 
+void ChallengeCountLayer::jellyJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.95, 1.05, 1),
+		ScaleTo::create(0.1, 1.05, 0.95, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+}
+
 void ChallengeCountLayer::onHeroimg(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
 		g_gameLayer->addChild(HeroStateUILayer::create(), 4, "HeroStateUILayer");
+	}
+}
+
+
+void ChallengeCountLayer::petJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag, ActionInterval *ac) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.05, 0.95, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.95, 1.05, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		ac,
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.1, 0.95, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
 	}
 }
 
@@ -149,6 +257,57 @@ void ChallengeCountLayer::onContinue(cocos2d::Ref *pSender, cocos2d::ui::Widget:
 		else
 			figherlayer->reviveContinueChallege();
 		this->removeFromParentAndCleanup(true);
+	}
+}
+
+void ChallengeCountLayer::jelly(Node *node, bool repeat, float intrval, bool delay, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		EaseSineIn::create(ScaleTo::create(0.08, 0.95, 1.05, 1)),
+		EaseSineOut::create(ScaleTo::create(0.2, 1.15, 0.95, 1)),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+		if (delay) {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				DelayTime::create(10*0.1),
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+		else {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+
+	}
+	else {
+		if (delay) {
+			node->runAction(Sequence::create(
+				DelayTime::create(5*0.1),
+				action,
+				NULL));
+		}
+		else {
+			node->runAction(action);
+		}
 	}
 }
 

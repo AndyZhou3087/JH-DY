@@ -20,6 +20,8 @@ public:
 	****************************/
 	virtual bool init(int heroid);
 	static BuyDetailsLayer* create(int heroid);
+	int getRandomNum(int range);
+	int getRandomNum(int rangeStart, int rangeEnd);
 private:
 	cocos2d::ui::ImageView* image;//头像 image
 	cocos2d::ui::ImageView* nameTxt;//角色名称控件
@@ -37,6 +39,9 @@ private:
 	点击购买按钮回调
 	*****************************/
 	void onBuy(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
+
+	bool getRandomBoolean(float rate);
+	bool getRandomBoolean();
 };
 #endif
 

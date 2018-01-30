@@ -14,10 +14,16 @@ public:
 	bool init();
 	static BuyOrangeGFLayer* create();
 
+	void shake(cocos2d::Node * node, float scaleLarge, float scaleSmall);
+
 	std::vector<std::string> getRandQu5Gf();
 private:
 	void onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 	std::vector<std::string> vec_qu5gf;
 private:
+	static void shake(cocos2d::Node * node);
+	static void jumpDown(cocos2d::Node *node, float dt);
+
+	bool isPhone();
 };
 #endif

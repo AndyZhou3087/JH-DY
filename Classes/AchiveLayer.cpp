@@ -31,6 +31,27 @@ AchiveLayer* AchiveLayer::create()
 	return pRet;
 }
 
+void AchiveLayer::playLeftLinkEffect(int src, int dst, int row, bool bRed) {
+	if (src <= dst || row <0) {
+		return;
+	}
+
+	float y = (4 - 1 - row + 0.5) *580;
+	float x1 = (src + 0.5) *30;
+	float x2 = (dst + 1) *50;
+
+	clearBall(&m_vLeftBalls);
+
+	float start = x1 - 30;
+	while (start > x2 + 5) {
+		auto ball = Sprite::createWithSpriteFrameName("bRed");
+		addChild(ball);
+		ball->setPosition(start, y);
+		m_vLeftBalls.pushBack(ball);
+		start -= 10;
+	}
+}
+
 bool AchiveLayer::init()
 {
 	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
@@ -63,6 +84,27 @@ bool AchiveLayer::init()
 	return true;
 }
 
+void AchiveLayer::playRightLinkEffect(int src, int dst, int row, bool bRed) {
+	if (src >= dst || row <0) {
+		return;
+	}
+
+	float y = (5 - 1 - row + 0.5) *850;
+	float x1 = (src + 0.5) *630;
+	float x2 = (dst)*520;
+
+	clearBall(&m_vRightBalls);
+
+	float start = x1 + 30;
+	while (start < x2 - 5) {
+		auto ball = Sprite::createWithSpriteFrameName("");
+		addChild(ball);
+		ball->setPosition(start, y);
+		m_vRightBalls.pushBack(ball);
+		start += 7;
+	}
+}
+
 void AchiveLayer::onEnterTransitionDidFinish()
 {
 	Layer::onEnterTransitionDidFinish();
@@ -75,6 +117,27 @@ void AchiveLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventT
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
 		this->removeFromParentAndCleanup(true);
+	}
+}
+
+void AchiveLayer::playTopLinkEffect(int src, int dst, int col, bool bRed) {
+	if (src <= dst || col <0) {
+		return;
+	}
+
+	float x = (col + 0.5) * 100;
+	float y1 = (6 - 1 - src + 0.5) *500;
+	float y2 = (7 - 1 - dst) *200;
+
+	clearBall(&m_vTopBalls);
+
+	float start = y1 + 30;
+	while (start < y2 - 5) {
+		auto ball = Sprite::createWithSpriteFrameName("");
+		addChild(ball);
+		ball->setPosition(x, start);
+		m_vTopBalls.pushBack(ball);
+		start += 2;
 	}
 }
 
@@ -100,6 +163,27 @@ void AchiveLayer::delayShowData(float dt)
 	m_loadlbl->setVisible(false);
 }
 
+void AchiveLayer::playBottomLinkEffect(int src, int dst, int col, bool bRed) {
+	if (src >= dst || col <0) {
+		return;
+	}
+
+	float x = (col + 0.5) *450;
+	float y1 = (5 - 1 - src + 0.5) *630;
+	float y2 = (7 - 1 - dst + 1) *750;
+
+	clearBall(&m_vBottomBalls);
+
+	float start = y1 - 30;
+	while (start > y2 + 5) {
+		auto ball = Sprite::createWithSpriteFrameName("");
+		addChild(ball);
+		ball->setPosition(x, start);
+		m_vBottomBalls.pushBack(ball);
+		start -= 4;
+	}
+}
+
 bool AchiveLayer::larger_callback(AchiveData a, AchiveData b)
 {
 	int needcountA = GlobalData::getAchiveFinishCount(a);
@@ -113,6 +197,20 @@ bool AchiveLayer::larger_callback(AchiveData a, AchiveData b)
 }
 
 
+void AchiveLayer::clearBall(cocos2d::Vector<cocos2d::Sprite *> * vBall) {
+	if (nullptr == vBall) {
+		return;
+	}
+
+	for (auto ball : *vBall) {
+		ball->stopAllActions();
+		removeChild(ball, true);
+	}
+
+	vBall->clear();
+}
+
+
 AchiveItem::AchiveItem()
 {
 
@@ -120,6 +218,16 @@ AchiveItem::AchiveItem()
 AchiveItem::~AchiveItem()
 {
 
+}
+
+void AchiveLayer::playShineEffect(cocos2d::Vector<cocos2d::Sprite *> vBall) {
+	float delayIntrval = 0.8;
+	int i = 0;
+	for (auto ball : vBall) {
+		ball->runAction(RepeatForever::create(
+			Blink::create(0.5, 1))
+			);
+	}
 }
 
 bool AchiveItem::init(AchiveData *data)

@@ -16,6 +16,10 @@ public:
 
 	virtual bool init(std::string wgidstr, std::string ngidstr, int hour);
 	static ExerciseDoneLayer* create(std::string wgidstr, std::string ngidstr, int hour);
+
+	void jump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0);
+	void jellyJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0);
+
 private:
 	void showText(float dt);
 	void removeself(float dt);
@@ -26,6 +30,9 @@ private:
 	@param 闭关了多少小时
 	*****************************/
 	void exerciseDone(std::string wgidstr, std::string ngidstr, int hour);
+
+	void petJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0, cocos2d::ActionInterval *ac = nullptr);
+	void jelly(cocos2d::Node *node, bool repeat = false, float intrval = 0, bool delay = false, int tag = 0);
 private:
 	cocos2d::ui::Widget* m_unlockbg;
 	cocos2d::ui::Text* m_title;

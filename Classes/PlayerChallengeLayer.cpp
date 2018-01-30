@@ -21,6 +21,14 @@ PlayerChallengeLayer::PlayerChallengeLayer()
 	GlobalData::isPlayerChallenging = true;
 }
 
+void PlayerChallengeLayer::initRandSeed() {
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	//都转化为毫秒
+	unsigned long reed = nowTimeval.tv_sec * 1000000 + nowTimeval.tv_usec;
+	//srand()中传入一个随机数种子
+	srand(reed);
+}
 
 PlayerChallengeLayer::~PlayerChallengeLayer()
 {
@@ -40,6 +48,21 @@ PlayerChallengeLayer* PlayerChallengeLayer::create(std::string addrid, RankData*
 		pRet = NULL;
 	}
 	return pRet;
+}
+
+time_t PlayerChallengeLayer::getNowTime()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	return nowTimeval.tv_sec;
+#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	struct tm* tm;
+	time_t timep;
+	time(&timep);
+	return timep;
+#endif
 }
 
 bool PlayerChallengeLayer::init(std::string addrid, RankData* rankData)
@@ -154,6 +177,21 @@ bool PlayerChallengeLayer::init(std::string addrid, RankData* rankData)
 	return true;
 }
 
+long long PlayerChallengeLayer::getNowTimeMs() {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	return ((long long)(nowTimeval.tv_sec)) * 1000 + nowTimeval.tv_usec / 1000;
+#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	struct timeval tv;
+	memset(&tv, 0, sizeof(tv));
+	gettimeofday(&tv, NULL);
+
+	return (double)tv.tv_sec * 1000 + tv.tv_usec / 1000;
+#endif
+}
+
 int PlayerChallengeLayer::getPlayerHurt()
 {
 	int heroCurAck = g_hero->getTotalAtck();
@@ -165,6 +203,45 @@ int PlayerChallengeLayer::getPlayerHurt()
 		playerhurt = intminack;
 
 	return playerhurt;
+}
+
+bool PlayerChallengeLayer::isBeforeToday(time_t sec) {
+	struct tm *tm;
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)  
+	//win32平台
+	time_t timep;
+	time(&timep);
+	tm = localtime(&timep);
+#else  
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	tm = localtime(&nowTimeval.tv_sec);
+#endif  
+
+	struct tm * otherDay = gmtime(&sec);
+
+	if (otherDay->tm_year < tm->tm_year) {
+		return true;
+	}
+	else if (otherDay->tm_year > tm->tm_hour) {
+		return false;
+	}
+
+	if (otherDay->tm_mon < tm->tm_mon) {
+		return true;
+	}
+	else if (otherDay->tm_mon > tm->tm_mon) {
+		return false;
+	}
+
+	if (otherDay->tm_mday < tm->tm_mday) {
+		return true;
+	}
+	else if (otherDay->tm_mday > tm->tm_mday) {
+		return false;
+	}
+
+	return false;
 }
 
 void PlayerChallengeLayer::heroSkillComboAtk(float dt)
@@ -180,6 +257,12 @@ void PlayerChallengeLayer::heroSkillComboAtk(float dt)
 		this->unschedule(schedule_selector(PlayerChallengeLayer::heroSkillComboAtk));
 	}
 	updatePlayerLife();
+}
+
+
+long long PlayerChallengeLayer::getTodayLeftSec() {
+	long long nowSec = getNowTime();
+	return (86400 - nowSec % 86400);
 }
 
 void PlayerChallengeLayer::playerSkillComboAtk(float dt)
@@ -382,6 +465,18 @@ void PlayerChallengeLayer::delayHeroFight(float dt)
 	}
 }
 
+bool PlayerChallengeLayer::getRandomBoolean(float rate) {
+
+	int rate10 = (int)(rate*10.0);
+	int randNum = rand();
+	if (randNum % 10 <= rate10) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 void PlayerChallengeLayer::delayPlayerFight(float dt)
 {
 
@@ -559,6 +654,25 @@ void PlayerChallengeLayer::delayPlayerFight(float dt)
 	
 }
 
+bool PlayerChallengeLayer::getRandomBoolean() {
+
+	if (0 == rand() % 2) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+int PlayerChallengeLayer::getRandomNum(int range) {
+
+	if (range <= 0) {
+		return 0;
+	}
+
+	return rand() % range;
+}
+
+
 int PlayerChallengeLayer::getHeroHurt()
 {
 	int curheroDf = g_hero->getTotalDf();
@@ -581,6 +695,20 @@ void PlayerChallengeLayer::resetSkills()
 	}
 }
 
+int PlayerChallengeLayer::getRandomNum(int rangeStart, int rangeEnd) {
+
+	if (rangeEnd < rangeStart) {
+		CCASSERT(false, "get random fail");
+		return 0;
+	}
+
+	if (rangeStart == rangeEnd) {
+		return rangeStart;
+	}
+
+	int delta = rand() % (rangeEnd - rangeStart);
+	return rangeStart + delta;
+}
 void PlayerChallengeLayer::delayShowResultLayer(float dt)
 {
 	PlayerChallengeResultLayer* layer = PlayerChallengeResultLayer::create(m_playerData, win);
@@ -880,6 +1008,17 @@ void PlayerChallengeLayer::showFightWord(int type, int value)
 	}
 }
 
+void PlayerChallengeLayer::shake(Node * node, float scaleLarge, float scaleSmall) {
+	if (NULL == node) {
+		return;
+	}
+
+	CCActionInterval * actionScaleLarge = CCScaleTo::create(0.1, scaleLarge, scaleLarge, 1);
+	CCActionInterval * actionScaleSmall = CCScaleTo::create(0.1, scaleSmall, scaleSmall, 1);
+	CCActionInterval * actionScaleNormal = CCScaleTo::create(0.1, 1, 1, 1);
+	node->runAction(CCSequence::create(actionScaleLarge, actionScaleSmall, actionScaleNormal, NULL));
+}
+
 void PlayerChallengeLayer::checkWordLblColor(std::string wordstr)
 {
 	Label* wordlbl = Label::createWithTTF(wordstr, "fonts/STXINGKA.TTF", 28);
@@ -1004,6 +1143,22 @@ void PlayerChallengeLayer::checkWordLblColor(std::string wordstr)
 	m_fihgtScorll->addEventLabel(wordlbl);
 }
 
+
+void PlayerChallengeLayer::shake(Node * node) {
+	if (NULL == node) {
+		return;
+	}
+
+	node->runAction(CCSequence::create(
+		MoveBy::create(0.02, Vec2(0, 15)),
+		MoveBy::create(0.02, Vec2(0, -27)),
+		MoveBy::create(0.02, Vec2(0, 22)),
+		MoveBy::create(0.02, Vec2(0, -14)),
+		MoveBy::create(0.02, Vec2(0, 4)),
+		NULL));
+}
+
+
 std::string PlayerChallengeLayer::getHeroGfFightStr(std::string wgstr)
 {
 	std::string retstr;
@@ -1024,6 +1179,17 @@ std::string PlayerChallengeLayer::getHeroGfFightStr(std::string wgstr)
 	return retstr;
 }
 
+bool PlayerChallengeLayer::isPhone() {
+	static const Size size = Director::getInstance()->getVisibleSize();
+	static const float rate = size.height / size.width;
+	if (rate >= 1.49) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 std::string PlayerChallengeLayer::getPlayerGfFightStr(std::string wgstr)
 {
 	std::string retstr;
@@ -1042,6 +1208,39 @@ std::string PlayerChallengeLayer::getPlayerGfFightStr(std::string wgstr)
 		retstr = StringUtils::format(wordstr.c_str(), m_playerData->nickname.c_str(), CommonFuncs::gbk2utf("你").c_str(), gfsname.c_str(), gfsname.c_str(), CommonFuncs::gbk2utf("你").c_str());
 
 	return retstr;
+}
+
+
+void PlayerChallengeLayer::jump(cocos2d::Node *node, float dt, bool repeat, float intrval) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+
 }
 
 void PlayerChallengeLayer::updateHeroLife()
@@ -1066,6 +1265,42 @@ void PlayerChallengeLayer::updatePlayerLife()
 	playerhpbar->setPercent(playerhppercent);
 	/*MyProgressTo * to = MyProgressTo::create(0.5f, playerhppercent);
 	playerhpbar2->runAction(to);*/
+}
+void PlayerChallengeLayer::jellyJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.95, 1.05, 1),
+		ScaleTo::create(0.1, 1.05, 0.95, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
 }
 
 
@@ -1099,6 +1334,44 @@ int PlayerChallengeLayer::checkHeroSkill(HeroAtrType gftype)
 
 	return ret;
 
+}
+
+void PlayerChallengeLayer::petJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag, ActionInterval *ac) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.05, 0.95, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.95, 1.05, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		ac,
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.1, 0.95, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
 }
 
 int PlayerChallengeLayer::checkPlayerSkill(HeroAtrType gftype)
@@ -1150,6 +1423,58 @@ int PlayerChallengeLayer::checkPlayerSkill(HeroAtrType gftype)
 	return ret;
 }
 
+void PlayerChallengeLayer::jelly(Node *node, bool repeat, float intrval, bool delay, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		EaseSineIn::create(ScaleTo::create(0.08, 0.95, 1.05, 1)),
+		EaseSineOut::create(ScaleTo::create(0.2, 1.15, 0.95, 1)),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+		if (delay) {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				DelayTime::create(getRandomNum(1, 10)*0.1),
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+		else {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+
+	}
+	else {
+		if (delay) {
+			node->runAction(Sequence::create(
+				DelayTime::create(getRandomNum(1, 10)*0.1),
+				action,
+				NULL));
+		}
+		else {
+			node->runAction(action);
+		}
+	}
+}
+
+
 void PlayerChallengeLayer::showHeroSkill(int skilltype)
 {
 	if (skilltype >= S_SKILL_1 && skilltype <= S_SKILL_5)
@@ -1164,6 +1489,31 @@ void PlayerChallengeLayer::showHeroSkill(int skilltype)
 	}
 }
 
+
+void PlayerChallengeLayer::jumpDown(cocos2d::Node *node, float dt) {
+	if (nullptr == node) {
+		return;
+	}
+
+	const float originY = node->getPositionY();
+	node->setPositionY(originY + dt);
+
+	ActionInterval *action = Sequence::create(
+		MoveBy::create(0.2, Vec2(0, -dt - 10)),
+		MoveBy::create(0.2, Vec2(0, 20)),
+		MoveBy::create(0.1, Vec2(0, -18)),
+		MoveBy::create(0.1, Vec2(0, 13)),
+		MoveBy::create(0.1, Vec2(0, -5)),
+
+
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	node->runAction(action);
+}
 void PlayerChallengeLayer::showPlayerSkill(int skilltype)
 {
 	if (skilltype >= S_SKILL_1 && skilltype <= S_SKILL_5)
@@ -1191,6 +1541,57 @@ void PlayerChallengeLayer::showHeroTextAmin(std::string filename)
 	herocritfnt->setVisible(false);
 }
 
+void PlayerChallengeLayer::initData()
+{
+	m_starnum = 0;
+	m_stageIcon = (cocos2d::ui::ImageView*)m_node->getChildByName("image");
+	std::string str;
+	for (int i = 0; i < 3; i++)
+	{
+		str = StringUtils::format("star%d", i);
+		m_star[i] = (cocos2d::ui::Widget*)m_node->getChildByName(str);
+		str = StringUtils::format("star%dbg", i);
+		m_starbg[i] = (cocos2d::ui::Widget*)m_node->getChildByName(str);
+	}
+	m_stagenumlbl = (cocos2d::ui::TextBMFont*)m_node->getChildByName("stagenum");
+}
+
+void PlayerChallengeLayer::setStar(int num, bool isboss)
+{
+	m_starnum = num;
+	m_isboss = isboss;
+	std::string stagestr;
+	if (num > 0)
+	{
+		stagestr = "stage1.png";
+		for (int i = 0; i < 3; i++)
+		{
+			m_starbg[i]->setVisible(true);
+		}
+		for (int i = 0; i < num; i++)
+		{
+			m_star[i]->setVisible(true);
+		}
+	}
+	else
+	{
+		stagestr = "stage0.png";
+		for (int i = 0; i < 3; i++)
+		{
+			m_star[i]->setVisible(false);
+			m_starbg[i]->setVisible(false);
+		}
+	}
+	m_stageIcon->loadTexture(stagestr, cocos2d::ui::TextureResType::PLIST);
+	m_stageIcon->setContentSize(Sprite::createWithSpriteFrameName(stagestr)->getContentSize());
+	if (isboss)
+	{
+		int index = num > 0 ? 1 : 0;
+		std::string bossstr = StringUtils::format("sboss%d.png", index);
+		m_stageIcon->loadTexture(bossstr, cocos2d::ui::TextureResType::PLIST);
+		m_stageIcon->setContentSize(Sprite::createWithSpriteFrameName(bossstr)->getContentSize());
+	}
+}
 
 void PlayerChallengeLayer::showPlayerTextAmin(std::string filename)
 {
@@ -1202,6 +1603,13 @@ void PlayerChallengeLayer::showPlayerTextAmin(std::string filename)
 	ActionInterval* ac1 = Spawn::create(FadeIn::create(0.1f), EaseSineIn::create(ScaleTo::create(0.1f, 1)), NULL);
 	playeractimg->runAction(Sequence::create(ac1, DelayTime::create(0.8f), Hide::create(), NULL));
 	playercritfnt->setVisible(false);
+}
+void PlayerChallengeLayer::setStageNum(int stage)
+{
+	std::string numstr = StringUtils::format("%d", stage);
+	m_stagenumlbl->setString(numstr);
+	if (m_isboss)
+		m_stagenumlbl->setVisible(false);
 }
 
 int PlayerChallengeLayer::getPlayerMaxLife()
@@ -1248,6 +1656,22 @@ int PlayerChallengeLayer::getPlayerMaxLife()
 	return flife;
 }
 
+void PlayerChallengeLayer::hilight()
+{
+	m_stageIcon->stopAllActions();
+	m_node->setScale(1);
+	std::string stagestr;
+	if (m_isboss)
+	{
+		stagestr = "sboss1.png";
+	}
+	else
+	{
+		stagestr = "stage2.png";
+	}
+	m_stageIcon->loadTexture(stagestr, cocos2d::ui::TextureResType::PLIST);
+	m_stageIcon->setContentSize(Sprite::createWithSpriteFrameName(stagestr)->getContentSize());
+}
 int PlayerChallengeLayer::getPlayerDf()
 {
 	int adf = 0;
@@ -1351,7 +1775,14 @@ int PlayerChallengeLayer::getPlayerDf()
 	adf = int(fdf + 0.5f);
 	return adf;
 }
-
+void PlayerChallengeLayer::disable()
+{
+	m_stageIcon->stopAllActions();
+	m_node->setScale(1);
+	std::string stagestr = "stage0.png";
+	m_stageIcon->loadTexture(stagestr, cocos2d::ui::TextureResType::PLIST);
+	m_stageIcon->setContentSize(Sprite::createWithSpriteFrameName(stagestr)->getContentSize());
+}
 int PlayerChallengeLayer::getPlayerAtk()
 {
 	int weaponAtk = 0;
@@ -1469,6 +1900,23 @@ int PlayerChallengeLayer::getPlayerAtk()
 	int tatk = int(fack + 0.5f);
 	return tatk;
 }
+void PlayerChallengeLayer::nomal()
+{
+	m_stageIcon->stopAllActions();
+	m_node->setScale(1);
+	std::string stagestr;
+	if (m_isboss)
+	{
+		stagestr = "sboss1.png";
+	}
+	else
+	{
+		stagestr = "stage1.png";
+	}
+	m_stageIcon->loadTexture(stagestr, cocos2d::ui::TextureResType::PLIST);
+	m_stageIcon->setContentSize(Sprite::createWithSpriteFrameName(stagestr)->getContentSize());
+}
+
 
 int PlayerChallengeLayer::getPlayerDodde()
 {
@@ -1525,6 +1973,30 @@ int PlayerChallengeLayer::getPlayerDodde()
 	return dodgernd;
 }
 
+void PlayerChallengeLayer::showLock(int starnum)
+{
+	if (lockNode == NULL)
+	{
+		lockNode = Sprite::createWithSpriteFrameName("lock.png");
+		lockNode->setPosition(Vec2(m_node->getContentSize().width / 2, 10));
+		m_node->addChild(lockNode, 2);
+
+		//Sprite* lockbox = Sprite::createWithSpriteFrameName("unlockbox.png");
+		//lockbox->setPosition(Vec2(lockNode->getContentSize().width / 2, lockNode->getContentSize().height - 60));
+		//lockNode->addChild(lockbox);
+
+		//Sprite* star = Sprite::createWithSpriteFrameName("star1.png");
+		//star->setPosition(Vec2(lockbox->getContentSize().width / 2, lockbox->getContentSize().height / 2));
+		//lockbox->addChild(star);
+
+		//std::string desc = StringUtils::format("%3d     开启", starnum);
+		//Label* stardesclbl = Label::createWithBMFont("fonts/tips.fnt", CommonFuncs::gbk2utf(desc.c_str()));
+		//stardesclbl->setPosition(Vec2(lockbox->getContentSize().width / 2, lockbox->getContentSize().height / 2));
+		//stardesclbl->setScale(0.6f);
+		//lockbox->addChild(stardesclbl);
+	}
+}
+
 int PlayerChallengeLayer::getPlayerCrit()
 {
 	int critrnd = GlobalData::map_heroAtr[m_playerData->herotype].vec_crit[m_playerData->herolv];
@@ -1575,6 +2047,17 @@ int PlayerChallengeLayer::getPlayerCrit()
 		critrnd += 2;
 	return critrnd;
 }
+
+
+void PlayerChallengeLayer::removeLock()
+{
+	if (lockNode != NULL)
+	{
+		lockNode->removeFromParentAndCleanup(true);
+		lockNode = NULL;
+	}
+}
+
 
 void PlayerChallengeLayer::showResultLayer(int result)
 {

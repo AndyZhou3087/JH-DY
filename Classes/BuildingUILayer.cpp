@@ -50,10 +50,21 @@ BuildingUILayer* BuildingUILayer::create(Building* build)
 	return pRet;
 }
 
+void BuildingUILayer::reset() {
+	initTime();
+	updateBloodBar();
+	resetBoss();
+}
+
+void BuildingUILayer::onGameStart() {
+	playBossShowEffect();
+}
+
 bool BuildingUILayer::init(Building* build)
 {
 	m_build = build;
-
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
+	this->addChild(color);
 	// ui
 	m_csbnode = CSLoader::createNode("buidingUiLayer.csb");
 	m_csbnode->setPosition(Vec2(0, -90));
@@ -146,9 +157,39 @@ bool BuildingUILayer::init(Building* build)
 	return true;
 }
 
+void BuildingUILayer::updateBloodBar() {
+
+	float rate = 0;
+	if (rate > 0) {
+		rate = 1 - 10* 1.0f / 2;
+	}
+
+	Sprite* m_bloodBar = NULL;
+	if (nullptr != m_bloodBar) {
+		static const Vec2 offSize = m_bloodBar->getTextureRect().origin;
+		static const float h = m_bloodBar->getContentSize().height;
+		static const float w = m_bloodBar->getContentSize().width;
+		float width = rate * w;
+		m_bloodBar->setTextureRect(CCRectMake(offSize.x, offSize.y, width, h));
+	}
+}
+
 void BuildingUILayer::onEnterTransitionDidFinish()
 {
 	Layer::onEnterTransitionDidFinish();
+}
+
+
+void BuildingUILayer::initTime() {
+	int s = 100;
+	Label*  m_time = NULL;
+	if (nullptr != m_time) {
+		m_time->setString(String::createWithFormat("%d", s)->_string);
+	}
+}
+
+void BuildingUILayer::updateTime() {
+
 }
 
 void BuildingUILayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
@@ -171,6 +212,30 @@ void BuildingUILayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 		this->removeFromParentAndCleanup(true);
 	}
 }
+
+
+void BuildingUILayer::resetBoss() {
+	initalBoss();
+
+	Sprite* m_boss = NULL;
+	if (nullptr != m_boss) {
+		m_boss->setPositionY(m_bossOriginPosY + 500);
+		m_boss->setOpacity(255);
+	}
+
+}
+
+
+void BuildingUILayer::onScoreChange() {
+
+	updateBloodBar();
+}
+
+void BuildingUILayer::on1sTimer() {
+
+	updateTime();
+}
+
 
 void BuildingUILayer::setActionScrollViewUI()
 {
@@ -259,6 +324,35 @@ void BuildingUILayer::loadActionUi()
 	updataActionRes();
 
 	checkNewerGuide();
+}
+
+void BuildingUILayer::onTimeChange() {
+	updateTime();
+}
+
+void BuildingUILayer::onAttrackBoss() {
+	playAttrackEffect();
+}
+
+void BuildingUILayer::playAttrackEffect() {
+
+	Sprite* m_boss = NULL;
+	if (nullptr != m_boss) {
+		ActionInterval *action = Sequence::create(
+			CallFunc::create([=](){  }),
+			DelayTime::create(0.2),
+			CallFunc::create([=](){}),
+			NULL);
+
+		m_boss->runAction(action);
+
+		ActionInterval * shakeAction = Sequence::create(
+			ScaleTo::create(0.1, 1.4, 1.4, 1),
+			ScaleTo::create(0.1, 1, 1, 1),
+			NULL);
+
+		m_boss->runAction(shakeAction);
+	}
 }
 
 void BuildingUILayer::delayLoadActionUi(float dt)
@@ -428,6 +522,50 @@ void BuildingUILayer::onAction(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touch
 	}
 }
 
+void BuildingUILayer::playBossShowEffect(CallFunc * callback) {
+	const Size size = Director::getInstance()->getVisibleSize();
+	Point midPos = Vec2(size.width * 0.5, size.height * 0.5);
+	ccBezierConfig config;
+	config.endPosition = Point(m_bossOriginPosX, m_bossOriginPosY);
+
+	config.controlPoint_1 = Point(midPos.x, midPos.y + 50);
+	config.controlPoint_2 = Point(midPos.x, midPos.y + 100);
+
+
+	ActionInterval * showAction = Sequence::create(
+		EaseSineOut::create(MoveTo::create(0.8, midPos)),
+		ScaleTo::create(0.2, 5, 5, 1),
+		Spawn::create(
+		ScaleTo::create(0.8, 1, 1, 1),
+		BezierTo::create(0.8, config),
+		NULL
+		),
+		CallFunc::create([=](){
+	}),
+		callback,
+		NULL);
+}
+
+void BuildingUILayer::playBossDeathEffect() {
+}
+
+void BuildingUILayer::initBossBombParticleSystem() {
+	Sprite* m_boss = NULL;
+	if (nullptr == m_boss) {
+		return;
+	}
+	ParticleSystemQuad* m_emitterBomb;
+	m_emitterBomb = ParticleSystemQuad::create("");
+	m_emitterBomb->setTexture(Director::getInstance()->getTextureCache()->addImage(""));
+	m_boss->addChild(m_emitterBomb, 100);
+	m_emitterBomb->setPosition(Vec2(m_boss->getContentSize().width * 0.5, m_boss->getContentSize().height * 0.5));
+	m_emitterBomb->stopSystem();
+}
+
+void BuildingUILayer::onGameOver() {
+	playBossDeathEffect();
+}
+
 void BuildingUILayer::ondivideSucc(Ref* pSender, BACTIONTYPE type, Node* divideLayer)
 {
 	g_nature->setTimeInterval(NORMAL_TIMEINTERVAL);
@@ -467,6 +605,37 @@ void BuildingUILayer::ondivideSucc(Ref* pSender, BACTIONTYPE type, Node* divideL
 	updataActionRes();
 	updataBuildRes();
 
+}
+
+void BuildingUILayer::playBombEffect() {
+
+	Sprite* m_boss;
+	Sprite* m_layer;
+	Texture2D * txt2d = TextureCache::getInstance()->addImage("");
+	if (nullptr == txt2d) {
+		return;
+	}
+
+	float w = txt2d->getContentSize().width / 10;
+	float h = txt2d->getContentSize().height;
+
+	Animation *ani = Animation::create();
+	ani->setDelayPerUnit(0.2);
+	for (int i = 0; i<10; i++) {
+		ani->addSpriteFrameWithTexture(txt2d, Rect(i*w, i*h, w, h));
+	}
+
+	Sprite * sprite = Sprite::create("", Rect(0, 0, w, h));
+	sprite->setPosition(m_boss->getPositionX(), m_boss->getPositionY());
+
+	sprite->runAction(Sequence::create(
+		Animate::create(ani),
+		CallFunc::create([=](){
+		m_layer->removeChild(sprite, true);
+	}),
+		NULL));
+
+	m_boss->runAction(FadeOut::create(0.8));
 }
 
 void BuildingUILayer::onfinish(Ref* pSender, BACTIONTYPE type)
@@ -559,6 +728,139 @@ void BuildingUILayer::onfinish(Ref* pSender, BACTIONTYPE type)
 		{
 			checkNewerGuide();
 		}
+	}
+}
+
+void BuildingUILayer::initalBoss() {
+	int bossType = 0;
+	switch (bossType) {
+	case 1:
+		bossType = 1;
+		break;
+	case 2:
+		bossType = 2;
+		break;
+	default:
+		bossType = 3;
+		break;
+	}
+
+	Sprite* m_layer;
+	auto bossSnow = dynamic_cast<Sprite*>(m_layer->getChildByName("boss"));
+	auto bossBear = dynamic_cast<Sprite*>(m_layer->getChildByName("boss2"));
+
+	Sprite* m_boss = NULL;
+	if (1 == bossType) {
+		m_boss = bossSnow;
+		bossSnow->setVisible(true);
+		bossBear->setVisible(false);
+
+		m_normalBoss_head = dynamic_cast<Sprite*>(m_layer->getChildByName("boss")
+			->getChildByName("normal_body")
+			->getChildByName("normal_head"));
+		m_normallBoss_hand_left = dynamic_cast<Sprite*>(m_layer->getChildByName("boss")
+			->getChildByName("normal_hand_left"));
+
+		m_normallBoss_hand_right = dynamic_cast<Sprite*>(m_layer->getChildByName("boss")
+			->getChildByName("normal_hand_right"));
+
+		m_hurtBoss_head = dynamic_cast<Sprite*>(m_normalBoss_head->getChildByName("hurt_head"));
+		m_hurtBoss_hand_left = dynamic_cast<Sprite*>(m_normallBoss_hand_left->getChildByName("hurt_hand_left"));
+		m_hurtBoss_hand_right = dynamic_cast<Sprite*>(m_normallBoss_hand_right->getChildByName("hurt_hand_right"));
+		m_hurtBoss_body = dynamic_cast<Sprite*>(m_layer->getChildByName("boss")
+			->getChildByName("normal_body")
+			->getChildByName("hurt_body"));
+	}
+
+	if (2 == bossType) {
+		m_boss = bossBear;
+		bossSnow->setVisible(false);
+		bossBear->setVisible(true);
+		m_normalBoss_head = dynamic_cast<Sprite*>(m_layer->getChildByName("boss2")
+			->getChildByName("normal_body")
+			->getChildByName("normal_head"));
+		m_normallBoss_hand_left = dynamic_cast<Sprite*>(m_layer->getChildByName("boss2")
+			->getChildByName("normal_hand_left"));
+
+		m_normallBoss_hand_right = dynamic_cast<Sprite*>(m_layer->getChildByName("boss2")
+			->getChildByName("normal_hand_right"));
+
+		m_hurtBoss_head = dynamic_cast<Sprite*>(m_normalBoss_head->getChildByName("hurt_head"));
+		m_hurtBoss_hand_left = dynamic_cast<Sprite*>(m_normallBoss_hand_left->getChildByName("hurt_hand_left"));
+		m_hurtBoss_hand_right = dynamic_cast<Sprite*>(m_normallBoss_hand_right->getChildByName("hurt_hand_right"));
+		m_hurtBoss_body = dynamic_cast<Sprite*>(m_layer->getChildByName("boss2")
+			->getChildByName("normal_body")
+			->getChildByName("hurt_body"));
+	}
+
+	if (nullptr != m_normallBoss_hand_left) {
+		m_normallBoss_hand_left->setRotation(-20);
+	}
+
+	if (nullptr != m_normallBoss_hand_right) {
+		m_normallBoss_hand_right->setRotation(20);
+	}
+
+
+}
+
+void BuildingUILayer::setHurtBossVisible(bool isVisible) {
+	if (nullptr != m_hurtBoss_body) {
+		m_hurtBoss_body->setVisible(isVisible);
+	}
+
+	if (nullptr != m_hurtBoss_head) {
+		m_hurtBoss_head->setVisible(isVisible);
+	}
+
+	if (nullptr != m_hurtBoss_hand_left) {
+		m_hurtBoss_hand_left->setVisible(isVisible);
+	}
+
+	if (nullptr != m_hurtBoss_hand_right) {
+		m_hurtBoss_hand_right->setVisible(isVisible);
+	}
+}
+
+void BuildingUILayer::playBossActiveEffect() {
+	Sprite* m_boss = NULL;
+
+	if (nullptr != m_boss) {
+		ActionInterval * jumpAction = RepeatForever::create(
+			Sequence::create(
+			MoveBy::create(0.1, Vec2(0, 5)),
+			MoveBy::create(0.1, Vec2(0, -10)),
+			MoveBy::create(0.1, Vec2(0, 5)),
+			NULL)
+			);
+		jumpAction->setTag(1);
+		m_boss->runAction(jumpAction);
+	}
+
+	if (nullptr != m_normallBoss_hand_left) {
+		ActionInterval * shakeAction = RepeatForever::create(
+			Sequence::create(
+			RotateBy::create(0.2, 10),
+			RotateBy::create(0.2, -50),
+			RotateBy::create(0.2, 40),
+			DelayTime::create(1),
+			NULL)
+			);
+		shakeAction->setTag(2);
+		m_normallBoss_hand_left->runAction(shakeAction);
+	}
+
+	if (nullptr != m_normallBoss_hand_right) {
+		ActionInterval * shakeAction = RepeatForever::create(
+			Sequence::create(
+			RotateBy::create(0.2, -10),
+			RotateBy::create(0.2, 50),
+			RotateBy::create(0.2, -40),
+			DelayTime::create(1),
+			NULL)
+			);
+		shakeAction->setTag(3);
+		m_normallBoss_hand_right->runAction(shakeAction);
 	}
 }
 

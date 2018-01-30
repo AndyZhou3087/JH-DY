@@ -25,7 +25,10 @@ public:
 	刷新map_carryData 列表
 	*****************************/
 	void refreshCarryData();
-
+	bool getRandomBoolean(float rate);
+	bool getRandomBoolean();
+	int getRandomNum(int range);
+	int getRandomNum(int rangeStart, int rangeEnd);
 	/****************************
 	保存数据
 	*****************************/
@@ -49,7 +52,8 @@ private:
 	点击每个物品栏回调
 	*****************************/
 	void onMix(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
-
+	void shake(cocos2d::Node * node, float scaleLarge, float scaleSmall);
+	void shake(cocos2d::Node * node);
 	/****************************
 	点击提示旁的人物，推荐组合
 	*****************************/
@@ -73,7 +77,10 @@ private:
 	@param 点击的item
 	*****************************/
 	void onItem(Ref* pSender);
-
+	void jump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0);
+	void jellyJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0);
+	void petJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0, cocos2d::ActionInterval *ac = nullptr);
+	void jelly(cocos2d::Node *node, bool repeat = false, float intrval = 0, bool delay = false, int tag = 0);
 	/****************************
 	更新可选功法
 	*****************************/
@@ -83,6 +90,11 @@ private:
 	更新组合功法说明
 	*****************************/
 	void updateDesc();
+
+
+	void jumpDown(cocos2d::Node *node, float dt);
+
+	bool isPhone();
 
 private:
 	Node* csbroot;
@@ -104,6 +116,7 @@ private:
 	cocos2d::ui::Text* desc0;
 	cocos2d::ui::Text* desc1;
 	cocos2d::ui::Text* desc;
+
 };
 #endif
 

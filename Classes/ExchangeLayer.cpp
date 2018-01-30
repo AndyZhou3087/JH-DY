@@ -30,6 +30,16 @@ ExchangeLayer::~ExchangeLayer()
 }
 
 
+void ExchangeLayer::shake(Node * node, float scaleLarge, float scaleSmall) {
+	if (NULL == node) {
+		return;
+	}
+
+	CCActionInterval * actionScaleLarge = CCScaleTo::create(0.1, scaleLarge, scaleLarge, 1);
+	CCActionInterval * actionScaleSmall = CCScaleTo::create(0.1, scaleSmall, scaleSmall, 1);
+	CCActionInterval * actionScaleNormal = CCScaleTo::create(0.1, 1, 1, 1);
+	node->runAction(CCSequence::create(actionScaleLarge, actionScaleSmall, actionScaleNormal, NULL));
+}
 ExchangeLayer* ExchangeLayer::create(std::string npcid)
 {
 	ExchangeLayer *pRet = new ExchangeLayer();
@@ -93,6 +103,20 @@ bool ExchangeLayer::init(std::string npcid)
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
 	return true;
+}
+
+void ExchangeLayer::shake(Node * node) {
+	if (NULL == node) {
+		return;
+	}
+
+	node->runAction(CCSequence::create(
+		MoveBy::create(0.02, Vec2(0, 15)),
+		MoveBy::create(0.02, Vec2(0, -27)),
+		MoveBy::create(0.02, Vec2(0, 22)),
+		MoveBy::create(0.02, Vec2(0, -14)),
+		MoveBy::create(0.02, Vec2(0, 4)),
+		NULL));
 }
 
 void ExchangeLayer::onEnterTransitionDidFinish()
@@ -245,6 +269,18 @@ void ExchangeLayer::delayShowExgData(float dt)
 
 }
 
+bool ExchangeLayer::isPhone() {
+	static const Size size = Director::getInstance()->getVisibleSize();
+	static const float rate = size.height / size.width;
+	if (rate >= 1.49) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+
 void ExchangeLayer::onNpcGoodsItem(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
 	isClickMyGoods = false;
@@ -275,6 +311,38 @@ void ExchangeLayer::onNpcGoodsItem(cocos2d::Ref *pSender, cocos2d::ui::Widget::T
 		m_isLongPress = false;
 		clickwhere = 0;
 	}
+}
+
+void ExchangeLayer::jump(cocos2d::Node *node, float dt, bool repeat, float intrval) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+
 }
 
 void ExchangeLayer::updateMyGoods(PackageData data, int type)
@@ -327,6 +395,45 @@ void ExchangeLayer::updateMyGoods(PackageData data, int type)
 	}
 
 }
+
+
+void ExchangeLayer::jellyJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.95, 1.05, 1),
+		ScaleTo::create(0.1, 1.05, 0.95, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+}
+
 
 void ExchangeLayer::updateNpcGoods(PackageData data, int type)
 {
@@ -404,6 +511,44 @@ void ExchangeLayer::onMyGoodsItem(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 		unschedule(schedule_selector(ExchangeLayer::longTouchUpdate));
 		m_isLongPress = false;
 		clickwhere = 0;
+	}
+}
+
+void ExchangeLayer::petJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag, ActionInterval *ac) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.05, 0.95, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.95, 1.05, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		ac,
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.1, 0.95, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
 	}
 }
 
@@ -502,6 +647,58 @@ void ExchangeLayer::giveNpc(std::string strid)
 				updateNpcGoods(pdata, 0);
 			}
 			data->count--;
+		}
+	}
+}
+
+
+void ExchangeLayer::jelly(Node *node, bool repeat, float intrval, bool delay, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		EaseSineIn::create(ScaleTo::create(0.08, 0.95, 1.05, 1)),
+		EaseSineOut::create(ScaleTo::create(0.2, 1.15, 0.95, 1)),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+		if (delay) {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				DelayTime::create(5*0.1),
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+		else {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+
+	}
+	else {
+		if (delay) {
+			node->runAction(Sequence::create(
+				DelayTime::create(3*0.1),
+				action,
+				NULL));
+		}
+		else {
+			node->runAction(action);
 		}
 	}
 }
@@ -676,6 +873,31 @@ void ExchangeLayer::onExg(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEvent
 			this->removeFromParentAndCleanup(true);
 		}
 	}
+}
+
+void ExchangeLayer::jumpDown(cocos2d::Node *node, float dt) {
+	if (nullptr == node) {
+		return;
+	}
+
+	const float originY = node->getPositionY();
+	node->setPositionY(originY + dt);
+
+	ActionInterval *action = Sequence::create(
+		MoveBy::create(0.2, Vec2(0, -dt - 10)),
+		MoveBy::create(0.2, Vec2(0, 20)),
+		MoveBy::create(0.1, Vec2(0, -18)),
+		MoveBy::create(0.1, Vec2(0, 13)),
+		MoveBy::create(0.1, Vec2(0, -5)),
+
+
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	node->runAction(action);
 }
 void ExchangeLayer::checkValue()
 {

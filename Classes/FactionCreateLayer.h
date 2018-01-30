@@ -15,7 +15,11 @@ public:
 	bool init(int action, FactionListData* modifyfdata);
 	virtual void onEnterTransitionDidFinish();
 	static FactionCreateLayer* create(int action, FactionListData* modifyfdata = NULL);
-
+	void initRandSeed();
+	time_t getNowTime();
+	long long getNowTimeMs();
+	bool isBeforeToday(time_t sec);
+	long long getTodayLeftSec();
 
 private:
 	void onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
@@ -25,8 +29,17 @@ private:
 
 	void onSelectSex(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 
+
+	bool getRandomBoolean(float rate);
+	bool getRandomBoolean();
+	int getRandomNum(int range);
+	int getRandomNum(int rangeStart, int rangeEnd);
+
 	void onSuccess();
 	void onErr(int errcode);
+
+	void shake(cocos2d::Node * node, float scaleLarge, float scaleSmall);
+	void shake(cocos2d::Node * node);
 
 	void textFieldEvent(cocos2d::Ref *pSender, cocos2d::ui::TextField::EventType type);
 
@@ -35,6 +48,9 @@ private:
 	void editBoxEditingDidEnd(cocos2d::ui::EditBox* editBox);
 
 	void editBoxTextChanged(cocos2d::ui::EditBox* editBox, const std::string &text);
+
+	void jump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0);
+	void jellyJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0);
 
 	void editBoxReturn(cocos2d::ui::EditBox *editBox);
 private:

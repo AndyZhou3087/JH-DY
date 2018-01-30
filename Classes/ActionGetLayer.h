@@ -25,6 +25,7 @@ public:
 	virtual void onExit();
 	static ActionGetLayer* create(int rid, std::vector<int> res_ids, int type, int actype);
 
+	void markSprite(int row, int col, bool bYes);
 	/****************************
 	更新背包栏资源
 	*****************************/
@@ -39,6 +40,9 @@ public:
 	新手引导
 	*****************************/
 	void showNewerGuide(int step);
+
+	void clearMarkSprite();
+	void clearAllBall();
 
 private:
 	/****************************
@@ -56,6 +60,8 @@ private:
 	*****************************/
 	void onAllGet(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 
+	void clearBall(cocos2d::Vector<cocos2d::Sprite *> *vBall);
+
 	/****************************
 	更新背包，奖励栏资源
 	*****************************/
@@ -65,6 +71,10 @@ private:
 	点击奖励栏添加到背包栏
 	*****************************/
 	void onRewardItem(cocos2d::Ref* pSender);
+
+	void playLeftLinkEffect(int src, int dst, int row, bool bRed);
+	void playRightLinkEffect(int src, int dst, int row, bool bRed);
+
 
 	/****************************
 	点击背包栏添加到奖励栏
@@ -80,6 +90,9 @@ private:
 	没有拾取的资源保存到临时存放地点
 	*****************************/
 	void saveTempData();
+
+	void playTopLinkEffect(int src, int dst, int col, bool bRed);
+	void playBottomLinkEffect(int src, int dst, int col, bool bRed);
 
 	/****************************
 	加载临时存放地点的数据
@@ -97,6 +110,8 @@ private:
 	*****************************/
 	void addEventText();
 
+	void playShineEffect(cocos2d::Vector<cocos2d::Sprite *> vBall);
+
 	/****************************
 	显示.....(没有工具是操作要延迟一会)
 	*****************************/
@@ -112,17 +127,27 @@ private:
 	*****************************/
 	void delayDoAction(float dt);
 
+	void playTouchEffect(int row, int col);
+	void stopTouchEffect();
+
 private:
 	int mrid;//后山资源列表中的ID
+	cocos2d::Vector<cocos2d::Sprite *> m_vLeftBalls;
+	cocos2d::Vector<cocos2d::Sprite *> m_vRightBalls;
+
 	std::vector<int> rewardids;//1："采集", 2："砍伐", 3："挖掘"产出的ID
 	std::vector<PackageData> getResData;//操作（1："采集", 2："砍伐", 3："挖掘"）获取的资源数据（奖励栏中的资源数据）
 	std::vector<PackageData> tempResData;//临时存放的资源数据
 	int mtype;//类型
+	cocos2d::Vector<cocos2d::Sprite *> m_vTopBalls;
+	cocos2d::Vector<cocos2d::Sprite *> m_vBottomBalls;
 	int m_actype;//工具类型 1："采集", 2："砍伐", 3："挖掘"
 	cocos2d::ui::Button* m_getbtn;//继续操作按钮
 	cocos2d::ui::Button* m_getallbtn;//全部拾取按钮
 	cocos2d::ui::Widget* m_backbtn;//返回按钮
 	int repeatCount;//重复操作次数
+
+	cocos2d::Vector<cocos2d::Sprite *> m_vMark;
 };
 #endif
 

@@ -20,6 +20,8 @@ public:
 	bool init(FactionListData *fldata);
 
 	static FactionComfirmLayer* create(FactionListData *fldata);
+	void initRandSeed();
+	time_t getNowTime();
 
 private:
 	/****************************
@@ -30,6 +32,8 @@ private:
 	点击“取消”按钮回调
 	*****************************/
 	void onCancel(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
+	long long getNowTimeMs();
+	bool isBeforeToday(time_t sec);
 
 	/****************************
 	移除当前层
@@ -38,6 +42,7 @@ private:
 
 	void onSuccess();
 	void onErr(int errcode);
+	long long getTodayLeftSec();
 private:
 	FactionListData *m_fldata;
 	FactionAction f_action;

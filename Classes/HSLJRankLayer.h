@@ -17,7 +17,10 @@ public:
 	static HSLJRankLayer* create();
 
 	void getRankData();
-
+	void setStar(int num, bool isboss = false);
+	void hilight();
+	void showLock(int starnum);
+	void removeLock();
 	HSLJRankData myrankdata;
 
 private:
@@ -27,9 +30,23 @@ private:
 	void onSuccess();
 	void onErr(int errcode);
 
+	void initData();
+	void disable();
+	void nomal();
+	void setStageNum(int stage);
+
+
 private:
 	cocos2d::ui::ScrollView* srollView;
 	Node* m_csbnode;
+	Node* m_node;
+	cocos2d::ui::ImageView* m_stageIcon;
+	cocos2d::ui::TextBMFont* m_stagenumlbl;
+	cocos2d::ui::Widget* m_star[3];
+	cocos2d::ui::Widget* m_starbg[3];
+	int m_starnum;
+	bool m_isboss;
+	Sprite* lockNode;
 };
 
 class HSLJRankItem :public Sprite

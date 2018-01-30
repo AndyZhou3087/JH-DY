@@ -23,7 +23,9 @@ public:
 	virtual void action(int minute, int exminute);
 
 	virtual bool init();
+	void jumpDown(cocos2d::Node *node, float dt);
 
+	bool isPhone();
 	CREATE_FUNC(ExerciseRoom);
 };
 #endif

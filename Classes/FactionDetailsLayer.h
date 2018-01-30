@@ -18,10 +18,16 @@ public:
 	bool init();
 
 	static FactionDetailsLayer* create();
+	static void petJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0, cocos2d::ActionInterval *ac = nullptr);
+	static void jelly(cocos2d::Node *node, bool repeat = false, float intrval = 0, bool delay = false, int tag = 0);
+
 
 private:
 
 	void onClose(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
+	static void jumpDown(cocos2d::Node *node, float dt);
+
+	static bool isPhone();
 
 private:
 };

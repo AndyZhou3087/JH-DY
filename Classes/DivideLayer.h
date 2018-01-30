@@ -18,7 +18,12 @@ public:
 	bool init(BuildActionData* bdata);
 	static DivideLayer* create(BuildActionData* bdata);
 	void showContent();
+	 long long getNowTimeMs();
+	bool isBeforeToday(time_t sec);
+	long long getTodayLeftSec();
 private:
+	void initRandSeed();
+	time_t getNowTime();
 
 	void removeSelf(float dt);
 private:

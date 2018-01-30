@@ -22,6 +22,9 @@ public:
 	移除掉
 	*****************************/
 	void removSelf();
+	long long getNowTimeMs();
+	bool isBeforeToday(time_t sec);
+	long long getTodayLeftSec();
 private:
 	/****************************
 	点击“确认”按钮回调
@@ -32,6 +35,10 @@ private:
 	点击“取消”按钮回调
 	*****************************/
 	void onCancel(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
+
+	void initRandSeed();
+	time_t getNowTime();
+
 };
 
 #endif

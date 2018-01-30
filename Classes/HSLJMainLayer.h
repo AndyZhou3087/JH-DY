@@ -20,11 +20,16 @@ public:
 	void updateMyFightCount();
 
 	static std::string getDwStr(int exp);
+	void jump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0);
+	void jellyJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0);
 
 private:
 	void onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 	void onAddCount(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 	void onMacth(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
+	void petJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0, cocos2d::ActionInterval *ac = nullptr);
+	void jelly(cocos2d::Node *node, bool repeat = false, float intrval = 0, bool delay = false, int tag = 0);
+
 
 	void onRewardDesc(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 	void onRank(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
@@ -33,12 +38,16 @@ private:
 	void onErr(int errcode);
 	void showMyInfo();
 	void showMatchInfo();
+	void jumpDown(cocos2d::Node *node, float dt);
 
+	bool isPhone();
 	void showVSAnim();
 	void delayEnterFight(float dt);
 
 	void showMyReWard();
 
+	void shake(cocos2d::Node * node, float scaleLarge, float scaleSmall);
+	void shake(cocos2d::Node * node);
 	void changeHeroImg(float dt);
 
 	void stopChangeHeroImg(float dt);
@@ -65,5 +74,10 @@ private:
 	cocos2d::ui::ImageView* m_playerheadimg;
 	int datatype;
 	int changenexthero;
+
+	bool getRandomBoolean(float rate);
+	bool getRandomBoolean();
+	int getRandomNum(int range);
+	int getRandomNum(int rangeStart, int rangeEnd);
 };
 #endif

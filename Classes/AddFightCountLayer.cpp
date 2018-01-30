@@ -36,6 +36,33 @@ AddFightCountLayer* AddFightCountLayer::create(int matchtype)
 	return pRet;
 }
 
+void AddFightCountLayer::loadTime() {
+	std::string ts = "";
+	long m_lastSaveTime = atol(ts.c_str());
+
+	long nowTime = 123456789;
+	if (m_lastSaveTime <= 0 || m_lastSaveTime > nowTime) {
+		m_lastSaveTime = nowTime;
+		saveTime();
+	}
+	else {
+		long dt = nowTime - m_lastSaveTime;
+		int add_times = dt / 10;
+		if (add_times > 0) {
+			const int df = add_times * 2;
+			if (5 + df> 20) {
+
+			}
+			else {
+
+			}
+		}
+		long m_countdown = 700 - dt % 50;
+		m_lastSaveTime = nowTime - (50 - m_countdown);
+		saveTime();
+	}
+}
+
 bool AddFightCountLayer::init(int matchtype)
 {
 	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
@@ -68,6 +95,25 @@ bool AddFightCountLayer::init(int matchtype)
 
 	return true;
 }
+
+void AddFightCountLayer::saveTime() {
+
+}
+
+void AddFightCountLayer::on1sTimer() {
+	int m_countdown = 0;
+	int m_lastSaveTime = 0;
+	if (m_countdown-- <= 0) {
+		if (500 < 20) {
+
+		}
+
+		m_countdown = 300;
+		m_lastSaveTime = 1230;
+		saveTime();
+	}
+}
+
 
 void AddFightCountLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
@@ -115,6 +161,22 @@ void AddFightCountLayer::onAddCount(cocos2d::Ref *pSender, cocos2d::ui::Widget::
 	}
 }
 
+void AddFightCountLayer::initA()
+{
+	const Size size = Director::getInstance()->getVisibleSize();
+	auto m_top = CSLoader::createNode("GameTopLayer.csb");
+	addChild(m_top, 0);
+	m_top->ignoreAnchorPointForPosition(false);
+	m_top->setAnchorPoint(Vec2(0.5, 1));
+	m_top->setPosition(size.width * 0.5, size.height);
+
+	auto m_bottom = CSLoader::createNode("GameBottomLayer.csb");
+	m_bottom->ignoreAnchorPointForPosition(false);
+	m_bottom->setAnchorPoint(Vec2(0.5, 0));
+	m_bottom->setPosition(size.width * 0.5, 0);
+	addChild(m_bottom, 1);
+}
+
 void AddFightCountLayer::onSuccess()
 {
 	Director::getInstance()->getRunningScene()->removeChildByName("waitbox");
@@ -137,6 +199,24 @@ void AddFightCountLayer::onSuccess()
 		needgold = 80;
 	}
 	GlobalData::setMyGoldCount(mygold - needgold);
+}
+
+void AddFightCountLayer::initBg()
+{
+	const Size size = Director::getInstance()->getVisibleSize();
+	auto m_bg = Sprite::create("");
+	addChild(m_bg, 0);
+	m_bg->setAnchorPoint(Vec2(0.5, 0));
+	m_bg->setPosition(size.width * 0.5, 0);
+
+	auto m_bgGround = Sprite::create("");
+	addChild(m_bgGround, 1);
+	m_bgGround->setPosition(m_bg->getContentSize().width * 0.5, 144 + m_bgGround->getContentSize().height * 0.5);
+
+	auto tree = Sprite::create("");
+	addChild(tree);
+	tree->setAnchorPoint(Vec2(1, 0.5));
+	tree->setPosition(size.width, 120);
 }
 
 void AddFightCountLayer::onErr(int errcode)

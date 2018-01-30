@@ -1,19 +1,19 @@
 ﻿/********************************************************************
 * 对战界面
 *********************************************************************/
-#ifndef _MATCHFIGHT_LAYER_H_
-#define _MATCHFIGHT_LAYER_H_
+#ifndef _HSLJFIGHT_LAYER_H_
+#define _HSLJFIGHT_LAYER_H_
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "UIScroll.h"
 #include "Hero.h"
 USING_NS_CC;
-class MatchFightLayer :public Layer
+class HSLJFightLayer :public Layer
 {
 public:
-	MatchFightLayer();
-	~MatchFightLayer();
+	HSLJFightLayer();
+	~HSLJFightLayer();
 
 	/****************************
 	初始化
@@ -21,13 +21,15 @@ public:
 	****************************/
 	bool init(std::string addrname);
 
-	static MatchFightLayer* create(std::string addrid);
+	static HSLJFightLayer* create(std::string addrid);
 
 	/****************************
 	角色攻击
 	定时器执行
 	****************************/
 	void delayMyFight(float dt);
+	void initRandSeed();
+	time_t getNowTime();
 
 private:
 
@@ -50,6 +52,9 @@ private:
 	****************************/
 	void checkWordLblColor(std::string wordstr);
 
+	long long getNowTimeMs();
+	bool isBeforeToday(time_t sec);
+	long long getTodayLeftSec();
 	/****************************
 	延迟显示胜利界面
 	定时器执行
@@ -70,6 +75,9 @@ private:
 	更新生命值
 	****************************/
 	void updateMyLife();
+	
+	static bool getRandomBoolean(float rate);
+	static bool getRandomBoolean();
 
 	/****************************
 	更新player生命值
@@ -99,7 +107,8 @@ private:
 	显示Player技能
 	****************************/
 	void showPlayerSkill(int skilltype);
-
+	int getRandomNum(int range);
+	int getRandomNum(int rangeStart, int rangeEnd);
 	/****************************
 	技能Player连击
 	****************************/
@@ -119,7 +128,8 @@ private:
 	显示Player位置文字动画
 	****************************/
 	void showPlayerTextAmin(std::string filename);
-
+	void shake(cocos2d::Node * node, float scaleLarge, float scaleSmall);
+	void shake(cocos2d::Node * node);
 	/****************************
 	重置技能
 	****************************/
@@ -130,7 +140,13 @@ private:
 	int getMyMaxLife(std::string localid);
 
 	int getMyHurt(std::string localid);
-
+	void setStar(int num, bool isboss = false);
+	void hilight();
+	void disable();
+	void nomal();
+	void setStageNum(int stage);
+	void showLock(int starnum);
+	void removeLock();
 	int getMyAtk(std::string localid);
 
 	int getMyDf(std::string localid);
@@ -138,7 +154,10 @@ private:
 	float getMyCrit(std::string localid);
 
 	float getMyDodge(std::string localid);
-
+	void jump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0);
+	void jellyJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0);
+	void petJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0, cocos2d::ActionInterval *ac = nullptr);
+	void jelly(cocos2d::Node *node, bool repeat = false, float intrval = 0, bool delay = false, int tag = 0);
 	int getPlayerMaxLife(int hindex);
 
 	int getPlayerDf(int hindex);
@@ -149,10 +168,14 @@ private:
 	int getPlayerCrit(int hindex);
 
 	void showResultLayer(int result);
-
+	void initData();
 	void updateMyInfo();
 
 	void updatePlayerInfo();
+
+	void jumpDown(cocos2d::Node *node, float dt);
+
+	bool isPhone();
 
 private:
 	UIScroll* m_fihgtScorll;//文字滚动控件
@@ -177,7 +200,14 @@ private:
 	cocos2d::ui::Widget* npcheadbox;
 	cocos2d::ui::Widget* fightherokuang;
 	cocos2d::ui::Widget* fightnpckuang;
-
+	Node* m_node;
+	cocos2d::ui::ImageView* m_stageIcon;
+	cocos2d::ui::TextBMFont* m_stagenumlbl;
+	cocos2d::ui::Widget* m_star[3];
+	cocos2d::ui::Widget* m_starbg[3];
+	int m_starnum;
+	bool m_isboss;
+	Sprite* lockNode;
 	int playermaxhp;// player 最大血量
 	int playeratk;//player 攻击值
 	int playerdf;//player 防御值

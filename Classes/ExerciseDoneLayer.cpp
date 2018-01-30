@@ -15,6 +15,39 @@ ExerciseDoneLayer::~ExerciseDoneLayer()
 {
 }
 
+
+void ExerciseDoneLayer::jump(cocos2d::Node *node, float dt, bool repeat, float intrval) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+
+}
+
 bool ExerciseDoneLayer::init(std::string wgidstr, std::string ngidstr, int hour)
 {
 	LayerColor* color = LayerColor::create(Color4B(0, 0, 0, 150));
@@ -55,6 +88,43 @@ bool ExerciseDoneLayer::init(std::string wgidstr, std::string ngidstr, int hour)
 	return true;
 }
 
+void ExerciseDoneLayer::jellyJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.95, 1.05, 1),
+		ScaleTo::create(0.1, 1.05, 0.95, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+}
+
 ExerciseDoneLayer* ExerciseDoneLayer::create(std::string wgidstr, std::string ngidstr, int hour)
 {
 	ExerciseDoneLayer *pRet = new ExerciseDoneLayer();
@@ -83,6 +153,44 @@ void ExerciseDoneLayer::showText(float dt)
 	m_ngtext->runAction(Sequence::create(Show::create(), FadeIn::create(1.0f), NULL));
 
 	this->scheduleOnce(schedule_selector(ExerciseDoneLayer::removeself), 3.5f);
+}
+
+void ExerciseDoneLayer::petJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag, ActionInterval *ac) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.05, 0.95, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.95, 1.05, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		ac,
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.1, 0.95, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
 }
 
 void ExerciseDoneLayer::removeself(float dt)
@@ -251,4 +359,55 @@ void ExerciseDoneLayer::exerciseDone(std::string wgidstr, std::string ngidstr, i
 
 	std::string str = StringUtils::format("%s经验值： +%d", heroname[g_hero->getHeadID()-1].c_str(), f_heroexp);
 	m_herotext->setString(CommonFuncs::gbk2utf(str.c_str()));
+}
+
+void ExerciseDoneLayer::jelly(Node *node, bool repeat, float intrval, bool delay, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		EaseSineIn::create(ScaleTo::create(0.08, 0.95, 1.05, 1)),
+		EaseSineOut::create(ScaleTo::create(0.2, 1.15, 0.95, 1)),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+		if (delay) {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				DelayTime::create(9*0.1),
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+		else {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+
+	}
+	else {
+		if (delay) {
+			node->runAction(Sequence::create(
+				DelayTime::create(7*0.1),
+				action,
+				NULL));
+		}
+		else {
+			node->runAction(action);
+		}
+	}
 }

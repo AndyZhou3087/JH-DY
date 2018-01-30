@@ -17,7 +17,16 @@ FactionMainLayer::~FactionMainLayer()
 {
 	GlobalData::g_gameStatus = GAMESTART;
 }
+void FactionMainLayer::shake(Node * node, float scaleLarge, float scaleSmall) {
+	if (NULL == node) {
+		return;
+	}
 
+	CCActionInterval * actionScaleLarge = CCScaleTo::create(0.1, scaleLarge, scaleLarge, 1);
+	CCActionInterval * actionScaleSmall = CCScaleTo::create(0.1, scaleSmall, scaleSmall, 1);
+	CCActionInterval * actionScaleNormal = CCScaleTo::create(0.1, 1, 1, 1);
+	node->runAction(CCSequence::create(actionScaleLarge, actionScaleSmall, actionScaleNormal, NULL));
+}
 
 FactionMainLayer* FactionMainLayer::create()
 {
@@ -32,6 +41,20 @@ FactionMainLayer* FactionMainLayer::create()
 		pRet = NULL;
 	}
 	return pRet;
+}
+
+void FactionMainLayer::shake(Node * node) {
+	if (NULL == node) {
+		return;
+	}
+
+	node->runAction(CCSequence::create(
+		MoveBy::create(0.02, Vec2(0, 15)),
+		MoveBy::create(0.02, Vec2(0, -27)),
+		MoveBy::create(0.02, Vec2(0, 22)),
+		MoveBy::create(0.02, Vec2(0, -14)),
+		MoveBy::create(0.02, Vec2(0, 4)),
+		NULL));
 }
 
 bool FactionMainLayer::init()
@@ -73,9 +96,79 @@ bool FactionMainLayer::init()
 	return true;
 }
 
+void FactionMainLayer::jump(cocos2d::Node *node, float dt, bool repeat, float intrval) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+
+}
+
+
 void FactionMainLayer::onEnterTransitionDidFinish()
 {
 	Layer::onEnterTransitionDidFinish();
+}
+
+void FactionMainLayer::jellyJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.95, 1.05, 1),
+		ScaleTo::create(0.1, 1.05, 0.95, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
 }
 
 void FactionMainLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
@@ -84,6 +177,44 @@ void FactionMainLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchE
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
 		this->removeFromParentAndCleanup(true);
+	}
+}
+
+void FactionMainLayer::petJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag, ActionInterval *ac) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.05, 0.95, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.95, 1.05, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		ac,
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.1, 0.95, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
 	}
 }
 
@@ -105,6 +236,58 @@ void FactionMainLayer::onEnterFaction(cocos2d::Ref *pSender, cocos2d::ui::Widget
 		{
 			FactionMemberLayer * fmayer = FactionMemberLayer::create(fldata);
 			g_gameLayer->addChild(fmayer, 5, "factionmemberlayer");
+		}
+	}
+}
+
+
+void FactionMainLayer::jelly(Node *node, bool repeat, float intrval, bool delay, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		EaseSineIn::create(ScaleTo::create(0.08, 0.95, 1.05, 1)),
+		EaseSineOut::create(ScaleTo::create(0.2, 1.15, 0.95, 1)),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+		if (delay) {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				DelayTime::create(30*0.1),
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+		else {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+
+	}
+	else {
+		if (delay) {
+			node->runAction(Sequence::create(
+				DelayTime::create(20*0.1),
+				action,
+				NULL));
+		}
+		else {
+			node->runAction(action);
 		}
 	}
 }
@@ -231,6 +414,30 @@ FactionListItem::~FactionListItem()
 
 }
 
+void FactionListItem::jumpDown(cocos2d::Node *node, float dt) {
+	if (nullptr == node) {
+		return;
+	}
+
+	const float originY = node->getPositionY();
+	node->setPositionY(originY + dt);
+
+	ActionInterval *action = Sequence::create(
+		MoveBy::create(0.2, Vec2(0, -dt - 10)),
+		MoveBy::create(0.2, Vec2(0, 20)),
+		MoveBy::create(0.1, Vec2(0, -18)),
+		MoveBy::create(0.1, Vec2(0, 13)),
+		MoveBy::create(0.1, Vec2(0, -5)),
+
+
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	node->runAction(action);
+}
 bool FactionListItem::init(FactionListData *data)
 {
 	if (!Sprite::initWithSpriteFrameName("ui/blank.png"))
@@ -304,6 +511,17 @@ bool FactionListItem::init(FactionListData *data)
 
 	return true;
 }
+
+bool FactionListItem::isPhone() {
+	static const Size size = Director::getInstance()->getVisibleSize();
+	static const float rate = size.height / size.width;
+	if (rate >= 1.49) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 void FactionListItem::updateLvAndPeopleCount()
 {
 	std::string str = StringUtils::format("%d/%d", m_data->membercount, m_data->maxcount);
@@ -340,6 +558,18 @@ FactionListItem* FactionListItem::create(FactionListData *data)
 		pRet = NULL;
 	}
 	return pRet;
+}
+
+bool FactionListItem::getRandomBoolean(float rate) {
+
+	int rate10 = (int)(rate*10.0);
+	int randNum = rand();
+	if (randNum % 10 <= rate10) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 void FactionListItem::onAction(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
@@ -392,6 +622,17 @@ void FactionListItem::onAction(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touch
 	}
 }
 
+bool FactionListItem::getRandomBoolean() {
+
+	if (0 == rand() % 2) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+
 void FactionListItem::checkRequset()
 {
 	if (g_hero->getLVValue() < m_data->lvlimit - 1)
@@ -431,6 +672,16 @@ void FactionListItem::checkRequset()
 	ServerDataSwap::init(this)->requestFaction(m_data->id);
 }
 
+int FactionListItem::getRandomNum(int range) {
+
+	if (range <= 0) {
+		return 0;
+	}
+
+	return rand() % range;
+}
+
+
 void FactionListItem::onSuccess()
 {
 	Director::getInstance()->getRunningScene()->removeChildByName("waitbox");
@@ -455,6 +706,21 @@ void FactionListItem::onSuccess()
 	}
 }
 
+
+int FactionListItem::getRandomNum(int rangeStart, int rangeEnd) {
+
+	if (rangeEnd < rangeStart) {
+		CCASSERT(false, "get random fail");
+		return 0;
+	}
+
+	if (rangeStart == rangeEnd) {
+		return rangeStart;
+	}
+
+	int delta = rand() % (rangeEnd - rangeStart);
+	return rangeStart + delta;
+}
 void FactionListItem::onErr(int errcode)
 {
 	Director::getInstance()->getRunningScene()->removeChildByName("waitbox");

@@ -13,7 +13,7 @@ class Bed :public Building
 public:
 	Bed();
 	~Bed();
-
+	void initA();
 public:
 	/****************************
 	睡觉操作
@@ -23,7 +23,7 @@ public:
 	virtual void action(int minute, int exminute);
 
 	virtual bool init();
-
+	void initBg();
 	CREATE_FUNC(Bed);
 };
 #endif

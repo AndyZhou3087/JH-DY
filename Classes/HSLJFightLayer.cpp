@@ -1,4 +1,4 @@
-﻿#include "MatchFightLayer.h"
+﻿#include "HSLJFightLayer.h"
 #include "GlobalData.h"
 #include "CommonFuncs.h"
 #include "Const.h"
@@ -10,11 +10,11 @@
 #include "MapLayer.h"
 #include "Shake.h"
 #include "MyActionProgressTimer.h"
-#include "MatchFightResultLayer.h"
+#include "HSLJFightResultLayer.h"
 #include "GameDataSave.h"
 #include"GameScene.h"
 
-MatchFightLayer::MatchFightLayer()
+HSLJFightLayer::HSLJFightLayer()
 {
 	isUseWg = false;
 	win = 0;
@@ -23,15 +23,22 @@ MatchFightLayer::MatchFightLayer()
 	GlobalData::isPlayerChallenging = true;
 }
 
-
-MatchFightLayer::~MatchFightLayer()
+void HSLJFightLayer::initRandSeed() {
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	//都转化为毫秒
+	unsigned long reed = nowTimeval.tv_sec * 1000000 + nowTimeval.tv_usec;
+	//srand()中传入一个随机数种子
+	srand(reed);
+}
+HSLJFightLayer::~HSLJFightLayer()
 {
 	SoundManager::getInstance()->playBackMusic(SoundManager::MUSIC_ID_ENTER_MAPADDR);
 }
 
-MatchFightLayer* MatchFightLayer::create(std::string addrid)
+HSLJFightLayer* HSLJFightLayer::create(std::string addrid)
 {
-	MatchFightLayer *pRet = new MatchFightLayer();
+	HSLJFightLayer *pRet = new HSLJFightLayer();
 	if (pRet && pRet->init(addrid))
 	{
 		pRet->autorelease();
@@ -44,7 +51,22 @@ MatchFightLayer* MatchFightLayer::create(std::string addrid)
 	return pRet;
 }
 
-bool MatchFightLayer::init(std::string addrid)
+time_t HSLJFightLayer::getNowTime()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	return nowTimeval.tv_sec;
+#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	struct tm* tm;
+	time_t timep;
+	time(&timep);
+	return timep;
+#endif
+}
+
+bool HSLJFightLayer::init(std::string addrid)
 {
 	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
 	this->addChild(color);
@@ -131,7 +153,22 @@ bool MatchFightLayer::init(std::string addrid)
 	return true;
 }
 
-void MatchFightLayer::updateMyInfo()
+long long HSLJFightLayer::getNowTimeMs() {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	return ((long long)(nowTimeval.tv_sec)) * 1000 + nowTimeval.tv_usec / 1000;
+#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	struct timeval tv;
+	memset(&tv, 0, sizeof(tv));
+	gettimeofday(&tv, NULL);
+
+	return (double)tv.tv_sec * 1000 + tv.tv_usec / 1000;
+#endif
+}
+
+void HSLJFightLayer::updateMyInfo()
 {
 	std::string heroiconstr = StringUtils::format("ui/fhero%d.png", nextmyhero);
 	myheroicon->loadTexture(heroiconstr, cocos2d::ui::TextureResType::PLIST);
@@ -155,10 +192,10 @@ void MatchFightLayer::updateMyInfo()
 
 	resetSkills();
 
-	this->scheduleOnce(schedule_selector(MatchFightLayer::delayMyFight), 1.5f);//1.0s，hero->player
+	this->scheduleOnce(schedule_selector(HSLJFightLayer::delayMyFight), 1.5f);//1.0s，hero->player
 }
 
-void MatchFightLayer::updatePlayerInfo()
+void HSLJFightLayer::updatePlayerInfo()
 {
 	std::string playerheadstr = StringUtils::format("ui/fhero%d.png", GlobalData::vec_matchPlayerData[nextplayerhero - 1].type);
 	playerhead->loadTexture(playerheadstr, cocos2d::ui::TextureResType::PLIST);
@@ -181,10 +218,50 @@ void MatchFightLayer::updatePlayerInfo()
 
 	//playerhpbar2->setPercent(playerhppercent);
 	resetSkills();
-	this->scheduleOnce(schedule_selector(MatchFightLayer::delayPlayerFight), 1.5f);
+	this->scheduleOnce(schedule_selector(HSLJFightLayer::delayPlayerFight), 1.5f);
 }
 
-std::string MatchFightLayer::loadMyData(int herotype)
+
+bool HSLJFightLayer::isBeforeToday(time_t sec) {
+	struct tm *tm;
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)  
+	//win32平台
+	time_t timep;
+	time(&timep);
+	tm = localtime(&timep);
+#else  
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	tm = localtime(&nowTimeval.tv_sec);
+#endif  
+
+	struct tm * otherDay = gmtime(&sec);
+
+	if (otherDay->tm_year < tm->tm_year) {
+		return true;
+	}
+	else if (otherDay->tm_year > tm->tm_hour) {
+		return false;
+	}
+
+	if (otherDay->tm_mon < tm->tm_mon) {
+		return true;
+	}
+	else if (otherDay->tm_mon > tm->tm_mon) {
+		return false;
+	}
+
+	if (otherDay->tm_mday < tm->tm_mday) {
+		return true;
+	}
+	else if (otherDay->tm_mday > tm->tm_mday) {
+		return false;
+	}
+
+	return false;
+}
+
+std::string HSLJFightLayer::loadMyData(int herotype)
 {
 	std::vector<std::string> vec_ids = GlobalData::getSaveListId();
 
@@ -252,7 +329,13 @@ std::string MatchFightLayer::loadMyData(int herotype)
 	return localid;
 }
 
-int MatchFightLayer::getMyMaxLife(std::string localid)
+
+long long HSLJFightLayer::getTodayLeftSec() {
+	long long nowSec = getNowTime();
+	return (86400 - nowSec % 86400);
+}
+
+int HSLJFightLayer::getMyMaxLife(std::string localid)
 {
 	float friendhppercent = 0.0f;
 	std::map<std::string, FriendlyData>::iterator it;
@@ -295,7 +378,18 @@ int MatchFightLayer::getMyMaxLife(std::string localid)
 	return flife;
 }
 
-int MatchFightLayer::getMyAtk(std::string localid)
+bool HSLJFightLayer::getRandomBoolean(float rate) {
+
+	int rate10 = (int)(rate*10.0);
+	int randNum = rand();
+	if (randNum % 10 <= rate10) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+int HSLJFightLayer::getMyAtk(std::string localid)
 {
 	int weaponAtk = 0;
 	int wgAtk = 0;
@@ -412,9 +506,17 @@ int MatchFightLayer::getMyAtk(std::string localid)
 	int tatk = int(fack + 0.5f);
 	return tatk;
 }
+bool HSLJFightLayer::getRandomBoolean() {
 
+	if (0 == rand() % 2) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
-int MatchFightLayer::getMyDf(std::string localid)
+int HSLJFightLayer::getMyDf(std::string localid)
 {
 	int adf = 0;
 	int ngdf = 0;
@@ -524,9 +626,16 @@ int MatchFightLayer::getMyDf(std::string localid)
 	adf = int(fdf + 0.5f);
 	return adf;
 }
+int HSLJFightLayer::getRandomNum(int range) {
 
+	if (range <= 0) {
+		return 0;
+	}
 
-float MatchFightLayer::getMyCrit(std::string localid)
+	return rand() % range;
+}
+
+float HSLJFightLayer::getMyCrit(std::string localid)
 {
 	int hlv = GameDataSave::getInstance()->getHeroLV(localid);
 	int critrnd = GlobalData::map_heroAtr[nextmyhero].vec_crit[hlv];
@@ -585,8 +694,21 @@ float MatchFightLayer::getMyCrit(std::string localid)
 		critrnd += 2;
 	return critrnd;
 }
+int HSLJFightLayer::getRandomNum(int rangeStart, int rangeEnd) {
 
-float MatchFightLayer::getMyDodge(std::string localid)
+	if (rangeEnd < rangeStart) {
+		CCASSERT(false, "get random fail");
+		return 0;
+	}
+
+	if (rangeStart == rangeEnd) {
+		return rangeStart;
+	}
+
+	int delta = rand() % (rangeEnd - rangeStart);
+	return rangeStart + delta;
+}
+float HSLJFightLayer::getMyDodge(std::string localid)
 {
 	int hlv = GameDataSave::getInstance()->getHeroLV(localid);
 	int dodgernd = GlobalData::map_heroAtr[nextmyhero].vec_dodge[hlv];
@@ -646,7 +768,19 @@ float MatchFightLayer::getMyDodge(std::string localid)
 	return dodgernd;
 }
 
-int MatchFightLayer::getPlayerHurt()
+
+void HSLJFightLayer::shake(Node * node, float scaleLarge, float scaleSmall) {
+	if (NULL == node) {
+		return;
+	}
+
+	CCActionInterval * actionScaleLarge = CCScaleTo::create(0.1, scaleLarge, scaleLarge, 1);
+	CCActionInterval * actionScaleSmall = CCScaleTo::create(0.1, scaleSmall, scaleSmall, 1);
+	CCActionInterval * actionScaleNormal = CCScaleTo::create(0.1, 1, 1, 1);
+	node->runAction(CCSequence::create(actionScaleLarge, actionScaleSmall, actionScaleNormal, NULL));
+}
+
+int HSLJFightLayer::getPlayerHurt()
 {
 	int heroCurAck = getMyAtk(curmyherolocalid);
 
@@ -659,7 +793,21 @@ int MatchFightLayer::getPlayerHurt()
 	return playerhurt;
 }
 
-void MatchFightLayer::mySkillComboAtk(float dt)
+
+void HSLJFightLayer::shake(Node * node) {
+	if (NULL == node) {
+		return;
+	}
+
+	node->runAction(CCSequence::create(
+		MoveBy::create(0.02, Vec2(0, 15)),
+		MoveBy::create(0.02, Vec2(0, -27)),
+		MoveBy::create(0.02, Vec2(0, 22)),
+		MoveBy::create(0.02, Vec2(0, -14)),
+		MoveBy::create(0.02, Vec2(0, 4)),
+		NULL));
+}
+void HSLJFightLayer::mySkillComboAtk(float dt)
 {
 	int count = GlobalData::map_gfskills[S_SKILL_3].leftval;
 	int c = getPlayerHurt();
@@ -669,12 +817,24 @@ void MatchFightLayer::mySkillComboAtk(float dt)
 	if (playerlife <= 0)
 	{
 		playerlife = 0;
-		this->unschedule(schedule_selector(MatchFightLayer::mySkillComboAtk));
+		this->unschedule(schedule_selector(HSLJFightLayer::mySkillComboAtk));
 	}
 	updatePlayerLife();
 }
 
-void MatchFightLayer::playerSkillComboAtk(float dt)
+bool HSLJFightLayer::isPhone() {
+	static const Size size = Director::getInstance()->getVisibleSize();
+	static const float rate = size.height / size.width;
+	if (rate >= 1.49) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+
+void HSLJFightLayer::playerSkillComboAtk(float dt)
 {
 	int count = GlobalData::map_gfskills[S_SKILL_3].fightPlayerleftval;
 	int c = getMyHurt(curmyherolocalid);
@@ -684,12 +844,12 @@ void MatchFightLayer::playerSkillComboAtk(float dt)
 	if (mylife <= 0)
 	{
 		mylife = 0;
-		this->unschedule(schedule_selector(MatchFightLayer::playerSkillComboAtk));
+		this->unschedule(schedule_selector(HSLJFightLayer::playerSkillComboAtk));
 	}
 	updateMyLife();
 }
 
-void MatchFightLayer::delayMyFight(float dt)
+void HSLJFightLayer::delayMyFight(float dt)
 {
 	int playerhurt = getPlayerHurt();
 
@@ -729,7 +889,7 @@ void MatchFightLayer::delayMyFight(float dt)
 		else if (skilltype == S_SKILL_2)
 		{
 			showPlayerSkill(skilltype);
-			this->scheduleOnce(schedule_selector(MatchFightLayer::delayPlayerFight), 1.5f);
+			this->scheduleOnce(schedule_selector(HSLJFightLayer::delayPlayerFight), 1.5f);
 			return;
 		}
 		skilltype = checkPlayerSkill(H_NG);
@@ -876,14 +1036,47 @@ void MatchFightLayer::delayMyFight(float dt)
 			if (count > 0)
 			{
 				showMySkill(S_SKILL_3);
-				this->schedule(schedule_selector(MatchFightLayer::mySkillComboAtk), 0.3f, count - 1, 0.2f);
+				this->schedule(schedule_selector(HSLJFightLayer::mySkillComboAtk), 0.3f, count - 1, 0.2f);
 			}
 		}
-		this->scheduleOnce(schedule_selector(MatchFightLayer::delayPlayerFight), 1.5f);//延迟显示NPC 攻击，主要文字显示，需要看一下，所以延迟下
+		this->scheduleOnce(schedule_selector(HSLJFightLayer::delayPlayerFight), 1.5f);//延迟显示NPC 攻击，主要文字显示，需要看一下，所以延迟下
 	}
 }
 
-void MatchFightLayer::delayPlayerFight(float dt)
+void HSLJFightLayer::jump(cocos2d::Node *node, float dt, bool repeat, float intrval) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+
+}
+
+
+void HSLJFightLayer::delayPlayerFight(float dt)
 {
 
 	float curmyHp = mylife;
@@ -937,7 +1130,7 @@ void MatchFightLayer::delayPlayerFight(float dt)
 		else if (skilltype == S_SKILL_2)
 		{
 			showMySkill(skilltype);
-			this->scheduleOnce(schedule_selector(MatchFightLayer::delayMyFight), 1.5f);
+			this->scheduleOnce(schedule_selector(HSLJFightLayer::delayMyFight), 1.5f);
 			return;
 		}
 
@@ -1053,7 +1246,7 @@ void MatchFightLayer::delayPlayerFight(float dt)
 
 	if (mylife > 0.0f)
 	{
-		this->scheduleOnce(schedule_selector(MatchFightLayer::delayMyFight), 1.5f);
+		this->scheduleOnce(schedule_selector(HSLJFightLayer::delayMyFight), 1.5f);
 
 		if (checkPlayerSkill(H_WG) == S_SKILL_3)
 		{
@@ -1061,7 +1254,7 @@ void MatchFightLayer::delayPlayerFight(float dt)
 			if (count > 0)
 			{
 				showPlayerSkill(S_SKILL_3);
-				this->schedule(schedule_selector(MatchFightLayer::playerSkillComboAtk), 0.3f, count - 1, 0.2f);
+				this->schedule(schedule_selector(HSLJFightLayer::playerSkillComboAtk), 0.3f, count - 1, 0.2f);
 			}
 		}
 	}
@@ -1072,7 +1265,45 @@ void MatchFightLayer::delayPlayerFight(float dt)
 	
 }
 
-int MatchFightLayer::getMyHurt(std::string localid)
+
+void HSLJFightLayer::jellyJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.95, 1.05, 1),
+		ScaleTo::create(0.1, 1.05, 0.95, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+}
+
+int HSLJFightLayer::getMyHurt(std::string localid)
 {
 	int curheroDf =getMyDf(localid);
 	int herohurt = playeratk - curheroDf;
@@ -1085,7 +1316,7 @@ int MatchFightLayer::getMyHurt(std::string localid)
 	return herohurt;
 }
 
-void MatchFightLayer::resetSkills()
+void HSLJFightLayer::resetSkills()
 {
 	for (int i = S_SKILL_1; i <= S_SKILL_8; i++)
 	{
@@ -1094,14 +1325,14 @@ void MatchFightLayer::resetSkills()
 	}
 }
 
-void MatchFightLayer::delayShowResultLayer(float dt)
+void HSLJFightLayer::delayShowResultLayer(float dt)
 {
-	MatchFightResultLayer* layer = MatchFightResultLayer::create(nextmyhero, win);
+	HSLJFightResultLayer* layer = HSLJFightResultLayer::create(nextmyhero, win);
 	g_gameLayer->addChild(layer, 5);
 	this->removeFromParentAndCleanup(true);
 }
 
-void MatchFightLayer::showFightWord(int type, int value)
+void HSLJFightLayer::showFightWord(int type, int value)
 {
 	std::string wordstr;
 	int size = 0;
@@ -1411,7 +1642,45 @@ void MatchFightLayer::showFightWord(int type, int value)
 	}
 }
 
-void MatchFightLayer::checkWordLblColor(std::string wordstr)
+void HSLJFightLayer::petJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag, ActionInterval *ac) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.05, 0.95, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.95, 1.05, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		ac,
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.1, 0.95, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+}
+
+void HSLJFightLayer::checkWordLblColor(std::string wordstr)
 {
 	Label* wordlbl = Label::createWithTTF(wordstr, "fonts/STXINGKA.TTF", 28);
 	wordlbl->setLineBreakWithoutSpace(true);
@@ -1546,7 +1815,58 @@ void MatchFightLayer::checkWordLblColor(std::string wordstr)
 	m_fihgtScorll->addEventLabel(wordlbl);
 }
 
-std::string MatchFightLayer::getMyGfFightStr(std::string wgstr)
+void HSLJFightLayer::jelly(Node *node, bool repeat, float intrval, bool delay, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		EaseSineIn::create(ScaleTo::create(0.08, 0.95, 1.05, 1)),
+		EaseSineOut::create(ScaleTo::create(0.2, 1.15, 0.95, 1)),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+		if (delay) {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				DelayTime::create(getRandomNum(1, 10)*0.1),
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+		else {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+
+	}
+	else {
+		if (delay) {
+			node->runAction(Sequence::create(
+				DelayTime::create(getRandomNum(1, 10)*0.1),
+				action,
+				NULL));
+		}
+		else {
+			node->runAction(action);
+		}
+	}
+}
+
+std::string HSLJFightLayer::getMyGfFightStr(std::string wgstr)
 {
 	std::string retstr;
 
@@ -1566,7 +1886,7 @@ std::string MatchFightLayer::getMyGfFightStr(std::string wgstr)
 	return retstr;
 }
 
-std::string MatchFightLayer::getPlayerGfFightStr(std::string wgstr)
+std::string HSLJFightLayer::getPlayerGfFightStr(std::string wgstr)
 {
 	std::string retstr;
 
@@ -1586,7 +1906,7 @@ std::string MatchFightLayer::getPlayerGfFightStr(std::string wgstr)
 	return retstr;
 }
 
-void MatchFightLayer::updateMyLife()
+void HSLJFightLayer::updateMyLife()
 {
 	int mymaxlife = getMyMaxLife(curmyherolocalid);
 	std::string hpstr = StringUtils::format("%d/%d", mylife, mymaxlife);
@@ -1598,7 +1918,7 @@ void MatchFightLayer::updateMyLife()
 	myhpbar2->runAction(fromto);*/
 }
 
-void MatchFightLayer::updatePlayerLife()
+void HSLJFightLayer::updatePlayerLife()
 {
 	//NPC血量显示
 	std::string hpstr = StringUtils::format("%d/%d", playerlife, playermaxhp);
@@ -1612,7 +1932,32 @@ void MatchFightLayer::updatePlayerLife()
 }
 
 
-int MatchFightLayer::checkMySkill(HeroAtrType gftype)
+void HSLJFightLayer::jumpDown(cocos2d::Node *node, float dt) {
+	if (nullptr == node) {
+		return;
+	}
+
+	const float originY = node->getPositionY();
+	node->setPositionY(originY + dt);
+
+	ActionInterval *action = Sequence::create(
+		MoveBy::create(0.2, Vec2(0, -dt - 10)),
+		MoveBy::create(0.2, Vec2(0, 20)),
+		MoveBy::create(0.1, Vec2(0, -18)),
+		MoveBy::create(0.1, Vec2(0, 13)),
+		MoveBy::create(0.1, Vec2(0, -5)),
+
+
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	node->runAction(action);
+}
+
+int HSLJFightLayer::checkMySkill(HeroAtrType gftype)
 {
 	int ret = S_SNONE;
 
@@ -1662,7 +2007,7 @@ int MatchFightLayer::checkMySkill(HeroAtrType gftype)
 
 }
 
-int MatchFightLayer::checkPlayerSkill(HeroAtrType gftype)
+int HSLJFightLayer::checkPlayerSkill(HeroAtrType gftype)
 {
 	int ret = S_SNONE;
 	std::string gfstr = "";
@@ -1711,7 +2056,7 @@ int MatchFightLayer::checkPlayerSkill(HeroAtrType gftype)
 	return ret;
 }
 
-void MatchFightLayer::showMySkill(int skilltype)
+void HSLJFightLayer::showMySkill(int skilltype)
 {
 	if (skilltype >= S_SKILL_1 && skilltype <= S_SKILL_5)
 	{
@@ -1725,7 +2070,22 @@ void MatchFightLayer::showMySkill(int skilltype)
 	}
 }
 
-void MatchFightLayer::showPlayerSkill(int skilltype)
+void HSLJFightLayer::initData()
+{
+	m_starnum = 0;
+	m_stageIcon = (cocos2d::ui::ImageView*)m_node->getChildByName("image");
+	std::string str;
+	for (int i = 0; i < 3; i++)
+	{
+		str = StringUtils::format("star%d", i);
+		m_star[i] = (cocos2d::ui::Widget*)m_node->getChildByName(str);
+		str = StringUtils::format("star%dbg", i);
+		m_starbg[i] = (cocos2d::ui::Widget*)m_node->getChildByName(str);
+	}
+	m_stagenumlbl = (cocos2d::ui::TextBMFont*)m_node->getChildByName("stagenum");
+}
+
+void HSLJFightLayer::showPlayerSkill(int skilltype)
 {
 	if (skilltype >= S_SKILL_1 && skilltype <= S_SKILL_5)
 	{
@@ -1739,7 +2099,44 @@ void MatchFightLayer::showPlayerSkill(int skilltype)
 	}
 }
 
-void MatchFightLayer::showMyTextAmin(std::string filename)
+void HSLJFightLayer::setStar(int num, bool isboss)
+{
+	m_starnum = num;
+	m_isboss = isboss;
+	std::string stagestr;
+	if (num > 0)
+	{
+		stagestr = "stage1.png";
+		for (int i = 0; i < 3; i++)
+		{
+			m_starbg[i]->setVisible(true);
+		}
+		for (int i = 0; i < num; i++)
+		{
+			m_star[i]->setVisible(true);
+		}
+	}
+	else
+	{
+		stagestr = "stage0.png";
+		for (int i = 0; i < 3; i++)
+		{
+			m_star[i]->setVisible(false);
+			m_starbg[i]->setVisible(false);
+		}
+	}
+	m_stageIcon->loadTexture(stagestr, cocos2d::ui::TextureResType::PLIST);
+	m_stageIcon->setContentSize(Sprite::createWithSpriteFrameName(stagestr)->getContentSize());
+	if (isboss)
+	{
+		int index = num > 0 ? 1 : 0;
+		std::string bossstr = StringUtils::format("sboss%d.png", index);
+		m_stageIcon->loadTexture(bossstr, cocos2d::ui::TextureResType::PLIST);
+		m_stageIcon->setContentSize(Sprite::createWithSpriteFrameName(bossstr)->getContentSize());
+	}
+}
+
+void HSLJFightLayer::showMyTextAmin(std::string filename)
 {
 	myactimg->loadTexture(filename, cocos2d::ui::TextureResType::PLIST);
 	myactimg->setContentSize(Sprite::createWithSpriteFrameName(filename)->getContentSize());
@@ -1753,7 +2150,7 @@ void MatchFightLayer::showMyTextAmin(std::string filename)
 }
 
 
-void MatchFightLayer::showPlayerTextAmin(std::string filename)
+void HSLJFightLayer::showPlayerTextAmin(std::string filename)
 {
 	playeractimg->loadTexture(filename, cocos2d::ui::TextureResType::PLIST);
 	playeractimg->setContentSize(Sprite::createWithSpriteFrameName(filename)->getContentSize());
@@ -1765,7 +2162,14 @@ void MatchFightLayer::showPlayerTextAmin(std::string filename)
 	playercritfnt->setVisible(false);
 }
 
-int MatchFightLayer::getPlayerMaxLife(int hindex)
+void HSLJFightLayer::setStageNum(int stage)
+{
+	std::string numstr = StringUtils::format("%d", stage);
+	m_stagenumlbl->setString(numstr);
+	if (m_isboss)
+		m_stagenumlbl->setVisible(false);
+}
+int HSLJFightLayer::getPlayerMaxLife(int hindex)
 {
 	int heroindex = hindex;
 	float friendhppercent = 0.0f;
@@ -1810,7 +2214,24 @@ int MatchFightLayer::getPlayerMaxLife(int hindex)
 	return flife;
 }
 
-int MatchFightLayer::getPlayerDf(int hindex)
+void HSLJFightLayer::hilight()
+{
+	m_stageIcon->stopAllActions();
+	m_node->setScale(1);
+	std::string stagestr;
+	if (m_isboss)
+	{
+		stagestr = "sboss1.png";
+	}
+	else
+	{
+		stagestr = "stage2.png";
+	}
+	m_stageIcon->loadTexture(stagestr, cocos2d::ui::TextureResType::PLIST);
+	m_stageIcon->setContentSize(Sprite::createWithSpriteFrameName(stagestr)->getContentSize());
+}
+
+int HSLJFightLayer::getPlayerDf(int hindex)
 {
 	int adf = 0;
 	int ngdf = 0;
@@ -1915,7 +2336,16 @@ int MatchFightLayer::getPlayerDf(int hindex)
 	return adf;
 }
 
-int MatchFightLayer::getPlayerAtk(int hindex)
+void HSLJFightLayer::disable()
+{
+	m_stageIcon->stopAllActions();
+	m_node->setScale(1);
+	std::string stagestr = "stage0.png";
+	m_stageIcon->loadTexture(stagestr, cocos2d::ui::TextureResType::PLIST);
+	m_stageIcon->setContentSize(Sprite::createWithSpriteFrameName(stagestr)->getContentSize());
+}
+
+int HSLJFightLayer::getPlayerAtk(int hindex)
 {
 	int weaponAtk = 0;
 	int wgAtk = 0;
@@ -2033,7 +2463,24 @@ int MatchFightLayer::getPlayerAtk(int hindex)
 	return tatk;
 }
 
-int MatchFightLayer::getPlayerDodde(int hindex)
+void HSLJFightLayer::nomal()
+{
+	m_stageIcon->stopAllActions();
+	m_node->setScale(1);
+	std::string stagestr;
+	if (m_isboss)
+	{
+		stagestr = "sboss1.png";
+	}
+	else
+	{
+		stagestr = "stage1.png";
+	}
+	m_stageIcon->loadTexture(stagestr, cocos2d::ui::TextureResType::PLIST);
+	m_stageIcon->setContentSize(Sprite::createWithSpriteFrameName(stagestr)->getContentSize());
+}
+
+int HSLJFightLayer::getPlayerDodde(int hindex)
 {
 	int heroindex = hindex;
 	int dodgernd = GlobalData::map_heroAtr[nextplayerhero].vec_dodge[GlobalData::vec_matchPlayerData[heroindex].herolv];
@@ -2089,7 +2536,31 @@ dodgernd += 2;
 return dodgernd;
 }
 
-int MatchFightLayer::getPlayerCrit(int hindex)
+void HSLJFightLayer::showLock(int starnum)
+{
+	if (lockNode == NULL)
+	{
+		lockNode = Sprite::createWithSpriteFrameName("lock.png");
+		lockNode->setPosition(Vec2(m_node->getContentSize().width / 2, 10));
+		m_node->addChild(lockNode, 2);
+
+		Sprite* lockbox = Sprite::createWithSpriteFrameName("unlockbox.png");
+		lockbox->setPosition(Vec2(lockNode->getContentSize().width / 2, lockNode->getContentSize().height - 60));
+		lockNode->addChild(lockbox);
+
+		Sprite* star = Sprite::createWithSpriteFrameName("star1.png");
+		star->setPosition(Vec2(lockbox->getContentSize().width / 2, lockbox->getContentSize().height / 2));
+		lockbox->addChild(star);
+
+		std::string desc = StringUtils::format("%3d     开启", starnum);
+		Label* stardesclbl = Label::createWithBMFont("fonts/tips.fnt", CommonFuncs::gbk2utf(desc.c_str()));
+		stardesclbl->setPosition(Vec2(lockbox->getContentSize().width / 2, lockbox->getContentSize().height / 2));
+		stardesclbl->setScale(0.6f);
+		lockbox->addChild(stardesclbl);
+	}
+}
+
+int HSLJFightLayer::getPlayerCrit(int hindex)
 {
 	int heroindex = hindex;
 	int critrnd = GlobalData::map_heroAtr[nextplayerhero].vec_crit[GlobalData::vec_matchPlayerData[heroindex].herolv];
@@ -2141,7 +2612,16 @@ int MatchFightLayer::getPlayerCrit(int hindex)
 	return critrnd;
 }
 
-void MatchFightLayer::showResultLayer(int result)
+void HSLJFightLayer::removeLock()
+{
+	if (lockNode != NULL)
+	{
+		lockNode->removeFromParentAndCleanup(true);
+		lockNode = NULL;
+	}
+}
+
+void HSLJFightLayer::showResultLayer(int result)
 {
 	win = result;
 	if (result == 1)
@@ -2149,7 +2629,7 @@ void MatchFightLayer::showResultLayer(int result)
 		int playerherocount = GlobalData::vec_matchPlayerData.size();
 		if (nextplayerhero >= playerherocount)
 		{
-			this->scheduleOnce(schedule_selector(MatchFightLayer::delayShowResultLayer), 1.0f);
+			this->scheduleOnce(schedule_selector(HSLJFightLayer::delayShowResultLayer), 1.0f);
 		}
 		else
 		{
@@ -2176,6 +2656,6 @@ void MatchFightLayer::showResultLayer(int result)
 				return;
 			}
 		}
-		this->scheduleOnce(schedule_selector(MatchFightLayer::delayShowResultLayer), 1.0f);
+		this->scheduleOnce(schedule_selector(HSLJFightLayer::delayShowResultLayer), 1.0f);
 	}
 }

@@ -26,6 +26,8 @@ HeroStateUILayer::~HeroStateUILayer()
 
 bool HeroStateUILayer::init()
 {
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
+	this->addChild(color);
 
 	m_csbnode = CSLoader::createNode("heroStateLayer.csb");
 	this->addChild(m_csbnode, 0, "csbnode");

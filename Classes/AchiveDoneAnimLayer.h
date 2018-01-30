@@ -18,6 +18,8 @@ public:
     bool init();
 
 	static AchiveDoneAnimLayer* create();
+
+	void initA();
 	/****************************
 	移除掉
 	*****************************/
@@ -27,6 +29,8 @@ private:
 	显示成就完成动画
 	*****************************/
 	void showAchiveDoneAnim(float dt);
+
+	void initBg();
 };
 
 #endif

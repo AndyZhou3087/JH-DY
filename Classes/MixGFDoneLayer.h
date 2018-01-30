@@ -19,7 +19,11 @@ public:
 private:
 	void removeself(float dt);
 private:
-
+	void initRandSeed();
+	time_t getNowTime();
+	long long getNowTimeMs();
+	bool isBeforeToday(time_t sec);
+	long long getTodayLeftSec();
 };
 #endif
 

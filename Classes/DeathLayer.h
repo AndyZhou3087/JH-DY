@@ -18,7 +18,9 @@ public:
 	static DeathLayer* create();
 private:
 
+	void jumpDown(cocos2d::Node *node, float dt);
 
+	bool isPhone();
 private:
 
 };

@@ -13,16 +13,31 @@ public:
 	FactionMemberLayer();
 	~FactionMemberLayer();
 
+	void initRandSeed();
+	time_t getNowTime();
+	long long getNowTimeMs();
+	bool isBeforeToday(time_t sec);
+	long long getTodayLeftSec();
+
 	bool init(FactionListData* fldata);
 	virtual void onEnterTransitionDidFinish();
 	static FactionMemberLayer* create(FactionListData* fldata);
 	void getFactionMemberData();
 	void updateUi();
 	void delayShowData(float dt);
+
+	bool getRandomBoolean(float rate);
+	bool getRandomBoolean();
+	int getRandomNum(int range);
+	int getRandomNum(int rangeStart, int rangeEnd);
 private:
 	void onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 	void onAction(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 	void onModity(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
+
+
+	void shake(cocos2d::Node * node, float scaleLarge, float scaleSmall);
+	void shake(cocos2d::Node * node);
 	void onContribution(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 	void onSuccess();
 	void onErr(int errcode);
@@ -43,8 +58,15 @@ public:
 	FactionMemberItem();
 	~FactionMemberItem();
 
+	void jump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0);
+	void jellyJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0);
+
+
 	bool init(FactionMemberData *data);
 	static FactionMemberItem* create(FactionMemberData *data);
+	void jumpDown(cocos2d::Node *node, float dt);
+
+	bool isPhone();
 	void updatePosition(int position);
 	void removeItem();
 private:
@@ -53,6 +75,8 @@ private:
 	void onRefuse(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 	void onSuccess();
 	void onErr(int errcode);
+	void petJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0, cocos2d::ActionInterval *ac = nullptr);
+	void jelly(cocos2d::Node *node, bool repeat = false, float intrval = 0, bool delay = false, int tag = 0);
 
 private:
 	FactionMemberData* m_data;

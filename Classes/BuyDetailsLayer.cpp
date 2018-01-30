@@ -74,6 +74,18 @@ bool BuyDetailsLayer::init(int heroid)
 	return true;
 }
 
+bool BuyDetailsLayer::getRandomBoolean(float rate) {
+
+	int rate10 = (int)(rate*10.0);
+	int randNum = rand();
+	if (randNum % 10 <= rate10) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 BuyDetailsLayer* BuyDetailsLayer::create(int heroid)
 {
 	BuyDetailsLayer *pRet = new BuyDetailsLayer();
@@ -89,6 +101,18 @@ BuyDetailsLayer* BuyDetailsLayer::create(int heroid)
 	return pRet;
 }
 
+
+bool BuyDetailsLayer::getRandomBoolean() {
+
+	if (0 == rand() % 2) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+
 void BuyDetailsLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
 	CommonFuncs::BtnAction(pSender, type);
@@ -97,6 +121,16 @@ void BuyDetailsLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 		this->removeFromParentAndCleanup(true);
 	}
 }
+
+int BuyDetailsLayer::getRandomNum(int range) {
+
+	if (range <= 0) {
+		return 0;
+	}
+
+	return rand() % range;
+}
+
 void BuyDetailsLayer::onBuy(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
 	CommonFuncs::BtnAction(pSender, type);
@@ -104,4 +138,20 @@ void BuyDetailsLayer::onBuy(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEve
 	{
 		ShopLayer::beginPay(this->getTag());
 	}
+}
+
+
+int BuyDetailsLayer::getRandomNum(int rangeStart, int rangeEnd) {
+
+	if (rangeEnd < rangeStart) {
+		CCASSERT(false, "get random fail");
+		return 0;
+	}
+
+	if (rangeStart == rangeEnd) {
+		return rangeStart;
+	}
+
+	int delta = rand() % (rangeEnd - rangeStart);
+	return rangeStart + delta;
 }

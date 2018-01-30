@@ -7,7 +7,6 @@
 #include "WaitingProgress.h"
 #include "MyPackage.h"
 #include "StorageRoom.h"
-#include "HuafeiAwardListLayer.h"
 
 const std::string prizerwd[] = {"g20", "80020", "82005"};
 
@@ -90,8 +89,8 @@ void PrizeLayer::onHuafeiEnter(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touch
 {
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
-		HuafeiAwardListLayer* layer = HuafeiAwardListLayer::create();
-		this->addChild(layer);
+		//HuafeiAwardListLayer* layer = HuafeiAwardListLayer::create();
+		//this->addChild(layer);
 	}
 }
 

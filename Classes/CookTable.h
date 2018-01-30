@@ -26,6 +26,8 @@ public:
 
 	virtual bool init();
 
+	void shake(cocos2d::Node * node, float scaleLarge, float scaleSmall);
+	void shake(cocos2d::Node * node);
 	CREATE_FUNC(CookTable);
 };
 #endif

@@ -28,6 +28,9 @@ public:
 
 	static BuildingUILayer* create(Building* build);
 
+	void onScoreChange();
+	void on1sTimer();
+
 	/****************************
 	取消闭关
 	*****************************/
@@ -40,8 +43,14 @@ public:
 	*****************************/
 	void checkNewerGuide();
 
+	void playAttrackEffect();
+
+	void initBossBombParticleSystem();
+
 private:
 
+	void reset();
+	void initalBoss();
 	/****************************
 	点击返回按钮回调
 	*****************************/
@@ -57,6 +66,9 @@ private:
 	*****************************/
 	void onBuidingDetails(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 
+	void initTime();
+	void updateBloodBar();
+
 	/****************************
 	点击资源回调，显示详细信息
 	*****************************/
@@ -66,6 +78,8 @@ private:
 	更新建筑物等级资源UI
 	****************************/
 	void updataBuildRes();
+
+	void playBombEffect();
 
 	/****************************
 	延迟加载建筑物自己操作的UI
@@ -77,10 +91,17 @@ private:
 	****************************/
 	void loadActionUi();
 
+	void setHurtBossVisible(bool isVisible);
+
 	/****************************
 	添加建筑物自己操作的UI到scrollview
 	****************************/
 	void setActionScrollViewUI();
+
+	void updateTime();
+	void resetBoss();
+
+	void playBossActiveEffect();
 
 	/****************************
 	更新建筑物自己操作的UI
@@ -102,6 +123,9 @@ private:
 	*****************************/
 	void updateExerciseLeftTime(float dt);
 
+	void playBossShowEffect(CallFunc * callback = nullptr);
+	void playBossDeathEffect();
+
 	/****************************
 	点击锻造台分类按钮回调
 	*****************************/
@@ -113,6 +137,9 @@ private:
 	*****************************/
 	void loadActionUIByCategory(int category);
 
+	void onGameStart();
+	void onGameOver();
+
 	/****************************
 	延迟显示分类
 	*****************************/
@@ -120,15 +147,28 @@ private:
 
 	void onSuccess();
 	void onErr(int errcode);
+	void onTimeChange();
+	void onAttrackBoss();
 
 private:
 	Building* m_build;
 	Node* buildnode;//每个ITEM NODE
 	Node* m_csbnode;//UI NODE
+	Sprite *m_normalBoss_head;
+	Sprite *m_normallBoss_hand_left;
+	Sprite *m_normallBoss_hand_right;
+
+
 	cocos2d::ui::LoadingBar* buildbar;//建造进度条控件
 	cocos2d::ui::Button* buildbtn;//建造按钮控件
 	cocos2d::ui::ScrollView* scrollview;//操作滚动列表控件
 	cocos2d::ui::Widget* m_backbtn;//返回按钮控件
+
+	Sprite *m_hurtBoss_head;
+	Sprite *m_hurtBoss_hand_left;
+	Sprite *m_hurtBoss_hand_right;
+	Sprite *m_hurtBoss_body;
+
 	std::vector<cocos2d::ui::LoadingBar*> vec_actionbar;//建筑物自己的操作 进度条控件
 	std::vector<cocos2d::ui::Button*> vec_actionbtn;//建造进度条控件
 	std::vector<cocos2d::ui::Text*> vec_progresstext;//进度条上的文字控件，这里用来显示时间
@@ -137,9 +177,13 @@ private:
 	void ondivideSucc(Ref* pSender, BACTIONTYPE type, Node* divideLayer);//分解操作 完成
 	void onExercisefinish(int index);//闭关完成
 
+	float m_bossOriginPosY;
+	float m_bossOriginPosX;
+
 	void showFinishHintText(std::string path);//显示完成后的提示文字
 	void finishAnim(Ref* pSender, Node* node);//建造，建筑物自己的操作 完成后的提示动画
 	std::vector<Node*> vec_actionItem;//建筑物自己操作 item node
+
 	Label* m_loadlbl;//加载文字
 	int selectActionIndex;//闭关选择的item索引
 	int estarttime;//闭关开始的时间
@@ -147,6 +191,7 @@ private:
 	std::string ex_ngstrid;//闭关室装备的内功ID
 	std::vector<cocos2d::ui::Button*> vec_categoryBtn;//锻造台分类按钮
 	std::vector<BuildActionData> vec_buildAcitonData;//建筑物操作的数据
+
 	int lastCategoryindex;
 	bool isDraging;
 	Vec2 startPos;

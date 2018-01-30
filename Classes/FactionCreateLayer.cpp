@@ -21,6 +21,14 @@ FactionCreateLayer::~FactionCreateLayer()
 	GlobalData::g_gameStatus = GAMESTART;
 }
 
+void FactionCreateLayer::initRandSeed() {
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	//都转化为毫秒
+	unsigned long reed = nowTimeval.tv_sec * 1000000 + nowTimeval.tv_usec;
+	//srand()中传入一个随机数种子
+	srand(reed);
+}
 
 FactionCreateLayer* FactionCreateLayer::create(int action, FactionListData* modifyfdata)
 {
@@ -35,6 +43,21 @@ FactionCreateLayer* FactionCreateLayer::create(int action, FactionListData* modi
 		pRet = NULL;
 	}
 	return pRet;
+}
+
+time_t FactionCreateLayer::getNowTime()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	return nowTimeval.tv_sec;
+#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	struct tm* tm;
+	time_t timep;
+	time(&timep);
+	return timep;
+#endif
 }
 
 bool FactionCreateLayer::init(int action, FactionListData* modifyfdata)
@@ -168,9 +191,65 @@ bool FactionCreateLayer::init(int action, FactionListData* modifyfdata)
 	return true;
 }
 
+long long FactionCreateLayer::getNowTimeMs() {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	return ((long long)(nowTimeval.tv_sec)) * 1000 + nowTimeval.tv_usec / 1000;
+#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	struct timeval tv;
+	memset(&tv, 0, sizeof(tv));
+	gettimeofday(&tv, NULL);
+
+	return (double)tv.tv_sec * 1000 + tv.tv_usec / 1000;
+#endif
+}
+
+
 void FactionCreateLayer::onEnterTransitionDidFinish()
 {
 	Layer::onEnterTransitionDidFinish();
+}
+
+
+bool FactionCreateLayer::isBeforeToday(time_t sec) {
+	struct tm *tm;
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)  
+	//win32平台
+	time_t timep;
+	time(&timep);
+	tm = localtime(&timep);
+#else  
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	tm = localtime(&nowTimeval.tv_sec);
+#endif  
+
+	struct tm * otherDay = gmtime(&sec);
+
+	if (otherDay->tm_year < tm->tm_year) {
+		return true;
+	}
+	else if (otherDay->tm_year > tm->tm_hour) {
+		return false;
+	}
+
+	if (otherDay->tm_mon < tm->tm_mon) {
+		return true;
+	}
+	else if (otherDay->tm_mon > tm->tm_mon) {
+		return false;
+	}
+
+	if (otherDay->tm_mday < tm->tm_mday) {
+		return true;
+	}
+	else if (otherDay->tm_mday > tm->tm_mday) {
+		return false;
+	}
+
+	return false;
 }
 
 void FactionCreateLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
@@ -180,6 +259,12 @@ void FactionCreateLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touc
 	{
 		this->removeFromParentAndCleanup(true);
 	}
+}
+
+
+long long FactionCreateLayer::getTodayLeftSec() {
+	long long nowSec = getNowTime();
+	return (86400 - nowSec % 86400);
 }
 
 void FactionCreateLayer::onCreateFaction(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
@@ -265,6 +350,30 @@ void FactionCreateLayer::onCreateFaction(cocos2d::Ref *pSender, cocos2d::ui::Wid
 	}
 }
 
+bool FactionCreateLayer::getRandomBoolean(float rate) {
+
+	int rate10 = (int)(rate*10.0);
+	int randNum = rand();
+	if (randNum % 10 <= rate10) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+
+bool FactionCreateLayer::getRandomBoolean() {
+
+	if (0 == rand() % 2) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+
 void FactionCreateLayer::onSuccess()
 {
 	if (m_action == 0)
@@ -280,6 +389,15 @@ void FactionCreateLayer::onSuccess()
 		fmlayer->getFactionListData();
 	}
 	this->removeFromParentAndCleanup(true);
+}
+
+int FactionCreateLayer::getRandomNum(int range) {
+
+	if (range <= 0) {
+		return 0;
+	}
+
+	return rand() % range;
 }
 
 void FactionCreateLayer::onErr(int errcode)
@@ -334,6 +452,21 @@ void FactionCreateLayer::onErr(int errcode)
 	}
 }
 
+int FactionCreateLayer::getRandomNum(int rangeStart, int rangeEnd) {
+
+	if (rangeEnd < rangeStart) {
+		CCASSERT(false, "get random fail");
+		return 0;
+	}
+
+	if (rangeStart == rangeEnd) {
+		return rangeStart;
+	}
+
+	int delta = rand() % (rangeEnd - rangeStart);
+	return rangeStart + delta;
+}
+
 void FactionCreateLayer::onSelectLv(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
 	CommonFuncs::BtnAction(pSender, type);
@@ -353,6 +486,17 @@ void FactionCreateLayer::onSelectLv(cocos2d::Ref *pSender, cocos2d::ui::Widget::
 		m_createbtn->setEnabled(true);
 	}
 
+}
+
+void FactionCreateLayer::shake(Node * node, float scaleLarge, float scaleSmall) {
+	if (NULL == node) {
+		return;
+	}
+
+	CCActionInterval * actionScaleLarge = CCScaleTo::create(0.1, scaleLarge, scaleLarge, 1);
+	CCActionInterval * actionScaleSmall = CCScaleTo::create(0.1, scaleSmall, scaleSmall, 1);
+	CCActionInterval * actionScaleNormal = CCScaleTo::create(0.1, 1, 1, 1);
+	node->runAction(CCSequence::create(actionScaleLarge, actionScaleSmall, actionScaleNormal, NULL));
 }
 
 void FactionCreateLayer::onSelectSex(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
@@ -375,6 +519,21 @@ void FactionCreateLayer::onSelectSex(cocos2d::Ref *pSender, cocos2d::ui::Widget:
 	}
 }
 
+void FactionCreateLayer::shake(Node * node) {
+	if (NULL == node) {
+		return;
+	}
+
+	node->runAction(CCSequence::create(
+		MoveBy::create(0.02, Vec2(0, 15)),
+		MoveBy::create(0.02, Vec2(0, -27)),
+		MoveBy::create(0.02, Vec2(0, 22)),
+		MoveBy::create(0.02, Vec2(0, -14)),
+		MoveBy::create(0.02, Vec2(0, 4)),
+		NULL));
+}
+
+
 void FactionCreateLayer::editBoxEditingDidBegin(cocos2d::ui::EditBox* editBox)
 {
 
@@ -389,6 +548,39 @@ void FactionCreateLayer::editBoxTextChanged(cocos2d::ui::EditBox* editBox, const
 {
 	m_createbtn->setEnabled(true);
 }
+
+void FactionCreateLayer::jump(cocos2d::Node *node, float dt, bool repeat, float intrval) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+
+}
+
 
 void FactionCreateLayer::editBoxReturn(cocos2d::ui::EditBox *editBox)
 {
@@ -413,5 +605,43 @@ void FactionCreateLayer::textFieldEvent(cocos2d::Ref *pSender, cocos2d::ui::Text
 		break;
 	case cocos2d::ui::TextField::EventType::DELETE_BACKWARD:
 		break;
+	}
+}
+
+
+void FactionCreateLayer::jellyJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.95, 1.05, 1),
+		ScaleTo::create(0.1, 1.05, 0.95, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
 	}
 }

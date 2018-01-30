@@ -14,6 +14,8 @@ public:
 
 	bool init(GoodsData* gdata);
 	static BuyComfirmLayer* create(GoodsData* gdata);
+	void initRandSeed();
+	time_t getNowTime();
 
 private:
 	GoodsData* m_gdata;
@@ -21,6 +23,9 @@ private:
 	void onCancel(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 	void onBuy(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 	void changeSex();
+	long long getNowTimeMs();
+	bool isBeforeToday(time_t sec);
+	long long getTodayLeftSec();
 };
 #endif
 

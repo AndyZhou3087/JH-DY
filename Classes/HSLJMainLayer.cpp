@@ -5,7 +5,7 @@
 #include "FactionCreateLayer.h"
 #include "Const.h"
 #include "GameScene.h"
-#include "MatchFightLayer.h"
+#include "HSLJFightLayer.h"
 #include "AddFightCountLayer.h"
 #include "HSLJRewardDescLayer.h"
 #include "HSLJRankLayer.h"
@@ -23,6 +23,16 @@ HSLJMainLayer::~HSLJMainLayer()
 {
 	GlobalData::g_gameStatus = GAMESTART;
 }
+bool HSLJMainLayer::isPhone() {
+	static const Size size = Director::getInstance()->getVisibleSize();
+	static const float rate = size.height / size.width;
+	if (rate >= 1.49) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
 
 HSLJMainLayer* HSLJMainLayer::create()
@@ -38,6 +48,74 @@ HSLJMainLayer* HSLJMainLayer::create()
 		pRet = NULL;
 	}
 	return pRet;
+}
+void HSLJMainLayer::jump(cocos2d::Node *node, float dt, bool repeat, float intrval) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+
+}
+
+void HSLJMainLayer::jellyJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.95, 1.05, 1),
+		ScaleTo::create(0.1, 1.05, 0.95, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
 }
 
 bool HSLJMainLayer::init()
@@ -142,6 +220,45 @@ bool HSLJMainLayer::init()
 	return true;
 }
 
+void HSLJMainLayer::petJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag, ActionInterval *ac) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.05, 0.95, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.95, 1.05, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		ac,
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.1, 0.95, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+}
+
+
 void HSLJMainLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
 	CommonFuncs::BtnAction(pSender, type);
@@ -160,6 +277,58 @@ void HSLJMainLayer::onAddCount(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touch
 		g_gameLayer->addChild(layer, 5);
 	}
 }
+
+void HSLJMainLayer::jelly(Node *node, bool repeat, float intrval, bool delay, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		EaseSineIn::create(ScaleTo::create(0.08, 0.95, 1.05, 1)),
+		EaseSineOut::create(ScaleTo::create(0.2, 1.15, 0.95, 1)),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+		if (delay) {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				DelayTime::create(getRandomNum(1, 10)*0.1),
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+		else {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+
+	}
+	else {
+		if (delay) {
+			node->runAction(Sequence::create(
+				DelayTime::create(getRandomNum(1, 10)*0.1),
+				action,
+				NULL));
+		}
+		else {
+			node->runAction(action);
+		}
+	}
+}
+
 
 void HSLJMainLayer::onMacth(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
@@ -194,6 +363,31 @@ void HSLJMainLayer::onRewardDesc(cocos2d::Ref *pSender, cocos2d::ui::Widget::Tou
 	}
 }
 
+void HSLJMainLayer::jumpDown(cocos2d::Node *node, float dt) {
+	if (nullptr == node) {
+		return;
+	}
+
+	const float originY = node->getPositionY();
+	node->setPositionY(originY + dt);
+
+	ActionInterval *action = Sequence::create(
+		MoveBy::create(0.2, Vec2(0, -dt - 10)),
+		MoveBy::create(0.2, Vec2(0, 20)),
+		MoveBy::create(0.1, Vec2(0, -18)),
+		MoveBy::create(0.1, Vec2(0, 13)),
+		MoveBy::create(0.1, Vec2(0, -5)),
+
+
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	node->runAction(action);
+}
+
 void HSLJMainLayer::onRank(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
 	CommonFuncs::BtnAction(pSender, type);
@@ -203,7 +397,19 @@ void HSLJMainLayer::onRank(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEven
 		g_gameLayer->addChild(layer,5, "shljranklayer");
 	}
 }
+void HSLJMainLayer::shake(Node * node) {
+	if (NULL == node) {
+		return;
+	}
 
+	node->runAction(CCSequence::create(
+		MoveBy::create(0.02, Vec2(0, 15)),
+		MoveBy::create(0.02, Vec2(0, -27)),
+		MoveBy::create(0.02, Vec2(0, 22)),
+		MoveBy::create(0.02, Vec2(0, -14)),
+		MoveBy::create(0.02, Vec2(0, 4)),
+		NULL));
+}
 void HSLJMainLayer::getMyMatchInfo()
 {
 	WaitingProgress* waitbox = WaitingProgress::create("加载中...");
@@ -253,6 +459,18 @@ void HSLJMainLayer::onSuccess()
 	}
 }
 
+
+void HSLJMainLayer::shake(Node * node, float scaleLarge, float scaleSmall) {
+	if (NULL == node) {
+		return;
+	}
+
+	CCActionInterval * actionScaleLarge = CCScaleTo::create(0.1, scaleLarge, scaleLarge, 1);
+	CCActionInterval * actionScaleSmall = CCScaleTo::create(0.1, scaleSmall, scaleSmall, 1);
+	CCActionInterval * actionScaleNormal = CCScaleTo::create(0.1, 1, 1, 1);
+	node->runAction(CCSequence::create(actionScaleLarge, actionScaleSmall, actionScaleNormal, NULL));
+}
+
 void HSLJMainLayer::onErr(int errcode)
 {
 	Director::getInstance()->getRunningScene()->removeChildByName("waitbox");
@@ -289,6 +507,20 @@ void HSLJMainLayer::onErr(int errcode)
 	}
 }
 
+int HSLJMainLayer::getRandomNum(int rangeStart, int rangeEnd) {
+
+	if (rangeEnd < rangeStart) {
+		CCASSERT(false, "get random fail");
+		return 0;
+	}
+
+	if (rangeStart == rangeEnd) {
+		return rangeStart;
+	}
+
+	int delta = rand() % (rangeEnd - rangeStart);
+	return rangeStart + delta;
+}
 void HSLJMainLayer::showMyInfo()
 {
 	std::string str = StringUtils::format("%s至%s", GlobalData::myMatchInfo.starttime.c_str(), GlobalData::myMatchInfo.endtime.c_str());
@@ -352,6 +584,38 @@ void HSLJMainLayer::updateMyFightCount()
 	std::string str = StringUtils::format("%d/5", GlobalData::myMatchInfo.leftcount);
 	m_fightcount->setString(str);
 }
+
+bool HSLJMainLayer::getRandomBoolean(float rate) {
+
+	int rate10 = (int)(rate*10.0);
+	int randNum = rand();
+	if (randNum % 10 <= rate10) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+bool HSLJMainLayer::getRandomBoolean() {
+
+	if (0 == rand() % 2) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+int HSLJMainLayer::getRandomNum(int range) {
+
+	if (range <= 0) {
+		return 0;
+	}
+
+	return rand() % range;
+}
+
 
 void HSLJMainLayer::showMatchInfo()
 {
@@ -433,7 +697,7 @@ void HSLJMainLayer::stopChangeHeroImg(float dt)
 void HSLJMainLayer::delayEnterFight(float dt)
 {
 	this->removeFromParentAndCleanup(true);
-	MatchFightLayer* layer = MatchFightLayer::create("m1-11");
+	HSLJFightLayer* layer = HSLJFightLayer::create("m1-11");
 	g_gameLayer->addChild(layer, 5);
 }
 

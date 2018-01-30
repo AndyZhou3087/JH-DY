@@ -17,10 +17,12 @@ public:
 
 	virtual void onEnterTransitionDidFinish();
 	bool init(int type);
-
+	void on1sTimer();
 	static cocos2d::Scene* createScene(int type);
+	void loadTime();
 private:
 	static ApprenticeScene* create(int type);
+	void initBg();
 private:
 
 	/****************************
@@ -33,10 +35,11 @@ private:
 	*****************************/
 	void onGet(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 
+	void saveTime();
 	void giveGold();
 
 	void showHint(int type);
-
+	void initA();
 	void delayShowShop(float dt);
 private:
 	int m_type;

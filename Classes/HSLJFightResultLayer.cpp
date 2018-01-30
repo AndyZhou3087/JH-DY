@@ -1,4 +1,4 @@
-﻿#include "MatchFightResultLayer.h"
+﻿#include "HSLJFightResultLayer.h"
 #include "CommonFuncs.h"
 #include "GameScene.h"
 #include "HintBox.h"
@@ -9,21 +9,28 @@
 #include "RankLayer.h"
 #include "HSLJMainLayer.h"
 
-MatchFightResultLayer::MatchFightResultLayer()
+HSLJFightResultLayer::HSLJFightResultLayer()
 {
 	GameDataSave::getInstance()->setHsljMatchPlayer("");
 }
 
 
-MatchFightResultLayer::~MatchFightResultLayer()
+HSLJFightResultLayer::~HSLJFightResultLayer()
 {
 	GlobalData::isPlayerChallenging = false;
 }
+void HSLJFightResultLayer::initRandSeed() {
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	//都转化为毫秒
+	unsigned long reed = nowTimeval.tv_sec * 1000000 + nowTimeval.tv_usec;
+	//srand()中传入一个随机数种子
+	srand(reed);
+}
 
-
-MatchFightResultLayer* MatchFightResultLayer::create(int myfinalhero, int win)
+HSLJFightResultLayer* HSLJFightResultLayer::create(int myfinalhero, int win)
 {
-	MatchFightResultLayer *pRet = new MatchFightResultLayer();
+	HSLJFightResultLayer *pRet = new HSLJFightResultLayer();
 	if (pRet && pRet->init(myfinalhero, win))
 	{
 		pRet->autorelease();
@@ -36,7 +43,21 @@ MatchFightResultLayer* MatchFightResultLayer::create(int myfinalhero, int win)
 	return pRet;
 }
 
-bool MatchFightResultLayer::init(int myfinalhero, int win)
+time_t HSLJFightResultLayer::getNowTime()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	return nowTimeval.tv_sec;
+#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	struct tm* tm;
+	time_t timep;
+	time(&timep);
+	return timep;
+#endif
+}
+bool HSLJFightResultLayer::init(int myfinalhero, int win)
 {
 	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
 	this->addChild(color);
@@ -46,7 +67,7 @@ bool MatchFightResultLayer::init(int myfinalhero, int win)
 	this->addChild(m_csbnode);
 
 	cocos2d::ui::Widget *backbtn = (cocos2d::ui::Widget*)m_csbnode->getChildByName("backbtn");
-	backbtn->addTouchEventListener(CC_CALLBACK_2(MatchFightResultLayer::onBack, this));
+	backbtn->addTouchEventListener(CC_CALLBACK_2(HSLJFightResultLayer::onBack, this));
 
 	cocos2d::ui::Text *title = (cocos2d::ui::Text*)m_csbnode->getChildByName("title");
 	title->setString(CommonFuncs::gbk2utf("华山论剑"));
@@ -117,9 +138,23 @@ bool MatchFightResultLayer::init(int myfinalhero, int win)
 
 	return true;
 }
+long long HSLJFightResultLayer::getNowTimeMs() {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	return ((long long)(nowTimeval.tv_sec)) * 1000 + nowTimeval.tv_usec / 1000;
+#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	struct timeval tv;
+	memset(&tv, 0, sizeof(tv));
+	gettimeofday(&tv, NULL);
+
+	return (double)tv.tv_sec * 1000 + tv.tv_usec / 1000;
+#endif
+}
 
 
-void MatchFightResultLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
+void HSLJFightResultLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
 	CommonFuncs::BtnAction(pSender, type);
 	if (type == ui::Widget::TouchEventType::ENDED)
@@ -130,13 +165,52 @@ void MatchFightResultLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::T
 	}
 }
 
-void MatchFightResultLayer::onSuccess()
+void HSLJFightResultLayer::onSuccess()
 {
 	Director::getInstance()->getRunningScene()->removeChildByName("waitbox");
 	showResult();
 }
 
-void MatchFightResultLayer::onErr(int errcode)
+bool HSLJFightResultLayer::isBeforeToday(time_t sec) {
+	struct tm *tm;
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)  
+	//win32平台
+	time_t timep;
+	time(&timep);
+	tm = localtime(&timep);
+#else  
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	tm = localtime(&nowTimeval.tv_sec);
+#endif  
+
+	struct tm * otherDay = gmtime(&sec);
+
+	if (otherDay->tm_year < tm->tm_year) {
+		return true;
+	}
+	else if (otherDay->tm_year > tm->tm_hour) {
+		return false;
+	}
+
+	if (otherDay->tm_mon < tm->tm_mon) {
+		return true;
+	}
+	else if (otherDay->tm_mon > tm->tm_mon) {
+		return false;
+	}
+
+	if (otherDay->tm_mday < tm->tm_mday) {
+		return true;
+	}
+	else if (otherDay->tm_mday > tm->tm_mday) {
+		return false;
+	}
+
+	return false;
+}
+
+void HSLJFightResultLayer::onErr(int errcode)
 {
 	Director::getInstance()->getRunningScene()->removeChildByName("waitbox");
 
@@ -144,8 +218,12 @@ void MatchFightResultLayer::onErr(int errcode)
 	this->addChild(box);
 }
 
+long long HSLJFightResultLayer::getTodayLeftSec() {
+	long long nowSec = getNowTime();
+	return (86400 - nowSec % 86400);
+}
 
-void MatchFightResultLayer::showResult()
+void HSLJFightResultLayer::showResult()
 {
 	std::string str1;
 	std::string str2;
@@ -178,7 +256,20 @@ void MatchFightResultLayer::showResult()
 	showRank(0);
 }
 
-void MatchFightResultLayer::showRank(float dt)
+
+bool HSLJFightResultLayer::getRandomBoolean(float rate) {
+
+	int rate10 = (int)(rate*10.0);
+	int randNum = rand();
+	if (randNum % 10 <= rate10) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+void HSLJFightResultLayer::showRank(float dt)
 {
 
 	float step = (_myrank - _visualmyrank) * 0.2f;
@@ -190,10 +281,69 @@ void MatchFightResultLayer::showRank(float dt)
 
 	if (fabs(_myrank - _visualmyrank) < 1.0f) {
 		_visualmyrank = _myrank;
-		this->unschedule(schedule_selector(MatchFightResultLayer::showRank));
+		this->unschedule(schedule_selector(HSLJFightResultLayer::showRank));
 	}
 
 	std::string rankstr = StringUtils::format("%d", (int)_visualmyrank);
 	ranknum->setString(rankstr);
 
+}
+
+bool HSLJFightResultLayer::getRandomBoolean() {
+
+	if (0 == rand() % 2) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+int HSLJFightResultLayer::getRandomNum(int range) {
+
+	if (range <= 0) {
+		return 0;
+	}
+
+	return rand() % range;
+}
+
+
+int HSLJFightResultLayer::getRandomNum(int rangeStart, int rangeEnd) {
+
+	if (rangeEnd < rangeStart) {
+		CCASSERT(false, "get random fail");
+		return 0;
+	}
+
+	if (rangeStart == rangeEnd) {
+		return rangeStart;
+	}
+
+	int delta = rand() % (rangeEnd - rangeStart);
+	return rangeStart + delta;
+}
+
+void HSLJFightResultLayer::shake(Node * node, float scaleLarge, float scaleSmall) {
+	if (NULL == node) {
+		return;
+	}
+
+	CCActionInterval * actionScaleLarge = CCScaleTo::create(0.1, scaleLarge, scaleLarge, 1);
+	CCActionInterval * actionScaleSmall = CCScaleTo::create(0.1, scaleSmall, scaleSmall, 1);
+	CCActionInterval * actionScaleNormal = CCScaleTo::create(0.1, 1, 1, 1);
+	node->runAction(CCSequence::create(actionScaleLarge, actionScaleSmall, actionScaleNormal, NULL));
+}
+void HSLJFightResultLayer::shake(Node * node) {
+	if (NULL == node) {
+		return;
+	}
+
+	node->runAction(CCSequence::create(
+		MoveBy::create(0.02, Vec2(0, 15)),
+		MoveBy::create(0.02, Vec2(0, -27)),
+		MoveBy::create(0.02, Vec2(0, 22)),
+		MoveBy::create(0.02, Vec2(0, -14)),
+		MoveBy::create(0.02, Vec2(0, 4)),
+		NULL));
 }

@@ -18,6 +18,9 @@ public:
 	void updataMyGoodsUI();
 	void updataNpcGoodsUI();
 
+	void jumpDown(cocos2d::Node *node, float dt);
+
+	bool isPhone();
 	void giveNpc(std::string strid);
 	void giveHero(std::string strid);
 
@@ -27,10 +30,19 @@ private:
 	void onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 	void onExg(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 
+	void shake(cocos2d::Node * node, float scaleLarge, float scaleSmall);
+	 void shake(cocos2d::Node * node);
+
 	void onNpcGoodsItem(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 	void onMyGoodsItem(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 	void updateMyGoods(PackageData data, int type);//type:0-是我的物品，1-npc的物品
 	void updateNpcGoods(PackageData data, int type);//type:0-是我的物品，1-npc的物品
+
+
+	void jump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0);
+	void jellyJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0);
+	void petJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0, cocos2d::ActionInterval *ac = nullptr);
+	void jelly(cocos2d::Node *node, bool repeat = false, float intrval = 0, bool delay = false, int tag = 0);
 
 	void checkValue();
 	void randExchgRes(std::vector<std::string> &vec_exchgres);
