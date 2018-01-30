@@ -77,14 +77,14 @@
             <FileData Type="MarkedSubImage" Path="ui/VerticalLabel.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="namelbl" ActionTag="-961094467" Tag="122" IconVisible="False" LeftMargin="268.6470" RightMargin="411.3530" TopMargin="397.8885" BottomMargin="722.1115" IsCustomSize="True" FontSize="40" LabelText="鲜肉" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="40.0000" Y="160.0000" />
+          <AbstractNodeData Name="namelbl" ActionTag="-961094467" Tag="122" IconVisible="False" LeftMargin="268.6470" RightMargin="411.3530" TopMargin="357.8885" BottomMargin="682.1115" IsCustomSize="True" FontSize="40" LabelText="鲜肉" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="40.0000" Y="240.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="288.6470" Y="802.1115" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.4009" Y="0.6266" />
-            <PreSize X="0.0556" Y="0.1250" />
+            <PreSize X="0.0556" Y="0.1875" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -239,7 +239,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="selectcountnode" ActionTag="-1605081743" Tag="19" IconVisible="True" LeftMargin="345.6102" RightMargin="374.3898" TopMargin="718.8262" BottomMargin="561.1738" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="selectcountnode" ActionTag="-1605081743" VisibleForFrame="False" Tag="19" IconVisible="True" LeftMargin="345.6102" RightMargin="374.3898" TopMargin="718.8262" BottomMargin="561.1738" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <Children>
               <AbstractNodeData Name="resselectcountbox" ActionTag="1393675395" Tag="27" IconVisible="False" LeftMargin="-128.5366" RightMargin="48.5366" TopMargin="-39.6351" BottomMargin="-44.3649" ctype="SpriteObjectData">

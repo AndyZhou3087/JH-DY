@@ -172,7 +172,6 @@ void RepairLayer::onAction(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEven
 
 void RepairLayer::onRepairItem(cocos2d::Ref* pSender)
 {
-
 	Node* node = (Node*)pSender;
 	PackageData* pdata = (PackageData*)node->getUserData();
 

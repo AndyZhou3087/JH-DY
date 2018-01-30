@@ -62,6 +62,11 @@ bool ResDetailsLayer::init(PackageData* pdata)
 	}
 
 	cocos2d::ui::Text* resname = (cocos2d::ui::Text*)m_csbnode->getChildByName("namelbl");
+	std::string rescname = GlobalData::map_allResource[pdata->strid].cname;
+	if (rescname.length() > 10)
+	{
+		resname->setFontSize(24);
+	}
 
 	resname->setString(GlobalData::map_allResource[pdata->strid].cname);
 

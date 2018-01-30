@@ -496,6 +496,8 @@ bool FactionListItem::init(FactionListData *data)
 		if (GlobalData::mytitle == 0)
 		{
 			actionbtnlabel->setString(CommonFuncs::gbk2utf("取消申请"));
+			actionbtn->loadTextureNormal("ui/buildtagbtn1.png", cocos2d::ui::Widget::TextureResType::PLIST);
+			actionbtn->loadTexturePressed("ui/buildtagbtn1.png", cocos2d::ui::Widget::TextureResType::PLIST);
 		}
 		else if (GlobalData::mytitle == 1)
 		{
@@ -691,6 +693,8 @@ void FactionListItem::onSuccess()
 		actionbtnlabel->setString(CommonFuncs::gbk2utf("取消申请"));
 		GlobalData::myFaction = m_data->id;
 		GlobalData::mytitle = 0;
+		actionbtn->loadTextureNormal("ui/buildtagbtn1.png", cocos2d::ui::Widget::TextureResType::PLIST);
+		actionbtn->loadTexturePressed("ui/buildtagbtn1.png", cocos2d::ui::Widget::TextureResType::PLIST);
 		FactionMainLayer* fmainlayer = (FactionMainLayer*)g_gameLayer->getChildByName("factionmainlayer");
 		if (fmainlayer != NULL)
 			fmainlayer->disBtn();
@@ -700,6 +704,9 @@ void FactionListItem::onSuccess()
 		actionbtnlabel->setString(CommonFuncs::gbk2utf("申请加入"));
 		GlobalData::myFaction = 0;
 		GlobalData::mytitle = 0;
+		actionbtn->loadTextureNormal("ui/buildtagbtn0.png", cocos2d::ui::Widget::TextureResType::PLIST);
+		actionbtn->loadTexturePressed("ui/buildtagbtn0.png", cocos2d::ui::Widget::TextureResType::PLIST);
+
 		FactionMainLayer* fmainlayer = (FactionMainLayer*)g_gameLayer->getChildByName("factionmainlayer");
 		if (fmainlayer != NULL)
 			fmainlayer->resetBtn();

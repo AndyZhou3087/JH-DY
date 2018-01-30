@@ -113,11 +113,15 @@ bool FriendExgScene::init(int type)
 	
 	cocos2d::ui::Button* closebtn = (cocos2d::ui::Button*)csbnode->getChildByName("closebtn");
 	closebtn->addTouchEventListener(CC_CALLBACK_2(FriendExgScene::onClose, this));
-	closebtn->setTitleText(CommonFuncs::gbk2utf(closebtntext.c_str()));
+
+	cocos2d::ui::Text* closelbl = (cocos2d::ui::Text*)closebtn->getChildByName("text");
+	closelbl->setString(CommonFuncs::gbk2utf(closebtntext.c_str()));
 
 	cocos2d::ui::Button* getbtn = (cocos2d::ui::Button*)csbnode->getChildByName("getbtn");
 	getbtn->addTouchEventListener(CC_CALLBACK_2(FriendExgScene::onGet, this));
-	getbtn->setTitleText(CommonFuncs::gbk2utf(getbtntext.c_str()));
+
+	cocos2d::ui::Text* getlbl = (cocos2d::ui::Text*)getbtn->getChildByName("text");
+	getlbl->setString(CommonFuncs::gbk2utf(getbtntext.c_str()));
 
 	int startx[] = { 360, 260, 180, 130, 90 };
 	int spacex[] = { 190, 190, 170, 150, 130 };

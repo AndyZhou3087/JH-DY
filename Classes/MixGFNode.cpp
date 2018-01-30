@@ -458,7 +458,7 @@ bool MixGFNode::isPhone() {
 void MixGFNode::updateGFScroll()
 {
 	int tempsize = vec_myhasgf.size();
-	int itemheight = 165;
+	int itemheight = 150;
 	int row = tempsize % 4 == 0 ? tempsize / 4 : (tempsize / 4 + 1);
 	int innerheight = itemheight * row;
 	int contentheight = m_scrollView->getContentSize().height;
@@ -482,8 +482,8 @@ void MixGFNode::updateGFScroll()
 			CC_CALLBACK_1(MixGFNode::onItem, this));
 		boxItem->setUserData(&vec_myhasgf[i]);
 		boxItem->setTag(i);
-
-		boxItem->setPosition(Vec2(80 + i % 4 * 145, innerheight - i / 4 * itemheight - itemheight / 2));
+		boxItem->setScale(0.9f);
+		boxItem->setPosition(Vec2(70 + i % 4 * 132, innerheight - i / 4 * itemheight - itemheight / 2));
 		MyMenu* menu = MyMenu::create();
 		menu->setTouchlimit(m_scrollView);
 		menu->addChild(boxItem, 0, "itembox");
@@ -498,9 +498,9 @@ void MixGFNode::updateGFScroll()
 		box->addChild(res, 0, "res");
 
 		str = StringUtils::format("%s", GlobalData::map_allResource[rstrid].cname.c_str());
-		Label * namelbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 24);
+		Label * namelbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 22);
 		namelbl->setColor(Color3B(0, 0, 0));
-		namelbl->setPosition(Vec2(box->getContentSize().width / 2, -10));
+		namelbl->setPosition(Vec2(box->getContentSize().width / 2, 0));
 		box->addChild(namelbl);
 
 		//Label * lvlbl = Label::createWithSystemFont("", "", 15);
@@ -513,14 +513,14 @@ void MixGFNode::updateGFScroll()
 		{
 			if (masterGFData->strid.compare(tmpdata.strid) == 0)
 			{
-				m_select->setPosition(Vec2(boxItem->getPositionX() - boxItem->getContentSize().width / 2, boxItem->getPositionY() + boxItem->getContentSize().height / 2));
+				m_select->setPosition(Vec2(boxItem->getPositionX() - boxItem->getContentSize().width / 2 + 3, boxItem->getPositionY() + boxItem->getContentSize().height / 2 - 5));
 				m_select->setVisible(true);
 			}
 			for (unsigned int i = 0; i < map_secgfdata.size(); i++)
 			{
 				if (map_secgfdata[i].size() > 0 && map_secgfdata[i][0]->strid.compare(tmpdata.strid) == 0)
 				{
-					m_secselect[i]->setPosition(Vec2(boxItem->getPositionX() - boxItem->getContentSize().width / 2, boxItem->getPositionY() + boxItem->getContentSize().height / 2));
+					m_secselect[i]->setPosition(Vec2(boxItem->getPositionX() - boxItem->getContentSize().width / 2 + 3, boxItem->getPositionY() + boxItem->getContentSize().height / 2 - 5));
 					m_secselect[i]->setVisible(true);
 				}
 			}
@@ -668,7 +668,7 @@ void MixGFNode::onItem(Ref* pSender)
 	{
 		if (lastclickindex == 0)
 		{
-			m_select->setPosition(Vec2(item->getPositionX() - item->getContentSize().width / 2, item->getPositionY() + item->getContentSize().height / 2));
+			m_select->setPosition(Vec2(item->getPositionX() - item->getContentSize().width / 2 + 3, item->getPositionY() + item->getContentSize().height / 2 - 5));
 			m_select->setVisible(true);
 			masterGFData = pdata;
 			int index = -1;
@@ -709,7 +709,7 @@ void MixGFNode::onItem(Ref* pSender)
 			}
 			map_secgfdata[lastclickindex - 1].clear();
 			map_secgfdata[lastclickindex - 1].push_back(pdata);
-			m_secselect[lastclickindex - 1]->setPosition(Vec2(item->getPositionX() - item->getContentSize().width / 2, item->getPositionY() + item->getContentSize().height / 2));
+			m_secselect[lastclickindex - 1]->setPosition(Vec2(item->getPositionX() - item->getContentSize().width / 2 + 3, item->getPositionY() + item->getContentSize().height / 2 - 5));
 			m_secselect[lastclickindex - 1]->setVisible(true);
 		}
 

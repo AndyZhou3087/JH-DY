@@ -25,7 +25,8 @@ StorageUILayer::~StorageUILayer()
 
 bool StorageUILayer::init()
 {
-
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 150));
+	this->addChild(color);
 	m_csbnode = CSLoader::createNode("buidingUiLayer.csb");
 	m_csbnode->setPosition(Vec2(0, -90));
 	this->addChild(m_csbnode);

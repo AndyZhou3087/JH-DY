@@ -303,7 +303,7 @@ void HeroProperNode::showSelectFrame(HeroAtrType index)
 {
 	refreshCarryData();
 	int tempsize = map_carryData[index].size();
-	int itemheight = 165;
+	int itemheight = 150;
 	int row = tempsize % 4 == 0 ? tempsize / 4 : (tempsize / 4 + 1);
 	int innerheight = itemheight * row;
 	int contentheight = m_scrollView->getContentSize().height;
@@ -343,10 +343,9 @@ void HeroProperNode::showSelectFrame(HeroAtrType index)
 		{
 			m_lastSelectedData = &map_carryData[index][i];
 		}
-
-		boxItem->setPosition(Vec2(50 + i % 4 * 125, innerheight - i / 4 * itemheight - itemheight / 2 - 20));
+		boxItem->setScale(0.9f);
+		boxItem->setPosition(Vec2(70 + i % 4 * 132, innerheight - i / 4 * itemheight - itemheight / 2));
 		MyMenu* menu = MyMenu::create();
-		menu->setScale(0.9);
 		menu->setTouchlimit(m_scrollView);
 		menu->addChild(boxItem);
 		menu->setPosition(Vec2(0, 0));
@@ -360,9 +359,9 @@ void HeroProperNode::showSelectFrame(HeroAtrType index)
 		box->addChild(res);
 
 		str = StringUtils::format("%s", GlobalData::map_allResource[rstrid].cname.c_str());
-		Label * namelbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 24);
+		Label * namelbl = Label::createWithTTF(str, "fonts/STXINGKA.TTF", 22);
 		namelbl->setColor(Color3B(0, 0, 0));
-		namelbl->setPosition(Vec2(box->getContentSize().width / 2, - 10));
+		namelbl->setPosition(Vec2(box->getContentSize().width / 2, 0));
 		box->addChild(namelbl);
 
 		Label * lvlbl = Label::createWithTTF("", "fonts/STXINGKA.TTF", 18);//Label::createWithSystemFont("", "", 15);
@@ -420,7 +419,7 @@ void HeroProperNode::showSelectFrame(HeroAtrType index)
 		{
 			if (i == 0)
 			{
-				m_select->setPosition(Vec2(boxItem->getPositionX() - 30, boxItem->getPositionY() + boxItem->getContentSize().height / 2 + 20));
+				m_select->setPosition(Vec2(boxItem->getPositionX() - 66, boxItem->getPositionY() + boxItem->getContentSize().height / 2 - 5));
 				m_select->setVisible(true);
 			}
 		}
@@ -528,7 +527,7 @@ void HeroProperNode::selectCarryData()
 
 	}
 
-	m_select->setPosition(Vec2(m_select_itemnode->getPositionX() - 30, m_select_itemnode->getPositionY() + m_select_itemnode->getContentSize().height / 2 + 20));
+	m_select->setPosition(Vec2(m_select_itemnode->getPositionX() - 66, m_select_itemnode->getPositionY() + m_select_itemnode->getContentSize().height / 2 -5));
 
 	PackageData curCarrydata = *m_select_udata;
 	//之前是选中m_select可见，现在点了就是没选中

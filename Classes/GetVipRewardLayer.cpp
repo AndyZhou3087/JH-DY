@@ -121,15 +121,15 @@ bool GetVipRewardLayer::init()
 		box->addChild(res);
 
 		Label * coutlbl = Label::createWithTTF(strcount, "fonts/STXINGKA.TTF", 25);//Label::createWithSystemFont(strcount, "", 25);
-		coutlbl->enableOutline(Color4B(0, 0, 0, 255), 3);
+		//coutlbl->enableOutline(Color4B(0, 0, 0, 255), 3);
 		coutlbl->setAnchorPoint(Vec2(0.5, 0.5));
 		coutlbl->setColor(Color3B(0, 0, 0));
-		coutlbl->setPosition(Vec2(box->getPositionX(), 560));
+		coutlbl->setPosition(Vec2(box->getPositionX(), 580));
 		this->addChild(coutlbl);
 
 		Label * namelbl = Label::createWithTTF(namstr, "fonts/STXINGKA.TTF", 26);
 		namelbl->setColor(Color3B(0, 0, 0));
-		namelbl->setPosition(Vec2(box->getPositionX(), 590));
+		namelbl->setPosition(Vec2(box->getPositionX(), 610));
 		this->addChild(namelbl);
 	}
 	WaitingProgress* waitbox = WaitingProgress::create("获取月卡中...");

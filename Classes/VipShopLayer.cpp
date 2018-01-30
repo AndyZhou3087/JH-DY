@@ -63,7 +63,7 @@ bool VipShopLayer::init()
 	m_vipScrollview->setScrollBarEnabled(false);
 	m_vipScrollview->setBounceEnabled(true);
 
-	int itemheight = 230;
+	int itemheight = 200;
 	int innerheight = itemheight * vec_vipGoods.size();
 	int contentheight = m_vipScrollview->getContentSize().height;
 	if (innerheight < contentheight)

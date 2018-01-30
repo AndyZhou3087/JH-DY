@@ -96,10 +96,10 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/hp6.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="lvtext_0" ActionTag="-1241441050" Tag="53" IconVisible="False" LeftMargin="-185.0000" RightMargin="185.0000" TopMargin="-20.0000" BottomMargin="20.0000" FontSize="17" LabelText="" OutlineSize="3" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="lvtext_0" ActionTag="-1241441050" Tag="53" IconVisible="False" LeftMargin="-181.0002" RightMargin="181.0002" TopMargin="-17.9999" BottomMargin="17.9999" FontSize="15" LabelText="" OutlineSize="3" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint ScaleX="1.0000" />
-            <Position X="-185.0000" Y="20.0000" />
+            <Position X="-181.0002" Y="17.9999" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -118,10 +118,10 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/hp5.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="lvtext_1" ActionTag="924542818" Tag="54" IconVisible="False" LeftMargin="-34.0500" RightMargin="34.0500" TopMargin="-20.0000" BottomMargin="20.0000" FontSize="17" LabelText="" OutlineSize="3" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="lvtext_1" ActionTag="924542818" Tag="54" IconVisible="False" LeftMargin="-30.0501" RightMargin="30.0501" TopMargin="-17.9999" BottomMargin="17.9999" FontSize="15" LabelText="" OutlineSize="3" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint ScaleX="1.0000" />
-            <Position X="-34.0500" Y="20.0000" />
+            <Position X="-30.0501" Y="17.9999" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -140,10 +140,10 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/hp3.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="lvtext_2" ActionTag="-2103265923" Tag="55" IconVisible="False" LeftMargin="120.6000" RightMargin="-120.6000" TopMargin="-20.0000" BottomMargin="20.0000" FontSize="17" LabelText="" OutlineSize="3" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="lvtext_2" ActionTag="-2103265923" Tag="55" IconVisible="False" LeftMargin="124.5999" RightMargin="-124.5999" TopMargin="-17.9999" BottomMargin="17.9999" FontSize="15" LabelText="" OutlineSize="3" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint ScaleX="1.0000" />
-            <Position X="120.6000" Y="20.0000" />
+            <Position X="124.5999" Y="17.9999" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -162,10 +162,10 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/hp4.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="lvtext_3" ActionTag="993704952" Tag="56" IconVisible="False" LeftMargin="272.3800" RightMargin="-272.3800" TopMargin="-20.0000" BottomMargin="20.0000" FontSize="17" LabelText="" OutlineSize="3" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="lvtext_3" ActionTag="993704952" Tag="56" IconVisible="False" LeftMargin="276.3799" RightMargin="-276.3799" TopMargin="-17.9999" BottomMargin="17.9999" FontSize="15" LabelText="" OutlineSize="3" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint ScaleX="1.0000" />
-            <Position X="272.3800" Y="20.0000" />
+            <Position X="276.3799" Y="17.9999" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -184,10 +184,10 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/hp8-1.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="lvtext_4" ActionTag="53910579" Tag="57" IconVisible="False" LeftMargin="-185.2500" RightMargin="185.2500" TopMargin="110.0000" BottomMargin="-110.0000" FontSize="17" LabelText="" OutlineSize="3" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="lvtext_4" ActionTag="53910579" Tag="57" IconVisible="False" LeftMargin="-181.2501" RightMargin="181.2501" TopMargin="112.0000" BottomMargin="-112.0000" FontSize="15" LabelText="" OutlineSize="3" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint ScaleX="1.0000" />
-            <Position X="-185.2500" Y="-110.0000" />
+            <Position X="-181.2501" Y="-112.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -206,10 +206,10 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/hp8-2.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="lvtext_5" ActionTag="1812029841" Tag="58" IconVisible="False" LeftMargin="-35.2700" RightMargin="35.2700" TopMargin="110.0000" BottomMargin="-110.0000" FontSize="17" LabelText="" OutlineSize="3" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="lvtext_5" ActionTag="1812029841" Tag="58" IconVisible="False" LeftMargin="-31.2702" RightMargin="31.2702" TopMargin="112.0000" BottomMargin="-112.0000" FontSize="15" LabelText="" OutlineSize="3" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint ScaleX="1.0000" />
-            <Position X="-35.2700" Y="-110.0000" />
+            <Position X="-31.2702" Y="-112.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -228,10 +228,10 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/hp8-3.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="lvtext_6" ActionTag="-894041941" Tag="59" IconVisible="False" LeftMargin="118.1600" RightMargin="-118.1600" TopMargin="110.0000" BottomMargin="-110.0000" FontSize="17" LabelText="" OutlineSize="3" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="lvtext_6" ActionTag="-894041941" Tag="59" IconVisible="False" LeftMargin="122.1599" RightMargin="-122.1599" TopMargin="112.0000" BottomMargin="-112.0000" FontSize="15" LabelText="" OutlineSize="3" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint ScaleX="1.0000" />
-            <Position X="118.1600" Y="-110.0000" />
+            <Position X="122.1599" Y="-112.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -250,10 +250,10 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="MarkedSubImage" Path="ui/hp9-4.png" Plist="uipacker.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="lvtext_7" ActionTag="978784068" Tag="60" IconVisible="False" LeftMargin="270.7700" RightMargin="-270.7700" TopMargin="110.0000" BottomMargin="-110.0000" FontSize="17" LabelText="" OutlineSize="3" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="lvtext_7" ActionTag="978784068" Tag="60" IconVisible="False" LeftMargin="274.7698" RightMargin="-274.7698" TopMargin="112.0000" BottomMargin="-112.0000" FontSize="15" LabelText="" OutlineSize="3" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint ScaleX="1.0000" />
-            <Position X="270.7700" Y="-110.0000" />
+            <Position X="274.7698" Y="-112.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
