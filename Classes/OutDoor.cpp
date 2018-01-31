@@ -34,7 +34,7 @@ bool OutDoor::init()
 	this->addChild(m_csbnode, 0, "csbnode");
 
 	m_heroproper = HeroProperNode::create();
-	m_heroproper->setPosition(Vec2(360, 585));
+	m_heroproper->setPosition(Vec2(360, 640));
 	m_csbnode->addChild(m_heroproper, 1, "HeroProperNode");
 
 	scrollview = (cocos2d::ui::ScrollView*)m_csbnode->getChildByName("ScrollView");
@@ -163,7 +163,7 @@ void OutDoor::updataMyPackageUI()
 			box,
 			CC_CALLBACK_1(OutDoor::onPackageItem, this));
 		boxItem->setTag(i);
-		boxItem->setPosition(Vec2(105 + countindex * 130, 850));
+		boxItem->setPosition(Vec2(105 + countindex * 130, 900));
 		Menu* menu = Menu::create();
 		menu->addChild(boxItem);
 		menu->setPosition(Vec2(0, 0));
