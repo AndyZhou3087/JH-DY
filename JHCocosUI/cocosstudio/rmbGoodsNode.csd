@@ -58,14 +58,14 @@
                 <PreSize X="0.8548" Y="0.6709" />
                 <FileData Type="MarkedSubImage" Path="ui/gd0.png" Plist="uipacker.plist" />
               </AbstractNodeData>
-              <AbstractNodeData Name="name" ActionTag="690578992" Tag="55" IconVisible="False" LeftMargin="12.7461" RightMargin="13.2539" TopMargin="109.4920" BottomMargin="24.5080" FontSize="23" LabelText="2388元宝" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="98.0000" Y="24.0000" />
+              <AbstractNodeData Name="name" ActionTag="690578992" Tag="55" IconVisible="False" LeftMargin="17.7461" RightMargin="20.2539" TopMargin="112.4921" BottomMargin="17.5079" FontSize="27" LabelText="2388两" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="86.0000" Y="28.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="61.7461" Y="36.5080" />
+                <Position X="60.7461" Y="31.5079" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="0" G="0" B="0" />
-                <PrePosition X="0.4980" Y="0.2311" />
-                <PreSize X="0.7903" Y="0.1519" />
+                <PrePosition X="0.4899" Y="0.1994" />
+                <PreSize X="0.6935" Y="0.1772" />
                 <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
