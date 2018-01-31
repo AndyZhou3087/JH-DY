@@ -52,6 +52,19 @@
           </AbstractNodeData>
           <AbstractNodeData Name="continuebtn" ActionTag="-33922216" Tag="207" IconVisible="False" LeftMargin="137.0016" RightMargin="158.9984" TopMargin="571.3548" BottomMargin="621.6452" TouchEnable="True" FontSize="50" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="394" Scale9Height="65" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="424.0000" Y="87.0000" />
+            <Children>
+              <AbstractNodeData Name="pausecontinue_1" ActionTag="-1586660693" Tag="530" IconVisible="False" LeftMargin="162.7473" RightMargin="67.2527" TopMargin="15.7508" BottomMargin="20.2492" ctype="SpriteObjectData">
+                <Size X="194.0000" Y="51.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="259.7473" Y="45.7492" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.6126" Y="0.5259" />
+                <PreSize X="0.4575" Y="0.5862" />
+                <FileData Type="MarkedSubImage" Path="ui/pausecontinue.png" Plist="uipacker.plist" />
+                <BlendFunc Src="1" Dst="771" />
+              </AbstractNodeData>
+            </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="349.0016" Y="665.1452" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -68,6 +81,19 @@
           </AbstractNodeData>
           <AbstractNodeData Name="gohomebtn" ActionTag="-733047565" Tag="208" IconVisible="False" LeftMargin="131.7111" RightMargin="164.2889" TopMargin="691.8571" BottomMargin="501.1429" TouchEnable="True" FontSize="50" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="394" Scale9Height="65" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="424.0000" Y="87.0000" />
+            <Children>
+              <AbstractNodeData Name="pauseback_2" ActionTag="1003123869" Tag="531" IconVisible="False" LeftMargin="168.0380" RightMargin="61.9620" TopMargin="15.6478" BottomMargin="20.3522" ctype="SpriteObjectData">
+                <Size X="194.0000" Y="51.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="265.0380" Y="45.8522" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.6251" Y="0.5270" />
+                <PreSize X="0.4575" Y="0.5862" />
+                <FileData Type="MarkedSubImage" Path="ui/pauseback.png" Plist="uipacker.plist" />
+                <BlendFunc Src="1" Dst="771" />
+              </AbstractNodeData>
+            </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="343.7111" Y="544.6429" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -81,28 +107,6 @@
             <NormalFileData Type="MarkedSubImage" Path="ui/startbtn.png" Plist="uipacker.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="pausecontinue_1" ActionTag="-1586660693" Tag="530" IconVisible="False" LeftMargin="292.1162" RightMargin="233.8838" TopMargin="583.0327" BottomMargin="645.9673" ctype="SpriteObjectData">
-            <Size X="194.0000" Y="51.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="389.1162" Y="671.4673" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5404" Y="0.5246" />
-            <PreSize X="0.2694" Y="0.0398" />
-            <FileData Type="MarkedSubImage" Path="ui/pausecontinue.png" Plist="uipacker.plist" />
-            <BlendFunc Src="1" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="pauseback_2" ActionTag="1003123869" Tag="531" IconVisible="False" LeftMargin="292.1162" RightMargin="233.8838" TopMargin="704.5466" BottomMargin="524.4534" ctype="SpriteObjectData">
-            <Size X="194.0000" Y="51.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="389.1162" Y="549.9534" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5404" Y="0.4297" />
-            <PreSize X="0.2694" Y="0.0398" />
-            <FileData Type="MarkedSubImage" Path="ui/pauseback.png" Plist="uipacker.plist" />
-            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="banner_2_3" ActionTag="980204463" Tag="532" IconVisible="False" LeftMargin="51.9653" RightMargin="62.0347" TopMargin="486.6761" BottomMargin="771.3239" ctype="SpriteObjectData">
             <Size X="606.0000" Y="22.0000" />
