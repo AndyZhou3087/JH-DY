@@ -13,8 +13,9 @@
           <FilePathData Path="outDoorLayer.csd" />
           <FilePathData Path="buidingUiLayer.csd" />
           <FilePathData Path="repairLayer.csd" />
+          <FilePathData Path="mapLayer.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="repairLayer.csd" />
+        <ActiveDocument Path="mapLayer.csd" />
       </Value>
     </Item>
   </Properties>
