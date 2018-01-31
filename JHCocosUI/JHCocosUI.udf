@@ -12,11 +12,9 @@
         <OpenedDocuments>
           <FilePathData Path="resDetailsLayer.csd" />
           <FilePathData Path="mixGFNode.csd" />
-          <FilePathData Path="heroAttribNode.csd" />
-          <FilePathData Path="factionMainLayer.csd" />
-          <FilePathData Path="factionlistNode.csd" />
+          <FilePathData Path="fightLayer.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="factionlistNode.csd" />
+        <ActiveDocument Path="fightLayer.csd" />
       </Value>
     </Item>
   </Properties>
