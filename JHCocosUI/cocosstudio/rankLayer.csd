@@ -64,16 +64,6 @@
             <FileData Type="MarkedSubImage" Path="ui/ranktitle.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_2" ActionTag="1356244466" Tag="718" IconVisible="False" LeftMargin="31.4078" RightMargin="33.5922" TopMargin="261.1100" BottomMargin="38.8900" LeftEage="34" RightEage="34" TopEage="23" BottomEage="23" Scale9OriginX="34" Scale9OriginY="23" Scale9Width="38" Scale9Height="25" ctype="ImageViewObjectData">
-            <Size X="655.0000" Y="980.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-            <Position X="358.9078" Y="1018.8900" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4985" Y="0.7960" />
-            <PreSize X="0.9097" Y="0.7656" />
-            <FileData Type="MarkedSubImage" Path="ui/commonframe_1.png" Plist="uipacker.plist" />
-          </AbstractNodeData>
           <AbstractNodeData Name="scrollview" ActionTag="-1150686882" Tag="57" IconVisible="False" LeftMargin="33.0000" RightMargin="32.0000" TopMargin="309.9993" BottomMargin="170.0007" TouchEnable="True" ClipAble="True" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" IsBounceEnabled="True" ScrollDirectionType="Vertical" ctype="ScrollViewObjectData">
             <Size X="655.0000" Y="800.0000" />
             <AnchorPoint />

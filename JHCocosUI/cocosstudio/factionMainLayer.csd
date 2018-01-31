@@ -79,7 +79,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5026" Y="0.5460" />
             <PreSize X="0.8333" Y="0.5859" />
-            <FileData Type="MarkedSubImage" Path="ui/commonframe_1.png" Plist="uipacker.plist" />
+            <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="scrollview" ActionTag="-644685346" Tag="112" IconVisible="False" LeftMargin="50.0805" RightMargin="39.9195" TopMargin="208.0015" BottomMargin="321.9986" TouchEnable="True" ClipAble="True" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" IsBounceEnabled="True" ScrollDirectionType="Vertical" ctype="ScrollViewObjectData">
             <Size X="630.0000" Y="750.0000" />

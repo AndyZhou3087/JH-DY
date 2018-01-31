@@ -527,7 +527,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5002" Y="0.4296" />
             <PreSize X="0.8333" Y="0.3906" />
-            <FileData Type="MarkedSubImage" Path="ui/commonframe_1.png" Plist="uipacker.plist" />
+            <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>
