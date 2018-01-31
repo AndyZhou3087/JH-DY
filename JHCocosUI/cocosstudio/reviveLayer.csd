@@ -29,13 +29,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="revivecountlbl" ActionTag="-1345363941" Tag="133" IconVisible="False" LeftMargin="408.6414" RightMargin="174.3586" TopMargin="719.9444" BottomMargin="531.0556" FontSize="28" LabelText="复活药水x1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="revivecountlbl" ActionTag="-1345363941" Tag="133" IconVisible="False" LeftMargin="441.6406" RightMargin="141.3594" TopMargin="719.9444" BottomMargin="531.0556" FontSize="28" LabelText="复活药水x1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="137.0000" Y="29.0000" />
             <AnchorPoint ScaleX="0.5797" ScaleY="0.5231" />
-            <Position X="488.0603" Y="546.2255" />
+            <Position X="521.0594" Y="546.2255" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="204" G="4" B="4" />
-            <PrePosition X="0.6779" Y="0.4267" />
+            <PrePosition X="0.7237" Y="0.4267" />
             <PreSize X="0.1903" Y="0.0227" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
