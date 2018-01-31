@@ -61,7 +61,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="backbtn" ActionTag="-636992728" Tag="527" IconVisible="False" LeftMargin="222.7450" RightMargin="265.2550" TopMargin="1090.1903" BottomMargin="140.8097" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="backbtn" ActionTag="-636992728" Tag="527" IconVisible="False" LeftMargin="222.7450" RightMargin="265.2550" TopMargin="1071.1899" BottomMargin="159.8100" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="232.0000" Y="49.0000" />
             <Children>
               <AbstractNodeData Name="text" ActionTag="1812410518" Tag="178" IconVisible="False" LeftMargin="95.3729" RightMargin="38.6271" TopMargin="-5.6681" BottomMargin="0.6681" FontSize="50" LabelText="返回" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -78,10 +78,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="338.7450" Y="165.3097" />
+            <Position X="338.7450" Y="184.3100" />
             <Scale ScaleX="1.0217" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4705" Y="0.1291" />
+            <PrePosition X="0.4705" Y="0.1440" />
             <PreSize X="0.3222" Y="0.0383" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
@@ -185,7 +185,7 @@
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5155" Y="0.6176" />
-            <PreSize X="0.3444" Y="0.0406" />
+            <PreSize X="0.3472" Y="0.0437" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <OutlineColor A="255" R="0" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />

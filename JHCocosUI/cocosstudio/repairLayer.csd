@@ -225,7 +225,7 @@
             <FileData Type="MarkedSubImage" Path="ui/repairframe.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="actionbtn" ActionTag="-789219721" Tag="43" IconVisible="False" LeftMargin="226.0008" RightMargin="261.9992" TopMargin="1166.7764" BottomMargin="64.2236" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="actionbtn" ActionTag="-789219721" Tag="43" IconVisible="False" LeftMargin="226.0016" RightMargin="261.9984" TopMargin="1126.7761" BottomMargin="104.2239" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="232.0000" Y="49.0000" />
             <Children>
               <AbstractNodeData Name="text" ActionTag="328814797" Tag="415" IconVisible="False" LeftMargin="91.7156" RightMargin="36.2844" TopMargin="-5.9215" BottomMargin="0.9215" FontSize="50" LabelText="修复" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -242,10 +242,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="342.0008" Y="88.7236" />
+            <Position X="342.0016" Y="128.7239" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4750" Y="0.0693" />
+            <PrePosition X="0.4750" Y="0.1006" />
             <PreSize X="0.3222" Y="0.0383" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />

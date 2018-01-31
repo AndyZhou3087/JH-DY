@@ -134,7 +134,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="allgetbtn" ActionTag="1008343823" Tag="215" IconVisible="False" LeftMargin="352.4734" RightMargin="135.5266" TopMargin="921.3468" BottomMargin="309.6532" TouchEnable="True" FontSize="30" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="allgetbtn" ActionTag="1008343823" Tag="215" IconVisible="False" LeftMargin="352.4733" RightMargin="135.5267" TopMargin="891.3470" BottomMargin="339.6530" TouchEnable="True" FontSize="30" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="232.0000" Y="49.0000" />
             <Children>
               <AbstractNodeData Name="text" ActionTag="-700108331" Tag="490" IconVisible="False" LeftMargin="66.0159" RightMargin="0.9841" TopMargin="0.6368" BottomMargin="5.3632" FontSize="40" LabelText="全部拾取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -151,10 +151,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="468.4734" Y="334.1532" />
+            <Position X="468.4733" Y="364.1530" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.6507" Y="0.2611" />
+            <PrePosition X="0.6507" Y="0.2845" />
             <PreSize X="0.3222" Y="0.0383" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
@@ -198,7 +198,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="continuebtn" ActionTag="-801450230" Tag="44" IconVisible="False" LeftMargin="119.0470" RightMargin="368.9530" TopMargin="921.3468" BottomMargin="309.6532" TouchEnable="True" FontSize="30" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="continuebtn" ActionTag="-801450230" Tag="44" IconVisible="False" LeftMargin="119.0469" RightMargin="368.9531" TopMargin="891.3470" BottomMargin="339.6530" TouchEnable="True" FontSize="30" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="232.0000" Y="49.0000" />
             <Children>
               <AbstractNodeData Name="text" ActionTag="-306366535" Tag="489" IconVisible="False" LeftMargin="61.6139" RightMargin="7.3861" TopMargin="-0.3136" BottomMargin="6.3136" FontSize="40" LabelText="继续挑战" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -215,10 +215,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="235.0470" Y="334.1532" />
+            <Position X="235.0469" Y="364.1530" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.3265" Y="0.2611" />
+            <PrePosition X="0.3265" Y="0.2845" />
             <PreSize X="0.3222" Y="0.0383" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />

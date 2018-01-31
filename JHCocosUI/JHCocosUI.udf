@@ -10,11 +10,10 @@
     <Item Key="TabsParamsKey">
       <Value ctype="TabsInfo">
         <OpenedDocuments>
-          <FilePathData Path="resDetailsLayer.csd" />
-          <FilePathData Path="mixGFNode.csd" />
-          <FilePathData Path="fightLayer.csd" />
+          <FilePathData Path="winLayer.csd" />
+          <FilePathData Path="actionGetLayer.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="fightLayer.csd" />
+        <ActiveDocument Path="actionGetLayer.csd" />
       </Value>
     </Item>
   </Properties>

@@ -26,6 +26,17 @@ bool RepairOKLayer::init(PackageData* pdata, int type)
 	csbnode->runAction(action);
 	action->gotoFrameAndPlay(0, false);
 
+	cocos2d::ui::ImageView* Image_3 = (cocos2d::ui::ImageView*)csbnode->getChildByName("Image_2")->getChildByName("Image_3");
+	std::string repairResStr = StringUtils::format("ui/%s.png", pdata->strid.c_str());
+	Image_3->loadTexture(repairResStr, cocos2d::ui::TextureResType::PLIST);
+	Image_3->setContentSize(Sprite::createWithSpriteFrameName(repairResStr)->getContentSize());
+	m_title = (cocos2d::ui::Text*)csbnode->getChildByName("sgdcbjk_4")->getChildByName("name");
+	m_title->setString(GlobalData::map_allResource[pdata->strid].cname);
+	m_desc = (cocos2d::ui::Text*)csbnode->getChildByName("sgdcbjk_4")->getChildByName("desc");
+	std::string strslv = StringUtils::format("强化+%d", pdata->slv);
+	m_desc->setString(CommonFuncs::gbk2utf(strslv.c_str()));
+
+
 	Node* bnode = CSLoader::createNode("repairOKLayer.csb");
 	this->addChild(bnode);
 

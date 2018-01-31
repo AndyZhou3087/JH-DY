@@ -50,7 +50,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="backbtn" ActionTag="1098841514" Tag="45" IconVisible="False" LeftMargin="16.1238" RightMargin="471.8762" TopMargin="1081.6661" BottomMargin="149.3339" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="backbtn" ActionTag="1098841514" Tag="45" IconVisible="False" LeftMargin="23.1237" RightMargin="464.8763" TopMargin="1030.6637" BottomMargin="200.3363" TouchEnable="True" FontSize="40" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="232.0000" Y="49.0000" />
             <Children>
               <AbstractNodeData Name="text" ActionTag="1635843668" Tag="27" IconVisible="False" LeftMargin="102.0969" RightMargin="50.9031" TopMargin="1.4588" BottomMargin="4.5412" FontSize="40" LabelText="返回" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -67,10 +67,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="132.1238" Y="173.8339" />
+            <Position X="139.1237" Y="224.8363" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1835" Y="0.1358" />
+            <PrePosition X="0.1932" Y="0.1757" />
             <PreSize X="0.3222" Y="0.0383" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
@@ -80,7 +80,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="getbtn" ActionTag="-1196286489" Tag="46" IconVisible="False" LeftMargin="222.7817" RightMargin="265.2183" TopMargin="1081.6661" BottomMargin="149.3339" TouchEnable="True" FontSize="30" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="getbtn" ActionTag="-1196286489" Tag="46" IconVisible="False" LeftMargin="229.7822" RightMargin="258.2178" TopMargin="1030.6637" BottomMargin="200.3363" TouchEnable="True" FontSize="30" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="232.0000" Y="49.0000" />
             <Children>
               <AbstractNodeData Name="text" ActionTag="356458607" Tag="28" IconVisible="False" LeftMargin="62.8317" RightMargin="11.1683" TopMargin="1.6934" BottomMargin="4.3066" FontSize="40" LabelText="继续挖掘" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -97,10 +97,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="338.7817" Y="173.8339" />
+            <Position X="345.7822" Y="224.8363" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4705" Y="0.1358" />
+            <PrePosition X="0.4803" Y="0.1757" />
             <PreSize X="0.3222" Y="0.0383" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
@@ -110,7 +110,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="allgetbtn" ActionTag="-713261081" Tag="47" IconVisible="False" LeftMargin="434.4393" RightMargin="53.5607" TopMargin="1081.6661" BottomMargin="149.3339" TouchEnable="True" FontSize="30" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="allgetbtn" ActionTag="-713261081" Tag="47" IconVisible="False" LeftMargin="441.4399" RightMargin="46.5601" TopMargin="1030.6637" BottomMargin="200.3363" TouchEnable="True" FontSize="30" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="232.0000" Y="49.0000" />
             <Children>
               <AbstractNodeData Name="text" ActionTag="-1117775857" Tag="29" IconVisible="False" LeftMargin="65.0765" RightMargin="1.9235" TopMargin="0.3003" BottomMargin="5.6997" FontSize="40" LabelText="全部拾取" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -127,10 +127,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="550.4393" Y="173.8339" />
+            <Position X="557.4399" Y="224.8363" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7645" Y="0.1358" />
+            <PrePosition X="0.7742" Y="0.1757" />
             <PreSize X="0.3222" Y="0.0383" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
@@ -187,7 +187,7 @@
             <OutlineColor A="255" R="0" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="storagesepline_2" ActionTag="-1418209009" Tag="107" IconVisible="False" LeftMargin="52.8826" RightMargin="61.1174" TopMargin="791.6832" BottomMargin="466.3167" ctype="SpriteObjectData">
+          <AbstractNodeData Name="storagesepline_2" ActionTag="-1418209009" Tag="107" IconVisible="False" LeftMargin="52.8826" RightMargin="61.1174" TopMargin="791.6833" BottomMargin="466.3167" ctype="SpriteObjectData">
             <Size X="606.0000" Y="22.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="355.8826" Y="477.3167" />

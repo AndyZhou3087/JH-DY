@@ -363,7 +363,7 @@ int RepairLayer::getMyPackageResCount(std::string strid)
 void RepairLayer::finishAnim(Ref* pSender)
 {
 	float delay = 0.05f;
-	Vec2 pos[] = { Vec2(360, 895), Vec2(140, 530), Vec2(570, 530) };
+	Vec2 pos[] = { Vec2(360, 765), Vec2(210, 504), Vec2(505, 506) };
 
 	for (int i = 0; i < 3; i++)
 	{

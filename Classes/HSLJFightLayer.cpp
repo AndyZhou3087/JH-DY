@@ -126,8 +126,8 @@ bool HSLJFightLayer::init(std::string addrid)
 
 	updatePlayerInfo();
 	// 滚动文字
-	m_fihgtScorll = UIScroll::create(610.0f, 435.0f);
-	m_fihgtScorll->setPosition(Vec2(360, 350));
+	m_fihgtScorll = UIScroll::create(600.0f, 435.0f);
+	m_fihgtScorll->setPosition(Vec2(360, 370));
 	csbnode->addChild(m_fihgtScorll);
 
 	myactimg = (cocos2d::ui::ImageView*)csbnode->getChildByName("heroactimg");
