@@ -1,4 +1,4 @@
-﻿
+
 #ifndef _H_CONST_H_
 #define _H_CONST_H_
 #include "cocos2d.h"
@@ -10,7 +10,7 @@
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #define ANALYTICS
-#define UMENG_SHARE
+//#define UMENG_SHARE
 #endif
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #define ANALYTICS
