@@ -838,7 +838,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="timegiftbtn" ActionTag="-993240752" Tag="78" IconVisible="False" LeftMargin="1.0009" RightMargin="604.9991" TopMargin="557.5891" BottomMargin="608.4109" TouchEnable="True" FontSize="50" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="84" Scale9Height="92" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="timegiftbtn" ActionTag="-993240752" Tag="78" IconVisible="False" LeftMargin="1.0017" RightMargin="604.9983" TopMargin="479.5885" BottomMargin="686.4115" TouchEnable="True" FontSize="50" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="84" Scale9Height="92" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="114.0000" Y="114.0000" />
             <Children>
               <AbstractNodeData Name="tgiftlefttimebox" ActionTag="-797934312" Tag="79" IconVisible="False" LeftMargin="2.0003" RightMargin="15.9997" TopMargin="99.7489" BottomMargin="-17.7489" ctype="SpriteObjectData">
@@ -865,10 +865,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="58.0009" Y="665.4109" />
+            <Position X="58.0017" Y="743.4115" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0806" Y="0.5199" />
+            <PrePosition X="0.0806" Y="0.5808" />
             <PreSize X="0.1583" Y="0.0891" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />
@@ -878,13 +878,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="rafflebtn" ActionTag="1204722579" Tag="211" IconVisible="False" LeftMargin="1.0000" RightMargin="595.0000" TopMargin="719.0003" BottomMargin="438.9997" TouchEnable="True" FontSize="50" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="94" Scale9Height="100" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="rafflebtn" ActionTag="1204722579" Tag="211" IconVisible="False" LeftMargin="1.0007" RightMargin="594.9993" TopMargin="633.0007" BottomMargin="524.9993" TouchEnable="True" FontSize="50" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="94" Scale9Height="100" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="124.0000" Y="122.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="63.0000" Y="499.9997" />
+            <Position X="63.0007" Y="585.9993" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0875" Y="0.3906" />
+            <PrePosition X="0.0875" Y="0.4578" />
             <PreSize X="0.1722" Y="0.0953" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
             <TextColor A="255" R="255" G="255" B="255" />

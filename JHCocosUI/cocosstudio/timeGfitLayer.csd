@@ -6,24 +6,23 @@
       <ObjectData Name="Layer" Tag="87" ctype="GameLayerObjectData">
         <Size X="720.0000" Y="1280.0000" />
         <Children>
-          <AbstractNodeData Name="bg" ActionTag="1363102530" Tag="90" IconVisible="False" LeftMargin="19.0000" RightMargin="11.0000" TopMargin="367.0001" BottomMargin="366.9999" ctype="SpriteObjectData">
-            <Size X="690.0000" Y="546.0000" />
+          <AbstractNodeData Name="bg" ActionTag="1728593399" Tag="116" IconVisible="False" LeftMargin="21.6591" RightMargin="8.3409" TopMargin="356.0635" BottomMargin="347.9365" Scale9Enable="True" LeftEage="250" RightEage="250" TopEage="250" BottomEage="250" Scale9OriginX="250" Scale9OriginY="250" Scale9Width="190" Scale9Height="46" ctype="ImageViewObjectData">
+            <Size X="690.0000" Y="576.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="364.0000" Y="639.9999" />
+            <Position X="366.6591" Y="635.9365" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5056" Y="0.5000" />
-            <PreSize X="0.9583" Y="0.4266" />
+            <PrePosition X="0.5092" Y="0.4968" />
+            <PreSize X="0.9583" Y="0.4500" />
             <FileData Type="Normal" Path="images/timegiftbg.png" Plist="" />
-            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="title" ActionTag="1295152062" Tag="89" IconVisible="False" LeftMargin="262.4321" RightMargin="187.5679" TopMargin="351.0504" BottomMargin="854.9496" ctype="SpriteObjectData">
+          <AbstractNodeData Name="title" ActionTag="1295152062" Tag="89" IconVisible="False" LeftMargin="262.4322" RightMargin="187.5678" TopMargin="343.0502" BottomMargin="862.9498" ctype="SpriteObjectData">
             <Size X="270.0000" Y="74.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="397.4321" Y="891.9496" />
+            <Position X="397.4322" Y="899.9498" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5520" Y="0.6968" />
+            <PrePosition X="0.5520" Y="0.7031" />
             <PreSize X="0.3750" Y="0.0578" />
             <FileData Type="MarkedSubImage" Path="ui/timegifttitle.png" Plist="uipacker.plist" />
             <BlendFunc Src="1" Dst="771" />
@@ -104,13 +103,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="closebtn" ActionTag="-1034324090" Tag="352" IconVisible="False" LeftMargin="638.5162" RightMargin="4.4838" TopMargin="357.7304" BottomMargin="847.2696" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="47" Scale9Height="53" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="closebtn" ActionTag="-1034324090" Tag="352" IconVisible="False" LeftMargin="638.5161" RightMargin="4.4839" TopMargin="349.9246" BottomMargin="855.0754" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="47" Scale9Height="53" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="77.0000" Y="75.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="677.0162" Y="884.7696" />
+            <AnchorPoint ScaleX="0.5717" ScaleY="0.5598" />
+            <Position X="682.5353" Y="897.0609" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.9403" Y="0.6912" />
+            <PrePosition X="0.9480" Y="0.7008" />
             <PreSize X="0.1069" Y="0.0586" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="MarkedSubImage" Path="ui/bigbgclosebtn.png" Plist="uipacker.plist" />
@@ -119,13 +118,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="timegiftrole" ActionTag="-1514288877" Tag="496" IconVisible="False" LeftMargin="-122.5328" RightMargin="469.5328" TopMargin="294.9203" BottomMargin="382.0797" ctype="SpriteObjectData">
+          <AbstractNodeData Name="timegiftrole" ActionTag="-1514288877" Tag="496" IconVisible="False" LeftMargin="-124.1346" RightMargin="471.1346" TopMargin="317.3376" BottomMargin="359.6624" ctype="SpriteObjectData">
             <Size X="373.0000" Y="603.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="63.9672" Y="683.5797" />
+            <Position X="62.3654" Y="661.1624" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0888" Y="0.5340" />
+            <PrePosition X="0.0866" Y="0.5165" />
             <PreSize X="0.5181" Y="0.4711" />
             <FileData Type="Normal" Path="images/timegiftrole.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
