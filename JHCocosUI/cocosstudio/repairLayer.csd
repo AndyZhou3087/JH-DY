@@ -255,8 +255,8 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="succrndtext" ActionTag="937828589" VisibleForFrame="False" Tag="61" IconVisible="False" LeftMargin="301.4664" RightMargin="309.5336" TopMargin="713.8609" BottomMargin="546.1391" FontSize="19" LabelText="成功率100%" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="109.0000" Y="20.0000" />
+          <AbstractNodeData Name="succrndtext" ActionTag="937828589" VisibleForFrame="False" Tag="61" IconVisible="False" LeftMargin="301.4664" RightMargin="309.5336" TopMargin="713.8609" BottomMargin="546.1391" FontSize="19" LabelText="成功率100%" OutlineSize="2" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="111.0000" Y="24.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="355.9664" Y="556.1391" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -264,7 +264,7 @@
             <PrePosition X="0.4944" Y="0.4345" />
             <PreSize X="0.1514" Y="0.0156" />
             <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
-            <OutlineColor A="255" R="255" G="0" B="0" />
+            <OutlineColor A="255" R="0" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
           <AbstractNodeData Name="strengthfail" ActionTag="-254705373" VisibleForFrame="False" Tag="62" IconVisible="False" LeftMargin="213.4897" RightMargin="208.5103" TopMargin="547.2778" BottomMargin="468.7222" ctype="SpriteObjectData">

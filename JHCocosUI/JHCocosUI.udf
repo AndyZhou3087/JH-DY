@@ -11,8 +11,10 @@
       <Value ctype="TabsInfo">
         <OpenedDocuments>
           <FilePathData Path="outDoorLayer.csd" />
+          <FilePathData Path="buidingUiLayer.csd" />
+          <FilePathData Path="repairLayer.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="outDoorLayer.csd" />
+        <ActiveDocument Path="repairLayer.csd" />
       </Value>
     </Item>
   </Properties>

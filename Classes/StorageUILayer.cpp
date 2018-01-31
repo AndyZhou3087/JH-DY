@@ -45,7 +45,7 @@ bool StorageUILayer::init()
 	shopbtn->addTouchEventListener(CC_CALLBACK_2(StorageUILayer::onShop, this));
 
 	cocos2d::ui::Widget* helpbtn = (cocos2d::ui::Widget*)m_csbnode->getChildByName("helpbtn");
-	helpbtn->setVisible(true);
+	helpbtn->setVisible(false);
 	helpbtn->addTouchEventListener(CC_CALLBACK_2(StorageUILayer::onHelp, this));
 
 	scrollview = (cocos2d::ui::ScrollView*)m_csbnode->getChildByName("ScrollView");
