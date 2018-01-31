@@ -82,62 +82,62 @@
                 <PreSize X="0.0924" Y="0.4237" />
                 <FileData Type="MarkedSubImage" Path="ui/resbox.png" Plist="uipacker.plist" />
               </AbstractNodeData>
-              <AbstractNodeData Name="count0" ActionTag="864830858" VisibleForFrame="False" Tag="66" IconVisible="False" LeftMargin="118.9904" RightMargin="452.0096" TopMargin="62.0156" BottomMargin="44.9844" FontSize="11" LabelText="1000/3" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="35.0000" Y="11.0000" />
+              <AbstractNodeData Name="count0" ActionTag="864830858" VisibleForFrame="False" Tag="66" IconVisible="False" LeftMargin="106.9904" RightMargin="440.0096" TopMargin="59.5156" BottomMargin="42.4844" FontSize="15" LabelText="10000/3" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="59.0000" Y="16.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="136.4904" Y="50.4844" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="0" G="0" B="0" />
                 <PrePosition X="0.2252" Y="0.4278" />
-                <PreSize X="0.0578" Y="0.0932" />
+                <PreSize X="0.0974" Y="0.1356" />
                 <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="count1" ActionTag="848495287" VisibleForFrame="False" Tag="67" IconVisible="False" LeftMargin="192.0325" RightMargin="394.9675" TopMargin="62.0156" BottomMargin="44.9844" FontSize="11" LabelText="0/3" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="19.0000" Y="11.0000" />
+              <AbstractNodeData Name="count1" ActionTag="848495287" VisibleForFrame="False" Tag="67" IconVisible="False" LeftMargin="172.0325" RightMargin="374.9675" TopMargin="59.5156" BottomMargin="42.4844" FontSize="15" LabelText="10000/3" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="59.0000" Y="16.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="201.5325" Y="50.4844" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="0" G="0" B="0" />
                 <PrePosition X="0.3326" Y="0.4278" />
-                <PreSize X="0.0314" Y="0.0932" />
+                <PreSize X="0.0974" Y="0.1356" />
                 <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="count2" ActionTag="-2056206164" VisibleForFrame="False" Tag="68" IconVisible="False" LeftMargin="258.0754" RightMargin="328.9246" TopMargin="62.0156" BottomMargin="44.9844" FontSize="11" LabelText="0/3" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="19.0000" Y="11.0000" />
+              <AbstractNodeData Name="count2" ActionTag="-2056206164" VisibleForFrame="False" Tag="68" IconVisible="False" LeftMargin="254.5754" RightMargin="325.4246" TopMargin="59.5156" BottomMargin="42.4844" FontSize="15" LabelText="0/3" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="26.0000" Y="16.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="267.5754" Y="50.4844" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="0" G="0" B="0" />
                 <PrePosition X="0.4415" Y="0.4278" />
-                <PreSize X="0.0314" Y="0.0932" />
+                <PreSize X="0.0429" Y="0.1356" />
                 <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="count3" ActionTag="1148957834" VisibleForFrame="False" Tag="79" IconVisible="False" LeftMargin="323.1184" RightMargin="263.8816" TopMargin="61.2885" BottomMargin="45.7115" FontSize="11" LabelText="0/3" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="19.0000" Y="11.0000" />
+              <AbstractNodeData Name="count3" ActionTag="1148957834" VisibleForFrame="False" Tag="79" IconVisible="False" LeftMargin="319.6184" RightMargin="260.3816" TopMargin="58.7885" BottomMargin="43.2115" FontSize="15" LabelText="0/3" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="26.0000" Y="16.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="332.6184" Y="51.2115" />
                 <Scale ScaleX="1.0000" ScaleY="0.8678" />
                 <CColor A="255" R="0" G="0" B="0" />
                 <PrePosition X="0.5489" Y="0.4340" />
-                <PreSize X="0.0314" Y="0.0932" />
+                <PreSize X="0.0429" Y="0.1356" />
                 <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="count4" ActionTag="-162290796" VisibleForFrame="False" Tag="78" IconVisible="False" LeftMargin="387.1611" RightMargin="199.8389" TopMargin="62.0156" BottomMargin="44.9844" FontSize="11" LabelText="0/3" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="19.0000" Y="11.0000" />
+              <AbstractNodeData Name="count4" ActionTag="-162290796" VisibleForFrame="False" Tag="78" IconVisible="False" LeftMargin="383.6611" RightMargin="196.3389" TopMargin="59.5156" BottomMargin="42.4844" FontSize="15" LabelText="0/3" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="26.0000" Y="16.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="396.6611" Y="50.4844" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="0" G="0" B="0" />
                 <PrePosition X="0.6546" Y="0.4278" />
-                <PreSize X="0.0314" Y="0.0932" />
+                <PreSize X="0.0429" Y="0.1356" />
                 <FontResource Type="Normal" Path="fonts/STXINGKA.TTF" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />

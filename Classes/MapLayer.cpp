@@ -205,7 +205,6 @@ bool MapLayer::init()
 			removeWeatherPaticle();
 	}
 	SoundManager::getInstance()->playBackMusic(SoundManager::MUSIC_ID_MAP);
-
 	return true;
 }
 
