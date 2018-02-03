@@ -24,7 +24,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5520" Y="0.7031" />
             <PreSize X="0.3750" Y="0.0578" />
-            <FileData Type="MarkedSubImage" Path="ui/timegifttitle.png" Plist="uipacker.plist" />
+            <FileData Type="Normal" Path="images/newergifttitle.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="buybtn" ActionTag="-134754881" Tag="88" IconVisible="False" LeftMargin="275.4643" RightMargin="212.5357" TopMargin="821.0760" BottomMargin="409.9240" TouchEnable="True" FontSize="42" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="202" Scale9Height="27" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -103,7 +103,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="closebtn" ActionTag="-1034324090" Tag="352" IconVisible="False" LeftMargin="638.5161" RightMargin="4.4839" TopMargin="349.9246" BottomMargin="855.0754" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="47" Scale9Height="53" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="closebtn" ActionTag="-1034324090" Tag="352" IconVisible="False" LeftMargin="638.5144" RightMargin="4.4856" TopMargin="349.9241" BottomMargin="855.0759" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="47" Scale9Height="53" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="77.0000" Y="75.0000" />
             <AnchorPoint ScaleX="0.5717" ScaleY="0.5598" />
             <Position X="682.5353" Y="897.0609" />

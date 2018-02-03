@@ -7,10 +7,10 @@
 #include "AnalyticUtil.h"
 #include "GameScene.h"
 #include "HomeLayer.h"
-#include "BuildingUILayer.h"
+#include "WXBuildingUILayer.h"
 #include "CannotTouchLayer.h"
-#include "GoWhereLayer.h"
-#include "ActionGetLayer.h"
+#include "WXGoWhereLayer.h"
+#include "WXActionGetLayer.h"
 #include "HeroProperNode.h"
 
 std::map<int, std::vector<std::string>> map_words;
@@ -267,28 +267,28 @@ bool NewerGuideLayer::init(int step, std::vector<Node*> stencilNodes)
 				else if (m_step == 2)
 				{
 					removeSelf();
-					BuildingUILayer* buildlayer = (BuildingUILayer*)g_gameLayer->getChildByName("builduilayer");
+					WXBuildingUILayer* buildlayer = (WXBuildingUILayer*)g_gameLayer->getChildByName("builduilayer");
 					if (buildlayer != NULL)
 						buildlayer->checkNewerGuide();
 				}
 				else if (m_step == 4)
 				{
 					removeSelf();
-					BuildingUILayer* buildlayer = (BuildingUILayer*)g_gameLayer->getChildByName("builduilayer");
+					WXBuildingUILayer* buildlayer = (WXBuildingUILayer*)g_gameLayer->getChildByName("builduilayer");
 					if (buildlayer != NULL)
 						buildlayer->checkNewerGuide();
 				}
 				else if (m_step == 15)
 				{
 					removeSelf();
-					GoWhereLayer* golayer = (GoWhereLayer*)g_gameLayer->getChildByName("gowherelayer");
+					WXGoWhereLayer* golayer = (WXGoWhereLayer*)g_gameLayer->getChildByName("gowherelayer");
 					if (golayer != NULL)
 						golayer->showNewerGuide(16);
 				}
 				else if (m_step == 19)
 				{
 					removeSelf();
-					ActionGetLayer* alayer = (ActionGetLayer*)g_gameLayer->getChildByName("ActionGetLayer");
+					WXActionGetLayer* alayer = (WXActionGetLayer*)g_gameLayer->getChildByName("WXActionGetLayer");
 					if (alayer != NULL)
 						alayer->showNewerGuide(20);
 				}

@@ -5,6 +5,9 @@
 #ifndef _GAMEDATA_SAVE_H_
 #define _GAMEDATA_SAVE_H_
 #include "cocos2d.h"
+
+USING_NS_CC;
+
 class GameDataSave
 {
 public:
@@ -22,7 +25,7 @@ public:
 	获取保存的生存天数
 	****************************/
 	int getLiveDays();
-
+	void initBg();
 	/****************************
 	保存生存天数
 	****************************/
@@ -37,7 +40,7 @@ public:
 	保存每天时间，24小时制
 	****************************/
 	void setNatureTime(int val);
-
+	void initA();
 	/****************************
 	获取保存的天气
 	****************************/
@@ -47,7 +50,8 @@ public:
 	保存天气
 	****************************/
 	void setNatureWeather(int val);
-
+	void onGameStart();
+	void onGameOver();
 	/****************************
 	获取保存的天气改变次数
 	****************************/
@@ -57,6 +61,8 @@ public:
 	保存天气改变次数
 	****************************/
 	void setNatureWeatherChangeCount(int val);
+	void onScoreChange();
+	void on1sTimer();
 
 	/****************************
 	获取保存的季节
@@ -67,7 +73,8 @@ public:
 	保存季节
 	****************************/
 	void setNatureReason(int val);
-
+	void onTimeChange();
+	void onAttrackBoss();
 	/****************************
 	获取保存的温度
 	****************************/
@@ -77,7 +84,8 @@ public:
 	保存温度
 	****************************/
 	void setNatureTemperature(int val);
-
+	void playBossShowEffect(CallFunc * callback = nullptr);
+	void playBossDeathEffect();
 	/****************************
 	获取保存的角色外伤值
 	****************************/
@@ -87,7 +95,8 @@ public:
 	保存角色外伤值
 	****************************/
 	void setHeroOutinjury(float val);
-
+	void reset();
+	void initalBoss();
 	/****************************
 	获取保存的角色内伤值
 	****************************/
@@ -97,7 +106,8 @@ public:
 	保存角色内伤值
 	****************************/
 	void setHeroInnerinjury(float val);
-
+	void initTime();
+	void updateBloodBar();
 	/****************************
 	获取保存的角色饱食度值
 	****************************/
@@ -107,7 +117,8 @@ public:
 	保存角色饱食度值
 	****************************/
 	void setHeroHunger(float val);
-
+	void updateTime();
+	void resetBoss();
 	/****************************
 	获取保存的角色精神值
 	****************************/
@@ -122,7 +133,8 @@ public:
 	获取保存的角色生命值，生命为0，游戏结束
 	****************************/
 	float getHeroLife();
-
+	void initBossBombParticleSystem();
+	void playAttrackEffect();
 	/****************************
 	保存角色生命值
 	****************************/
@@ -137,7 +149,9 @@ public:
 	保存仓库数据
 	****************************/
 	void setStorageData(std::string valstr);
-
+	void playBombEffect();
+	void playBossActiveEffect();
+	void stopBossActiveEffect();
 	/****************************
 	获取建筑物等级
 	@param buildname 建筑物名称
@@ -151,7 +165,7 @@ public:
 	@param 建筑物等级
 	****************************/
 	void setBuildLV(std::string buildname, int val);
-
+	void setHurtBossVisible(bool isVisible);
 	/****************************
 	获取角色进入的地点
 	@return 地点
@@ -163,6 +177,8 @@ public:
 	@param 地点
 	****************************/
 	void setHeroAddr(std::string val);
+	void initRandSeed();
+	time_t getNowTime();
 
 	/****************************
 	获取临时地点存放的数据
@@ -182,7 +198,9 @@ public:
 	获取背包数据
 	****************************/
 	std::string getPackage();
-
+	long long getNowTimeMs();
+	bool isBeforeToday(time_t sec);
+	long long getTodayLeftSec();
 	/****************************
 	保存背包数据
 	****************************/
@@ -192,6 +210,8 @@ public:
 	获取后山资源列表数据
 	****************************/
 	std::string getResData();
+	bool getRandomBoolean(float rate);
+	bool getRandomBoolean();
 
 	/****************************
 	保存后山资源列表数据
@@ -208,7 +228,8 @@ public:
 	@param uid 
 	****************************/
 	int getHeroIdByUid(std::string uid);
-
+	int getRandomNum(int range);
+	int getRandomNum(int rangeStart, int rangeEnd);
 	/****************************
 	保存角色ID
 	****************************/
@@ -225,6 +246,8 @@ public:
 	****************************/
 	int getHeroLV(std::string localid);
 
+	void shake(cocos2d::Node * node, float scaleLarge, float scaleSmall);
+	void shake(cocos2d::Node * node);
 	/****************************
 	保存角色等级
 	****************************/
@@ -239,6 +262,7 @@ public:
 	保存角色经验值
 	****************************/
 	void setHeroExp(int val);
+	void jump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0);
 
 	/****************************
 	获取角色是否在外面 （家以外）
@@ -254,6 +278,9 @@ public:
 	获取角色属性数据 （装备栏）
 	****************************/
 	std::string getHeroProperData();
+	void jellyJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0);
+	void petJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0, cocos2d::ActionInterval *ac = nullptr);
+	void jelly(cocos2d::Node *node, bool repeat = false, float intrval = 0, bool delay = false, int tag = 0);
 
 	/****************************
 	获取角色属性数据 （装备栏）
@@ -271,6 +298,9 @@ public:
 	****************************/
 	std::string getHeroUnlockData();
 
+	void jumpDown(cocos2d::Node *node, float dt);
+
+	bool isPhone();
 	/****************************
 	保持角色是否解锁 4个角色哪几个解锁
 	****************************/
@@ -775,6 +805,22 @@ private:
 	static GameDataSave* _Context;//类实例
 	static std::string userid;//uid
 
+	Sprite *m_bloodBar;
+	Label *m_time;
+	bool m_bStop;
+	Sprite *m_boss;
+	ParticleSystem * m_emitterBomb;
+
+	float m_bossOriginPosY;
+	float m_bossOriginPosX;
+	Sprite *m_normalBoss_head;
+	Sprite *m_normallBoss_hand_left;
+	Sprite *m_normallBoss_hand_right;
+
+	Sprite *m_hurtBoss_head;
+	Sprite *m_hurtBoss_hand_left;
+	Sprite *m_hurtBoss_hand_right;
+	Sprite *m_hurtBoss_body;
 };
 #endif
 

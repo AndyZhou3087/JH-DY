@@ -1,15 +1,15 @@
 ﻿#include "ReviveLayer.h"
 #include "CommonFuncs.h"
 #include "GameScene.h"
-#include "DeathLayer.h"
+#include "WXDeathLayer.h"
 #include "SoundManager.h"
 #include "ShopLayer.h"
 #include "Const.h"
-#include "FightLayer.h"
+#include "WXFightLayer.h"
 #include "MD5.h"
 #include "HintBox.h"
 #include "AnalyticUtil.h"
-#include "HelpMainLayer.h"
+#include "WXHelpMainLayer.h"
 
 #ifdef UMENG_SHARE
 #include "UmengShare/Common/CCUMSocialSDK.h"
@@ -193,7 +193,7 @@ void ReviveLayer::onCancel(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEven
 			g_gameLayer->removeChildByName("fightlayer");
 			g_gameLayer->saveAllData();
 		}
-		DeathLayer* layer = DeathLayer::create();
+		WXDeathLayer* layer = WXDeathLayer::create();
 		Director::getInstance()->getRunningScene()->addChild(layer);
 	}
 }
@@ -269,7 +269,7 @@ void ReviveLayer::reviveOk()
 
 		if (g_gameLayer->getChildByName("challengecountlayer") == NULL)
 		{
-			FightLayer* fightlayer = (FightLayer*)g_gameLayer->getChildByName("fightlayer");
+			WXFightLayer* fightlayer = (WXFightLayer*)g_gameLayer->getChildByName("fightlayer");
 			if (fightlayer != NULL)
 				fightlayer->showChallengeCountLayer(true);
 		}
@@ -362,7 +362,7 @@ void ReviveLayer::onHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventT
 	CommonFuncs::BtnAction(pSender, type);
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
-		HelpMainLayer* layer = HelpMainLayer::create();
+		WXHelpMainLayer* layer = WXHelpMainLayer::create();
 		this->addChild(layer);
 	}
 }

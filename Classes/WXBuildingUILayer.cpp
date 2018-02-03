@@ -1,0 +1,1457 @@
+﻿#include "WXBuildingUILayer.h"
+#include "json.h"
+#include "WXBed.h"
+#include "MyActionProgressTimer.h"
+#include "CommonFuncs.h"
+#include "GameScene.h"
+#include "Const.h"
+#include "StorageRoom.h"
+#include "HintBox.h"
+#include "SoundManager.h"
+#include "ResDetailsLayer.h"
+#include "WXBuildingDetailsLayer.h"
+#include "HomeLayer.h"
+#include "NewerGuideLayer.h"
+#include "GameDataSave.h"
+#include "WXExerciseCancelLayer.h"
+#include "WXExerciseDoneLayer.h"
+#include "BuyComfirmLayer.h"
+#include "WXBookShelfLayer.h"
+#include "WXDivideLayer.h"
+#include "WaitingProgress.h"
+
+WXBuildingUILayer::WXBuildingUILayer()
+{
+	selectActionIndex = -1;
+	estarttime = 0;
+	lastCategoryindex = 0;
+	exersiceTag = 0;
+}
+
+
+WXBuildingUILayer::~WXBuildingUILayer()
+{
+
+}
+
+
+WXBuildingUILayer* WXBuildingUILayer::create(Building* build)
+{
+	WXBuildingUILayer *pRet = new WXBuildingUILayer();
+	if (pRet && pRet->init(build))
+	{
+		pRet->autorelease();
+	}
+	else
+	{
+		delete pRet;
+		pRet = NULL;
+	}
+	return pRet;
+}
+
+void WXBuildingUILayer::reset() {
+	initTime();
+	updateBloodBar();
+	resetBoss();
+}
+
+void WXBuildingUILayer::onGameStart() {
+	playBossShowEffect();
+}
+
+bool WXBuildingUILayer::init(Building* build)
+{
+	m_build = build;
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
+	this->addChild(color);
+	// ui
+	m_csbnode = CSLoader::createNode("buidingUiLayer.csb");
+	m_csbnode->setPosition(Vec2(0, -90));
+	this->addChild(m_csbnode);
+
+	//建筑物名称
+	cocos2d::ui::Text* title = (cocos2d::ui::Text*)m_csbnode->getChildByName("title");
+	title->setString(m_build->data.cname);
+
+	//返回按钮
+	m_backbtn = (cocos2d::ui::Widget*)m_csbnode->getChildByName("backbtn");
+	m_backbtn->addTouchEventListener(CC_CALLBACK_2(WXBuildingUILayer::onBack, this));
+
+	scrollview = (cocos2d::ui::ScrollView*)m_csbnode->getChildByName("ScrollView");
+	scrollview->setScrollBarEnabled(false);
+	scrollview->setBounceEnabled(true);
+	if (m_build->data.level <= 0)
+		scrollview->setVisible(false);
+
+	//建筑物每个操作 node
+	buildnode = CSLoader::createNode("actionNode.csb");
+	buildnode->setPosition(Vec2(360, 905));
+	m_csbnode->addChild(buildnode);
+
+	//建造按钮
+	buildbtn = (cocos2d::ui::Button*)buildnode->getChildByName("item")->getChildByName("actionbtn");
+	buildbtn->addTouchEventListener(CC_CALLBACK_2(WXBuildingUILayer::onAction, this));
+	buildbtn->setTag(BUILD);
+
+	//建造label
+	actionbtnlabel = (cocos2d::ui::Text*)buildbtn->getChildByName("text");
+
+	//建筑物图标
+	cocos2d::ui::ImageView* buildicon = (cocos2d::ui::ImageView*)buildnode->getChildByName("item")->getChildByName("box")->getChildByName("icon");
+	std::string iconstr = StringUtils::format("ui/s%s.png", m_build->data.name);
+	buildicon->loadTexture(iconstr, cocos2d::ui::TextureResType::PLIST);
+	buildicon->setContentSize(Sprite::createWithSpriteFrameName(iconstr)->getContentSize());
+	buildicon->addTouchEventListener(CC_CALLBACK_2(WXBuildingUILayer::onBuidingDetails, this));
+
+
+	//建筑升级进度条
+	buildbar = (cocos2d::ui::LoadingBar*)buildnode->getChildByName("item")->getChildByName("loadingbar");
+
+	cocos2d::ui::Text* needtimelbl = (cocos2d::ui::Text*)buildnode->getChildByName("item")->getChildByName("needtime");
+	int blv = m_build->data.level;
+	if (blv >= m_build->data.maxlevel)
+		blv = m_build->data.maxlevel - 1;
+	std::string needtimestr = StringUtils::format("%d分钟", m_build->data.needtime[blv]);
+	needtimelbl->setString(CommonFuncs::gbk2utf(needtimestr.c_str()));
+
+	updataBuildRes();
+
+
+	if (strcmp(m_build->data.name, "forgingtable") == 0)
+	{
+		Node* categoryBtnNode = m_csbnode->getChildByName("tagnode");
+		for (int i = 0; i < categoryBtnNode->getChildrenCount(); i++)
+		{
+			std::string btnstr = StringUtils::format("btn%d", i);
+			cocos2d::ui::Button* btn = (cocos2d::ui::Button*)categoryBtnNode->getChildByName(btnstr);
+			btn->setTag(i);
+			btn->addTouchEventListener(CC_CALLBACK_2(WXBuildingUILayer::onCategory, this));
+			vec_categoryBtn.push_back(btn);
+		}
+	}
+
+	if (m_build->data.level > 0)
+	{
+		setActionScrollViewUI();
+	}
+
+	if (strcmp(m_build->data.name, "exerciseroom") == 0 && m_build->data.level >= 1)
+	{
+		updateExerciseDesc();
+	}
+
+
+	////layer 点击事件，屏蔽下层事件
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->onTouchBegan = [=](Touch *touch, Event *event)
+	{
+		return true;
+	};
+
+	listener->setSwallowTouches(true);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
+	if (strcmp(m_build->data.name, "forgingtable") == 0 && m_build->data.level <= 0)
+		checkNewerGuide();
+	return true;
+}
+
+void WXBuildingUILayer::updateBloodBar() {
+
+	float rate = 0;
+	if (rate > 0) {
+		rate = 1 - 10* 1.0f / 2;
+	}
+
+	Sprite* m_bloodBar = NULL;
+	if (nullptr != m_bloodBar) {
+		static const Vec2 offSize = m_bloodBar->getTextureRect().origin;
+		static const float h = m_bloodBar->getContentSize().height;
+		static const float w = m_bloodBar->getContentSize().width;
+		float width = rate * w;
+		m_bloodBar->setTextureRect(CCRectMake(offSize.x, offSize.y, width, h));
+	}
+}
+
+void WXBuildingUILayer::onEnterTransitionDidFinish()
+{
+	Layer::onEnterTransitionDidFinish();
+}
+
+
+void WXBuildingUILayer::initTime() {
+	int s = 100;
+	Label*  m_time = NULL;
+	if (nullptr != m_time) {
+		m_time->setString(String::createWithFormat("%d", s)->_string);
+	}
+}
+
+void WXBuildingUILayer::updateTime() {
+
+}
+
+void WXBuildingUILayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
+{
+	CommonFuncs::BtnAction(pSender, type);
+	if (type == ui::Widget::TouchEventType::ENDED)
+	{
+		if (NewerGuideLayer::checkifNewerGuide(7))
+		{
+			TopBar* topbar = (TopBar*)g_gameLayer->getChildByName("topbar");
+			if (topbar != NULL)
+				topbar->showNewerGuide(7);
+		}
+		else if (NewerGuideLayer::checkifNewerGuide(46))
+		{
+			HomeLayer* homlayer = (HomeLayer*)g_gameLayer->getChildByName("homelayer");
+			if (homlayer != NULL)
+				homlayer->showNewerGuide(46);
+		}
+		this->removeFromParentAndCleanup(true);
+	}
+}
+
+
+void WXBuildingUILayer::resetBoss() {
+	initalBoss();
+
+	Sprite* m_boss = NULL;
+	if (nullptr != m_boss) {
+		m_boss->setPositionY(m_bossOriginPosY + 500);
+		m_boss->setOpacity(255);
+	}
+
+}
+
+
+void WXBuildingUILayer::onScoreChange() {
+
+	updateBloodBar();
+}
+
+void WXBuildingUILayer::on1sTimer() {
+
+	updateTime();
+}
+
+
+void WXBuildingUILayer::setActionScrollViewUI()
+{
+	m_loadlbl = Label::createWithTTF(CommonFuncs::gbk2utf("加载中..."), "fonts/STXINGKA.TTF", 28);
+	m_loadlbl->setColor(Color3B(0, 0, 0));
+	m_loadlbl->setPosition(Vec2(320, 540));
+	this->addChild(m_loadlbl);
+	this->scheduleOnce(schedule_selector(WXBuildingUILayer::delayLoadActionUi), 0.1f);
+
+	if (strcmp(m_build->data.name, "forgingtable") == 0)
+	{
+		Node* categoryBtnNode = m_csbnode->getChildByName("tagnode");
+		vec_categoryBtn[0]->setBright(false);
+		categoryBtnNode->setVisible(true);
+		scrollview->setContentSize(Size(scrollview->getContentSize().width, 530));
+	}
+}
+
+void WXBuildingUILayer::loadActionUi()
+{
+	int itemheight = 135;
+	int acsize = vec_buildAcitonData.size();
+
+	int scrollinnerheight = acsize * itemheight;
+
+	int scorellheight = scrollview->getContentSize().height;
+	if (scrollinnerheight < scorellheight)
+		scrollinnerheight = scorellheight;
+	scrollview->setInnerContainerSize(Size(scrollview->getContentSize().width, scrollinnerheight));
+
+	vec_actionItem.clear();
+	vec_actionbtn.clear();
+	vec_actionbar.clear();
+	vec_progresstext.clear();
+
+	for (int i = 0; i < acsize; i++)
+	{
+		Node *acnode = CSLoader::createNode("actionNode.csb");
+		acnode->setPosition(Vec2(scrollview->getContentSize().width / 2 - 4, scrollinnerheight - itemheight / 2 - i * itemheight - 15));
+
+		scrollview->addChild(acnode);
+		vec_actionItem.push_back(acnode);
+	}
+
+	for (unsigned int i = 0; i < vec_actionItem.size(); i++)
+	{
+		cocos2d::ui::Widget* item = (cocos2d::ui::Widget*)vec_actionItem[i]->getChildByName("item");
+		cocos2d::ui::ImageView* icon = (cocos2d::ui::ImageView*)item->getChildByName("box")->getChildByName("icon");
+
+		std::string iconstr = StringUtils::format("ui/%s.png", vec_buildAcitonData.at(i).icon);
+		icon->loadTexture(iconstr, cocos2d::ui::TextureResType::PLIST);
+		icon->setContentSize(Sprite::createWithSpriteFrameName(iconstr)->getContentSize());
+		/*建筑物操作的显示ICON*/
+		icon->addTouchEventListener(CC_CALLBACK_2(WXBuildingUILayer::onResDetails, this));
+		icon->setTag(10000 * (i + 1));//点击按钮TAG来区分10000以上 
+		icon->setSwallowTouches(false);
+
+		cocos2d::ui::Button* actbtn = (cocos2d::ui::Button*)item->getChildByName("actionbtn");
+		actbtn->addTouchEventListener(CC_CALLBACK_2(WXBuildingUILayer::onAction, this));
+		actbtn->setTag(ACTION + i);
+		cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)actbtn->getChildByName("text");
+		actbtnlabel->setString(vec_buildAcitonData.at(i).actext);
+		vec_actionbtn.push_back(actbtn);
+		int type = vec_buildAcitonData.at(i).type - 1;
+		if (type == WEAPON || type == PROTECT_EQU)
+		{
+			if (g_hero->checkifHasGF_Equip(vec_buildAcitonData.at(i).icon))
+				actbtnlabel->setString(CommonFuncs::gbk2utf("分解"));
+			else if (GlobalData::tempHasGf_Equip(vec_buildAcitonData.at(i).icon).length() > 0)
+			{
+				actbtnlabel->setString(CommonFuncs::gbk2utf("已有"));
+			}
+		}
+
+		vec_progresstext.push_back((cocos2d::ui::Text*)item->getChildByName("progresstext"));
+
+		cocos2d::ui::LoadingBar* actloadbar = (cocos2d::ui::LoadingBar*)item->getChildByName("loadingbar");
+		vec_actionbar.push_back(actloadbar);
+
+		cocos2d::ui::Text* needtimelbl = (cocos2d::ui::Text*)item->getChildByName("needtime");
+		std::string needtimestr = StringUtils::format("%d分钟", vec_buildAcitonData.at(i).actime);
+		needtimelbl->setString(CommonFuncs::gbk2utf(needtimestr.c_str()));
+		if (strcmp(m_build->data.name, "bed") == 0)
+			needtimelbl->setVisible(false);
+	}
+	updataActionRes();
+
+	checkNewerGuide();
+}
+
+void WXBuildingUILayer::onTimeChange() {
+	updateTime();
+}
+
+void WXBuildingUILayer::onAttrackBoss() {
+	playAttrackEffect();
+}
+
+void WXBuildingUILayer::playAttrackEffect() {
+
+	Sprite* m_boss = NULL;
+	if (nullptr != m_boss) {
+		ActionInterval *action = Sequence::create(
+			CallFunc::create([=](){  }),
+			DelayTime::create(0.2),
+			CallFunc::create([=](){}),
+			NULL);
+
+		m_boss->runAction(action);
+
+		ActionInterval * shakeAction = Sequence::create(
+			ScaleTo::create(0.1, 1.4, 1.4, 1),
+			ScaleTo::create(0.1, 1, 1, 1),
+			NULL);
+
+		m_boss->runAction(shakeAction);
+	}
+}
+
+void WXBuildingUILayer::delayLoadActionUi(float dt)
+{
+	vec_buildAcitonData.clear();
+
+	std::string name = m_build->data.name;
+
+	int size = GlobalData::map_buidACData[name].size();
+
+	for (int i = 0; i < size; i++)
+		vec_buildAcitonData.push_back(GlobalData::map_buidACData[name][i]);
+
+	loadActionUi();
+
+	m_loadlbl->removeFromParentAndCleanup(true);
+	getServerTime();
+}
+
+void WXBuildingUILayer::onAction(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
+{
+	CommonFuncs::BtnAction(pSender, type);
+	if (type == ui::Widget::TouchEventType::ENDED)
+	{
+		cocos2d::ui::Button* node = (cocos2d::ui::Button*)pSender;
+		cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)node->getChildByName("text");
+		int tag = node->getTag();
+		if (GlobalData::isExercising() && !GlobalData::isHasFSF() && strcmp(m_build->data.name, "exerciseroom") != 0)
+		{
+			int index = -1;
+			for (unsigned int i = 0; i < GlobalData::vec_goods.size(); i++)
+			{
+				if (GlobalData::vec_goods[i].icon.compare("72") == 0)
+				{
+					index = i;
+					break;
+				}
+			}
+			if (index >= 0)
+			{
+				BuyComfirmLayer* layer = BuyComfirmLayer::create(&GlobalData::vec_goods[index]);
+				Director::getInstance()->getRunningScene()->addChild(layer, 1000, "buycomfirmlayer");
+			}
+			return;
+		}
+
+		if (tag == BUILD)//建造或者升级
+		{
+
+			for (unsigned int i = 0; i < m_build->data.Res[m_build->data.level].size(); i++)
+			{
+				int restypecount = m_build->data.Res[m_build->data.level].at(i);
+				std::string strid = StringUtils::format("%d", restypecount / 1000);
+				if (StorageRoom::getCountById(strid) < restypecount%1000)
+				{
+					HintBox* layer = HintBox::create(CommonFuncs::gbk2utf("没有足够的资源!"));
+					addChild(layer);
+					return;
+				}
+			}
+			buildbtn->setEnabled(false);
+			m_backbtn->setEnabled(false);
+			for (unsigned int i = 0; i < vec_actionbtn.size(); i++)
+				vec_actionbtn[i]->setEnabled(false);
+
+			buildbar->runAction(Sequence::create(MyProgressTo::create(ACTION_BAR_TIME, 100), CallFuncN::create(CC_CALLBACK_1(WXBuildingUILayer::onfinish, this, BUILD)), NULL));
+			m_build->build();
+		}
+		else//操作
+		{
+			int actime = vec_buildAcitonData.at(tag - ACTION).actime;
+			int extime = vec_buildAcitonData.at(tag - ACTION).extime;
+
+			if (actime < TIMESCALE * ACTION_BAR_TIME)
+			{
+				m_build->setActionBarTime(actime / TIMESCALE);
+			}
+			else
+			{
+				m_build->setActionBarTime(ACTION_BAR_TIME);
+			}
+
+			if (actbtnlabel->getString().compare(CommonFuncs::gbk2utf("已有")) == 0)
+			{
+				std::string mapid = GlobalData::tempHasGf_Equip(vec_buildAcitonData.at(tag - ACTION).icon);
+				std::string hasstr = StringUtils::format("%s%s%s", GlobalData::map_maps[mapid].cname, CommonFuncs::gbk2utf("临时存放点存有").c_str(), vec_buildAcitonData.at(tag - ACTION).cname.c_str());
+				HintBox* layer = HintBox::create(hasstr);
+				this->addChild(layer);
+				return;
+			}
+
+			if (actbtnlabel->getString().compare(CommonFuncs::gbk2utf("分解")) == 0)
+			{
+				WXDivideLayer* layer = WXDivideLayer::create(&vec_buildAcitonData.at(tag - ACTION));
+				g_gameLayer->addChild(layer, 4);
+				vec_actionbar[tag - ACTION]->runAction(Sequence::create(MyProgressTo::create(m_build->getActionBarTime(), 100), CallFuncN::create(CC_CALLBACK_1(WXBuildingUILayer::ondivideSucc, this, (BACTIONTYPE)tag, layer)), NULL));
+				m_build->action(actime, extime);
+				return;
+			}
+			for (unsigned int m = 0; m < vec_buildAcitonData.at(tag - ACTION).res.size(); m++)
+			{
+				int restypecount = vec_buildAcitonData.at(tag - ACTION).res.at(m);
+				std::string strid = StringUtils::format("%d", restypecount / 1000);
+				if (StorageRoom::getCountById(strid) < restypecount % 1000)
+				{
+					HintBox* layer = HintBox::create(CommonFuncs::gbk2utf("没有足够的资源!"));
+					this->addChild(layer);
+					return;
+				}
+			}
+
+			if (strcmp(m_build->data.name, "furnace") == 0 && g_nature->getIsMaKeWarm())
+			{
+				HintBox* hintbox = HintBox::create(CommonFuncs::gbk2utf("暖炉中正在生火！请稍后再操作"));
+				Director::getInstance()->getRunningScene()->addChild(hintbox);
+				return;
+			}
+
+			buildbtn->setEnabled(false);
+
+			for (unsigned int i = 0; i < vec_actionbtn.size(); i++)
+				vec_actionbtn[i]->setEnabled(false);
+
+			if (strcmp(m_build->data.name, "exerciseroom") == 0)
+			{
+				selectActionIndex = tag - ACTION;
+				for (unsigned int i = 0; i < vec_actionbtn.size(); i++)
+				{
+					if (i != selectActionIndex)
+						vec_actionbtn[i]->setEnabled(false);
+					else
+						vec_actionbtn[i]->setEnabled(true);
+				}
+
+				cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)vec_actionbtn[tag - ACTION]->getChildByName("text");
+				if (actbtnlabel->getString().compare(CommonFuncs::gbk2utf("闭关")) == 0)
+				{
+					exersiceTag = tag;
+					WaitingProgress* waitbox = WaitingProgress::create("准备中...");
+					Director::getInstance()->getRunningScene()->addChild(waitbox, 1, "waitbox");
+					ServerDataSwap::init(this)->getServerTime();
+				}
+				else if (actbtnlabel->getString().compare(CommonFuncs::gbk2utf("取消")) == 0)
+				{
+					WXExerciseCancelLayer* layer = WXExerciseCancelLayer::create();
+
+					this->addChild(layer, 4);
+					//resetExercise();
+				}
+
+				else if (actbtnlabel->getString().compare(CommonFuncs::gbk2utf("出关")) == 0)
+				{
+					exersiceTag = tag;
+					WaitingProgress* waitbox = WaitingProgress::create("准备中...");
+					Director::getInstance()->getRunningScene()->addChild(waitbox, 1, "waitbox");
+					ServerDataSwap::init(this)->getServerTime();
+				}
+
+			}
+			else
+			{
+				m_backbtn->setEnabled(false);
+				vec_actionbar[tag - ACTION]->runAction(Sequence::create(MyProgressTo::create(m_build->getActionBarTime(), 100), CallFuncN::create(CC_CALLBACK_1(WXBuildingUILayer::onfinish, this, (BACTIONTYPE)tag)), NULL));
+			}
+			m_build->action(actime, extime);
+		}
+	}
+}
+
+void WXBuildingUILayer::playBossShowEffect(CallFunc * callback) {
+	const Size size = Director::getInstance()->getVisibleSize();
+	Point midPos = Vec2(size.width * 0.5, size.height * 0.5);
+	ccBezierConfig config;
+	config.endPosition = Point(m_bossOriginPosX, m_bossOriginPosY);
+
+	config.controlPoint_1 = Point(midPos.x, midPos.y + 50);
+	config.controlPoint_2 = Point(midPos.x, midPos.y + 100);
+
+
+	ActionInterval * showAction = Sequence::create(
+		EaseSineOut::create(MoveTo::create(0.8, midPos)),
+		ScaleTo::create(0.2, 5, 5, 1),
+		Spawn::create(
+		ScaleTo::create(0.8, 1, 1, 1),
+		BezierTo::create(0.8, config),
+		NULL
+		),
+		CallFunc::create([=](){
+	}),
+		callback,
+		NULL);
+}
+
+void WXBuildingUILayer::playBossDeathEffect() {
+}
+
+void WXBuildingUILayer::initBossBombParticleSystem() {
+	Sprite* m_boss = NULL;
+	if (nullptr == m_boss) {
+		return;
+	}
+	ParticleSystemQuad* m_emitterBomb;
+	m_emitterBomb = ParticleSystemQuad::create("");
+	m_emitterBomb->setTexture(Director::getInstance()->getTextureCache()->addImage(""));
+	m_boss->addChild(m_emitterBomb, 100);
+	m_emitterBomb->setPosition(Vec2(m_boss->getContentSize().width * 0.5, m_boss->getContentSize().height * 0.5));
+	m_emitterBomb->stopSystem();
+}
+
+void WXBuildingUILayer::onGameOver() {
+	playBossDeathEffect();
+}
+
+void WXBuildingUILayer::ondivideSucc(Ref* pSender, BACTIONTYPE type, Node* divideLayer)
+{
+	g_nature->setTimeInterval(NORMAL_TIMEINTERVAL);
+	vec_actionbar[type - ACTION]->setPercent(0);
+	cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)vec_actionbtn[type - ACTION]->getChildByName("text");
+	actbtnlabel->setString(CommonFuncs::gbk2utf("锻造"));
+	WXDivideLayer* layer = (WXDivideLayer*)divideLayer;
+	layer->showContent();
+
+	
+	for (unsigned int m = 0; m < vec_buildAcitonData.at(type - ACTION).res.size(); m++)
+	{
+		int restypecount = vec_buildAcitonData.at(type - ACTION).res.at(m);
+		std::string strid = StringUtils::format("%d", restypecount / 1000);
+
+		PackageData data;
+		data.type = GlobalData::getResType(strid);
+		data.strid = strid;
+		data.count = restypecount%1000/2;
+		StorageRoom::add(data);
+	}
+	std::string strid = vec_buildAcitonData.at(type - ACTION).icon;
+	if (g_hero->getAtrByType(H_WEAPON)->count > 0 && g_hero->getAtrByType(H_WEAPON)->strid.compare(strid) == 0)
+	{
+		PackageData data;
+		data.count = 0;
+		g_hero->setAtrByType(H_WEAPON, data);
+	}
+	if (g_hero->getAtrByType(H_ARMOR)->count > 0 && g_hero->getAtrByType(H_ARMOR)->strid.compare(strid) == 0)
+	{
+		PackageData data;
+		data.count = 0;
+		g_hero->setAtrByType(H_ARMOR, data);
+	}
+	StorageRoom::use(strid);
+
+	updataActionRes();
+	updataBuildRes();
+
+}
+
+void WXBuildingUILayer::playBombEffect() {
+
+	Sprite* m_boss;
+	Sprite* m_layer;
+	Texture2D * txt2d = TextureCache::getInstance()->addImage("");
+	if (nullptr == txt2d) {
+		return;
+	}
+
+	float w = txt2d->getContentSize().width / 10;
+	float h = txt2d->getContentSize().height;
+
+	Animation *ani = Animation::create();
+	ani->setDelayPerUnit(0.2);
+	for (int i = 0; i<10; i++) {
+		ani->addSpriteFrameWithTexture(txt2d, Rect(i*w, i*h, w, h));
+	}
+
+	Sprite * sprite = Sprite::create("", Rect(0, 0, w, h));
+	sprite->setPosition(m_boss->getPositionX(), m_boss->getPositionY());
+
+	sprite->runAction(Sequence::create(
+		Animate::create(ani),
+		CallFunc::create([=](){
+		m_layer->removeChild(sprite, true);
+	}),
+		NULL));
+
+	m_boss->runAction(FadeOut::create(0.8));
+}
+
+void WXBuildingUILayer::onfinish(Ref* pSender, BACTIONTYPE type)
+{
+	g_nature->setTimeInterval(NORMAL_TIMEINTERVAL);
+	if (type == BUILD)//建造或升级完成
+	{
+		for (unsigned int i = 0; i < m_build->data.Res[m_build->data.level - 1].size(); i++)
+		{
+			int restypecount = m_build->data.Res[m_build->data.level - 1].at(i);
+			std::string strid = StringUtils::format("%d", restypecount / 1000);
+			StorageRoom::use(strid, restypecount % 1000);
+		}
+		updataBuildRes();
+		if (strcmp(m_build->data.name, "exerciseroom") == 0 && m_build->data.level >= 1)
+		{
+			updateExerciseDesc();
+		}
+		buildbar->setPercent(0);
+		if (m_build->data.level <= 1)
+		{
+			setActionScrollViewUI();
+		}
+		else
+		{
+			updataBuildRes();
+			updataActionRes();
+		}
+
+		m_backbtn->setEnabled(true);
+
+		std::string franmename = "images/buildtext0.png";
+		if (m_build->data.level > 1)
+		{
+			franmename = "images/buildtext1.png";
+		}
+		showFinishHintText(franmename);
+		HomeLayer* homelayer = (HomeLayer*)g_gameLayer->getChildByName("homelayer");
+		if (homelayer != NULL)
+			homelayer->updateBuilding();
+
+		if (strcmp(m_build->data.name, "bookshelf") == 0)
+		{
+			Director::getInstance()->getRunningScene()->addChild(WXBookShelfLayer::create(), 4);
+			this->removeFromParentAndCleanup(true);
+		}
+	}
+	else//操作完成
+	{
+		m_backbtn->setEnabled(true);
+
+		if (m_build->data.level < m_build->data.maxlevel)
+			buildbtn->setEnabled(true);
+
+		cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)vec_actionbtn[type - ACTION]->getChildByName("text");
+		int stype = vec_buildAcitonData.at(type - ACTION).type - 1;
+		if (stype == WEAPON || stype == PROTECT_EQU)
+		{
+			actbtnlabel->setString(CommonFuncs::gbk2utf("分解"));
+		}
+
+		vec_actionbar[type - ACTION]->setPercent(0);
+		std::string strid = vec_buildAcitonData.at(type - ACTION).icon;
+		//是否是产出新的物品，（睡觉和暖炉不会产出新的物品 icon以“0-”开头，其他建筑物的操作或产出新的物品，eg:制作烤肉）
+		if (strid.length() > 0 && strid.compare(0,1, "0") != 0)
+		{
+			PackageData data;
+			data.type = vec_buildAcitonData.at(type - ACTION).type - 1;
+			std::string idstr = StringUtils::format("%s", strid.c_str());
+			data.strid = idstr;
+			data.count = 1;
+			data.extype = vec_buildAcitonData.at(type - ACTION).extype;
+			StorageRoom::add(data);
+			//HintBox* layer = HintBox::create(CommonFuncs::gbk2utf("制作成功"));
+			//this->addChild(layer);
+			showFinishHintText("images/buildtext2.png");
+		}
+
+		for (unsigned int m = 0; m < vec_buildAcitonData.at(type - ACTION).res.size(); m++)
+		{
+			int restypecount = vec_buildAcitonData.at(type - ACTION).res.at(m);
+			std::string strid = StringUtils::format("%d", restypecount / 1000);
+			StorageRoom::use(strid, restypecount % 1000);
+		}
+
+		updataActionRes();
+		updataBuildRes();
+
+		if (strcmp(m_build->data.name, "forgingtable") == 0)
+		{
+			checkNewerGuide();
+		}
+	}
+}
+
+void WXBuildingUILayer::initalBoss() {
+	int bossType = 0;
+	switch (bossType) {
+	case 1:
+		bossType = 1;
+		break;
+	case 2:
+		bossType = 2;
+		break;
+	default:
+		bossType = 3;
+		break;
+	}
+
+	Sprite* m_layer;
+	auto bossSnow = dynamic_cast<Sprite*>(m_layer->getChildByName("boss"));
+	auto bossBear = dynamic_cast<Sprite*>(m_layer->getChildByName("boss2"));
+
+	Sprite* m_boss = NULL;
+	if (1 == bossType) {
+		m_boss = bossSnow;
+		bossSnow->setVisible(true);
+		bossBear->setVisible(false);
+
+		m_normalBoss_head = dynamic_cast<Sprite*>(m_layer->getChildByName("boss")
+			->getChildByName("normal_body")
+			->getChildByName("normal_head"));
+		m_normallBoss_hand_left = dynamic_cast<Sprite*>(m_layer->getChildByName("boss")
+			->getChildByName("normal_hand_left"));
+
+		m_normallBoss_hand_right = dynamic_cast<Sprite*>(m_layer->getChildByName("boss")
+			->getChildByName("normal_hand_right"));
+
+		m_hurtBoss_head = dynamic_cast<Sprite*>(m_normalBoss_head->getChildByName("hurt_head"));
+		m_hurtBoss_hand_left = dynamic_cast<Sprite*>(m_normallBoss_hand_left->getChildByName("hurt_hand_left"));
+		m_hurtBoss_hand_right = dynamic_cast<Sprite*>(m_normallBoss_hand_right->getChildByName("hurt_hand_right"));
+		m_hurtBoss_body = dynamic_cast<Sprite*>(m_layer->getChildByName("boss")
+			->getChildByName("normal_body")
+			->getChildByName("hurt_body"));
+	}
+
+	if (2 == bossType) {
+		m_boss = bossBear;
+		bossSnow->setVisible(false);
+		bossBear->setVisible(true);
+		m_normalBoss_head = dynamic_cast<Sprite*>(m_layer->getChildByName("boss2")
+			->getChildByName("normal_body")
+			->getChildByName("normal_head"));
+		m_normallBoss_hand_left = dynamic_cast<Sprite*>(m_layer->getChildByName("boss2")
+			->getChildByName("normal_hand_left"));
+
+		m_normallBoss_hand_right = dynamic_cast<Sprite*>(m_layer->getChildByName("boss2")
+			->getChildByName("normal_hand_right"));
+
+		m_hurtBoss_head = dynamic_cast<Sprite*>(m_normalBoss_head->getChildByName("hurt_head"));
+		m_hurtBoss_hand_left = dynamic_cast<Sprite*>(m_normallBoss_hand_left->getChildByName("hurt_hand_left"));
+		m_hurtBoss_hand_right = dynamic_cast<Sprite*>(m_normallBoss_hand_right->getChildByName("hurt_hand_right"));
+		m_hurtBoss_body = dynamic_cast<Sprite*>(m_layer->getChildByName("boss2")
+			->getChildByName("normal_body")
+			->getChildByName("hurt_body"));
+	}
+
+	if (nullptr != m_normallBoss_hand_left) {
+		m_normallBoss_hand_left->setRotation(-20);
+	}
+
+	if (nullptr != m_normallBoss_hand_right) {
+		m_normallBoss_hand_right->setRotation(20);
+	}
+
+
+}
+
+void WXBuildingUILayer::setHurtBossVisible(bool isVisible) {
+	if (nullptr != m_hurtBoss_body) {
+		m_hurtBoss_body->setVisible(isVisible);
+	}
+
+	if (nullptr != m_hurtBoss_head) {
+		m_hurtBoss_head->setVisible(isVisible);
+	}
+
+	if (nullptr != m_hurtBoss_hand_left) {
+		m_hurtBoss_hand_left->setVisible(isVisible);
+	}
+
+	if (nullptr != m_hurtBoss_hand_right) {
+		m_hurtBoss_hand_right->setVisible(isVisible);
+	}
+}
+
+void WXBuildingUILayer::playBossActiveEffect() {
+	Sprite* m_boss = NULL;
+
+	if (nullptr != m_boss) {
+		ActionInterval * jumpAction = RepeatForever::create(
+			Sequence::create(
+			MoveBy::create(0.1, Vec2(0, 5)),
+			MoveBy::create(0.1, Vec2(0, -10)),
+			MoveBy::create(0.1, Vec2(0, 5)),
+			NULL)
+			);
+		jumpAction->setTag(1);
+		m_boss->runAction(jumpAction);
+	}
+
+	if (nullptr != m_normallBoss_hand_left) {
+		ActionInterval * shakeAction = RepeatForever::create(
+			Sequence::create(
+			RotateBy::create(0.2, 10),
+			RotateBy::create(0.2, -50),
+			RotateBy::create(0.2, 40),
+			DelayTime::create(1),
+			NULL)
+			);
+		shakeAction->setTag(2);
+		m_normallBoss_hand_left->runAction(shakeAction);
+	}
+
+	if (nullptr != m_normallBoss_hand_right) {
+		ActionInterval * shakeAction = RepeatForever::create(
+			Sequence::create(
+			RotateBy::create(0.2, -10),
+			RotateBy::create(0.2, 50),
+			RotateBy::create(0.2, -40),
+			DelayTime::create(1),
+			NULL)
+			);
+		shakeAction->setTag(3);
+		m_normallBoss_hand_right->runAction(shakeAction);
+	}
+}
+
+void WXBuildingUILayer::updataBuildRes()
+{
+	cocos2d::ui::Widget* mainitem = (cocos2d::ui::Widget*)buildnode->getChildByName("item");
+
+	int level = m_build->data.level;
+
+	if (level > 0)
+	{
+		scrollview->setVisible(true);
+		if (level == m_build->data.maxlevel)
+		{
+			buildbar->setVisible(false);
+			buildnode->getChildByName("item")->getChildByName("progressbg")->setVisible(false);
+			buildbtn->setEnabled(false);
+			actionbtnlabel->setString(CommonFuncs::gbk2utf("最高级"));
+			buildnode->getChildByName("item")->getChildByName("needtime")->setVisible(false);
+		}
+		else
+		{
+			actionbtnlabel->setString(CommonFuncs::gbk2utf("升级"));
+		}
+	}
+
+	if (level >= m_build->data.maxlevel)
+		level = m_build->data.maxlevel - 1;
+
+	int ressize = m_build->data.Res[level].size();
+
+	if (ressize > 0)
+	{
+		//更新升级需要的资源
+		for (unsigned int i = 0; i < m_build->data.Res[level].size(); i++)
+		{
+			//建筑物需要的资源图标
+			std::string str = StringUtils::format("res%d", i);
+			cocos2d::ui::Widget* resitem = (cocos2d::ui::Widget*)mainitem->getChildByName(str);
+
+			resitem->addTouchEventListener(CC_CALLBACK_2(WXBuildingUILayer::onResDetails, this));
+			resitem->setTag(i); 
+
+			str = StringUtils::format("count%d", i);
+			cocos2d::ui::Text* rescount = (cocos2d::ui::Text*)mainitem->getChildByName(str);
+
+			if (m_build->data.level < m_build->data.maxlevel)
+			{
+				int restypecount = m_build->data.Res[level].at(i);
+				if (restypecount > 0)
+				{
+					resitem->setVisible(true);
+
+					str = StringUtils::format("ui/%d.png", restypecount / 1000);
+					Sprite* res = Sprite::createWithSpriteFrameName(str);
+					res->setPosition(Vec2(resitem->getContentSize().width / 2, resitem->getContentSize().height / 2));
+					res->setScale(0.38f);
+					resitem->addChild(res);
+					std::string strid = StringUtils::format("%d", restypecount / 1000);
+					int hascount = StorageRoom::getCountById(strid);
+					int needcount = restypecount % 1000;
+					str = StringUtils::format("%d/%d", hascount, needcount);
+					rescount->setVisible(true);
+					rescount->setString(str);
+					if (hascount < needcount)
+						rescount->setTextColor(Color4B::RED);
+					else
+						rescount->setTextColor(Color4B::BLACK);
+				}
+				buildbtn->setEnabled(true);
+			}
+			else
+			{
+				resitem->setVisible(false);
+				rescount->setVisible(false);
+			}
+		}
+	}
+}
+
+void WXBuildingUILayer::updataActionRes()
+{
+	//更新操作需要的资源
+
+	for (unsigned int i = 0; i < vec_actionItem.size(); i++)
+	{
+		cocos2d::ui::Widget* item = (cocos2d::ui::Widget*)vec_actionItem[i]->getChildByName("item");
+		cocos2d::ui::Text* desc = (cocos2d::ui::Text*)item->getChildByName("desc");
+		cocos2d::ui::Button* actbtn = (cocos2d::ui::Button*)item->getChildByName("actionbtn");
+		if (m_build->data.level >= vec_buildAcitonData.at(i).blv)
+		{
+			int ressize = vec_buildAcitonData.at(i).res.size();
+			if (ressize > 0)
+			{
+				for (unsigned int m = 0; m < vec_buildAcitonData.at(i).res.size(); m++)
+				{
+					int restypecount = vec_buildAcitonData.at(i).res.at(m);
+					if (restypecount > 0)
+					{
+						//合成需要的资源
+						std::string str = StringUtils::format("res%d", m);
+						cocos2d::ui::Widget* resitem = (cocos2d::ui::Widget*)item->getChildByName(str);
+						resitem->addTouchEventListener(CC_CALLBACK_2(WXBuildingUILayer::onResDetails, this));
+						resitem->setTag((i + 1) * 100 + m); //点击按钮TAG来区分100以上
+						resitem->setVisible(true);
+						resitem->setSwallowTouches(false);
+
+						str = StringUtils::format("ui/%d.png", restypecount / 1000);//资源图标
+						Sprite* res = Sprite::createWithSpriteFrameName(str);
+						res->setPosition(Vec2(resitem->getContentSize().width / 2, resitem->getContentSize().height / 2));
+						res->setScale(0.38f);
+						resitem->addChild(res);
+
+						str = StringUtils::format("count%d", m);
+						cocos2d::ui::Text* rescount = (cocos2d::ui::Text*)item->getChildByName(str);
+						rescount->setVisible(true);
+
+						std::string strid = StringUtils::format("%d", restypecount / 1000);
+						int hascount = StorageRoom::getCountById(strid);
+						int needcount = restypecount % 1000;
+						str = StringUtils::format("%d/%d", hascount, needcount);//拥有的资源个数/需要资源个数
+						rescount->setString(str);
+						if (hascount < needcount)
+							rescount->setTextColor(Color4B::RED);
+						else
+							rescount->setTextColor(Color4B::BLACK);
+					}
+				}
+				actbtn->setEnabled(true);
+				desc->setVisible(false);
+			}
+			else
+			{
+				desc->setString(vec_buildAcitonData.at(i).desc);
+				desc->setColor(Color3B(0, 0, 0));
+				desc->setVisible(true);
+				actbtn->setEnabled(true);
+			}
+
+		}
+		else
+		{
+			actbtn->setEnabled(false);
+			desc->setString(CommonFuncs::gbk2utf("需要更高等级的建筑！"));
+			desc->setColor(Color3B(204, 4, 4));
+			desc->setVisible(true);
+		}
+	}
+}
+
+void WXBuildingUILayer::onResDetails(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
+{
+	Node* node = (Node*)pSender;
+	if (type == ui::Widget::TouchEventType::BEGAN)
+	{
+		isDraging = false;
+		startPos = node->convertToWorldSpace(this->getParent()->getPosition());
+	}
+	else if (type == ui::Widget::TouchEventType::MOVED)
+	{
+		Vec2 pos = node->convertToWorldSpace(this->getParent()->getPosition());
+		if (fabsf(pos.y - startPos.y) > 20)
+			isDraging = true;
+	}
+	else if (type == ui::Widget::TouchEventType::ENDED)
+	{
+		if (!isDraging)
+		{
+			SoundManager::getInstance()->playSound(SoundManager::SOUND_ID_BUTTON);
+
+			Node* node = (Node*)pSender;
+			int tag = node->getTag();
+			std::string strid;
+			int intresid = 0;
+			if (tag >= 100 && tag < 10000)//小图标资源
+			{
+				intresid = vec_buildAcitonData[tag / 100 - 1].res[tag % 100];
+				strid = StringUtils::format("%d", intresid / 1000);
+
+			}
+			else if (tag >= 10000)//需要合成的
+			{
+				strid = vec_buildAcitonData[tag / 10000 - 1].icon;
+			}
+			else//建筑物需要的资源
+			{
+				intresid = m_build->data.Res[m_build->data.level][tag];
+				strid = StringUtils::format("%d", intresid / 1000);
+			}
+			ResDetailsLayer::whereClick = 1;
+			this->addChild(ResDetailsLayer::createByResId(strid));
+		}
+	}
+}
+
+void WXBuildingUILayer::onBuidingDetails(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
+{
+	if (type == ui::Widget::TouchEventType::ENDED)
+	{
+		SoundManager::getInstance()->playSound(SoundManager::SOUND_ID_BUTTON);
+		this->addChild(WXBuildingDetailsLayer::create(m_build));
+	}
+}
+
+
+void WXBuildingUILayer::showFinishHintText(std::string path)
+{
+	Sprite* bsprite = Sprite::create(path);
+	bsprite->setPosition(Vec2(360, 600));
+	this->addChild(bsprite);
+	bsprite->runAction(Sequence::create(FadeOut::create(1.5f), CallFuncN::create(CC_CALLBACK_1(WXBuildingUILayer::finishAnim, this, bsprite)), NULL));
+}
+
+void WXBuildingUILayer::finishAnim(Ref* pSender, Node* node)
+{
+	node->removeFromParentAndCleanup(true);
+}
+
+void WXBuildingUILayer::showNewerGuide(int step)
+{
+    bool isshowguide = false;
+	std::vector<Node*> nodes;
+	if (step == 2)
+	{
+		nodes.push_back(buildnode->getChildByName("item")->getChildByName("res0"));
+		nodes.push_back(buildnode->getChildByName("item")->getChildByName("res1"));
+		nodes.push_back(buildnode->getChildByName("item")->getChildByName("res2"));
+		NewerGuideLayer::pushUserData("resbox");
+		NewerGuideLayer::pushUserData("resbox");
+		NewerGuideLayer::pushUserData("resbox");
+        isshowguide = true;
+	}
+	else if (step == 3)
+	{
+		nodes.push_back(buildnode->getChildByName("item")->getChildByName("actionbtn"));
+		NewerGuideLayer::pushUserData("normalbtn");
+        isshowguide = true;
+	}
+	else if (step == 4)
+	{
+        isshowguide = true;
+	}
+	else if (step == 5)
+	{
+		if (vec_categoryBtn.size() > 2)
+		{
+			nodes.push_back(vec_categoryBtn[2]);
+			NewerGuideLayer::pushUserData("buildtagbtn1");
+			isshowguide = true;
+		}
+	}
+	else if (step == 6)
+	{
+		
+		if (vec_actionItem.size() > 1 && vec_categoryBtn.size() > 2 && !vec_categoryBtn[2]->isBright())
+		{
+			cocos2d::ui::Widget* item = (cocos2d::ui::Widget*)vec_actionItem[1]->getChildByName("item");
+			cocos2d::ui::Button* actbtn = (cocos2d::ui::Button*)item->getChildByName("actionbtn");
+			nodes.push_back(actbtn);
+			NewerGuideLayer::pushUserData("normalbtn");
+            isshowguide = true;
+		}
+	}
+
+	else if (step == 42)
+	{
+		if (vec_categoryBtn.size() > 2)
+		{
+			nodes.push_back(vec_categoryBtn[2]);
+			NewerGuideLayer::pushUserData("buildtagbtn1");
+			isshowguide = true;
+		}
+	}
+	else if (step == 43)
+	{
+		if (vec_actionItem.size() > 0 && vec_categoryBtn.size() > 2 && !vec_categoryBtn[2]->isBright())
+		{
+			cocos2d::ui::Widget* item = (cocos2d::ui::Widget*)vec_actionItem[0]->getChildByName("item");
+			cocos2d::ui::Button* actbtn = (cocos2d::ui::Button*)item->getChildByName("actionbtn");
+			nodes.push_back(actbtn);
+			NewerGuideLayer::pushUserData("normalbtn");
+            isshowguide = true;
+		}
+	}
+	else if (step == 44)
+	{
+		if (vec_actionItem.size() > 2 && vec_categoryBtn.size() > 2 && !vec_categoryBtn[2]->isBright())
+		{
+			cocos2d::ui::Widget* item = (cocos2d::ui::Widget*)vec_actionItem[2]->getChildByName("item");
+			cocos2d::ui::Button* actbtn = (cocos2d::ui::Button*)item->getChildByName("actionbtn");
+			nodes.push_back(actbtn);
+			NewerGuideLayer::pushUserData("normalbtn");
+            isshowguide = true;
+		}
+	}
+	else if (step == 45)
+	{
+        isshowguide = true;
+	}
+	if (isshowguide)
+		g_gameLayer->showNewerGuide(step, nodes);
+}
+
+void WXBuildingUILayer::checkNewerGuide()
+{
+	if (NewerGuideLayer::checkifNewerGuide(2))
+		showNewerGuide(2);
+	else if (NewerGuideLayer::checkifNewerGuide(3))
+		showNewerGuide(3);
+	else if (NewerGuideLayer::checkifNewerGuide(4))
+		showNewerGuide(4);
+	else if (NewerGuideLayer::checkifNewerGuide(5))
+		showNewerGuide(5);
+	else if (NewerGuideLayer::checkifNewerGuide(6))
+		showNewerGuide(6);
+	else if (!NewerGuideLayer::checkifNewerGuide(41) && NewerGuideLayer::checkifNewerGuide(42))
+		showNewerGuide(42);
+	else if (!NewerGuideLayer::checkifNewerGuide(42) && NewerGuideLayer::checkifNewerGuide(43))
+		showNewerGuide(43);
+	else if (!NewerGuideLayer::checkifNewerGuide(43) && NewerGuideLayer::checkifNewerGuide(44))
+		showNewerGuide(44);
+	else if (!NewerGuideLayer::checkifNewerGuide(44) && NewerGuideLayer::checkifNewerGuide(45))
+		showNewerGuide(45);
+}
+
+void WXBuildingUILayer::onExercisefinish(int index)
+{
+	cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)vec_actionbtn[index]->getChildByName("text");
+	actbtnlabel->setString(CommonFuncs::gbk2utf("出关"));
+	this->unschedule(schedule_selector(WXBuildingUILayer::updateExerciseLeftTime));
+	vec_progresstext[index]->setVisible(false);
+}
+
+void WXBuildingUILayer::updateExerciseDesc()
+{
+	cocos2d::ui::Text* importdesc = (cocos2d::ui::Text*)buildnode->getChildByName("item")->getChildByName("desc");
+	importdesc->setVisible(true);
+	importdesc->setString(CommonFuncs::gbk2utf(exersiceDesc.c_str()));
+}
+
+void WXBuildingUILayer::updateExerciseLeftTime(float dt)
+{
+	if (selectActionIndex >= 0)
+	{
+		int tatoltime = vec_buildAcitonData.at(selectActionIndex).actime * 60;
+		int lefttime = tatoltime - (curtime - estarttime);
+		std::string str = StringUtils::format("%02d:%02d:%02d", lefttime / 3600, lefttime % 3600/60, lefttime%3600%60);
+		vec_progresstext[selectActionIndex]->setVisible(true);
+		vec_progresstext[selectActionIndex]->setString(str);
+
+		float pecert = 100.0f*(curtime - estarttime) / tatoltime;
+
+		vec_actionbar[selectActionIndex]->runAction(MyProgressFromTo::create(1.0f, vec_actionbar[selectActionIndex]->getPercent(), pecert));
+		if (lefttime <= 0)
+		{
+			onExercisefinish(selectActionIndex);
+		}
+	}
+	curtime++;
+}
+
+void WXBuildingUILayer::resetExercise()
+{
+	this->unschedule(schedule_selector(WXBuildingUILayer::updateExerciseLeftTime));
+	GameDataSave::getInstance()->setExersiceCfg("");
+	vec_progresstext[selectActionIndex]->setVisible(false);
+	vec_actionbar[selectActionIndex]->setPercent(0);
+	vec_actionbar[selectActionIndex]->stopAllActions();
+	cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)vec_actionbtn[selectActionIndex]->getChildByName("text");
+	actbtnlabel->setString(CommonFuncs::gbk2utf("闭关"));
+	for (unsigned int i = 0; i < vec_actionbtn.size(); i++)
+	{
+		vec_actionbtn[i]->setEnabled(true);
+	}
+}
+
+void WXBuildingUILayer::onCategory(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
+{
+	CommonFuncs::BtnAction(pSender, type);
+	if (type == ui::Widget::TouchEventType::ENDED)
+	{
+		Node* node = (Node*)pSender;
+		if (lastCategoryindex == node->getTag())
+			return;
+
+		lastCategoryindex = node->getTag();
+
+		for (unsigned int i = 0; i < vec_categoryBtn.size(); i++)
+		{
+			vec_categoryBtn[i]->setEnabled(false);
+			if (node->getTag() != i)
+			{
+				vec_categoryBtn[i]->setBright(true);
+			}
+			else
+			{
+				vec_categoryBtn[i]->setBright(false);
+			}
+		}
+
+		m_loadlbl = Label::createWithTTF(CommonFuncs::gbk2utf("加载中..."), "fonts/STXINGKA.TTF", 28);
+		m_loadlbl->setColor(Color3B(0, 0, 0));
+		m_loadlbl->setPosition(Vec2(320, 600));
+		this->addChild(m_loadlbl, 100);
+
+		scrollview->removeAllChildrenWithCleanup(true);
+
+		this->scheduleOnce(schedule_selector(WXBuildingUILayer::delayShowCategoryActionUI), 0.1f);
+	}
+}
+
+void WXBuildingUILayer::loadActionUIByCategory(int category)
+{
+	vec_buildAcitonData.clear();
+	int size = GlobalData::map_buidACData["forgingtable"].size();
+	if (category == 0)
+	{
+		for (int i = 0; i < size; i++)
+			vec_buildAcitonData.push_back(GlobalData::map_buidACData["forgingtable"][i]);
+	}
+	else if (category == 1)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			int stype = GlobalData::map_buidACData["forgingtable"][i].type - 1;
+			if (stype == RES_1)
+				vec_buildAcitonData.push_back(GlobalData::map_buidACData["forgingtable"][i]);
+		}
+	}
+	else if (category == 2)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			int stype = GlobalData::map_buidACData["forgingtable"][i].type - 1;
+			if (stype == TOOLS)
+				vec_buildAcitonData.push_back(GlobalData::map_buidACData["forgingtable"][i]);
+		}
+	}
+	else if (category == 3)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			int stype = GlobalData::map_buidACData["forgingtable"][i].type - 1;
+			if (stype == WEAPON)
+				vec_buildAcitonData.push_back(GlobalData::map_buidACData["forgingtable"][i]);
+		}
+	}
+	else if (category == 4)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			int stype = GlobalData::map_buidACData["forgingtable"][i].type - 1;
+			if (stype == PROTECT_EQU)
+				vec_buildAcitonData.push_back(GlobalData::map_buidACData["forgingtable"][i]);
+		}
+	}
+	
+	loadActionUi();
+	m_loadlbl->removeFromParentAndCleanup(true);
+	for (unsigned int i = 0; i < vec_categoryBtn.size(); i++)
+	{
+		vec_categoryBtn[i]->setEnabled(true);
+		if (lastCategoryindex != i)
+		{
+			vec_categoryBtn[i]->setBright(true);
+		}
+		else
+		{
+			vec_categoryBtn[i]->setBright(false);
+		}
+	}
+
+}
+
+void WXBuildingUILayer::delayShowCategoryActionUI(float dt)
+{
+	loadActionUIByCategory(lastCategoryindex);
+}
+
+void WXBuildingUILayer::getServerTime()
+{
+	if (strcmp(m_build->data.name, "exerciseroom") == 0)
+	{
+		WaitingProgress* waitbox = WaitingProgress::create("加载中...");
+		Director::getInstance()->getRunningScene()->addChild(waitbox, 1, "waitbox");
+		ServerDataSwap::init(this)->getServerTime();
+	}
+}
+
+void WXBuildingUILayer::onSuccess()
+{
+	Director::getInstance()->getRunningScene()->removeChildByName("waitbox");
+	if (exersiceTag > 0)
+	{
+		cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)vec_actionbtn[exersiceTag - ACTION]->getChildByName("text");
+		if (actbtnlabel->getString().compare(CommonFuncs::gbk2utf("闭关")) == 0)
+		{
+			estarttime = GlobalData::servertime;
+			actbtnlabel->setString(CommonFuncs::gbk2utf("取消"));
+			curtime = GlobalData::servertime;
+			updateExerciseLeftTime(0);
+			this->schedule(schedule_selector(WXBuildingUILayer::updateExerciseLeftTime), 1);
+
+			if (g_hero->getAtrByType(H_WG)->count > 0)
+			{
+				ex_wgstrid = g_hero->getAtrByType(H_WG)->strid;
+			}
+			if (g_hero->getAtrByType(H_NG)->count > 0)
+			{
+				ex_ngstrid = g_hero->getAtrByType(H_NG)->strid;
+			}
+
+			std::string estr = StringUtils::format("%d-%d-%s-%s", exersiceTag - ACTION, estarttime, ex_wgstrid.c_str(), ex_ngstrid.c_str());
+			GameDataSave::getInstance()->setExersiceCfg(estr);
+		}
+		else if (actbtnlabel->getString().compare(CommonFuncs::gbk2utf("出关")) == 0)
+		{
+			int extime = vec_buildAcitonData.at(exersiceTag - ACTION).extime;
+			if (GlobalData::servertime + 2 - estarttime >= extime * 60)
+			{
+				WXExerciseDoneLayer* layer = WXExerciseDoneLayer::create(ex_wgstrid, ex_ngstrid, extime / 60);
+				this->addChild(layer, 4);
+				resetExercise();
+			}
+			else
+			{
+				HintBox* hbox = HintBox::create(CommonFuncs::gbk2utf("出关失败"));
+				this->addChild(hbox, 4);
+				actbtnlabel->setString(CommonFuncs::gbk2utf("取消"));
+				curtime = GlobalData::servertime;
+
+				updateExerciseLeftTime(0);
+				this->schedule(schedule_selector(WXBuildingUILayer::updateExerciseLeftTime), 1);
+			}
+		}
+	}
+	else
+	{
+		if (strcmp(m_build->data.name, "exerciseroom") == 0)
+		{
+			std::string estr = GameDataSave::getInstance()->getExersiceCfg();
+			int index = -1;
+
+			if (estr.length() > 0)
+			{
+				std::vector<std::string> tmp;
+				CommonFuncs::split(estr, tmp, "-");
+				if (tmp.size() >= 4)
+				{
+					index = atoi(tmp[0].c_str());
+					estarttime = atoi(tmp[1].c_str());
+					ex_wgstrid = tmp[2];
+					ex_ngstrid = tmp[3];
+				}
+			}
+			selectActionIndex = index;
+			if (index >= 0)
+			{
+				curtime = GlobalData::servertime;
+				int pasttime = curtime - estarttime;
+
+				if (pasttime >= vec_buildAcitonData.at(index).actime * 60)
+				{
+					vec_actionbar[index]->setPercent(100);
+					onExercisefinish(selectActionIndex);
+				}
+				else
+				{
+					cocos2d::ui::Text* actbtnlabel = (cocos2d::ui::Text*)vec_actionbtn[index]->getChildByName("text");
+					actbtnlabel->setString(CommonFuncs::gbk2utf("取消"));
+					updateExerciseLeftTime(0);
+					this->schedule(schedule_selector(WXBuildingUILayer::updateExerciseLeftTime), 1);
+				}
+
+				for (unsigned int i = 0; i < vec_actionbtn.size(); i++)
+				{
+					if (i != index)
+						vec_actionbtn[i]->setEnabled(false);
+					else
+						vec_actionbtn[i]->setEnabled(true);
+				}
+
+			}
+
+		}
+	}
+}
+
+void WXBuildingUILayer::onErr(int errcode)
+{
+	Director::getInstance()->getRunningScene()->removeChildByName("waitbox");
+	HintBox* hbox = HintBox::create(CommonFuncs::gbk2utf("失败!!!"));
+	this->addChild(hbox, 4);
+}

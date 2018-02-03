@@ -21,7 +21,7 @@ public:
 	~GameScene();
     static cocos2d::Scene* createScene();
     virtual bool init();
-
+	void initA();
 	virtual void onExit();
 
 	CREATE_FUNC(GameScene);
@@ -29,12 +29,13 @@ public:
 	角色复活更新UI
 	*****************************/
 	void heroRevive();
+	void initRandSeed();
 
 	/****************************
 	保存数据到本地文件
 	*****************************/
 	void saveAllData();
-
+	void initBg();
 	/****************************
 	新手引导
 	*****************************/
@@ -44,6 +45,8 @@ public:
 	延迟新手引导
 	*****************************/
 	void delayShowNewerGuide(float dt);
+	time_t getNowTime();
+	long long getNowTimeMs();
 
 	/****************************
 	延迟显示出门场景
@@ -54,7 +57,8 @@ public:
 	出门
 	*****************************/
 	void showGOOut(float dt);
-
+	bool isBeforeToday(time_t sec);
+	long long getTodayLeftSec();
 	/****************************
 	检查成就完成
 	*****************************/
@@ -64,6 +68,8 @@ public:
 	安卓返回键保存数据
 	*****************************/
 	static void saveMyData();
+	bool getRandomBoolean(float rate);
+	bool getRandomBoolean();
 
 	/****************************
 	安卓返回键时改变游戏状态
@@ -75,7 +81,8 @@ public:
 	重置支线任务（每天重置）
 	*****************************/
 	void checkRestBranchMisson();
-
+	int getRandomNum(int range);
+	int getRandomNum(int rangeStart, int rangeEnd);
 private:
 	TopBar* topBar;//角色属性和天气NODE
 	HomeLayer *homeLayer;//角色家
@@ -95,6 +102,8 @@ private:
 	*****************************/
 	void loadSaveHeroData();
 
+	void shake(cocos2d::Node * node, float scaleLarge, float scaleSmall);
+	void shake(cocos2d::Node * node);
 	/****************************
 	读取保存到本地的角色属性数据
 	*****************************/
@@ -104,6 +113,8 @@ private:
 	定时更新资源列表数据
 	*****************************/
 	void updata(float dt);
+	void jump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0);
+	void jellyJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0);
 
 	/****************************
 	定时查看角色是否死亡，生命为0死掉
@@ -119,7 +130,8 @@ private:
 	韦小宝和独孤求败地图位置
 	*****************************/
 	void getNpcRandMap();
-
+	void petJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0, cocos2d::ActionInterval *ac = nullptr);
+	void jelly(cocos2d::Node *node, bool repeat = false, float intrval = 0, bool delay = false, int tag = 0);
 	/****************************
 	VIP奖励回调
 	*****************************/
@@ -127,7 +139,9 @@ private:
 	void onErr(int errcode);
 
 	void delayChangeStartScene(float dt);
+	void jumpDown(cocos2d::Node *node, float dt);
 
+	bool isPhone();
 };
 extern Nature* g_nature;//天气数据
 extern Hero* g_hero;//角色数据

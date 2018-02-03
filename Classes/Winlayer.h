@@ -19,6 +19,14 @@ public:
 	static Winlayer* create(std::string addr, std::string npcid);
 	void updataMyPackageUI();
 	void updataRewardUI();
+	void jump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0);
+	void jellyJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0);
+	void petJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0, cocos2d::ActionInterval *ac = nullptr);
+	void jelly(cocos2d::Node *node, bool repeat = false, float intrval = 0, bool delay = false, int tag = 0);
+
+	void jumpDown(cocos2d::Node *node, float dt);
+
+	bool isPhone();
 	/****************************
 	新手引导
 	*****************************/
@@ -27,7 +35,8 @@ public:
 	新手引导
 	*****************************/
 	void checkNewerGuide();
-
+	void shake(cocos2d::Node * node, float scaleLarge, float scaleSmall);
+	void shake(cocos2d::Node * node);
 	static void showMissionAnim(Node* _target, std::string text, std::vector<std::string> vec_res);
 	static void removeMissionAnim(Ref* pSender);
 private:
@@ -35,6 +44,11 @@ private:
 	void onAllGet(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 	void onContinue(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 	void updata();
+
+	bool getRandomBoolean(float rate);
+	bool getRandomBoolean();
+	int getRandomNum(int range);
+	int getRandomNum(int rangeStart, int rangeEnd);
 	void onRewardItem(cocos2d::Ref* pSender);
 	void onPackageItem(cocos2d::Ref* pSender);
 	void saveTempData();
@@ -46,7 +60,11 @@ private:
 
 	void onSuccess();
 	void onErr(int errcode);
-
+	void initRandSeed();
+	time_t getNowTime();
+	long long getNowTimeMs();
+	bool isBeforeToday(time_t sec);
+	long long getTodayLeftSec();
 private:
 	std::string m_npcid;
 	std::string m_addrid;

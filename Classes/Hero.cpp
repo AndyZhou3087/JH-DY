@@ -54,7 +54,25 @@ bool Hero::init()
 	this->schedule(schedule_selector(Hero::checkMaxVaule), 1.0f);
 	return true;
 }
+void Hero::onGameStart() {
+	playBossShowEffect();
+}
 
+void Hero::updateBloodBar() {
+
+	float rate = 0;
+	if (rate > 0) {
+		rate = 1 - 100 * 1.0f / 3;
+	}
+
+	if (nullptr != m_bloodBar) {
+		static const Vec2 offSize = m_bloodBar->getTextureRect().origin;
+		static const float h = m_bloodBar->getContentSize().height;
+		static const float w = m_bloodBar->getContentSize().width;
+		float width = rate * w;
+		m_bloodBar->setTextureRect(CCRectMake(offSize.x, offSize.y, width, h));
+	}
+}
 void Hero::updateData(float dt)
 {
 	if (GlobalData::g_gameStatus != GAMESTART)
@@ -149,6 +167,12 @@ void Hero::updateData(float dt)
 
 }
 
+void Hero::initTime() {
+	int s = 10;
+	if (nullptr != m_time) {
+		m_time->setString(String::createWithFormat("%d", s)->_string);
+	}
+}
 void Hero::sleep(int losttime, int hour)
 {
 	//按次恢复生命
@@ -166,7 +190,30 @@ void Hero::sleep(int losttime, int hour)
 
 	this->scheduleOnce(schedule_selector(Hero::sleepDone), delay);
 }
+void Hero::updateTime() {
+	bool isok = true;
+	if (isok) {
+		int s =20;
+		s -= 1;
+		if (s <= 4 && s >= 0) {
+			
+		}
 
+		if (s <= 0) {
+			s = 0;
+			
+		}
+		else {
+
+		}
+
+		if (nullptr != m_time) {
+			m_time->setString(String::createWithFormat("%d", s)->_string);
+		}
+
+
+	}
+}
 void Hero::sleepbystep(float dt)
 {
 	//每次恢复的生命值
@@ -182,13 +229,46 @@ void Hero::sleepDone(float dt)
 {
 	sleepLostPercent = 1.0f;
 }
+void Hero::resetBoss() {
+	initalBoss();
+
+	if (nullptr != m_boss) {
+		m_boss->setPositionY(m_bossOriginPosY + 500);
+		m_boss->setOpacity(255);
+	}
+
+	setHurtBossVisible(false);
+}
+
+void Hero::onScoreChange() {
+
+
+	updateBloodBar();
+}
 
 void Hero::drinking()
 {
 	//按次恢复精神值
 	this->schedule(schedule_selector(Hero::drinkbystep), 0.2f, TIMESCALE* ACTION_BAR_TIME - 1, 0.0f);
 }
+void Hero::on1sTimer() {
 
+
+	if (m_bStop) {
+		return;
+	}
+
+	updateTime();
+}
+
+void Hero::onTimeChange() {
+
+	updateTime();
+}
+
+void Hero::onAttrackBoss() {
+	playAttrackEffect();
+}
 void Hero::drinkbystep(float dt)
 {
 	//每次恢复精神值
@@ -204,12 +284,75 @@ int Hero::getAtkValue()
 {
 	return GlobalData::map_heroAtr[getHeadID()].vec_atk[getLVValue()];
 }
+void Hero::playAttrackEffect() {
+	m_emitterBomb->resetSystem();
+	if (nullptr != m_boss) {
+		ActionInterval *action = Sequence::create(
+			CallFunc::create([=](){ setHurtBossVisible(true); }),
+			DelayTime::create(0.2),
+			CallFunc::create([=](){ setHurtBossVisible(false); }),
+			NULL);
+
+		m_boss->runAction(action);
+
+		ActionInterval * shakeAction = Sequence::create(
+			ScaleTo::create(0.1, 1.4, 1.4, 1),
+			ScaleTo::create(0.1, 1, 1, 1),
+			NULL);
+
+		m_boss->runAction(shakeAction);
+	}
+}
 
 int Hero::getDfValue()
 {
 	return GlobalData::map_heroAtr[getHeadID()].vec_df[getLVValue()];
 }
+void Hero::playBossShowEffect(CallFunc * callback) {
+	if (nullptr == m_boss) {
+		return;
+	}
 
+	const Size size = Director::getInstance()->getVisibleSize();
+	Point midPos = Vec2(size.width * 0.5, size.height * 0.5);
+	ccBezierConfig config;
+	config.endPosition = Point(m_bossOriginPosX, m_bossOriginPosY);
+
+	config.controlPoint_1 = Point(midPos.x, midPos.y + 50);
+	config.controlPoint_2 = Point(midPos.x, midPos.y + 100);
+
+
+	ActionInterval * showAction = Sequence::create(
+		EaseSineOut::create(MoveTo::create(0.8, midPos)),
+		ScaleTo::create(0.2, 5, 5, 1),
+		Spawn::create(
+		ScaleTo::create(0.8, 1, 1, 1),
+		BezierTo::create(0.8, config),
+		NULL
+		),
+		CallFunc::create([=](){
+		playBossActiveEffect();
+	}),
+		callback,
+		NULL);
+	m_boss->runAction(showAction);
+}
+
+void Hero::playBossDeathEffect() {
+	playBombEffect();
+}
+
+void Hero::initBossBombParticleSystem() {
+	if (nullptr == m_boss) {
+		return;
+	}
+
+	m_emitterBomb = ParticleSystemQuad::create("");
+	m_emitterBomb->setTexture(Director::getInstance()->getTextureCache()->addImage(""));
+	m_boss->addChild(m_emitterBomb, 100);
+	m_emitterBomb->setPosition(Vec2(m_boss->getContentSize().width * 0.5, m_boss->getContentSize().height * 0.5));
+	m_emitterBomb->stopSystem();
+}
 float Hero::getMaxLifeValue()
 {
 	float friendhppercent = 0.0f;
@@ -251,12 +394,50 @@ float Hero::getRecoverLifeMaxValue()
 	return flife;
 }
 
+
+void Hero::onGameOver() {
+	stopBossActiveEffect();
+	playBossDeathEffect();
+}
+
 void Hero::setAtrByType(HeroAtrType type, PackageData pData)
 {
 	map_heroAtr[type] = pData;
 	saveProperData();
 }
+void Hero::playBombEffect() {
+	if (nullptr == m_boss) {
+		return;
+	}
 
+	Texture2D * txt2d = TextureCache::getInstance()->addImage("");
+	if (nullptr == txt2d) {
+		return;
+	}
+
+	float w = txt2d->getContentSize().width / 5;
+	float h = txt2d->getContentSize().height;
+
+	Animation *ani = Animation::create();
+	ani->setDelayPerUnit(0.2);
+	for (int i = 0; i<7; i++) {
+		ani->addSpriteFrameWithTexture(txt2d, Rect(i*w, i*h, w, h));
+	}
+
+	Sprite * sprite = Sprite::create("", Rect(0, 0, w, h));
+	Sprite* m_layer;
+	m_layer->addChild(sprite, m_boss->getZOrder() + 1);
+	sprite->setPosition(m_boss->getPositionX(), m_boss->getPositionY());
+
+	sprite->runAction(Sequence::create(
+		Animate::create(ani),
+		CallFunc::create([=](){
+		m_layer->removeChild(sprite, true);
+	}),
+		NULL));
+
+	m_boss->runAction(FadeOut::create(0.8));
+}
 PackageData* Hero::getAtrByType(HeroAtrType type)
 {
 	return &map_heroAtr[type];
@@ -274,6 +455,76 @@ void Hero::saveProperData()
 		str.append(idstr);
 	}
 	GlobalData::setHeroProperData(str.substr(0, str.length() - 1));
+}
+void Hero::initalBoss() {
+	EnumBoss bossType = Boss_unknow;
+	switch (bossType) {
+	case Boss_Snow:
+		bossType = Boss_Snow;
+		break;
+	case Boss_Bear:
+		bossType = Boss_Bear;
+		break;
+	default:
+		bossType = Boss_Snow;
+		break;
+	}
+	Sprite* m_layer;
+	auto bossSnow = dynamic_cast<Sprite*>(m_layer->getChildByName("boss"));
+	auto bossBear = dynamic_cast<Sprite*>(m_layer->getChildByName("boss2"));
+
+	if (Boss_Snow == bossType) {
+		m_boss = bossSnow;
+		bossSnow->setVisible(true);
+		bossBear->setVisible(false);
+
+		m_normalBoss_head = dynamic_cast<Sprite*>(m_layer->getChildByName("boss")
+			->getChildByName("normal_body")
+			->getChildByName("normal_head"));
+		m_normallBoss_hand_left = dynamic_cast<Sprite*>(m_layer->getChildByName("boss")
+			->getChildByName("normal_hand_left"));
+
+		m_normallBoss_hand_right = dynamic_cast<Sprite*>(m_layer->getChildByName("boss")
+			->getChildByName("normal_hand_right"));
+
+		m_hurtBoss_head = dynamic_cast<Sprite*>(m_normalBoss_head->getChildByName("hurt_head"));
+		m_hurtBoss_hand_left = dynamic_cast<Sprite*>(m_normallBoss_hand_left->getChildByName("hurt_hand_left"));
+		m_hurtBoss_hand_right = dynamic_cast<Sprite*>(m_normallBoss_hand_right->getChildByName("hurt_hand_right"));
+		m_hurtBoss_body = dynamic_cast<Sprite*>(m_layer->getChildByName("boss")
+			->getChildByName("normal_body")
+			->getChildByName("hurt_body"));
+	}
+
+	if (Boss_Bear == bossType) {
+		m_boss = bossBear;
+		bossSnow->setVisible(false);
+		bossBear->setVisible(true);
+		m_normalBoss_head = dynamic_cast<Sprite*>(m_layer->getChildByName("boss2")
+			->getChildByName("normal_body")
+			->getChildByName("normal_head"));
+		m_normallBoss_hand_left = dynamic_cast<Sprite*>(m_layer->getChildByName("boss2")
+			->getChildByName("normal_hand_left"));
+
+		m_normallBoss_hand_right = dynamic_cast<Sprite*>(m_layer->getChildByName("boss2")
+			->getChildByName("normal_hand_right"));
+
+		m_hurtBoss_head = dynamic_cast<Sprite*>(m_normalBoss_head->getChildByName("hurt_head"));
+		m_hurtBoss_hand_left = dynamic_cast<Sprite*>(m_normallBoss_hand_left->getChildByName("hurt_hand_left"));
+		m_hurtBoss_hand_right = dynamic_cast<Sprite*>(m_normallBoss_hand_right->getChildByName("hurt_hand_right"));
+		m_hurtBoss_body = dynamic_cast<Sprite*>(m_layer->getChildByName("boss2")
+			->getChildByName("normal_body")
+			->getChildByName("hurt_body"));
+	}
+
+	if (nullptr != m_normallBoss_hand_left) {
+		m_normallBoss_hand_left->setRotation(-20);
+	}
+
+	if (nullptr != m_normallBoss_hand_right) {
+		m_normallBoss_hand_right->setRotation(20);
+	}
+
+
 }
 
 void Hero::revive()
@@ -298,6 +549,24 @@ void Hero::revive()
 
 	setSpiritValue(MAXSpiritValue);
 	setMaxSpiritValue(MAXSpiritValue);
+}
+
+void Hero::setHurtBossVisible(bool isVisible) {
+	if (nullptr != m_hurtBoss_body) {
+		m_hurtBoss_body->setVisible(isVisible);
+	}
+
+	if (nullptr != m_hurtBoss_head) {
+		m_hurtBoss_head->setVisible(isVisible);
+	}
+
+	if (nullptr != m_hurtBoss_hand_left) {
+		m_hurtBoss_hand_left->setVisible(isVisible);
+	}
+
+	if (nullptr != m_hurtBoss_hand_right) {
+		m_hurtBoss_hand_right->setVisible(isVisible);
+	}
 }
 
 //功法每种只能有一本，不能重复
@@ -346,6 +615,48 @@ bool Hero::checkifHasGF_Equip(std::string gfeid)
 	return false;
 }
 
+void Hero::playBossActiveEffect() {
+	stopBossActiveEffect();
+
+	if (nullptr != m_boss) {
+		ActionInterval * jumpAction = RepeatForever::create(
+			Sequence::create(
+			MoveBy::create(0.1, Vec2(0, 5)),
+			MoveBy::create(0.1, Vec2(0, -10)),
+			MoveBy::create(0.1, Vec2(0, 5)),
+			NULL)
+			);
+		jumpAction->setTag(2);
+		m_boss->runAction(jumpAction);
+	}
+
+	if (nullptr != m_normallBoss_hand_left) {
+		ActionInterval * shakeAction = RepeatForever::create(
+			Sequence::create(
+			RotateBy::create(0.2, 10),
+			RotateBy::create(0.2, -50),
+			RotateBy::create(0.2, 40),
+			DelayTime::create(1),
+			NULL)
+			);
+		shakeAction->setTag(4);
+		m_normallBoss_hand_left->runAction(shakeAction);
+	}
+
+	if (nullptr != m_normallBoss_hand_right) {
+		ActionInterval * shakeAction = RepeatForever::create(
+			Sequence::create(
+			RotateBy::create(0.2, -10),
+			RotateBy::create(0.2, 50),
+			RotateBy::create(0.2, -40),
+			DelayTime::create(1),
+			NULL)
+			);
+		shakeAction->setTag(6);
+		m_normallBoss_hand_right->runAction(shakeAction);
+	}
+}
+
 PackageData* Hero::getGF_Equip(std::string gfeid)
 {
 	HeroAtrType heroproptype[] = { H_WG, H_NG, H_ARMOR, H_WEAPON };
@@ -381,6 +692,22 @@ PackageData* Hero::getGF_Equip(std::string gfeid)
 	return NULL;
 }
 
+void Hero::stopBossActiveEffect() {
+	if (nullptr != m_boss) {
+		m_boss->stopActionByTag(1);
+	}
+
+	if (nullptr != m_normallBoss_hand_left) {
+		m_normallBoss_hand_left->stopActionByTag(2);
+		m_normallBoss_hand_left->setRotation(-20);
+	}
+
+	if (nullptr != m_normallBoss_hand_right) {
+		m_normallBoss_hand_right->stopActionByTag(3);
+		m_normallBoss_hand_right->setRotation(20);
+	}
+}
+
 PackageData* Hero::getMeHas(std::string strid)
 {
 	//装备栏是否有
@@ -412,7 +739,14 @@ PackageData* Hero::getMeHas(std::string strid)
 	}
 	return NULL;
 }
-
+void Hero::initRandSeed() {
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	//都转化为毫秒
+	unsigned long reed = nowTimeval.tv_sec * 1000000 + nowTimeval.tv_usec;
+	//srand()中传入一个随机数种子
+	srand(reed);
+}
 int Hero::getGfCountByLv(int lv)
 {
 	int count = 0;
@@ -443,7 +777,20 @@ int Hero::getGfCountByLv(int lv)
 	}
 	return count;
 }
-
+time_t Hero::getNowTime()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	return nowTimeval.tv_sec;
+#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	struct tm* tm;
+	time_t timep;
+	time(&timep);
+	return timep;
+#endif
+}
 void Hero::checkMaxVaule(float dt)
 {
 	float mlife = 1.0f;
@@ -579,6 +926,20 @@ void Hero::checkMaxVaule(float dt)
 	setAtkPercent(matk);
 	setDfPercent(mdf);
 }
+long long Hero::getNowTimeMs() {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	return ((long long)(nowTimeval.tv_sec)) * 1000 + nowTimeval.tv_usec / 1000;
+#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	struct timeval tv;
+	memset(&tv, 0, sizeof(tv));
+	gettimeofday(&tv, NULL);
+
+	return (double)tv.tv_sec * 1000 + tv.tv_usec / 1000;
+#endif
+}
 
 void Hero::recoverOutjury(int val)
 {
@@ -591,7 +952,49 @@ void Hero::recoverInjury(int val)
 	float fval = val * injuryrecoverpercent;
 	m_innerinjury += fval;
 }
+bool Hero::isBeforeToday(time_t sec) {
+	struct tm *tm;
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)  
+	//win32平台
+	time_t timep;
+	time(&timep);
+	tm = localtime(&timep);
+#else  
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	tm = localtime(&nowTimeval.tv_sec);
+#endif  
 
+	struct tm * otherDay = gmtime(&sec);
+
+	if (otherDay->tm_year < tm->tm_year) {
+		return true;
+	}
+	else if (otherDay->tm_year > tm->tm_hour) {
+		return false;
+	}
+
+	if (otherDay->tm_mon < tm->tm_mon) {
+		return true;
+	}
+	else if (otherDay->tm_mon > tm->tm_mon) {
+		return false;
+	}
+
+	if (otherDay->tm_mday < tm->tm_mday) {
+		return true;
+	}
+	else if (otherDay->tm_mday > tm->tm_mday) {
+		return false;
+	}
+
+	return false;
+}
+
+long long Hero::getTodayLeftSec() {
+	long long nowSec = getNowTime();
+	return (86400 - nowSec % 86400);
+}
 void Hero::recoverHunger(int val)
 {
 	float fval = val* hungerrecoverpercent;
@@ -678,7 +1081,27 @@ int Hero::getTotalDf()
 	adf = int(fdf + 0.5f);
 	return adf;
 }
+bool Hero::getRandomBoolean(float rate) {
 
+	int rate10 = (int)(rate*10.0);
+	int randNum = rand();
+	if (randNum % 10 <= rate10) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+bool Hero::getRandomBoolean() {
+
+	if (0 == rand() % 2) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 int Hero::getTotalAtck()
 {
 	int weaponAtk = 0;
@@ -766,6 +1189,29 @@ int Hero::getTotalAtck()
 	return tatk;
 }
 
+int Hero::getRandomNum(int range) {
+
+	if (range <= 0) {
+		return 0;
+	}
+
+	return rand() % range;
+}
+
+int Hero::getRandomNum(int rangeStart, int rangeEnd) {
+
+	if (rangeEnd < rangeStart) {
+		CCASSERT(false, "get random fail");
+		return 0;
+	}
+
+	if (rangeStart == rangeEnd) {
+		return rangeStart;
+	}
+
+	int delta = rand() % (rangeEnd - rangeStart);
+	return rangeStart + delta;
+}
 float Hero::getCritRate()
 {
 	int critrnd = GlobalData::map_heroAtr[g_hero->getHeadID()].vec_crit[g_hero->getLVValue()];
@@ -800,6 +1246,30 @@ float Hero::getCritRate()
 	if (GlobalData::myFactionlv == 2)
 		critrnd += 2;
 	return critrnd;
+}
+void Hero::shake(Node * node, float scaleLarge, float scaleSmall) {
+	if (NULL == node) {
+		return;
+	}
+
+	CCActionInterval * actionScaleLarge = CCScaleTo::create(0.1, scaleLarge, scaleLarge, 1);
+	CCActionInterval * actionScaleSmall = CCScaleTo::create(0.1, scaleSmall, scaleSmall, 1);
+	CCActionInterval * actionScaleNormal = CCScaleTo::create(0.1, 1, 1, 1);
+	node->runAction(CCSequence::create(actionScaleLarge, actionScaleSmall, actionScaleNormal, NULL));
+}
+
+void Hero::shake(Node * node) {
+	if (NULL == node) {
+		return;
+	}
+
+	node->runAction(CCSequence::create(
+		MoveBy::create(0.02, Vec2(0, 15)),
+		MoveBy::create(0.02, Vec2(0, -27)),
+		MoveBy::create(0.02, Vec2(0, 22)),
+		MoveBy::create(0.02, Vec2(0, -14)),
+		MoveBy::create(0.02, Vec2(0, 4)),
+		NULL));
 }
 
 float Hero::getdodgeRate()
@@ -838,4 +1308,48 @@ float Hero::getdodgeRate()
 		dodgernd += 2;
 
 	return dodgernd;
+}
+
+bool Hero::isPhone() {
+	static const Size size = Director::getInstance()->getVisibleSize();
+	static const float rate = size.height / size.width;
+	if (rate >= 1.49) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+
+void Hero::jump(cocos2d::Node *node, float dt, bool repeat, float intrval) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+
 }

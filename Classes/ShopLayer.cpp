@@ -1,6 +1,6 @@
 ﻿#include "ShopLayer.h"
 #include "Const.h"
-#include "BuildingUILayer.h"
+#include "WXBuildingUILayer.h"
 #include "StorageRoom.h"
 #include "GameScene.h"
 #include "SelectHeroScene.h"
@@ -11,8 +11,8 @@
 #include "GameDataSave.h"
 #include "CommonFuncs.h"
 #include "RmbGoodsItem.h"
-#include "GoldGoodsItem.h"
-#include "GetVipRewardLayer.h"
+#include "WXGoldGoodsItem.h"
+#include "WXGetVipRewardLayer.h"
 #include "MapLayer.h"
 #include "ServerDataSwap.h"
 #include "VipShopLayer.h"
@@ -112,7 +112,7 @@ bool ShopLayer::init()
 
 	for (unsigned int i = 0; i < vec_goldGoods.size(); i++)
 	{
-		GoldGoodsItem* node = GoldGoodsItem::create(vec_goldGoods[i]);
+		WXGoldGoodsItem* node = WXGoldGoodsItem::create(vec_goldGoods[i]);
 		m_goldScrollview->addChild(node);
 		node->setPosition(Vec2(360, innerheight - itemheight / 2 - i * itemheight));
 	}
@@ -267,7 +267,7 @@ void ShopLayer::setMessage(PYARET ret)
 			}
 			GlobalData::setIsBuyTimeGift(true);
 			GlobalData::setMyGoldCount(GlobalData::getMyGoldCount() + 100);
-			GoldGoodsItem::addBuyGoods(&GlobalData::vec_goods[payindex - herocount]);
+			WXGoldGoodsItem::addBuyGoods(&GlobalData::vec_goods[payindex - herocount]);
 
 #ifdef ANALYTICS
 			AnalyticUtil::onEvent("timegift");
@@ -282,7 +282,7 @@ void ShopLayer::setMessage(PYARET ret)
 
 void ShopLayer::showVipReward(float dt)
 {
-	GetVipRewardLayer* layer = GetVipRewardLayer::create();
+	WXGetVipRewardLayer* layer = WXGetVipRewardLayer::create();
 	if (g_gameLayer != NULL)
 	{
 		g_gameLayer->addChild(layer, 10, "viprewardlayer");

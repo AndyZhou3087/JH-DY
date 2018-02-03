@@ -4,8 +4,8 @@
 #include "Const.h"
 #include "GameScene.h"
 #include "ServerDataSwap.h"
-#include "BuildingUILayer.h"
-#include "MixSuggestLayer.h"
+#include "WXBuildingUILayer.h"
+#include "WXMixSuggestLayer.h"
 #ifdef ANALYTICS
 #include "MobClickCpp.h"
 #endif
@@ -157,8 +157,8 @@ void AppDelegate::applicationWillEnterForeground() {
 #endif
 	if (g_gameLayer != NULL)
 	{
-		BuildingUILayer* blayer = (BuildingUILayer*)g_gameLayer->getChildByName("builduilayer");
-		MixSuggestLayer* mlayer = (MixSuggestLayer*)g_gameLayer->getChildByName("mixsuggestlayer");
+		WXBuildingUILayer* blayer = (WXBuildingUILayer*)g_gameLayer->getChildByName("builduilayer");
+		WXMixSuggestLayer* mlayer = (WXMixSuggestLayer*)g_gameLayer->getChildByName("mixsuggestlayer");
 		if (blayer == NULL)
 		{
 			if (mlayer != NULL)

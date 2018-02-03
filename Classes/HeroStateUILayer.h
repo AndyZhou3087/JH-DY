@@ -26,17 +26,25 @@ public:
 
 	void updateArrow();
 
+	void jump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0);
+	void jellyJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0);
+
 private:
 	/****************************
 	点击“返回”按钮回调
 	*****************************/
 	void onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
-
+	bool getRandomBoolean(float rate);
+	bool getRandomBoolean();
+	int getRandomNum(int range);
+	int getRandomNum(int rangeStart, int rangeEnd);
 	/****************************
 	点击“暂停”按钮回调
 	*****************************/
 	void onPause(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
+	void jumpDown(cocos2d::Node *node, float dt);
 
+	bool isPhone();
 	Node* m_csbnode;
 	//7个属性值显示控件
 	cocos2d::ui::Text* herostatus[7];
@@ -45,12 +53,16 @@ private:
 	性别提示
 	*****************************/
 	void onSexHelpHint(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
+
+	void petJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0, cocos2d::ActionInterval *ac = nullptr);
+	void jelly(cocos2d::Node *node, bool repeat = false, float intrval = 0, bool delay = false, int tag = 0);
 private:
 	/****************************
 	定时更新7个属性值
 	*****************************/
 	void updateStatus(float dt);
-
+	void shake(cocos2d::Node * node, float scaleLarge, float scaleSmall);
+	void shake(cocos2d::Node * node);
 private:
 	cocos2d::ui::Text* m_heroexptimelbl;//经验药水剩余时间控件
 	cocos2d::ui::Text* m_gfexptimelbl;//大力丸剩余时间控件

@@ -58,6 +58,10 @@ public:
 	*****************************/
 	CC_SYNTHESIZE(float, m_outinjury, OutinjuryValue);
 
+	void onGameStart();
+	void onGameOver();
+	void onScoreChange();
+
 	/****************************
 	角色饱食度设置
 	*****************************/
@@ -76,7 +80,9 @@ public:
 	角色最大外伤设置
 	*****************************/
 	CC_SYNTHESIZE(float, m_maxOutinjury, MaxOutinjuryValue);
-
+	void on1sTimer();
+	void onTimeChange();
+	void onAttrackBoss();
 	/****************************
 	角色最大饱食度设置
 	*****************************/
@@ -86,7 +92,8 @@ public:
 	角色最大精神值设置
 	*****************************/
 	CC_SYNTHESIZE(float, m_maxSpirit, MaxSpiritValue);
-
+	void playBossShowEffect(CallFunc * callback = nullptr);
+	void playBossDeathEffect();
 	/****************************
 	角色生命值设置
 	*****************************/
@@ -101,6 +108,10 @@ public:
 	角色等级设置
 	*****************************/
 	CC_SYNTHESIZE(int, m_lv, LVValue);
+	void reset();
+	void initalBoss();
+	void initTime();
+	void updateBloodBar();
 
 	/****************************
 	角色名称设置
@@ -116,7 +127,8 @@ public:
 	角色是否在家
 	*****************************/
 	CC_SYNTHESIZE(bool, m_isout, IsOut);
-
+	void updateTime();
+	void resetBoss();
 	/****************************
 	角色攻击百分比
 	*****************************/
@@ -131,6 +143,9 @@ public:
 	角色性别
 	*****************************/
 	CC_SYNTHESIZE(H_SEX, m_sex, Sex);
+	void initBossBombParticleSystem();
+	void playAttrackEffect();
+
 
 	/****************************
 	总攻击加成百分比
@@ -146,7 +161,9 @@ public:
 	是否武道大会挑战
 	*****************************/
 	CC_SYNTHESIZE(bool, m_isWDChallenge, IsWDChallenge);
-
+	void playBombEffect();
+	void playBossActiveEffect();
+	void stopBossActiveEffect();
 	/****************************
 	是否在移动
 	*****************************/
@@ -157,10 +174,13 @@ public:
 	*****************************/
 	int getAtkValue();
 
+	void setHurtBossVisible(bool isVisible);
 	/****************************
 	获取角色防护
 	*****************************/
 	int getDfValue();
+	bool getRandomBoolean(float rate);
+	bool getRandomBoolean();
 
 	/****************************
 	获取角色最大生命值
@@ -171,7 +191,8 @@ public:
 	获取角色当前最大生命值，过度饥饿，内伤外伤严重，精神过低会影响生命恢复上线
 	*****************************/
 	float getRecoverLifeMaxValue();
-
+	int getRandomNum(int range);
+	int getRandomNum(int rangeStart, int rangeEnd);
 	/****************************
 	设置角色装备
 	@param （装备栏）类型
@@ -185,7 +206,8 @@ public:
 	@return 装备
 	*****************************/
 	PackageData* getAtrByType(HeroAtrType type);
-
+	void shake(cocos2d::Node * node, float scaleLarge, float scaleSmall);
+	void shake(cocos2d::Node * node);
 	/****************************
 	睡觉
 	@param 消耗时间
@@ -214,7 +236,6 @@ public:
 	@param 功法ID
 	*****************************/
 	bool checkifHasGF_Equip(std::string gfeid);
-
 	/****************************
 	根据功法ID获取拥有的功法，武器，防具
 	@param 功法ID
@@ -233,6 +254,10 @@ public:
 	*****************************/
 	void checkMaxVaule(float dt);
 
+	void jumpDown(cocos2d::Node *node, float dt);
+
+	bool isPhone();
+	void jump(cocos2d::Node *node, float dt, bool repeat, float intrval);
 	/****************************
 	恢复外伤值
 	@param 恢复的数值
@@ -250,6 +275,8 @@ public:
 	@param 恢复的数值
 	*****************************/
 	void recoverHunger(int val);
+	void initRandSeed();
+	time_t getNowTime();
 
 	/****************************
 	总的防御
@@ -265,6 +292,8 @@ public:
 	暴击率
 	*****************************/
 	float getCritRate();
+	long long getNowTimeMs();
+	bool isBeforeToday(time_t sec);
 
 	/****************************
 	闪避率
@@ -275,7 +304,7 @@ public:
 	保存装备栏数据
 	*****************************/
 	void saveProperData();
-
+	long long getTodayLeftSec();
 	/****************************
 	获取功法多少等级个数
 	@return 个数
@@ -288,6 +317,16 @@ public:
 	static float MAXHungerValue;//最大饱食度
 	static float MAXSpiritValue;//最大精神值
 	std::map<HeroAtrType, PackageData> map_heroAtr;//角色装备栏数据
+
+	Sprite *m_bloodBar;
+	Label *m_time;
+	bool m_bStop;
+	Sprite *m_boss;
+
+	ParticleSystem * m_emitterBomb;
+
+	float m_bossOriginPosY;
+	float m_bossOriginPosX;
 private:
 	void updateData(float dt);//定时更新数据
 	void sleepbystep(float dt);//睡觉--恢复值一点点恢复
@@ -295,12 +334,21 @@ private:
 private:
 	int m_pastmin;//游戏时间，分钟为单位
 	int sleephour;//睡觉时间
+	Sprite *m_hurtBoss_head;
+	Sprite *m_hurtBoss_hand_left;
+	Sprite *m_hurtBoss_hand_right;
+	Sprite *m_hurtBoss_body;
 	float maxlifepercent;//最大生命百分比
 	float liferecoverpercent;//最大生命恢复百分比
 	float injuryrecoverpercent;//内伤恢复百分比
 	float outjuryrecoverpercent;//外伤恢复百分比
 	float hungerrecoverpercent;//饥饿恢复百分比
 	float sleepLostPercent;//睡觉时饥饿与精神的降低速度为正常时的一半
+	Sprite *m_normalBoss_head;
+	Sprite *m_normallBoss_hand_left;
+	Sprite *m_normallBoss_hand_right;
+
+
 };
 static std::string innerInjurydesc1[] = { "六脉调和", "脉络贯通", "舒筋活络", "内息混乱", "经脉错乱", "经脉寸断", "命不久已" };
 static std::string innerInjurydesc = {"消耗：战斗时躲避不及会受到内伤\r\n\n恢复：使用药物可恢复\r\n\n影响：内伤过重时不但会加速气血\r\n            流失，还会降低你的攻击与\r\n            防御"};

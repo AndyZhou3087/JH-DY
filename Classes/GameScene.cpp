@@ -8,17 +8,17 @@
 #include "CommonFuncs.h"
 #include "ReviveLayer.h"
 #include "NewerGuideLayer.h"
-#include "ActivitScene.h"
+#include "WXActivitScene.h"
 #include "Const.h"
 #include "HeroProperNode.h"
 #include "MyParticle.h"
-#include "GetVipRewardLayer.h"
+#include "WXGetVipRewardLayer.h"
 #include "MD5.h"
 #include "StartScene.h"
 #include "HintBox.h"
 #include "WaitingProgress.h"
-#include "LoginRewardLayer.h"
-#include "AchiveDoneAnimLayer.h"
+#include "WXLoginRewardLayer.h"
+#include "WXAchiveDoneAnimLayer.h"
 #include "FrozenLayer.h"
 #include "CannotTouchLayer.h"
 
@@ -36,6 +36,16 @@ GameScene::GameScene()
 	isAnewGetData = false;
 	homeLayer = NULL;
 }
+
+void GameScene::initRandSeed() {
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	//都转化为毫秒
+	unsigned long reed = nowTimeval.tv_sec * 1000000 + nowTimeval.tv_usec;
+	//srand()中传入一个随机数种子
+	srand(reed);
+}
+
 GameScene::~GameScene()
 {
 	//退出保存数据
@@ -63,6 +73,21 @@ Scene* GameScene::createScene()
 
     // return the scene
     return scene;
+}
+
+time_t GameScene::getNowTime()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	return nowTimeval.tv_sec;
+#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	struct tm* tm;
+	time_t timep;
+	time(&timep);
+	return timep;
+#endif
 }
 
 // on "init" you need to initialize your instance
@@ -209,6 +234,63 @@ bool GameScene::init()
     return true;
 }
 
+
+long long GameScene::getNowTimeMs() {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	return ((long long)(nowTimeval.tv_sec)) * 1000 + nowTimeval.tv_usec / 1000;
+#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	struct timeval tv;
+	memset(&tv, 0, sizeof(tv));
+	gettimeofday(&tv, NULL);
+
+	return (double)tv.tv_sec * 1000 + tv.tv_usec / 1000;
+#endif
+}
+
+
+bool GameScene::isBeforeToday(time_t sec) {
+	struct tm *tm;
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)  
+	//win32平台
+	time_t timep;
+	time(&timep);
+	tm = localtime(&timep);
+#else  
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	tm = localtime(&nowTimeval.tv_sec);
+#endif  
+
+	struct tm * otherDay = gmtime(&sec);
+
+	if (otherDay->tm_year < tm->tm_year) {
+		return true;
+	}
+	else if (otherDay->tm_year > tm->tm_hour) {
+		return false;
+	}
+
+	if (otherDay->tm_mon < tm->tm_mon) {
+		return true;
+	}
+	else if (otherDay->tm_mon > tm->tm_mon) {
+		return false;
+	}
+
+	if (otherDay->tm_mday < tm->tm_mday) {
+		return true;
+	}
+	else if (otherDay->tm_mday > tm->tm_mday) {
+		return false;
+	}
+
+	return false;
+}
+
+
 void GameScene::loadSaveNatureData()
 {
 	//设置保存的季节
@@ -241,6 +323,23 @@ void GameScene::loadSaveNatureData()
 	else
 	{
 		g_nature->setDayOrNight(Day);
+	}
+}
+
+long long GameScene::getTodayLeftSec() {
+	long long nowSec = getNowTime();
+	return (86400 - nowSec % 86400);
+}
+
+bool GameScene::getRandomBoolean(float rate) {
+
+	int rate10 = (int)(rate*10.0);
+	int randNum = rand();
+	if (randNum % 10 <= rate10) {
+		return true;
+	}
+	else {
+		return false;
 	}
 }
 
@@ -300,6 +399,25 @@ void GameScene::loadSaveHeroData()
 	getNpcRandMap();
 }
 
+bool GameScene::getRandomBoolean() {
+
+	if (0 == rand() % 2) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+int GameScene::getRandomNum(int range) {
+
+	if (range <= 0) {
+		return 0;
+	}
+
+	return rand() % range;
+}
+
 void GameScene::loadSavedHeroPropData()
 {
 	//角色佩戴装备
@@ -349,6 +467,21 @@ void GameScene::loadSavedHeroPropData()
 	}
 }
 
+int GameScene::getRandomNum(int rangeStart, int rangeEnd) {
+
+	if (rangeEnd < rangeStart) {
+		CCASSERT(false, "get random fail");
+		return 0;
+	}
+
+	if (rangeStart == rangeEnd) {
+		return rangeStart;
+	}
+
+	int delta = rand() % (rangeEnd - rangeStart);
+	return rangeStart + delta;
+}
+
 void GameScene::saveAllData()
 {
 	GameDataSave::getInstance()->setNatureReason(g_nature->getReason());
@@ -384,10 +517,48 @@ void GameScene::saveAllData()
 	}
 }
 
+
+void GameScene::shake(Node * node, float scaleLarge, float scaleSmall) {
+	if (NULL == node) {
+		return;
+	}
+
+	CCActionInterval * actionScaleLarge = CCScaleTo::create(0.1, scaleLarge, scaleLarge, 1);
+	CCActionInterval * actionScaleSmall = CCScaleTo::create(0.1, scaleSmall, scaleSmall, 1);
+	CCActionInterval * actionScaleNormal = CCScaleTo::create(0.1, 1, 1, 1);
+	node->runAction(CCSequence::create(actionScaleLarge, actionScaleSmall, actionScaleNormal, NULL));
+}
+
+void GameScene::shake(Node * node) {
+	if (NULL == node) {
+		return;
+	}
+
+	node->runAction(CCSequence::create(
+		MoveBy::create(0.02, Vec2(0, 15)),
+		MoveBy::create(0.02, Vec2(0, -27)),
+		MoveBy::create(0.02, Vec2(0, 22)),
+		MoveBy::create(0.02, Vec2(0, -14)),
+		MoveBy::create(0.02, Vec2(0, 4)),
+		NULL));
+}
+
 void GameScene::onExit()
 {
 	//saveAllData();
 	Layer::onExit();
+}
+
+
+bool GameScene::isPhone() {
+	static const Size size = Director::getInstance()->getVisibleSize();
+	static const float rate = size.height / size.width;
+	if (rate >= 1.49) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 void GameScene::saveMyData()
@@ -396,6 +567,39 @@ void GameScene::saveMyData()
 	{
 		g_gameLayer->saveAllData();
 	}
+}
+
+
+void GameScene::jump(cocos2d::Node *node, float dt, bool repeat, float intrval) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+
 }
 
 void GameScene::changeGameStates(int status)
@@ -418,6 +622,44 @@ void GameScene::changeGameStates(int status)
 			}
 		}
 	}	
+}
+
+
+void GameScene::jellyJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.95, 1.05, 1),
+		ScaleTo::create(0.1, 1.05, 0.95, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
 }
 
 void GameScene::updata(float dt)
@@ -512,6 +754,45 @@ void GameScene::updata(float dt)
 	}
 }
 
+
+void GameScene::petJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag, ActionInterval *ac) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.05, 0.95, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.95, 1.05, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		ac,
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.1, 0.95, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+}
+
 void GameScene::timerSaveData(float dt)
 {
 	if (issavedata)
@@ -548,9 +829,60 @@ void GameScene::heroRevive()
 	this->schedule(schedule_selector(GameScene::checkiflive), 0.1f);
 }
 
+void GameScene::jelly(Node *node, bool repeat, float intrval, bool delay, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		EaseSineIn::create(ScaleTo::create(0.08, 0.95, 1.05, 1)),
+		EaseSineOut::create(ScaleTo::create(0.2, 1.15, 0.95, 1)),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+		if (delay) {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				DelayTime::create(getRandomNum(1, 10)*0.1),
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+		else {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+
+	}
+	else {
+		if (delay) {
+			node->runAction(Sequence::create(
+				DelayTime::create(getRandomNum(1, 10)*0.1),
+				action,
+				NULL));
+		}
+		else {
+			node->runAction(action);
+		}
+	}
+}
+
 void GameScene::delayShowOutScence(float dt)
 {
-	Scene* scene = ActivitScene::createScene("images/cout.jpg", CommonFuncs::gbk2utf("出门..."));
+	Scene* scene = WXActivitScene::createScene("images/cout.jpg", CommonFuncs::gbk2utf("出门..."));
 	if (scene != NULL)
 	{
 		auto transition = TransitionCrossFade::create(0.5f, scene);
@@ -596,6 +928,31 @@ void GameScene::showNewerGuide(int step, std::vector<Node*> nodes)
 	}
 }
 
+void GameScene::jumpDown(cocos2d::Node *node, float dt) {
+	if (nullptr == node) {
+		return;
+	}
+
+	const float originY = node->getPositionY();
+	node->setPositionY(originY + dt);
+
+	ActionInterval *action = Sequence::create(
+		MoveBy::create(0.2, Vec2(0, -dt - 10)),
+		MoveBy::create(0.2, Vec2(0, 20)),
+		MoveBy::create(0.1, Vec2(0, -18)),
+		MoveBy::create(0.1, Vec2(0, 13)),
+		MoveBy::create(0.1, Vec2(0, -5)),
+
+
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	node->runAction(action);
+}
+
 void GameScene::delayShowNewerGuide(float dt)
 {
 	if (g_NewerGuideLayer == NULL)
@@ -636,7 +993,7 @@ void GameScene::onSuccess()
 	{
 		if (GlobalData::vec_buyVipIds.size() > 0)
 		{
-			GetVipRewardLayer* layer = GetVipRewardLayer::create();
+			WXGetVipRewardLayer* layer = WXGetVipRewardLayer::create();
 			if (g_gameLayer != NULL)
 				g_gameLayer->addChild(layer, 10, "viprewardlayer");
 		}
@@ -644,7 +1001,7 @@ void GameScene::onSuccess()
 		{
 			if (GlobalData::continueLoginDays > 0)
 			{
-				LoginRewardLayer* llayer = LoginRewardLayer::create();
+				WXLoginRewardLayer* llayer = WXLoginRewardLayer::create();
 				g_gameLayer->addChild(llayer, 100);
 			}
 			else
@@ -677,6 +1034,40 @@ void GameScene::onErr(int errcode)
 	}
 }
 
+void GameScene::initA()
+{
+	const Size size = Director::getInstance()->getVisibleSize();
+	auto m_top = CSLoader::createNode("GameTopLayer.csb");
+	addChild(m_top, 0);
+	m_top->ignoreAnchorPointForPosition(false);
+	m_top->setAnchorPoint(Vec2(0.5, 1));
+	m_top->setPosition(size.width * 0.5, size.height);
+
+	auto m_bottom = CSLoader::createNode("GameBottomLayer.csb");
+	m_bottom->ignoreAnchorPointForPosition(false);
+	m_bottom->setAnchorPoint(Vec2(0.5, 0));
+	m_bottom->setPosition(size.width * 0.5, 0);
+	addChild(m_bottom, 1);
+}
+
+void GameScene::initBg()
+{
+	const Size size = Director::getInstance()->getVisibleSize();
+	auto m_bg = Sprite::create("");
+	addChild(m_bg, 0);
+	m_bg->setAnchorPoint(Vec2(0.5, 0));
+	m_bg->setPosition(size.width * 0.5, 0);
+
+	auto m_bgGround = Sprite::create("");
+	addChild(m_bgGround, 1);
+	m_bgGround->setPosition(m_bg->getContentSize().width * 0.5, 144 + m_bgGround->getContentSize().height * 0.5);
+
+	auto tree = Sprite::create("");
+	addChild(tree);
+	tree->setAnchorPoint(Vec2(1, 0.5));
+	tree->setPosition(size.width, 120);
+}
+
 void GameScene::delayChangeStartScene(float dt)
 {
 
@@ -702,7 +1093,7 @@ void GameScene::checkAchiveIsDone(float dt)
 	if (GlobalData::vec_showAchiveNames.size() > 0)
 	{
 		this->unschedule(schedule_selector(GameScene::checkAchiveIsDone));
-		AchiveDoneAnimLayer* aalayer = AchiveDoneAnimLayer::create();
+		WXAchiveDoneAnimLayer* aalayer = WXAchiveDoneAnimLayer::create();
 		Director::getInstance()->getRunningScene()->addChild(aalayer, 100);
 	}
 }

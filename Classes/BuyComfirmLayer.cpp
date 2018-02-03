@@ -2,14 +2,14 @@
 #include "CommonFuncs.h"
 #include "GameScene.h"
 #include "SoundManager.h"
-#include "GoldGoodsItem.h"
+#include "WXGoldGoodsItem.h"
 #include "ShopLayer.h"
 #include "HintBox.h"
 #include "StorageUILayer.h"
 #include "Const.h"
 #include "AnalyticUtil.h"
 #include "MD5.h"
-#include "BuyOrangeGFLayer.h"
+#include "WXBuyOrangeGFLayer.h"
 #include "GameDataSave.h"
 
 BuyComfirmLayer::BuyComfirmLayer()
@@ -186,7 +186,7 @@ void BuyComfirmLayer::onBuy(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEve
 
 			if (m_gdata->icon.compare("gp6") == 0)
 			{
-				BuyOrangeGFLayer* buygflayer = BuyOrangeGFLayer::create();
+				WXBuyOrangeGFLayer* buygflayer = WXBuyOrangeGFLayer::create();
 				Director::getInstance()->getRunningScene()->addChild(buygflayer);
 				m_gdata->vec_res = buygflayer->getRandQu5Gf();
 			}
@@ -196,7 +196,7 @@ void BuyComfirmLayer::onBuy(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEve
 				changeSex();
 			}
 			else
-				GoldGoodsItem::addBuyGoods(m_gdata);
+				WXGoldGoodsItem::addBuyGoods(m_gdata);
 
 			StorageUILayer* storageUI = (StorageUILayer*)g_gameLayer->getChildByName("storageuilayer");
 			if (storageUI != NULL)

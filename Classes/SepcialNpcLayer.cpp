@@ -4,7 +4,7 @@
 #include "GlobalData.h"
 #include "SoundManager.h"
 #include "GameScene.h"
-#include "FightLayer.h"
+#include "WXFightLayer.h"
 #include "HintBox.h"
 SepcialNpcLayer::SepcialNpcLayer()
 {
@@ -99,7 +99,7 @@ void SepcialNpcLayer::onFight(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchE
 				GlobalData::map_maps[m_addrstr].npcs.push_back(ndata.id);
 		}
 		if (g_gameLayer != NULL)
-			g_gameLayer->addChild(FightLayer::create(m_addrstr, "n005"), 4, "fightlayer");
+			g_gameLayer->addChild(WXFightLayer::create(m_addrstr, "n005"), 4, "fightlayer");
 		//this->removeFromParentAndCleanup(true);
 	}
 }

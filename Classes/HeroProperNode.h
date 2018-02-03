@@ -20,6 +20,9 @@ public:
 	virtual void onEnterTransitionDidFinish();
 	virtual void onExit();
 	CREATE_FUNC(HeroProperNode);
+	void initRandSeed();
+	time_t getNowTime();
+	long long getNowTimeMs();
 
 	/****************************
 	刷新map_carryData 列表
@@ -30,7 +33,8 @@ public:
 	显示新手引导
 	*****************************/
 	void showNewerGuide(int step);
-
+	bool isBeforeToday(time_t sec);
+	long long getTodayLeftSec();
 	/****************************
 	选择装备
 	*****************************/
@@ -53,6 +57,8 @@ private:
 	点击“确定”按钮回调
 	*****************************/
 	void onOK(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
+	bool getRandomBoolean(float rate);
+	bool getRandomBoolean();
 
 	/****************************
 	点击每个物品栏回调
@@ -67,7 +73,8 @@ private:
 
 	//装备的滚动控件
 	cocos2d::ui::ScrollView* m_scrollView;
-
+	int getRandomNum(int range);
+	int getRandomNum(int rangeStart, int rangeEnd);
 	/****************************
 	选中装备装上或卸下
 	@param 点击的item
@@ -78,7 +85,8 @@ private:
 	选择另外一种类型的移除掉之前的item
 	*****************************/
 	void removeitem();
-
+	void shake(cocos2d::Node * node, float scaleLarge, float scaleSmall);
+	void shake(cocos2d::Node * node);
 	/****************************
 	将装备添加到map_carryData 列表
 	@param 装备类型
@@ -89,11 +97,15 @@ private:
 	更新属性面板
 	*****************************/
 	void updataProperpanel(int atrypeindex, PackageData pdata);
-
+	void initBg();
+	void initA();
 	/****************************
 	更新背包栏数据
 	*****************************/
 	void updataMyPackageUI();
+
+	void jump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0);
+	void jellyJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0);
 
 	/****************************
 	带上装备
@@ -108,7 +120,8 @@ private:
 	@return 是否卸下成功，背包满了就失败
 	*****************************/
 	bool takeoff(HeroAtrType atrype);
-
+	void petJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0, cocos2d::ActionInterval *ac = nullptr);
+	void jelly(cocos2d::Node *node, bool repeat = false, float intrval = 0, bool delay = false, int tag = 0);
 	/****************************
 	检查性别，合成功法根据性别可以装备
 	@param 性别
@@ -121,7 +134,9 @@ private:
 	@return true:能装备上，false:不能装备上
 	*****************************/
 	bool isCanTakeOn();
+	void jumpDown(cocos2d::Node *node, float dt);
 
+	bool isPhone();
 private:
 	Node* csbroot;
 	EventListenerTouchOneByOne* m_listener;

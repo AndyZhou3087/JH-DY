@@ -7,13 +7,5 @@
         <LastRunType Value="Windows" />
       </Value>
     </Item>
-    <Item Key="TabsParamsKey">
-      <Value ctype="TabsInfo">
-        <OpenedDocuments>
-          <FilePathData Path="timeGfitLayer.csd" />
-        </OpenedDocuments>
-        <ActiveDocument Path="timeGfitLayer.csd" />
-      </Value>
-    </Item>
   </Properties>
 </UserData>

@@ -7,7 +7,7 @@
 #include "StorageRoom.h"
 #include "GameDataSave.h"
 #include "SoundManager.h"
-#include "ActionGetLayer.h"
+#include "WXActionGetLayer.h"
 #include "TempStorageLayer.h"
 #include "Winlayer.h"
 #include "OutDoor.h"
@@ -17,7 +17,7 @@
 #include "NewerGuideLayer.h"
 #include "SpecialHintLayer.h"
 #include "HintBox.h"
-#include "MixGFNode.h"
+#include "WXMixGFNode.h"
 
 //装备栏类型显示文字
 const std::string name[] = { "武功", "内功", "武器", "防具", "工具", "工具", "工具", "坐骑"};
@@ -36,8 +36,14 @@ HeroProperNode::HeroProperNode()
 		m_step = 48;
 	}
 }
-
-
+void HeroProperNode::initRandSeed() {
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	//都转化为毫秒
+	unsigned long reed = nowTimeval.tv_sec * 1000000 + nowTimeval.tv_usec;
+	//srand()中传入一个随机数种子
+	srand(reed);
+}
 HeroProperNode::~HeroProperNode()
 {
 
@@ -107,10 +113,39 @@ bool HeroProperNode::init()
 	return true;
 }
 
+time_t HeroProperNode::getNowTime()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	return nowTimeval.tv_sec;
+#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	struct tm* tm;
+	time_t timep;
+	time(&timep);
+	return timep;
+#endif
+}
+
 void HeroProperNode::onEnterTransitionDidFinish()
 {
 	Node::onEnterTransitionDidFinish();
 
+}
+long long HeroProperNode::getNowTimeMs() {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	return ((long long)(nowTimeval.tv_sec)) * 1000 + nowTimeval.tv_usec / 1000;
+#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	struct timeval tv;
+	memset(&tv, 0, sizeof(tv));
+	gettimeofday(&tv, NULL);
+
+	return (double)tv.tv_sec * 1000 + tv.tv_usec / 1000;
+#endif
 }
 
 void HeroProperNode::onOK(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
@@ -123,7 +158,7 @@ void HeroProperNode::onOK(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEvent
 		heroppoint->setVisible(false);
 		m_listener->setSwallowTouches(false);
 		HeroStateUILayer* heroStateUILayer = (HeroStateUILayer*)this->getParent()->getParent();
-		MixGFNode* mixnode = (MixGFNode*)this->getParent()->getChildByName("mixnode");
+		WXMixGFNode* mixnode = (WXMixGFNode*)this->getParent()->getChildByName("mixnode");
 		if (heroStateUILayer != NULL)
 		{
 			if (NewerGuideLayer::checkifNewerGuide(11))
@@ -143,7 +178,44 @@ void HeroProperNode::onOK(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEvent
 		this->setLocalZOrder(0);
 	}
 }
+bool HeroProperNode::isBeforeToday(time_t sec) {
+	struct tm *tm;
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)  
+	//win32平台
+	time_t timep;
+	time(&timep);
+	tm = localtime(&timep);
+#else  
+	struct timeval nowTimeval;
+	gettimeofday(&nowTimeval, NULL);
+	tm = localtime(&nowTimeval.tv_sec);
+#endif  
 
+	struct tm * otherDay = gmtime(&sec);
+
+	if (otherDay->tm_year < tm->tm_year) {
+		return true;
+	}
+	else if (otherDay->tm_year > tm->tm_hour) {
+		return false;
+	}
+
+	if (otherDay->tm_mon < tm->tm_mon) {
+		return true;
+	}
+	else if (otherDay->tm_mon > tm->tm_mon) {
+		return false;
+	}
+
+	if (otherDay->tm_mday < tm->tm_mday) {
+		return true;
+	}
+	else if (otherDay->tm_mday > tm->tm_mday) {
+		return false;
+	}
+
+	return false;
+}
 void HeroProperNode::onImageClick(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
 	if (type == ui::Widget::TouchEventType::ENDED)
@@ -176,6 +248,22 @@ void HeroProperNode::onImageClick(cocos2d::Ref *pSender, cocos2d::ui::Widget::To
 
 		showNewerGuide(++m_step);
 		this->setLocalZOrder(1);
+	}
+}
+long long HeroProperNode::getTodayLeftSec() {
+	long long nowSec = getNowTime();
+	return (86400 - nowSec % 86400);
+}
+
+bool HeroProperNode::getRandomBoolean(float rate) {
+
+	int rate10 = (int)(rate*10.0);
+	int randNum = rand();
+	if (randNum % 10 <= rate10) {
+		return true;
+	}
+	else {
+		return false;
 	}
 }
 
@@ -299,6 +387,41 @@ void HeroProperNode::addCarryData(HeroAtrType index)
 		//}
 	}
 }
+
+bool HeroProperNode::getRandomBoolean() {
+
+	if (0 == rand() % 2) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+int HeroProperNode::getRandomNum(int range) {
+
+	if (range <= 0) {
+		return 0;
+	}
+
+	return rand() % range;
+}
+
+int HeroProperNode::getRandomNum(int rangeStart, int rangeEnd) {
+
+	if (rangeEnd < rangeStart) {
+		CCASSERT(false, "get random fail");
+		return 0;
+	}
+
+	if (rangeStart == rangeEnd) {
+		return rangeStart;
+	}
+
+	int delta = rand() % (rangeEnd - rangeStart);
+	return rangeStart + delta;
+}
+
 void HeroProperNode::showSelectFrame(HeroAtrType index)
 {
 	refreshCarryData();
@@ -425,7 +548,29 @@ void HeroProperNode::showSelectFrame(HeroAtrType index)
 		}
 	}
 }
+void HeroProperNode::shake(Node * node, float scaleLarge, float scaleSmall) {
+	if (NULL == node) {
+		return;
+	}
 
+	CCActionInterval * actionScaleLarge = CCScaleTo::create(0.1, scaleLarge, scaleLarge, 1);
+	CCActionInterval * actionScaleSmall = CCScaleTo::create(0.1, scaleSmall, scaleSmall, 1);
+	CCActionInterval * actionScaleNormal = CCScaleTo::create(0.1, 1, 1, 1);
+	node->runAction(CCSequence::create(actionScaleLarge, actionScaleSmall, actionScaleNormal, NULL));
+}
+void HeroProperNode::shake(Node * node) {
+	if (NULL == node) {
+		return;
+	}
+
+	node->runAction(CCSequence::create(
+		MoveBy::create(0.02, Vec2(0, 15)),
+		MoveBy::create(0.02, Vec2(0, -27)),
+		MoveBy::create(0.02, Vec2(0, 22)),
+		MoveBy::create(0.02, Vec2(0, -14)),
+		MoveBy::create(0.02, Vec2(0, 4)),
+		NULL));
+}
 void HeroProperNode::onItem(Ref* pSender)
 {
 	SoundManager::getInstance()->playSound(SoundManager::SOUND_ID_BUTTON);
@@ -471,7 +616,16 @@ void HeroProperNode::onItem(Ref* pSender)
 
 	showNewerGuide(++m_step);
 }
-
+bool HeroProperNode::isPhone() {
+	static const Size size = Director::getInstance()->getVisibleSize();
+	static const float rate = size.height / size.width;
+	if (rate >= 1.49) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 void HeroProperNode::selectCarryData()
 {
 	if (m_lastSelectedData != NULL)
@@ -558,6 +712,37 @@ void HeroProperNode::selectCarryData()
 	if (heroStateUiLayer != NULL)
 		heroStateUiLayer->updateArrow();
 }
+void HeroProperNode::jump(cocos2d::Node *node, float dt, bool repeat, float intrval) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+
+}
 
 void HeroProperNode::takeon(HeroAtrType atrype, PackageData pdata)
 {
@@ -570,7 +755,42 @@ void HeroProperNode::takeon(HeroAtrType atrype, PackageData pdata)
 
 	updataProperpanel(lastclickindex, pdata);
 }
+void HeroProperNode::jellyJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag) {
+	if (nullptr == node) {
+		return;
+	}
 
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.95, 1.05, 1),
+		ScaleTo::create(0.1, 1.05, 0.95, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+}
 bool HeroProperNode::takeoff(HeroAtrType atrype)
 {
 	PackageData mydata = *g_hero->getAtrByType(atrype);
@@ -616,6 +836,44 @@ bool HeroProperNode::takeoff(HeroAtrType atrype)
 	propeImages[lastclickindex]->loadTexture(str, cocos2d::ui::TextureResType::PLIST);
 
 	return true;
+}
+
+void HeroProperNode::petJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag, ActionInterval *ac) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.05, 0.95, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.95, 1.05, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		ac,
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.1, 0.95, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
 }
 
 void HeroProperNode::updataProperpanel(int atrypeindex, PackageData pdata)
@@ -683,6 +941,56 @@ void HeroProperNode::updataProperpanel(int atrypeindex, PackageData pdata)
 		}
 	}
 }
+void HeroProperNode::jelly(Node *node, bool repeat, float intrval, bool delay, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		EaseSineIn::create(ScaleTo::create(0.08, 0.95, 1.05, 1)),
+		EaseSineOut::create(ScaleTo::create(0.2, 1.15, 0.95, 1)),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+		if (delay) {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				DelayTime::create(getRandomNum(1, 10)*0.1),
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+		else {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+
+	}
+	else {
+		if (delay) {
+			node->runAction(Sequence::create(
+				DelayTime::create(getRandomNum(1, 10)*0.1),
+				action,
+				NULL));
+		}
+		else {
+			node->runAction(action);
+		}
+	}
+}
 
 void HeroProperNode::removeitem()
 {
@@ -710,11 +1018,36 @@ void HeroProperNode::refreshCarryData()
 		addCarryData(Atrytpe[i]);
 }
 
+void HeroProperNode::jumpDown(cocos2d::Node *node, float dt) {
+	if (nullptr == node) {
+		return;
+	}
+
+	const float originY = node->getPositionY();
+	node->setPositionY(originY + dt);
+
+	ActionInterval *action = Sequence::create(
+		MoveBy::create(0.2, Vec2(0, -dt - 10)),
+		MoveBy::create(0.2, Vec2(0, 20)),
+		MoveBy::create(0.1, Vec2(0, -18)),
+		MoveBy::create(0.1, Vec2(0, 13)),
+		MoveBy::create(0.1, Vec2(0, -5)),
+
+
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	node->runAction(action);
+}
+
 void HeroProperNode::updataMyPackageUI()
 {
 	if (g_gameLayer != NULL)
 	{
-		ActionGetLayer * Alayer = (ActionGetLayer*)g_gameLayer->getChildByName("ActionGetLayer");
+		WXActionGetLayer * Alayer = (WXActionGetLayer*)g_gameLayer->getChildByName("WXActionGetLayer");
 		if (Alayer != NULL)
 			Alayer->updataMyPackageUI();
 		TempStorageLayer* Tlayer = (TempStorageLayer*)g_gameLayer->getChildByName("TempStorageLayer");
@@ -771,7 +1104,39 @@ void HeroProperNode::removeMixTag()
 		imgbtn[1]->removeAllChildrenWithCleanup(true);
 	}
 }
+void HeroProperNode::initA()
+{
+	const Size size = Director::getInstance()->getVisibleSize();
+	auto m_top = CSLoader::createNode("GameTopLayer.csb");
+	addChild(m_top, 0);
+	m_top->ignoreAnchorPointForPosition(false);
+	m_top->setAnchorPoint(Vec2(0.5, 1));
+	m_top->setPosition(size.width * 0.5, size.height);
 
+	auto m_bottom = CSLoader::createNode("GameBottomLayer.csb");
+	m_bottom->ignoreAnchorPointForPosition(false);
+	m_bottom->setAnchorPoint(Vec2(0.5, 0));
+	m_bottom->setPosition(size.width * 0.5, 0);
+	addChild(m_bottom, 1);
+}
+
+void HeroProperNode::initBg()
+{
+	const Size size = Director::getInstance()->getVisibleSize();
+	auto m_bg = Sprite::create("");
+	addChild(m_bg, 0);
+	m_bg->setAnchorPoint(Vec2(0.5, 0));
+	m_bg->setPosition(size.width * 0.5, 0);
+
+	auto m_bgGround = Sprite::create("");
+	addChild(m_bgGround, 1);
+	m_bgGround->setPosition(m_bg->getContentSize().width * 0.5, 144 + m_bgGround->getContentSize().height * 0.5);
+
+	auto tree = Sprite::create("");
+	addChild(tree);
+	tree->setAnchorPoint(Vec2(1, 0.5));
+	tree->setPosition(size.width, 120);
+}
 int HeroProperNode::checkSex(int sex)
 {
 	std::string mymixgf = GlobalData::getMixGF();

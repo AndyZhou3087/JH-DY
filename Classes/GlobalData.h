@@ -6,7 +6,11 @@
 #define _GLOBALDATA_H_
 #include "cocos2d.h"
 USING_NS_CC;
-
+enum EnumBoss {
+	Boss_unknow = 0,
+	Boss_Snow = 1,
+	Boss_Bear = 2,
+};
 /****************************
 建筑物建筑，升级，操作 NODE数据结构
 *****************************/

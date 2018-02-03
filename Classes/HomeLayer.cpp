@@ -1,6 +1,6 @@
 ﻿#include "HomeLayer.h"
 #include "json.h"
-#include "Bed.h"
+#include "WXBed.h"
 #include "Furnace.h"
 #include "Forgingtable.h"
 #include "CookTable.h"
@@ -9,8 +9,8 @@
 #include "WineMaker.h"
 #include "StorageRoom.h"
 #include "Fence.h"
-#include "ExerciseRoom.h"
-#include "BuildingUILayer.h"
+#include "WXExerciseRoom.h"
+#include "WXBuildingUILayer.h"
 #include "StorageUILayer.h"
 #include "OutDoor.h"
 #include "GameScene.h"
@@ -19,8 +19,8 @@
 #include "HintBox.h"
 #include "CommonFuncs.h"
 #include "BuyComfirmLayer.h"
-#include "BookShelf.h"
-#include "BookShelfLayer.h"
+#include "WXBookShelf.h"
+#include "WXBookShelfLayer.h"
 
 HomeLayer::HomeLayer()
 {
@@ -36,7 +36,7 @@ bool HomeLayer::init()
 	Node* csbnode = CSLoader::createNode("homeLayer.csb");
 	this->addChild(csbnode);
 
-	Building* bed = Bed::create();
+	Building* bed = WXBed::create();
 	Vec_Buildings.push_back(bed);
 
 	m_badfurnace = (cocos2d::ui::Widget*)csbnode->getChildByName("badfurnace");
@@ -138,7 +138,7 @@ bool HomeLayer::init()
 	winetableItem->setPosition(Vec2(540, 470));
 	menu->addChild(winetableItem);
 
-	Building* exersiceroom = ExerciseRoom::create();
+	Building* exersiceroom = WXExerciseRoom::create();
 	Vec_Buildings.push_back(exersiceroom);
 	MenuItemSprite* exersiceroomItem = MenuItemSprite::create(
 		exersiceroom,
@@ -151,7 +151,7 @@ bool HomeLayer::init()
 	exersiceroomItem->setPosition(Vec2(257, 93));
 	menu->addChild(exersiceroomItem);
 
-	Building* bookshelf = BookShelf::create();
+	Building* bookshelf = WXBookShelf::create();
 	Vec_Buildings.push_back(bookshelf);
 	MenuItemSprite* bookshelfItem = MenuItemSprite::create(
 		bookshelf,
@@ -214,7 +214,47 @@ bool HomeLayer::init()
 
 	return true;
 }
+bool HomeLayer::isPhone() {
+	static const Size size = Director::getInstance()->getVisibleSize();
+	static const float rate = size.height / size.width;
+	if (rate >= 1.49) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+void HomeLayer::jump(cocos2d::Node *node, float dt, bool repeat, float intrval) {
+	if (nullptr == node) {
+		return;
+	}
 
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+
+}
 void HomeLayer::onclick(Ref* pSender)
 {
 	SoundManager::getInstance()->playSound(SoundManager::SOUND_ID_BUTTON);
@@ -224,17 +264,53 @@ void HomeLayer::onclick(Ref* pSender)
 
 	if (nodename.compare("bookshelf") == 0 && Vec_Buildings[nodetag]->data.level >= Vec_Buildings[nodetag]->data.maxlevel)
 	{
-		Layer* layer = BookShelfLayer::create();
+		Layer* layer = WXBookShelfLayer::create();
 		g_gameLayer->addChild(layer, 4);
 	}
 	else
 	{
-		Layer* layer = BuildingUILayer::create(Vec_Buildings[nodetag]);
+		Layer* layer = WXBuildingUILayer::create(Vec_Buildings[nodetag]);
 		g_gameLayer->addChild(layer, 4, "builduilayer");
 	}
 
 }
 
+void HomeLayer::jellyJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.1, 0.9, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.9, 1.1, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.2, 0.9, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.95, 1.05, 1),
+		ScaleTo::create(0.1, 1.05, 0.95, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+}
 void HomeLayer::loadJsonData()
 {
 	//建筑的JSON数据
@@ -246,7 +322,43 @@ void HomeLayer::loadJsonData()
 		Vec_Buildings[i]->parseData(oneBuild);
 	}
 }
+void HomeLayer::petJump(cocos2d::Node *node, float dt, bool repeat, float intrval, int tag, ActionInterval *ac) {
+	if (nullptr == node) {
+		return;
+	}
 
+	ActionInterval * action = Sequence::create(
+		ScaleTo::create(0.2, 1.05, 0.95, 1),
+		Spawn::create(
+		EaseExponentialOut::create(ScaleTo::create(0.1, 0.95, 1.05, 1)),
+		MoveBy::create(0.2, Vec2(0, dt)),
+		ac,
+		NULL),
+		Spawn::create(
+		EaseExponentialIn::create(ScaleTo::create(0.1, 1.1, 0.95, 1)),
+		MoveBy::create(0.2, Vec2(0, -dt)),
+		NULL),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+
+		node->runAction(RepeatForever::create(
+			Sequence::create(
+			action,
+			DelayTime::create(intrval),
+			NULL)
+			));
+	}
+	else {
+		node->runAction(action);
+	}
+}
 void HomeLayer::onStorageRoom(Ref* pSender)
 {
 	SoundManager::getInstance()->playSound(SoundManager::SOUND_ID_BUTTON);
@@ -254,6 +366,56 @@ void HomeLayer::onStorageRoom(Ref* pSender)
 	g_gameLayer->addChild(layer, 10, "storageuilayer");
 }
 
+void HomeLayer::jelly(Node *node, bool repeat, float intrval, bool delay, int tag) {
+	if (nullptr == node) {
+		return;
+	}
+
+	ActionInterval * action = Sequence::create(
+		EaseSineIn::create(ScaleTo::create(0.08, 0.95, 1.05, 1)),
+		EaseSineOut::create(ScaleTo::create(0.2, 1.15, 0.95, 1)),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1.08, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	if (repeat) {
+		if (0 != tag) {
+			action->setTag(tag);
+		}
+		if (delay) {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				DelayTime::create(7*0.1),
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+		else {
+			node->runAction(RepeatForever::create(
+				Sequence::create(
+				action,
+				DelayTime::create(intrval),
+				NULL)
+				));
+		}
+
+	}
+	else {
+		if (delay) {
+			node->runAction(Sequence::create(
+				DelayTime::create(6*0.1),
+				action,
+				NULL));
+		}
+		else {
+			node->runAction(action);
+		}
+	}
+}
 void HomeLayer::onFence(Ref* pSender)
 {
 	SoundManager::getInstance()->playSound(SoundManager::SOUND_ID_BUTTON);
@@ -296,6 +458,31 @@ void HomeLayer::updateBuilding()
 				m_badbookshelf->setVisible(false);
 		}
 	}
+}
+
+void HomeLayer::jumpDown(cocos2d::Node *node, float dt) {
+	if (nullptr == node) {
+		return;
+	}
+
+	const float originY = node->getPositionY();
+	node->setPositionY(originY + dt);
+
+	ActionInterval *action = Sequence::create(
+		MoveBy::create(0.2, Vec2(0, -dt - 10)),
+		MoveBy::create(0.2, Vec2(0, 20)),
+		MoveBy::create(0.1, Vec2(0, -18)),
+		MoveBy::create(0.1, Vec2(0, 13)),
+		MoveBy::create(0.1, Vec2(0, -5)),
+
+
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 0.98, 1, 1),
+		ScaleTo::create(0.1, 1.02, 0.98, 1),
+		ScaleTo::create(0.1, 1, 1, 1),
+		NULL);
+
+	node->runAction(action);
 }
 
 void HomeLayer::showNewerGuide(int step)

@@ -8,7 +8,7 @@
 #include "ShopLayer.h"
 #include "MyMenu.h"
 #include "NewerGuideLayer.h"
-#include "HelpMainLayer.h"
+#include "WXHelpMainLayer.h"
 
 const std::string name[] = { "ui/strorage_sw.png", "ui/strorage_yc.png", "ui/strorage_wq.png", "ui/strorage_fj.png", "ui/strorage_ng.png", "ui/strorage_wg.png", "ui/strorage_zy.png", "ui/strorage_gj.png", "ui/strorage_qt.png"};
 
@@ -250,7 +250,7 @@ void StorageUILayer::onHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEve
 	CommonFuncs::BtnAction(pSender, type);
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
-		this->addChild(HelpMainLayer::create());
+		this->addChild(WXHelpMainLayer::create());
 	}
 }
 

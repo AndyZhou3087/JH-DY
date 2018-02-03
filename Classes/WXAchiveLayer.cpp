@@ -1,0 +1,438 @@
+﻿#include "WXAchiveLayer.h"
+#include "GlobalData.h"
+#include "CommonFuncs.h"
+#include "GameScene.h"
+#include "HintBox.h"
+
+WXAchiveLayer::WXAchiveLayer()
+{
+
+}
+
+
+WXAchiveLayer::~WXAchiveLayer()
+{
+	GlobalData::g_gameStatus = GAMESTART;
+}
+
+
+WXAchiveLayer* WXAchiveLayer::create()
+{
+	WXAchiveLayer *pRet = new WXAchiveLayer();
+	if (pRet && pRet->init())
+	{
+		pRet->autorelease();
+	}
+	else
+	{
+		delete pRet;
+		pRet = NULL;
+	}
+	return pRet;
+}
+
+void WXAchiveLayer::playLeftLinkEffect(int src, int dst, int row, bool bRed) {
+	if (src <= dst || row <0) {
+		return;
+	}
+
+	float y = (4 - 1 - row + 0.5) *580;
+	float x1 = (src + 0.5) *30;
+	float x2 = (dst + 1) *50;
+
+	clearBall(&m_vLeftBalls);
+
+	float start = x1 - 30;
+	while (start > x2 + 5) {
+		auto ball = Sprite::createWithSpriteFrameName("bRed");
+		addChild(ball);
+		ball->setPosition(start, y);
+		m_vLeftBalls.pushBack(ball);
+		start -= 10;
+	}
+}
+
+bool WXAchiveLayer::init()
+{
+	LayerColor* color = LayerColor::create(Color4B(11, 32, 22, 160));
+	this->addChild(color);
+
+	Node* csbnode = CSLoader::createNode("achiveLayer.csb");
+	this->addChild(csbnode);
+
+	cocos2d::ui::Widget *backbtn = (cocos2d::ui::Widget*)csbnode->getChildByName("backbtn");
+	backbtn->addTouchEventListener(CC_CALLBACK_2(WXAchiveLayer::onBack, this));
+
+	srollView = (cocos2d::ui::ScrollView*)csbnode->getChildByName("scrollview");
+	srollView->setScrollBarEnabled(false);
+	srollView->setBounceEnabled(true);
+
+	m_loadlbl = Label::createWithTTF(CommonFuncs::gbk2utf("加载中..."), "fonts/STXINGKA.TTF", 28);
+	m_loadlbl->setColor(Color3B(0, 0, 0));
+	m_loadlbl->setPosition(Vec2(320, 600));
+	this->addChild(m_loadlbl);
+
+	GlobalData::g_gameStatus = GAMEPAUSE;
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->onTouchBegan = [=](Touch *touch, Event *event)
+	{
+		return true;
+	};
+	listener->setSwallowTouches(true);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
+	return true;
+}
+
+void WXAchiveLayer::playRightLinkEffect(int src, int dst, int row, bool bRed) {
+	if (src >= dst || row <0) {
+		return;
+	}
+
+	float y = (5 - 1 - row + 0.5) *850;
+	float x1 = (src + 0.5) *630;
+	float x2 = (dst)*520;
+
+	clearBall(&m_vRightBalls);
+
+	float start = x1 + 30;
+	while (start < x2 - 5) {
+		auto ball = Sprite::createWithSpriteFrameName("");
+		addChild(ball);
+		ball->setPosition(start, y);
+		m_vRightBalls.pushBack(ball);
+		start += 7;
+	}
+}
+
+void WXAchiveLayer::onEnterTransitionDidFinish()
+{
+	Layer::onEnterTransitionDidFinish();
+	this->scheduleOnce(schedule_selector(WXAchiveLayer::delayShowData), 0.1f);
+}
+
+void WXAchiveLayer::onBack(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
+{
+	CommonFuncs::BtnAction(pSender, type);
+	if (type == ui::Widget::TouchEventType::ENDED)
+	{
+		this->removeFromParentAndCleanup(true);
+	}
+}
+
+void WXAchiveLayer::playTopLinkEffect(int src, int dst, int col, bool bRed) {
+	if (src <= dst || col <0) {
+		return;
+	}
+
+	float x = (col + 0.5) * 100;
+	float y1 = (6 - 1 - src + 0.5) *500;
+	float y2 = (7 - 1 - dst) *200;
+
+	clearBall(&m_vTopBalls);
+
+	float start = y1 + 30;
+	while (start < y2 - 5) {
+		auto ball = Sprite::createWithSpriteFrameName("");
+		addChild(ball);
+		ball->setPosition(x, start);
+		m_vTopBalls.pushBack(ball);
+		start += 2;
+	}
+}
+
+void WXAchiveLayer::delayShowData(float dt)
+{
+	int size = GlobalData::vec_achiveData.size();
+
+	int itemheight = 140;
+	int innerheight = itemheight * size;
+	int contentheight = srollView->getContentSize().height;
+	if (innerheight < contentheight)
+		innerheight = contentheight;
+	srollView->setInnerContainerSize(Size(srollView->getContentSize().width, innerheight));
+
+	sort(GlobalData::vec_achiveData.begin(), GlobalData::vec_achiveData.end(), larger_callback);
+
+	for (unsigned int i = 0; i < GlobalData::vec_achiveData.size(); i++)
+	{
+		AchiveItem* node = AchiveItem::create(&GlobalData::vec_achiveData[i]);
+		node->setPosition(Vec2(srollView->getContentSize().width / 2, innerheight - itemheight / 2 - i * itemheight));
+		srollView->addChild(node);
+	}
+	m_loadlbl->setVisible(false);
+}
+
+void WXAchiveLayer::playBottomLinkEffect(int src, int dst, int col, bool bRed) {
+	if (src >= dst || col <0) {
+		return;
+	}
+
+	float x = (col + 0.5) *450;
+	float y1 = (5 - 1 - src + 0.5) *630;
+	float y2 = (7 - 1 - dst + 1) *750;
+
+	clearBall(&m_vBottomBalls);
+
+	float start = y1 - 30;
+	while (start > y2 + 5) {
+		auto ball = Sprite::createWithSpriteFrameName("");
+		addChild(ball);
+		ball->setPosition(x, start);
+		m_vBottomBalls.pushBack(ball);
+		start -= 4;
+	}
+}
+
+bool WXAchiveLayer::larger_callback(AchiveData a, AchiveData b)
+{
+	int needcountA = GlobalData::getAchiveFinishCount(a);
+	int needcountB = GlobalData::getAchiveFinishCount(b);
+	float percentA = a.finish*100.0f / needcountA;
+	float percentB = b.finish*100.0f / needcountB;
+	if (percentA > percentB)
+		return true;
+	else
+		return false;
+}
+
+
+void WXAchiveLayer::clearBall(cocos2d::Vector<cocos2d::Sprite *> * vBall) {
+	if (nullptr == vBall) {
+		return;
+	}
+
+	for (auto ball : *vBall) {
+		ball->stopAllActions();
+		removeChild(ball, true);
+	}
+
+	vBall->clear();
+}
+
+
+AchiveItem::AchiveItem()
+{
+
+}
+AchiveItem::~AchiveItem()
+{
+
+}
+
+void WXAchiveLayer::playShineEffect(cocos2d::Vector<cocos2d::Sprite *> vBall) {
+	float delayIntrval = 0.8;
+	int i = 0;
+	for (auto ball : vBall) {
+		ball->runAction(RepeatForever::create(
+			Blink::create(0.5, 1))
+			);
+	}
+}
+
+bool AchiveItem::init(AchiveData *data)
+{
+	if (!Sprite::initWithSpriteFrameName("ui/blank.png"))
+		return false;
+
+	m_data = data;
+	Node* csbnode = CSLoader::createNode("achiveNode.csb");
+	csbnode->setPosition(Vec2(this->getContentSize().width / 2, this->getContentSize().height / 2));
+	this->addChild(csbnode);
+
+	cocos2d::ui::Text* name = (cocos2d::ui::Text*)csbnode->getChildByName("name");
+	name->setString(data->name);
+
+	cocos2d::ui::Text* desc = (cocos2d::ui::Text*)csbnode->getChildByName("desc");
+
+	m_barbg = (cocos2d::ui::Widget*)csbnode->getChildByName("finishbg");
+	m_bar = (cocos2d::ui::LoadingBar*)m_barbg->getChildByName("finishbar");
+
+	m_finishtext = (cocos2d::ui::Text*)m_barbg->getChildByName("finishtext");
+
+	m_getimg = (cocos2d::ui::ImageView*)csbnode->getChildByName("getimg");
+	m_getimg->addTouchEventListener(CC_CALLBACK_2(AchiveItem::onGet, this));
+	
+	m_getimg->setUserData((void*)data);
+
+	m_gettext = (cocos2d::ui::Text*)m_getimg->getChildByName("statutext");
+
+	for (unsigned int i = 0; i < data->vec_rwd.size(); i++)
+	{
+		std::string resid = data->vec_rwd[i];
+		int count = 1;
+		if (resid.compare(0, 1, "g") == 0)
+		{
+			count = atoi(resid.substr(1).c_str());
+			resid = "gd0";
+		}
+		else
+		{
+			int res = atoi(resid.c_str());
+			if (res > 0)
+			{
+				resid = StringUtils::format("%d", res / 1000);
+				count = res % 1000;
+			}
+		}
+
+		std::string respath = StringUtils::format("ui/%s.png", resid.c_str());
+
+		std::string str = StringUtils::format("rwd_%d", i + 1);
+		cocos2d::ui::ImageView* rwd = (cocos2d::ui::ImageView*)csbnode->getChildByName(str);
+		rwd->loadTexture(respath, cocos2d::ui::Widget::TextureResType::PLIST);
+		rwd->setVisible(true);
+		std::string countstr = StringUtils::format("x%d", count);
+		str = StringUtils::format("count_%d", i + 1);
+		cocos2d::ui::Text* rwdcount = (cocos2d::ui::Text*)csbnode->getChildByName(str);
+		rwdcount->setString(countstr);
+		rwdcount->setVisible(true);
+
+		str = StringUtils::format("bg_%d", i + 1);
+		cocos2d::ui::Widget* rwdbg = (cocos2d::ui::Widget*)csbnode->getChildByName(str);
+		rwdbg->setVisible(true);
+
+		str = StringUtils::format("particle_%d", i + 1);
+		cocos2d::ui::Widget* particle = (cocos2d::ui::Widget*)csbnode->getChildByName(str);
+		particle->setVisible(true);
+		
+	}
+	std::string descstr;
+	float finishpercert = 0.0f;
+	std::string finishstr;
+	needcount = 0;
+	if (data->type == A_0 || data->type == A_1 || data->type == A_2 || data->type == A_3 || data->type == A_5 || data->type == A_11)
+	{
+		descstr = StringUtils::format(data->desc.c_str(), data->vec_para[0].c_str());
+	}
+	else if (data->type == A_4)
+	{
+		descstr = StringUtils::format(data->desc.c_str(), GlobalData::map_npcs[data->vec_para[0]].name);
+	}
+	else if (data->type == A_6)
+	{
+		for (unsigned int i = 0; i < GlobalData::vec_PlotMissionData.size(); i++)
+		{
+			if (data->vec_para[0].compare(GlobalData::vec_PlotMissionData[i].id) == 0)
+			{
+				descstr = StringUtils::format(data->desc.c_str(), GlobalData::map_npcs[GlobalData::vec_PlotMissionData[i].snpc].name);
+				break;
+			}
+		}
+	}
+	else if (data->type == A_7 || data->type == A_9)
+	{
+		descstr = StringUtils::format(data->desc.c_str(), GlobalData::map_allResource[data->vec_para[0]].cname.c_str(), data->vec_para[1].c_str());
+	}
+	else if (data->type == A_8)
+	{
+		descstr = StringUtils::format(data->desc.c_str(), GlobalData::map_MixGfData[data->vec_para[0]].name.c_str());
+	}
+
+	else if (data->type == A_10)
+	{
+		descstr = StringUtils::format(data->desc.c_str(), data->vec_para[0].c_str(), data->vec_para[1].c_str());
+	}
+	else if (data->type == A_12)
+	{
+		descstr = StringUtils::format(data->desc.c_str(), GlobalData::map_npcs[data->vec_para[0]].name, data->vec_para[1].c_str());
+	}
+
+	needcount = GlobalData::getAchiveFinishCount(*data);
+	int finishcount = data->finish;
+	if (finishcount > needcount)
+		finishcount = needcount;
+	finishstr = StringUtils::format("%d/%d", finishcount, needcount);
+	m_bar->setPercent(finishcount*100.0f / needcount);
+	m_finishtext->setString(finishstr);
+	desc->setString(descstr);
+	if (data->finish == -1)
+	{
+		finish();
+	}
+	else if (data->finish >= needcount)
+	{
+		m_getimg->loadTexture("ui/buildtagbtn0.png", cocos2d::ui::Widget::TextureResType::PLIST);
+		m_gettext->setString(CommonFuncs::gbk2utf("领取"));
+		m_barbg->setVisible(false);
+	}
+	else
+	{
+		m_getimg->setVisible(false);
+	}
+	return true;
+}
+
+AchiveItem* AchiveItem::create(AchiveData *data)
+{
+	AchiveItem *pRet = new AchiveItem();
+	if (pRet && pRet->init(data))
+	{
+		pRet->autorelease();
+	}
+	else
+	{
+		delete pRet;
+		pRet = NULL;
+	}
+	return pRet;
+}
+void AchiveItem::onGet(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
+{
+	CommonFuncs::BtnAction(pSender, type);
+	if (type == ui::Widget::TouchEventType::ENDED)
+	{
+		cocos2d::ui::ImageView * imagebtn = (cocos2d::ui::ImageView*)pSender;
+		AchiveData* paradata = (AchiveData*)imagebtn->getUserData();
+		if (paradata->finish >= needcount)
+		{
+			for (unsigned int i = 0; i < paradata->vec_rwd.size(); i++)
+			{
+				std::string resid = paradata->vec_rwd[i];
+				int res = atoi(resid.c_str());
+				int count = 1;
+				if (res > 0)
+				{
+					resid = StringUtils::format("%d", res / 1000);
+					count = res % 1000;
+				}
+				if (resid.compare(0, 1, "g") == 0)
+				{
+					count = atoi(resid.substr(1).c_str());
+					GlobalData::setMyGoldCount(GlobalData::getMyGoldCount() + count);
+
+				}
+				else
+				{
+					PackageData pdata;
+					pdata.strid = resid;
+					pdata.count = count;
+					pdata.type = GlobalData::getResType(resid);
+					pdata.extype = GlobalData::getResExType(resid);
+
+					if (!g_hero->checkifHasGF_Equip(resid) && GlobalData::tempHasGf_Equip(resid).length() <= 0)
+						StorageRoom::add(pdata);
+				}
+			}
+			paradata->finish = -1;
+			finish();
+			GlobalData::saveAchiveData();
+		}
+		else
+		{
+			HintBox* hintbox = HintBox::create(CommonFuncs::gbk2utf("成就未完成！！"));
+			Director::getInstance()->getRunningScene()->addChild(hintbox);
+		}
+	}
+}
+
+void AchiveItem::finish()
+{
+	m_barbg->setVisible(false);
+	m_bar->setVisible(false);
+	m_finishtext->setVisible(false);
+	m_gettext->setString(CommonFuncs::gbk2utf("已领取"));
+	m_barbg->setVisible(false);
+	m_getimg->loadTexture("ui/buildtagbtn2.png", cocos2d::ui::Widget::TextureResType::PLIST);
+	m_getimg->setEnabled(false);
+}

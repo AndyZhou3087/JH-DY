@@ -25,8 +25,9 @@ public:
 	virtual void action(int minute, int exminute);
 
 	virtual bool init();
-
+	void initA();
 	CREATE_FUNC(Forgingtable);
+	void initBg();
 };
 #endif
 

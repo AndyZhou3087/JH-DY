@@ -15,7 +15,11 @@ public:
 	~Fence();
 
 public:
-
+	void initRandSeed();
+	time_t getNowTime();
+	long long getNowTimeMs();
+	bool isBeforeToday(time_t sec);
+	long long getTodayLeftSec();
 	virtual bool init();
 
 	CREATE_FUNC(Fence);

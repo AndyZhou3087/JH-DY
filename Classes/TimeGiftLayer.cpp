@@ -39,16 +39,16 @@ bool TimeGiftLayer::init(int goodsId)
 
 	m_timelbl = (cocos2d::ui::Text*)csbnode->getChildByName("time");
 
-	if (GlobalData::isOnline)
-	{
-		checkTimeGift(0);
-		this->schedule(schedule_selector(TimeGiftLayer::checkTimeGift), 1.0f);
-	}
-	else
-	{
+	//if (GlobalData::isOnline)
+	//{
+	//	checkTimeGift(0);
+	//	this->schedule(schedule_selector(TimeGiftLayer::checkTimeGift), 1.0f);
+	//}
+	//else
+	//{
 		m_timelbl->setVisible(false);
 		csbnode->getChildByName("timedesc")->setVisible(false);
-	}
+	//}
 
 	int rgoldcount = 100;
 	std::vector<std::string> vec_rewardres = GlobalData::vec_goods[goodsId - herocount].vec_res;

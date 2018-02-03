@@ -6,14 +6,14 @@
 #include "HeroStateUILayer.h"
 #include "SoundManager.h"
 #include "Const.h"
-#include "ActivitScene.h"
+#include "WXActivitScene.h"
 #include "HomeLayer.h"
 #include "MapLayer.h"
 #include "NewerGuideLayer.h"
-#include "FriendExgScene.h"
-#include "FriendNpcScene.h"
-#include "FightLayer.h"
-#include "ApprenticeScene.h"
+#include "WXFriendExgScene.h"
+#include "WXFriendNpcScene.h"
+#include "WXFightLayer.h"
+#include "WXApprenticeScene.h"
 
 TopBar::TopBar()
 {
@@ -384,7 +384,7 @@ void TopBar::updataUI(float dt)
 			if (r < 10)
 			{
 				g_nature->setIsShowInsect(true);
-				activityScene = ActivitScene::createScene("images/insect.jpg", CommonFuncs::gbk2utf("蝗虫泛滥"));
+				activityScene = WXActivitScene::createScene("images/insect.jpg", CommonFuncs::gbk2utf("蝗虫泛滥"));
 				for (unsigned int i = 0; i < GlobalData::vec_hillResid.size(); i++)
 				{
 					for (unsigned int m = 0; m < GlobalData::vec_resData.size(); m++)
@@ -407,7 +407,7 @@ void TopBar::updataUI(float dt)
 			if (r < 10)
 			{
 				isHunter = true;
-				activityScene = ActivitScene::createScene("images/hunter.jpg", CommonFuncs::gbk2utf("猎人来啦"));
+				activityScene = WXActivitScene::createScene("images/hunter.jpg", CommonFuncs::gbk2utf("猎人来啦"));
 				for (unsigned int i = 0; i < GlobalData::vec_hillResid.size(); i++)
 				{
 					for (unsigned int m = 0; m < GlobalData::vec_resData.size(); m++)
@@ -434,11 +434,11 @@ void TopBar::updataUI(float dt)
 			}
 			if (isthieves)
 			{
-				activityScene = ActivitScene::createScene("images/thieves.jpg", CommonFuncs::gbk2utf("盗贼到来，丢失以下物品..."));
+				activityScene = WXActivitScene::createScene("images/thieves.jpg", CommonFuncs::gbk2utf("盗贼到来，丢失以下物品..."));
 			}
 			else
 			{
-				activityScene = ActivitScene::createScene("images/cday.jpg", CommonFuncs::gbk2utf("今夜很平静，新的一天开始..."));
+				activityScene = WXActivitScene::createScene("images/cday.jpg", CommonFuncs::gbk2utf("今夜很平静，新的一天开始..."));
 			}
 		}
 
@@ -454,13 +454,13 @@ void TopBar::updataUI(float dt)
 
 		if (g_nature->getWeather() == Rainy)
 		{
-			activityScene = ActivitScene::createScene("images/cweatherrain.jpg", CommonFuncs::gbk2utf("下雨了..."));
+			activityScene = WXActivitScene::createScene("images/cweatherrain.jpg", CommonFuncs::gbk2utf("下雨了..."));
 			if (g_maplayer != NULL)
 				g_maplayer->rain();
 		}
 		else if (g_nature->getWeather() == Snowy)
 		{
-			activityScene = ActivitScene::createScene("images/cweathersnow.jpg", CommonFuncs::gbk2utf("下雪了..."));
+			activityScene = WXActivitScene::createScene("images/cweathersnow.jpg", CommonFuncs::gbk2utf("下雪了..."));
 			if (g_maplayer != NULL)
 				g_maplayer->snow();
 		}
@@ -484,26 +484,26 @@ void TopBar::updataUI(float dt)
 			{
 				int r1 = GlobalData::createRandomNum(100);
 				int type = r1 < 50 ? 0 : 1;
-				activityScene = FriendExgScene::createScene(type);
+				activityScene = WXFriendExgScene::createScene(type);
 			}
 			else if (r < 20)
 			{
-				FightLayer* fightlayer = (FightLayer*)g_gameLayer->getChildByName("fightlayer");
+				WXFightLayer* fightlayer = (WXFightLayer*)g_gameLayer->getChildByName("fightlayer");
 				if (fightlayer == NULL)
-					activityScene = FriendNpcScene::createScene();
+					activityScene = WXFriendNpcScene::createScene();
 			}
 			else
 			{
 				if (g_hero->getLVValue() >= 29)
 				{
 					if (aday == 0 || (aday < 0 && r < 30))
-						activityScene = ApprenticeScene::createScene(0);
+						activityScene = WXApprenticeScene::createScene(0);
 				}
 			}
 			if (activityScene == NULL)
 			{
 				if (aday > 0 && g_nature->getPastDays() - aday >= 30)
-					activityScene = ApprenticeScene::createScene(1);
+					activityScene = WXApprenticeScene::createScene(1);
 			}
 		}
 		if (g_nature->getDayOrNight() == Day)
@@ -541,11 +541,11 @@ void TopBar::updataUI(float dt)
 			int tsize = tips.size();
 			int r = GlobalData::createRandomNum(tsize);
 			g_uiScroll->addEventText(CommonFuncs::gbk2utf(tips[r].c_str()), 26, Color3B(27, 141, 0));
-			//activityScene = ActivitScene::createScene("images/cday.jpg", CommonFuncs::gbk2utf("天亮了..."));
+			//activityScene = WXActivitScene::createScene("images/cday.jpg", CommonFuncs::gbk2utf("天亮了..."));
 		}
 		else
 		{
-			//activityScene = ActivitScene::createScene("images/cday.jpg", CommonFuncs::gbk2utf("黑夜降临..."));
+			//activityScene = WXActivitScene::createScene("images/cday.jpg", CommonFuncs::gbk2utf("黑夜降临..."));
 		}
 		m_lastDayOrNigth = g_nature->getDayOrNight();
 	}
@@ -617,7 +617,7 @@ void TopBar::updataUI(float dt)
 	}
 	if (isnewer && g_NewerGuideLayer == NULL && !isShowingGuide)
 	{
-		FightLayer* fightlayer = (FightLayer*)g_gameLayer->getChildByName("fightlayer");
+		WXFightLayer* fightlayer = (WXFightLayer*)g_gameLayer->getChildByName("fightlayer");
 		if (fightlayer == NULL)
 		{
 			isShowingGuide = true;

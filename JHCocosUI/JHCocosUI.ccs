@@ -62,6 +62,7 @@
           <Image Name="mapbg.jpg" />
           <Image Name="mixdonefail.png" />
           <Image Name="mixdoneok.png" />
+          <Image Name="newergifttitle.png" />
           <Image Name="normalboxgb.png" />
           <Image Name="noticebg.png" />
           <Image Name="npcfightbg.png" />

@@ -24,6 +24,8 @@ public:
 	virtual void action(int minute, int exminute);
 	virtual bool init();
 
+	void shake(cocos2d::Node * node, float scaleLarge, float scaleSmall);
+
 	CREATE_FUNC(Furnace);
 
 private:
@@ -34,6 +36,7 @@ private:
 	定时器执行
 	*****************************/
 	void onfire(float dt);
+	void shake(cocos2d::Node * node);
 };
 #endif
 

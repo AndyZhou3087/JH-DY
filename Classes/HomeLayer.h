@@ -31,6 +31,12 @@ public:
 	void checkNewerGuide();
 
 	void delayShowNewerGuide(float dt);
+	void jump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0);
+	void jellyJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0);
+
+
+	void jumpDown(cocos2d::Node *node, float dt);
+
 
 private:
 	/****************************
@@ -47,12 +53,13 @@ private:
 	点击围墙
 	*****************************/
 	void onFence(Ref* pSender);
-	
+	void petJump(cocos2d::Node *node, float dt, bool repeat = false, float intrval = 0, int tag = 0, cocos2d::ActionInterval *ac = nullptr);
+	void jelly(cocos2d::Node *node, bool repeat = false, float intrval = 0, bool delay = false, int tag = 0);
 	/****************************
 	建筑物JSON数据
 	*****************************/
 	void loadJsonData();
-
+	bool isPhone();
 private:
 	Building* m_storageroom;//仓库
 	Building* m_fence;//围墙
